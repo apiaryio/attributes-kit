@@ -26,5 +26,7 @@ export default {
       { test: /\.css$/, loader: 'style-loader!css-loader' },
       { test: /\.(png|jpg)$/, loader: 'file-loader?name=images/[name].[ext]' }
     ]
-  }
+  },
+
+  devtool: 'source-map'
 };
