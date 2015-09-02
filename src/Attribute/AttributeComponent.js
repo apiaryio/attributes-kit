@@ -1,7 +1,8 @@
 import React from 'react';
-import RefractToComponentsMap from './elements/RefractToComponentMap';
-import ArrayComponent from './elements/ArrayComponent';
-import ObjectComponent from './elements/ObjectComponent';
+
+import RefractToComponentsMap from '../refractToComponentMap';
+import ArrayComponent from '../Array/ArrayComponent';
+import ObjectComponent from '../Object/ObjectComponent';
 
 class AttributeComponent extends React.Component {
   constructor(props) {

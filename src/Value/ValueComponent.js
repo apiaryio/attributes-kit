@@ -1,5 +1,5 @@
 import React from 'react';
-import AttributeComponent from '../AttributeComponent';
+import AttributeComponent from '../Attribute/AttributeComponent';
 
 class ValueComponent extends React.Component {
   render() {

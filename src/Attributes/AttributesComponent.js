@@ -1,9 +1,10 @@
 import React from 'react';
 import Minim from 'minim';
-import AttributeComponent from './AttributeComponent';
+
+import AttributeComponent from '../Attribute/AttributeComponent';
 
 // Styles
-import 'styles/base.css';
+//import 'styles/base.css';
 
 class AttributesComponent extends React.Component {
   constructor(props) {
