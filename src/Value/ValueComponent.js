@@ -6,12 +6,12 @@ class ValueComponent extends React.Component {
     const element = this.props.data.element;
 
 
-    var value = false;
+    const value = false;
     if (['object', 'array'].indexOf(element) > -1) {
-      value = <AttributeComponent data={this.props.data.content} />
+      value = <AttributeComponent data={this.props.data.content} />;
     } else if (element === 'member') {
       if (['array', 'object'].indexOf(this.props.data.content.value.element) > -1) {
-        value = <AttributeComponent data={this.props.data.content.value} />
+        value = <AttributeComponent data={this.props.data.content.value} />;
       } else {
         value = this.props.data.content.value.content;
       }
