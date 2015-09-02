@@ -1,24 +1,43 @@
 import React from 'react';
 
+import TooltipComponent from '../Tooltip/Tooltip';
+
 import './requirement.styl'
 
 class RequirementComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.CLASS_NAME = 'attributeRequirement';
+    this.setRequirement();
+  }
 
-  render() {
-    let requirement = ['optional'];
+  setRequirement() {
+    this.requirement = ['optional'];
 
     if (this.props.data.attributes) {
       if (this.props.data.attributes.typeAttributes) {
-        requirement = this.props.data.attributes.typeAttributes;
+        this.requirement = this.props.data.attributes.typeAttributes;
       }
     }
+  }
 
-    const classes = requirement.map((req) => `is${req.charAt(0).toUpperCase() + req.substr(1)}`);
-    classes.push('requirementContents');
+  getClassName() {
+    var classNames = this.requirement.map((req) =>
+      `is${req.charAt(0).toUpperCase() + req.substr(1)}`
+    );
 
+    classNames.push(this.CLASS_NAME);
+    return classNames.join(' ');
+  }
+
+  render() {
     return (
-      <div className="{classes.join(' ')}">
-        {requirement.join(' ')}
+      <div className={this.getClassName()}>
+        <span className="attributeRequirementIcon"></span>
+
+        <span className="attributeRequirementTooltip">
+        </span>
+        {this.requirement.join(' ')}
       </div>
     );
   }
