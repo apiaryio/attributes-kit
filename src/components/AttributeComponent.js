@@ -5,6 +5,11 @@ import ObjectComponent from './elements/ObjectComponent';
 class AttributeComponent extends React.Component {
   constructor(props) {
     super(props);
+
+    this.componentsMap = {
+      'object': ObjectComponent,
+      'array': ArrayComponent
+    }
   }
 
   render() {
@@ -13,18 +18,7 @@ class AttributeComponent extends React.Component {
     }
 
     const element = this.props.data.element;
-
-    if (element === 'object') {
-      return (
-        <ObjectComponent data={this.props.data.content} />
-      );
-    } else if (element === 'array') {
-      return (
-        <ArrayComponent data={this.props.data.content} />
-      )
-    } else {
-      return false;
-    }
+    return React.createElement(this.componentsMap[element], {data: this.props.data.content});
   }
 }
 
