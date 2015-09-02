@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './key.styl'
+
 class KeyComponent extends React.Component {
   render() {
     const element = this.props.data.element;
@@ -17,7 +19,7 @@ class KeyComponent extends React.Component {
     }
 
     return (
-      <div className="keyContent">
+      <div className="attributeKey">
         {key}
       </div>
     );

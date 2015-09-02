@@ -1,5 +1,8 @@
 import React from 'react';
+
 import AttributeComponent from '../Attribute/Attribute';
+
+import './value.styl'
 
 class ValueComponent extends React.Component {
   render() {

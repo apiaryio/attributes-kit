@@ -2,6 +2,8 @@ import React from 'react';
 
 import AttributeComponent from '../Attribute/Attribute';
 
+import './attributes.styl'
+
 class AttributesComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -9,12 +11,14 @@ class AttributesComponent extends React.Component {
 
   render() {
     return (
-      <div className="">
+      <div className="attributes">
         <div className="attributesTitle">
           <h3 className="attributesTitleText">Attributes</h3>
         </div>
 
-        <AttributeComponent data={this.props.data} />
+        <div class="attributesList">
+          <AttributeComponent data={this.props.data} />
+        </div>
       </div>
     );
   }

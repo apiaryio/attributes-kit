@@ -1,5 +1,8 @@
 import React from 'react';
+
 import ObjectMemberComponent from '../ObjectMember/ObjectMember';
+
+import './object.styl'
 
 class ObjectComponent extends React.Component {
   constructor(props) {
@@ -8,10 +11,15 @@ class ObjectComponent extends React.Component {
 
   render() {
     return (
-      <ul className="object">
+      <ul className="attributeObject">
         {this.props.data.map((member, index) => {
           return (
-            <li key={index}><ObjectMemberComponent data={member} /></li>
+            <li
+              className="attributeObjectMemberContainer"
+              key={index}
+            >
+              <ObjectMemberComponent data={member} />
+            </li>
           );
         })}
       </ul>

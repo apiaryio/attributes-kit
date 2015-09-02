@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './requirement.styl'
+
 class RequirementComponent extends React.Component {
 
   render() {

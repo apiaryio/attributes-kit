@@ -1,6 +1,8 @@
 import React from 'react';
 
-import RefractToComponentsMap from '../refractToComponentMap';
+import refractToComponentsMap from '../refractToComponentMap';
+
+import './attribute.styl'
 
 class AttributeComponent extends React.Component {
   constructor(props) {
@@ -12,8 +14,11 @@ class AttributeComponent extends React.Component {
       return false;
     }
 
-    const element = this.props.data.element;
-    return React.createElement(RefractToComponentsMap[element], {data: this.props.data.content});
+    var reactComponent = refractToComponentsMap[this.props.data.element];
+
+    return React.createElement(reactComponent, {
+      data: this.props.data.content
+    });
   }
 }
 
