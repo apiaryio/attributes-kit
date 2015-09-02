@@ -6,6 +6,7 @@
     "build": "NODE_ENV=production webpack -p --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "node ./webpack/run-dev-server.js",
+    "start": "npm run develop",
     "prepublish": "npm run build"
   },
   "repository": {
