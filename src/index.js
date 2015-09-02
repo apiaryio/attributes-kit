@@ -1,5 +1,5 @@
-import AttributesComponent from './Attributes/AttributesComponent';
-import AttributeComponent from './Attribute/AttributeComponent';
+import AttributesComponent from './Attributes/Attributes';
+import AttributeComponent from './Attribute/Attribute';
 
 export default {
   AttributesComponent,

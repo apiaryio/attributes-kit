@@ -1,7 +1,7 @@
 import React from 'react';
 import Minim from 'minim';
 
-import AttributeComponent from '../Attribute/AttributeComponent';
+import AttributeComponent from '../Attribute/Attribute';
 
 // Styles
 //import 'styles/base.css';

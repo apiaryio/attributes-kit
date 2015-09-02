@@ -1,5 +1,5 @@
 import React from 'react';
-import ObjectMemberComponent from '../ObjectMember/ObjectMemberComponent';
+import ObjectMemberComponent from '../ObjectMember/ObjectMember';
 
 class ObjectComponent extends React.Component {
   constructor(props) {

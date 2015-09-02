@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrayItemComponent from '../ArrayItem/ArrayItemComponent';
+import ArrayItemComponent from '../ArrayItem/ArrayItem';
 
 class ArrayComponent extends React.Component {
   constructor(props) {
