@@ -2,7 +2,7 @@ import React from 'react';
 
 import EditorComponent from './editor';
 import RefractPreviewComponent from './refractPreview';
-import {AttributesComponent} from '../../src/components';
+import {AttributesComponent} from '../../src';
 import actionTypes from '../actions/types';
 import dispatcher from '../dispatcher';
 

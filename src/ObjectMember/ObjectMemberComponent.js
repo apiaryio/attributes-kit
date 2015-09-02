@@ -1,7 +1,8 @@
 import React from 'react';
-import KeyComponent from '../renderers/KeyComponent';
-import ValueComponent from '../renderers/ValueComponent';
-import RequirementComponent from '../renderers/RequirementComponent';
+
+import KeyComponent from '../Key/KeyComponent';
+import ValueComponent from '../Value/ValueComponent';
+import RequirementComponent from '../Requirement/RequirementComponent';
 
 class ObjectMemberComponent extends React.Component {
   constructor(props) {
