@@ -1,7 +1,10 @@
 import React from 'react';
-import ObjectMemberComponent from '../ObjectMember/ObjectMemberComponent';
 
-class ObjectComponent extends React.Component {
+import ArrayItemComponent from 'ArrayItem/ArrayItem';
+
+import './array.styl'
+
+class ArrayComponent extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -11,12 +14,12 @@ class ObjectComponent extends React.Component {
       <ul className="object">
         {this.props.data.map((member, index) => {
           return (
-            <li key={index}><ObjectMemberComponent data={member} /></li>
+            <li key={index}><ArrayItemComponent data={member} /></li>
           );
         })}
       </ul>
     );
   }
-};
+}
 
-export default ObjectComponent;
+export default ArrayComponent;

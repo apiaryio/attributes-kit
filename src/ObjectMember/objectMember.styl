@@ -1,0 +1,116 @@
+/**
+ * Layout
+ */
+.attributeObjectMemeber
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content flex-start
+  align-items flex-start
+
+.attributeObjectMemeberToggle
+.attributeObjectMemeberKey
+.attributeObjectMemeberRequirement
+.attributeObjectMemeberDescription
+.attributeObjectMemeberValue
+  flex-grow 1  
+  height auto
+  width auto
+
+.attributeObjectMemeberToggle
+  width 0px
+  max-width 0px
+  min-width 0px
+  height auto
+  order 1
+
+.attributeObjectMemeber.isExpandableCollapsible
+  > .attributeObjectMemeberToggle
+    width 20px
+    max-width 20px
+    min-width 20px
+
+.attributeObjectMemeberKey
+  width 160px
+  max-width 160px
+  min-width 160px
+  order 2
+
+.attributeObjectMemeberRequirement
+  max-width 25px
+  width 25px
+  min-width 25px
+  order 3
+
+.attributeObjectMemeberDescription
+  flex-grow 4
+  order 4
+
+.attributeObjectMemeberValue
+  order 5
+  width 100%
+  margin-left 20px
+
+
+/**
+ * Base
+ */
+.attributeObjectMemeber
+  padding-bottom 10px
+  padding-top 10px
+  border-bottom 1px solid #d8dbe4
+
+.attributeObjectMemeber.isExpandableCollapsible
+  .attributeObjectMemeber
+    .attributeObjectMemeberKey
+      padding-left 10px
+
+.attributeObjectMemeber.isObject
+  .attributeObjectMemeberValue
+    border 1px solid #d8dbe4
+
+.attributeObjectMemeber.isArray
+  .attributeObjectMemeberValue
+    background-color #f7f8fb
+    border 1px solid #d8dbe4
+
+.attributeObjectMemeber.isExpandableCollapsible
+  .attributeObjectMemeberValue
+    margin-top 10px
+
+.attributeObjectMemeber.isExpandableCollapsible
+  .attributeObjectMemeberValue
+    .attributeObject
+      .attributeObjectMemberContainer:last-child
+        .attributeObjectMemeber
+          border-bottom 0px
+
+.attributeObjectMemeber.isExpanded
+  .attributeObjectMemeberValue
+    display block
+
+.attributeObjectMemeber.isCollapsed
+  .attributeObjectMemeberValue
+    display none
+
+.attributeObjectMemeberToggle
+  .attributeObjectMemeberToggleIcon
+    float left
+    width 100%
+    height 20px
+    background-repeat no-repeat
+    background-position left 5px
+
+.attributeObjectMemeber.isExpanded
+  .attributeObjectMemeberToggle
+    .attributeObjectMemeberToggleIcon
+      background-image url(./arrowExpanded.svg)
+      background-size 13px 8px
+
+.attributeObjectMemeber.isCollapsed
+  .attributeObjectMemeberToggle
+    .attributeObjectMemeberToggleIcon
+      background-image url(./arrowCollapsed.svg)
+      background-size 8px 12px

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './arrayItem.styl'
+
 class ArrayItemComponent extends React.Component {
   constructor(props) {
     super(props);
