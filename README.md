@@ -82,9 +82,6 @@ Input: Refract Element (e.g. Member Element).
         $ git checkout shared/refract
         $ git submodule update --init --recursive
         $ npm install
-        $ npm install -g node-gyp
-        $ node-gyp configure
-        $ node-gyp build
 
 + Install dependencies
 
