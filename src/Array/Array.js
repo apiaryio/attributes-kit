@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ArrayItemComponent from '../ArrayItem/ArrayItem';
+import ArrayItemComponent from 'ArrayItem/ArrayItem';
 
 import './array.styl'
 

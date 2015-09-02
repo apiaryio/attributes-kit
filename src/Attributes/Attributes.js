@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AttributeComponent from '../Attribute/Attribute';
+import AttributeComponent from 'Attribute/Attribute';
 
 import './attributes.styl'
 
