@@ -1,15 +1,11 @@
 import React from 'react';
+import RefractToComponentsMap from './elements/RefractToComponentMap';
 import ArrayComponent from './elements/ArrayComponent';
 import ObjectComponent from './elements/ObjectComponent';
 
 class AttributeComponent extends React.Component {
   constructor(props) {
     super(props);
-
-    this.componentsMap = {
-      'object': ObjectComponent,
-      'array': ArrayComponent
-    }
   }
 
   render() {
@@ -18,7 +14,7 @@ class AttributeComponent extends React.Component {
     }
 
     const element = this.props.data.element;
-    return React.createElement(this.componentsMap[element], {data: this.props.data.content});
+    return React.createElement(RefractToComponentsMap[element], {data: this.props.data.content});
   }
 }
 
