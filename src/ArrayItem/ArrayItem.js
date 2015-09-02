@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ValueComponent from 'Value/Value';
+
 import './arrayItem.styl'
 
 class ArrayItemComponent extends React.Component {
@@ -9,7 +11,7 @@ class ArrayItemComponent extends React.Component {
 
   render() {
     return (
-      <span>array item</span>
+      <ValueComponent data={this.props.data} />
     );
   }
 }

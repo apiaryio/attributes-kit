@@ -1,10 +1,11 @@
-import React from 'react';
+import React from 'react'
 
+import BaseCyclingComponent from 'BaseCyclingComponent/BaseCyclingComponent';
 import ArrayItemComponent from 'ArrayItem/ArrayItem';
 
 import './array.styl'
 
-class ArrayComponent extends React.Component {
+class ArrayComponent extends BaseCyclingComponent {
   constructor(props) {
     super(props);
   }
