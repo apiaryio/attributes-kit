@@ -17,6 +17,6 @@ class ObjectComponent extends React.Component {
       </ul>
     );
   }
-};
+}
 
 export default ObjectComponent;

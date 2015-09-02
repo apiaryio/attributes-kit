@@ -1,10 +1,9 @@
 import React from 'react';
 
 class RequirementComponent extends React.Component {
-  render() {
-    const element = this.props.data.element;
 
-    var requirement = ['optional'];
+  render() {
+    const requirement = ['optional'];
 
     if (this.props.data.attributes) {
       if (this.props.data.attributes.typeAttributes) {
@@ -12,7 +11,7 @@ class RequirementComponent extends React.Component {
       }
     }
 
-    var classes = requirement.map((req) => `is${req.charAt(0).toUpperCase() + req.substr(1)}`)
+    const classes = requirement.map((req) => `is${req.charAt(0).toUpperCase() + req.substr(1)}`);
     classes.push('requirementContents');
 
     return (

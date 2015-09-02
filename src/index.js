@@ -3,5 +3,5 @@ import AttributeComponent from './Attribute/Attribute';
 
 export default {
   AttributesComponent,
-  AttributeComponent
+  AttributeComponent,
 };
