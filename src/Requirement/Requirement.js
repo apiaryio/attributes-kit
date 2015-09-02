@@ -7,7 +7,9 @@ import './requirement.styl'
 class RequirementComponent extends React.Component {
   constructor(props) {
     super(props);
+
     this.CLASS_NAME = 'attributeRequirement';
+
     this.setRequirement();
   }
 
@@ -36,8 +38,8 @@ class RequirementComponent extends React.Component {
         <span className="attributeRequirementIcon"></span>
 
         <span className="attributeRequirementTooltip">
+          <TooltipComponent text={this.requirement.join(' ')} />
         </span>
-        {this.requirement.join(' ')}
       </div>
     );
   }

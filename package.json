@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/apiaryio/attributes-component#readme",
   "dependencies": {
+    "file-loader": "^0.8.4",
     "minim": "^0.10.0",
     "nib": "^1.1.0",
     "react": "^0.13.3"

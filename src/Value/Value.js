@@ -5,30 +5,36 @@ import AttributeComponent from '../Attribute/Attribute';
 import './value.styl'
 
 class ValueComponent extends React.Component {
-  render() {
-    const element = this.props.data.element;
+  constructor(props) {
+    super(props);
 
-    let value = false;
+    this.setValue(props.data.element)
+  }
+
+  setValue(element) {
+    this.value = false;
 
     if (['object', 'array'].indexOf(element) > -1) {
-      value = <AttributeComponent data={this.props.data.content} />;
+      this.value = <AttributeComponent data={this.props.data.content} />;
     } else if (element === 'member') {
       if (['array', 'object'].indexOf(this.props.data.content.value.element) > -1) {
-        value = <AttributeComponent data={this.props.data.content.value} />;
+        this.value = <AttributeComponent data={this.props.data.content.value} />;
       } else {
-        value = this.props.data.content.value.content;
+        this.value = this.props.data.content.value.content;
       }
     } else {
-      value = this.props.data.content;
+      this.value = this.props.data.content;
     }
+  }
 
-    if (!value) {
+  render() {
+    if (!this.value) {
       return false;
     }
 
     return (
-      <div className="valueContent">
-        {value}
+      <div className="attributeValue">
+        {this.value}
       </div>
     );
   }

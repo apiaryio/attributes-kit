@@ -23,8 +23,9 @@ export default {
     extensions: [
       '',
       '.js',
-      '.jsx'
-      '.styl'
+      '.jsx',
+      '.styl',
+      '.svg'
     ]
   },
 
@@ -47,6 +48,10 @@ export default {
       {
         test: /\.(png|jpg)$/,
         loader: 'file-loader?name=images/[name].[ext]'
+      },
+      {
+        test: /\.(svg)$/,
+        loader: 'file-loader'
       }
     ]
   },
