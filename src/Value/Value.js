@@ -5,8 +5,8 @@ class ValueComponent extends React.Component {
   render() {
     const element = this.props.data.element;
 
+    let value = false;
 
-    const value = false;
     if (['object', 'array'].indexOf(element) > -1) {
       value = <AttributeComponent data={this.props.data.content} />;
     } else if (element === 'member') {

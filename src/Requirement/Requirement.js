@@ -3,7 +3,7 @@ import React from 'react';
 class RequirementComponent extends React.Component {
 
   render() {
-    const requirement = ['optional'];
+    let requirement = ['optional'];
 
     if (this.props.data.attributes) {
       if (this.props.data.attributes.typeAttributes) {
