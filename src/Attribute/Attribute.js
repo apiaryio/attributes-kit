@@ -1,6 +1,6 @@
 import React from 'react';
 
-import refractToComponentsMap from '../refractToComponentMap';
+import refractToComponentsMap from 'refractToComponentMap';
 
 import './attribute.styl'
 

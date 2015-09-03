@@ -1,9 +1,9 @@
 import React from 'react';
 
-import AttributeComponent from '../Attribute/Attribute';
-import KeyComponent from '../Key/Key';
-import ValueComponent from '../Value/Value';
-import RequirementComponent from '../Requirement/Requirement';
+import AttributeComponent from 'Attribute/Attribute';
+import KeyComponent from 'Key/Key';
+import ValueComponent from 'Value/Value';
+import RequirementComponent from 'Requirement/Requirement';
 
 import './objectMember.styl'
 

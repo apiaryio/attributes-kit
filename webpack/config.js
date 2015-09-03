@@ -4,7 +4,7 @@ export default {
   context: path.join(__dirname, '../'),
 
   entry: {
-    attributes: './src/components',
+    attributes: './src/Attributes/Attributes',
   },
 
   output: {

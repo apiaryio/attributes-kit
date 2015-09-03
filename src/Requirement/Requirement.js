@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TooltipComponent from '../Tooltip/Tooltip';
+import TooltipComponent from 'Tooltip/Tooltip';
 
 import './requirement.styl'
 

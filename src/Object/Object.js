@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ObjectMemberComponent from '../ObjectMember/ObjectMember';
+import ObjectMemberComponent from 'ObjectMember/ObjectMember';
 
 import './object.styl'
 
