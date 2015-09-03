@@ -12,7 +12,9 @@ app.get('/', function(req, res) {
 });
 
 app.post('/parse', function(req, res) {
-  const source =`
+
+  const lines = req.body.source.split('\n');
+  let source =`
 FORMAT: 1A
 # Attributes
 
@@ -21,11 +23,18 @@ FORMAT: 1A
 ## Test [/test]
 
 + Attributes
-    ${req.body.source}
+`
+  lines.forEach((item) => {
+    source += `
+    ${item}`
+  });
+
+source += `
 
 ### Retrieve [GET]
   `;
 
+  console.log(source);
   Protagonist.parse(source.trim(), function(err, result) {
     if (err) {
       return res.status(400).json({error: err})
