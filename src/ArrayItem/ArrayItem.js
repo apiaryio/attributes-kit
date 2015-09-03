@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ObjectMemberComponent from 'ObjectMember/ObjectMember';
+import ValueComponent from 'Value/Value';
 
 import './arrayItem.styl'
 
@@ -11,7 +11,7 @@ class ArrayItemComponent extends React.Component {
 
   render() {
     return (
-      <ObjectMemberComponent data={this.props.data} />
+      <ValueComponent data={this.props.data.content} />
     );
   }
 }
