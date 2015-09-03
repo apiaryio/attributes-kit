@@ -16,7 +16,7 @@ class AttributesComponent extends React.Component {
           <h3 className="attributesTitleText">Attributes</h3>
         </div>
 
-        <div class="attributesList">
+        <div className="attributesList">
           <AttributeComponent data={this.props.data} />
         </div>
       </div>

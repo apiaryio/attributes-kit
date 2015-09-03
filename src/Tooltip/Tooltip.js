@@ -6,7 +6,7 @@ class TooltipComponent extends React.Component {
   render() {
     return (
       <div className="attributeTooltip">
-        <span class="attributeTooltipText">
+        <span className="attributeTooltipText">
           {this.props.text}
         </span>
       </div>
