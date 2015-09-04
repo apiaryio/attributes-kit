@@ -1,15 +1,17 @@
-import Express from 'express';
-import BodyParser from 'body-parser';
-import Protagonist from 'protagonist';
-import Dedent from 'dedent'
+import express from 'express';
+import bodyparser from 'body-parser';
+import protagonist from 'protagonist';
+import dedent from 'dedent'
 import mson_zoo from 'mson-zoo'
+import async from 'async'
+
 
 // Starts server
-const app = Express();
+const app = express();
 
-app.use(BodyParser.json());
-app.use(Express.static('dist'));
-app.use('/', Express.static(__dirname + '/views'));
+app.use(bodyparser.json());
+app.use(express.static('dist'));
+app.use('/', express.static(__dirname + '/views'));
 
 app.post('/parse', (req, res) => {
 
@@ -23,8 +25,22 @@ app.post('/parse', (req, res) => {
 });
 
 app.get('/visual-data', (req, res) => {
-  res.json(mson_zoo.samples);
-})
+  async.map(mson_zoo.samples, (sample, callback) => {
+    parseMson(sample, (err, result) => {
+      if (err) {
+        return callback(err);
+      }
+
+      return callback(null, {mson: sample, parsed: result});
+    });
+  }, (err, result) => {
+    if (err) {
+      return res.status(400).json({error: err});
+    } else {
+      return res.json(result);
+    }
+  });
+});
 
 const server = app.listen(9090, 'localhost', () => {
   const host = server.address().address;
@@ -36,7 +52,7 @@ const server = app.listen(9090, 'localhost', () => {
 
 const parseMson = (mson, cb) => {
   const lines = mson.split('\n');
-  let source = Dedent`
+  let source = dedent`
     FORMAT: 1A
     # Attributes
     # Group Test
@@ -49,11 +65,11 @@ const parseMson = (mson, cb) => {
     ${item}`;
   });
 
-  source += Dedent`
+  source += dedent`
     ### Retrieve [GET]
   `;
 
-  Protagonist.parse(source.trim(), function(err, result) {
+  protagonist.parse(source.trim(), function(err, result) {
     if (err) {
       return cb(err);
     }
