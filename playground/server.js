@@ -14,9 +14,8 @@ app.get('/', function(req, res) {
 app.use(Express.static('dist'));
 
 app.post('/parse', function(req, res) {
-
   const lines = req.body.source.split('\n');
-  let source =`
+  let source = `
 FORMAT: 1A
 # Attributes
 
@@ -25,10 +24,10 @@ FORMAT: 1A
 ## Test [/test]
 
 + Attributes
-`
+`;
   lines.forEach((item) => {
     source += `
-    ${item}`
+    ${item}`;
   });
 
 source += `
@@ -38,10 +37,10 @@ source += `
 
   Protagonist.parse(source.trim(), function(err, result) {
     if (err) {
-      return res.status(400).json({error: err})
+      return res.status(400).json({error: err});
     }
 
-    var attributes = null;
+    let attributes = null;
 
     const categories = result.content[0];
     if (categories.content[0]) {

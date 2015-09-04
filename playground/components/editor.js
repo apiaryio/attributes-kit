@@ -4,15 +4,15 @@ import EditorActions from '../actions/editor';
 
 class EditorComponent extends React.Component {
 
+  _handleChange(event) {
+    this.setState({value: event.target.value});
+    EditorActions.parse(event.target.value);
+  }
+
   render() {
     return (
       <textarea onChange={this._handleChange} />
     );
-  }
-
-  _handleChange(event) {
-    this.setState({value: event.target.value});
-    EditorActions.parse(event.target.value);
   }
 }
 
