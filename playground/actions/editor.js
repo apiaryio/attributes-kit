@@ -9,11 +9,11 @@ export default {
       .post('/parse')
       .send({source})
       .set('Accept', 'application/json')
-      .end(function(err, res) {
+      .end((err, res) => {
         dispatcher.dispatch({
           type: types.MSON_PARSED,
-          attributes: res.body
+          attributes: res.body,
         });
       });
-  }
+  },
 };
