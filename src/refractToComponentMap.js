@@ -1,5 +1,5 @@
-import ArrayComponent from './Array/Array';
-import ObjectComponent from './Object/Object';
+import ArrayComponent from 'Array/Array';
+import ObjectComponent from 'Object/Object';
 
 export default {
   'object': ObjectComponent,
