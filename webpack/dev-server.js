@@ -15,11 +15,6 @@ const webpackServer = new WebpackDevServer(compiler, {
   quiet: false,
   noInfo: false,
 
-  headers: { "X-Custom-Header": "yes" },
-
-  proxy: {
-    '*': 'http://localhost:9090'
-  }
 });
 
 webpackServer.listen(8080, 'localhost', () => {
