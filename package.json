@@ -41,6 +41,7 @@
     "fury": "^0.8.4-refract1",
     "jquery": "^2.1.4",
     "jsx-loader": "^0.13.2",
+    "mson-zoo": "^1.0.0",
     "protagonist": "^0.20.1-refract2",
     "style-loader": "^0.12.3",
     "stylus-loader": "^1.2.1",
