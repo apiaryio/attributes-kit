@@ -6,10 +6,8 @@ import Protagonist from 'protagonist';
 const app = Express();
 
 app.use(BodyParser.json());
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
-});
+app.use(Express.static('dist'));
+app.use('/', Express.static(__dirname + '/views'));
 
 app.use(Express.static('dist'));
 
