@@ -52,7 +52,12 @@ export default {
       {
         test: /\.(svg)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.(md)$/,
+        loader: 'raw-loader'
       }
+
     ]
   },
 
