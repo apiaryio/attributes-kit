@@ -1,0 +1,24 @@
+.attributeRequirement
+  float left
+  width 100%
+  height auto
+  
+.attributeRequirementIcon
+  float left
+  width 10px
+  height 10px
+  display block
+  background-position 10px 0
+  background-size 30px 10px
+  margin-top 7px
+
+.attributeRequirementIcon
+  background-image url(./optionalRequired.svg)
+
+.attributeRequirement.isRequired
+  .attributeRequirementIcon
+    background-position 10px 0
+
+.attributeRequirement.isOptional
+  .attributeRequirementIcon
+    background-position 30px 0

@@ -1,0 +1,73 @@
+/**
+ * Layout
+ */
+.attributeObjectMemeber
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content flex-start
+  align-items stretch
+
+.attributeObjectMemeberToggle
+.attributeObjectMemeberKey
+.attributeObjectMemeberRequirement
+.attributeObjectMemeberDescription
+.attributeObjectMemeberValue
+  flex-grow 1  
+  height auto
+  width auto
+
+.attributeObjectMemeberToggle
+  order 1
+  
+
+.attributeObjectMemeberKey
+  width 160px
+  max-width 160px
+  min-width 160px
+  order 2
+
+.attributeObjectMemeberRequirement
+  max-width 25px
+  width 25px
+  min-width 25px
+  order 3
+
+.attributeObjectMemeberDescription
+  flex-grow 4
+  order 4
+
+.attributeObjectMemeberValue
+  order 5
+  width 100%
+  
+.attributeObjectMemeberToggleIcon
+  float left
+  width 20px
+  height 20px
+  background black
+  
+
+/**
+ * Base
+ */
+.attributeObjectMemeber
+  border-bottom 1px solid #3a3e4d
+
+.attributeObjectMemeber.expandableCollapsible > .attributeObjectMemeberValue
+  margin-left 20px
+  border 1px solid black
+  border-bottom 0px
+
+.attributeObjectMemeber.expanded
+  > .attributeObjectMemeberValue
+    display block
+
+.attributeObjectMemeber.expanded
+  > .attributeObjectMemeberValue
+    display none
+
+.isHidden
+  display none

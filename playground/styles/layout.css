@@ -1,0 +1,10 @@
+.column {
+  float: left;
+  width: 30%;
+  padding: 10px;
+}
+
+.column textarea {
+  width: 100%;
+  min-height: 200px;
+}
