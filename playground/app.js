@@ -1,8 +1,17 @@
 import React from 'react';
 
 import PlaygroundComponent from './components/playground';
-import './styles/layout.css';
+import VisualTestingComponent from './components/visual-testing';
+
+import './styles/layout.styl';
 
 console.log('Welcome in playground');
 
-React.render(<PlaygroundComponent />, document.getElementById('container'));
+if (document.getElementById('playgroundContainer') !== null) {
+  React.render(<PlaygroundComponent />, document.getElementById('playgroundContainer'));
+}
+
+if (document.getElementById('visualtestingContainer') !== null) {
+  React.render(<VisualTestingComponent />, document.getElementById('visualtestingContainer'));
+}
+
