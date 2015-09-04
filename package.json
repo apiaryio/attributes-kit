@@ -27,6 +27,7 @@
     "react": "^0.13.3"
   },
   "devDependencies": {
+    "async": "^1.4.2",
     "babel": "^5.8.21",
     "babel-core": "^5.8.22",
     "babel-eslint": "^4.1.1",
