@@ -1,6 +1,7 @@
 import Express from 'express';
 import BodyParser from 'body-parser';
 import Protagonist from 'protagonist';
+import Dedent from 'dedent'
 
 // Starts server
 const app = Express();
@@ -11,24 +12,25 @@ app.use('/', Express.static(__dirname + '/views'));
 
 app.post('/parse', function(req, res) {
   const lines = req.body.source.split('\n');
-  let source = `
-FORMAT: 1A
-# Attributes
+  let source = Dedent`
+    FORMAT: 1A
+    # Attributes
 
-# Group Test
+    # Group Test
 
-## Test [/test]
+    ## Test [/test]
 
-+ Attributes
-`;
+    + Attributes
+    `;
+
   lines.forEach((item) => {
     source += `
     ${item}`;
   });
 
-source += `
+  source += Dedent`
 
-### Retrieve [GET]
+    ### Retrieve [GET]
   `;
 
   Protagonist.parse(source.trim(), function(err, result) {
