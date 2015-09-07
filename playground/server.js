@@ -26,12 +26,12 @@ app.post('/parse', (req, res) => {
 
 app.get('/fixtures', (req, res) => {
   async.map(mson_zoo.samples, (sample, callback) => {
-    parseMson(sample, (err, result) => {
+    parseMson(sample.code, (err, result) => {
       if (err) {
         return callback(err);
       }
 
-      return callback(null, {mson: sample, parsed: result});
+      return callback(null, {mson: sample.code, parsed: result, name: sample.name});
     });
   }, (err, result) => {
     if (err) {

@@ -27,9 +27,9 @@ class VisualTestingApp extends React.Component {
   }
 
   render() {
-    const rows = this.state.fixtures.map((fixture, index) => {
+    const rows = this.state.fixtures.map((fixture) => {
       return (
-        <div key={index}>
+        <div key={fixture.name}>
           <div className="column">
             <AttributesComponent data={fixture.parsed} />
           </div>
