@@ -3,7 +3,7 @@ import launcher from 'browser-launcher2';
 
 launcher.detect( (available) => {
   launcher((launcherErr, launch) => {
-    launch('http://localhost:9090', {
+    launch(process.argv[2], {
       detached: true,
       browser: available[0].name,
     }, (launchErr, instance) => {
