@@ -2,7 +2,7 @@ import React from 'react';
 
 import AttributeComponent from 'Attribute/Attribute';
 
-import './attributes.styl'
+import './attributes.styl';
 
 class AttributesComponent extends React.Component {
   constructor(props) {

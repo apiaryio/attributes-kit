@@ -2,7 +2,7 @@ import React from 'react';
 
 import ObjectMemberComponent from 'ObjectMember/ObjectMember';
 
-import './arrayItem.styl'
+import './arrayItem.styl';
 
 class ArrayItemComponent extends React.Component {
   constructor(props) {

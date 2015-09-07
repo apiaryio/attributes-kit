@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './tooltip.styl'
+import './tooltip.styl';
 
 class TooltipComponent extends React.Component {
   render() {

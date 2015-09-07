@@ -7,27 +7,19 @@ import RequirementComponent from 'Requirement/Requirement';
 
 import TYPES from 'types';
 
-import './objectMember.styl'
+import './objectMember.styl';
 
 class ObjectMemberComponent extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  handleExpandCollapseEvent() {
-    // State hasn't been set; tree is expanded by default,
-    // after a click, it collapses.
-    if (!this.state || typeof this.state.isExpanded === 'undefined') {
-      this.setState({
-        isExpanded: false
-      });
-
-    // Toggle expand/collapse.
-    } else {
-      this.setState({
-        isExpanded: !this.state.isExpanded
-      });
+  getValueType({element, content}) {
+    if (element === 'member') {
+      return content.value.element;
     }
+
+    return element;
   }
 
   isObject(element) {
@@ -42,29 +34,38 @@ class ObjectMemberComponent extends React.Component {
     return (element === TYPES.OBJECT) || (element === TYPES.ARRAY);
   }
 
-  getValueType({element, content}) {
-    if (element === 'member') {
-      return content.value.element;
+  handleExpandCollapseEvent() {
+    // State hasn't been set; tree is expanded by default,
+    // after a click, it collapses.
+    if (!this.state || typeof this.state.isExpanded === 'undefined') {
+      this.setState({
+        isExpanded: false,
+      });
+
+    // Toggle expand/collapse.
     } else {
-      return element;
+      this.setState({
+        isExpanded: !this.state.isExpanded,
+      });
     }
   }
 
+
   isExpandableAndCollapsible() {
-    var valueType = this.getValueType(this.props.data);
+    const valueType = this.getValueType(this.props.data);
 
     if (this.isObjectOrArray(valueType)) {
       return true;
-    } else {
-      return false;
     }
+
+    return false;
   }
 
   addExpandCollapseClassNames(classNames) {
     classNames.push('isExpandableCollapsible');
 
-    let valueType = this.getValueType(this.props.data);
-    
+    const valueType = this.getValueType(this.props.data);
+
     // Attach a class name indicating a type of the value,
     // e.g. `isObject`, `isArray`.
     classNames.push(`
@@ -81,8 +82,8 @@ class ObjectMemberComponent extends React.Component {
   }
 
   renderValue() {
-    var data = this.props.data;
-    var valueComponent;
+    const data = this.props.data;
+    let valueComponent;
 
     if (this.isObjectOrArray(data.element)) {
       valueComponent = <AttributeComponent data={data.content} />;
@@ -107,10 +108,9 @@ class ObjectMemberComponent extends React.Component {
           {valueComponent}
         </div>
       );
-    } else {
-      return false;
     }
 
+    return false;
   }
 
   renderToggle() {
@@ -122,7 +122,7 @@ class ObjectMemberComponent extends React.Component {
   }
 
   render() {
-    var memberClassNames = ['attributeObjectMemeber'];
+    const memberClassNames = ['attributeObjectMemeber'];
 
     // If the value is an object or an array, the component
     // does support expand/collapse functionality. In order

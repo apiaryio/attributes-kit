@@ -2,7 +2,7 @@ import React from 'react';
 
 import TooltipComponent from 'Tooltip/Tooltip';
 
-import './requirement.styl'
+import './requirement.styl';
 
 class RequirementComponent extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class RequirementComponent extends React.Component {
   }
 
   getClassName() {
-    var classNames = this.requirement.map((req) =>
+    const classNames = this.requirement.map((req) =>
       `is${req.charAt(0).toUpperCase() + req.substr(1)}`
     );
 

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 import BaseCyclingComponent from 'BaseCyclingComponent/BaseCyclingComponent';
 import ObjectMemberComponent from 'ObjectMember/ObjectMember';
 
-import './object.styl'
+import './object.styl';
 
 class ObjectComponent extends BaseCyclingComponent {
   constructor(props) {
