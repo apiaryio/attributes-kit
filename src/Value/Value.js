@@ -6,13 +6,13 @@ class ValueComponent extends React.Component {
   }
 
   render() {
-    if (!this.props.data) {
+    if (!this.props.value) {
       return false;
     }
 
     return (
       <div className="attributeValue">
-        {this.props.data}
+        {this.props.value}
       </div>
     );
   }
