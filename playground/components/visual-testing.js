@@ -1,36 +1,48 @@
 import React from 'react';
+import request from 'superagent';
 
-import EditorComponent from './editor';
 import RefractPreviewComponent from './refractPreview';
 import {AttributesComponent} from '../../src';
-import actionTypes from '../actions/types';
 
-class VisualTestComponent extends React.Component {
+class VisualTestingApp extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      attributes: null,
+      fixtures: [],
     };
   }
 
+  componentDidMount() {
+    request
+      .get('/fixtures')
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        if (err) {
+          return console.error(res.text);
+        }
+
+        this.setState({fixtures: res.body});
+      });
+  }
+
   render() {
+    const rows = this.state.fixtures.map((fixture, index) => {
+      return (
+        <div key={index}>
+          <div className="column">
+            <AttributesComponent data={fixture.parsed} />
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div className="playgrund-app">
-        <div className="column">
-          <EditorComponent />
-        </div>
-
-        <div className="column">
-          <RefractPreviewComponent />
-        </div>
-
-        <div className="column">
-          <AttributesComponent data={this.state.attributes} />
-        </div>
+        {rows}
       </div>
     );
   }
 }
 
-export default VisualTestComponent;
+export default VisualTestingApp;

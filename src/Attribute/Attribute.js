@@ -17,7 +17,8 @@ class AttributeComponent extends React.Component {
     const reactComponent = refractToComponentsMap[this.props.data.element];
 
     if (typeof reactComponent === 'undefined') {
-      throw new Error(`Unable to find a rendering component for ${this.props.data.element}`);
+      console.warn(`Unable to find a rendering component for ${this.props.data.element}`);
+      return null;
     }
 
     return React.createElement(reactComponent, {
