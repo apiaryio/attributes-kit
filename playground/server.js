@@ -24,7 +24,7 @@ app.post('/parse', (req, res) => {
   });
 });
 
-app.get('/visual-data', (req, res) => {
+app.get('/fixtures', (req, res) => {
   async.map(mson_zoo.samples, (sample, callback) => {
     parseMson(sample, (err, result) => {
       if (err) {
