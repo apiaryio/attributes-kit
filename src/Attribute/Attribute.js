@@ -2,7 +2,7 @@ import React from 'react';
 
 import refractToComponentsMap from 'refractToComponentMap';
 
-import './attribute.styl'
+import './attribute.styl';
 
 class AttributeComponent extends React.Component {
   constructor(props) {
@@ -14,10 +14,14 @@ class AttributeComponent extends React.Component {
       return false;
     }
 
-    var reactComponent = refractToComponentsMap[this.props.data.element];
+    const reactComponent = refractToComponentsMap[this.props.data.element];
+
+    if (typeof reactComponent === 'undefined') {
+      throw new Error(`Unable to find a rendering component for ${this.props.data.element}`);
+    }
 
     return React.createElement(reactComponent, {
-      data: this.props.data.content
+      data: this.props.data.content,
     });
   }
 }

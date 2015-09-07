@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './key.styl'
+import './key.styl';
 
 class KeyComponent extends React.Component {
   render() {
@@ -10,8 +10,6 @@ class KeyComponent extends React.Component {
 
     if (element === 'member') {
       key = this.props.data.content.key.content;
-    } else {
-      key = this.props.data.content;
     }
 
     if (!key) {

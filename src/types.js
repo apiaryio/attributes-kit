@@ -1,8 +1,8 @@
-var TYPES = {
+const TYPES = {
   ARRAY: 'array',
   OBJECT: 'object',
   STRING: 'string',
-  NUMBER: 'number'
+  NUMBER: 'number',
 };
 
 export default TYPES;
