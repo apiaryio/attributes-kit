@@ -6,25 +6,11 @@ class RefractPreviewComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this._onChange = this._onChange.bind(this)
+    this._onChange = this._onChange.bind(this);
 
     this.state = {
-      attributes: null
+      attributes: null,
     };
-  }
-
-  render() {
-    if (!this.state.attributes) {
-      return false;
-    }
-
-    return (
-      <div className="refract-preview">
-        <pre>
-          {JSON.stringify(this.state.attributes, null, 2)}
-        </pre>
-      </div>
-    );
   }
 
   componentDidMount() {
@@ -39,6 +25,20 @@ class RefractPreviewComponent extends React.Component {
     if (payload.type === actionTypes.MSON_PARSED) {
       this.setState({attributes: payload.attributes});
     }
+  }
+
+  render() {
+    if (!this.state.attributes) {
+      return false;
+    }
+
+    return (
+      <div className="refract-preview">
+        <pre>
+          {JSON.stringify(this.state.attributes, null, 2)}
+        </pre>
+      </div>
+    );
   }
 }
 

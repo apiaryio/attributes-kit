@@ -6,7 +6,7 @@
 * `ActionAttributesComponent`
 * `PayloadAttributesComponent`
 
-Each component has its own style sheet, e.g. `ResourceAttributesComponent` has `resourceAttributes.styl` (or `*.css`); if you want to override the default style sheets, that's the place.
+Each component has its own style sheet, e.g. `ResourceAttributesComponent` has `resourceAttributes.styl`; if you want to override the default style sheets, that's the place.
 
 Reason for having these components is to apply a different theme, e.g. have a different visual rendering of the `Attributes` component.
 
@@ -22,7 +22,7 @@ It has some default styles which goes with the component.
 
 Title “Attributes”.
 
-Take `content[0]` and pass it down to the `AttributeComponent`.
+Takes `content[0]` and passes it down to the `AttributeComponent`.
 
 ### `AttributeComponent`
 
@@ -72,30 +72,31 @@ Input: Refract Element (e.g. Member Element).
 ## How set it up
 
 + Clone repository
-
-        $ git clone git@github.com:apiaryio/attributes-component.git
-
-+ Install drafter
-
-        $ git clone git@github.com:apiaryio/protagonist.git
-        $ cd protagonist
-        $ git checkout shared/refract
-        $ git submodule update --init --recursive
-        $ npm install
+```bash
+  $ git clone git@github.com:apiaryio/attributes-component.git
+```
 
 + Install dependencies
 
-        npm install
-        npm run develop
+```bash
+  npm install
+  npm run playground
+```
 
 + Run it
 
-        npm run develop
+```bash
+  npm run playground
+```
+
++ Open the visual testing page
+```bash
+  npm run visual-testing
+```
+
 ---
 
 
 # TO DO
 
-* Event Handlers (e.g. when I click on a reference)?
-* Attributes as an array?
-* Attributes as primitive type, e.g. string?
+Please see the [Issues page](https://github.com/apiaryio/attributes-component/issues) for a detailed list.

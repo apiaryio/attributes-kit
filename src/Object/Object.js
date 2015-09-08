@@ -1,13 +1,14 @@
 import React from 'react';
 
-import BaseCyclingComponent from 'BaseCyclingComponent/BaseCyclingComponent';
 import ObjectMemberComponent from 'ObjectMember/ObjectMember';
 
 import './object.styl';
 
-class ObjectComponent extends BaseCyclingComponent {
+class ObjectComponent extends React.Component {
   constructor(props) {
     super(props);
+
+    this.props.data = this.props.data || [];
   }
 
   render() {

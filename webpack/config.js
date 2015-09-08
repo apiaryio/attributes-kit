@@ -52,7 +52,7 @@ export default {
       {
         test: /\.(svg)$/,
         loader: 'file-loader'
-      }
+      },
     ]
   },
 

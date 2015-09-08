@@ -1,66 +1,43 @@
-import Express from 'express';
-import BodyParser from 'body-parser';
-import Protagonist from 'protagonist';
+import express from 'express';
+import bodyparser from 'body-parser';
+import protagonist from 'protagonist';
+import dedent from 'dedent'
+import mson_zoo from 'mson-zoo'
+import async from 'async'
+
 
 // Starts server
-const app = Express();
+const app = express();
 
-app.use(BodyParser.json());
+app.use(bodyparser.json());
+app.use(express.static('dist'));
+app.use('/', express.static(__dirname + '/views'));
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+app.post('/parse', (req, res) => {
+
+  const attributes = parseMson(req.body.source, (err, attributes) => {
+    if (err) {
+      return res.status(400).json({error: err});
+    } else {
+      return res.json(attributes);
+    }
+  });
 });
 
-app.use(Express.static('dist'));
-
-app.post('/parse', function(req, res) {
-
-  const lines = req.body.source.split('\n');
-  let source =`
-FORMAT: 1A
-# Attributes
-
-# Group Test
-
-## Test [/test]
-
-+ Attributes
-`
-  lines.forEach((item) => {
-    source += `
-    ${item}`
-  });
-
-source += `
-
-### Retrieve [GET]
-  `;
-
-  Protagonist.parse(source.trim(), function(err, result) {
-    if (err) {
-      return res.status(400).json({error: err})
-    }
-
-    var attributes = null;
-
-    const categories = result.content[0];
-    if (categories.content[0]) {
-      const category = categories.content[0];
-      if (category.content[0]) {
-        const resource = category.content[0];
-        if (resource.content[0]) {
-          const dataStructure = resource.content[0];
-          if (dataStructure.content[0]) {
-            attributes = dataStructure.content[0];
-          }
-        }
+app.get('/fixtures', (req, res) => {
+  async.map(mson_zoo.samples, (sample, callback) => {
+    parseMson(sample.code, (err, result) => {
+      if (err) {
+        return callback(err);
       }
-    }
 
-    if (attributes) {
-      res.json(attributes);
+      return callback(null, {mson: sample.code, parsed: result, name: sample.name});
+    });
+  }, (err, result) => {
+    if (err) {
+      return res.status(400).json({error: err});
     } else {
-      res.status(400).json({error: 'No attribute parsed'});
+      return res.json(result);
     }
   });
 });
@@ -71,3 +48,49 @@ const server = app.listen(9090, 'localhost', () => {
 
   console.log(`Server is listening on ${host}:${port}`);
 });
+
+
+const parseMson = (mson, cb) => {
+  const lines = mson.split('\n');
+  let source = dedent`
+    FORMAT: 1A
+    # Attributes
+    # Group Test
+    ## Test [/test]
+    + Attributes
+    `;
+
+  lines.forEach((item) => {
+    source += `
+    ${item}`;
+  });
+
+  source += dedent`
+    ### Retrieve [GET]
+  `;
+
+  protagonist.parse(source.trim(), function(err, result) {
+    if (err) {
+      return cb(err);
+    }
+
+    let attributes = null;
+
+    const categories = result.content[0];
+    if (categories.content[0]) {
+      const category = categories.content[0];
+      if (category.content[0]) {
+        const resource = category.content[0];
+        if (resource.content[0]) {
+          const dataStructure = resource.content[0];
+          if (dataStructure.content[0]) {
+            return cb(err, dataStructure.content[0]);
+          }
+        }
+      }
+    }
+
+    return cb('No attribute parsed');
+
+  });
+};

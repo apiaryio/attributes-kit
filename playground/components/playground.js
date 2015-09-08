@@ -10,11 +10,25 @@ class PlaygroundApp extends React.Component {
   constructor(props) {
     super(props);
 
-    this._onChange = this._onChange.bind(this)
+    this._onChange = this._onChange.bind(this);
 
     this.state = {
-      attributes: null
+      attributes: null,
     };
+  }
+
+  componentDidMount() {
+    dispatcher.register(this._onChange);
+  }
+
+  componentWillUnmount() {
+    dispatcher.unregister(this._onChange);
+  }
+
+  _onChange(payload) {
+    if (payload.type === actionTypes.MSON_PARSED) {
+      this.setState({attributes: payload.attributes});
+    }
   }
 
   render() {
@@ -32,21 +46,7 @@ class PlaygroundApp extends React.Component {
           <AttributesComponent data={this.state.attributes} />
         </div>
       </div>
-    )
-  }
-
-  componentDidMount() {
-    dispatcher.register(this._onChange);
-  }
-
-  componentWillUnmount() {
-    dispatcher.unregister(this._onChange);
-  }
-
-  _onChange(payload) {
-    if (payload.type === actionTypes.MSON_PARSED) {
-      this.setState({attributes: payload.attributes});
-    }
+    );
   }
 }
 
