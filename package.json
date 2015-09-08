@@ -41,7 +41,6 @@
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
     "flux": "^2.1.1",
-    "fury": "^0.8.4-refract1",
     "jquery": "^2.1.4",
     "json-formatter-js": "^0.2.0",
     "jsx-loader": "^0.13.2",
