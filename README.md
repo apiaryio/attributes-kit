@@ -6,7 +6,7 @@
 * `ActionAttributesComponent`
 * `PayloadAttributesComponent`
 
-Each component has its own style sheet, e.g. `ResourceAttributesComponent` has `resourceAttributes.styl` (or `*.css`); if you want to override the default style sheets, that's the place.
+Each component has its own style sheet, e.g. `ResourceAttributesComponent` has `resourceAttributes.styl`; if you want to override the default style sheets, that's the place.
 
 Reason for having these components is to apply a different theme, e.g. have a different visual rendering of the `Attributes` component.
 
@@ -22,7 +22,7 @@ It has some default styles which goes with the component.
 
 Title “Attributes”.
 
-Take `content[0]` and pass it down to the `AttributeComponent`.
+Takes `content[0]` and passes it down to the `AttributeComponent`.
 
 ### `AttributeComponent`
 
