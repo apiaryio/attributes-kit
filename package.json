@@ -6,8 +6,8 @@
     "build": "NODE_ENV=production webpack -p --progress --colors",
     "test": "npm run lint",
     "lint": "eslint src --ext .js,.es6 src",
-    "playground": "npm run start & node ./webpack/run-launch-browser.js http://localhost:9090/",
-    "visual-testing": "npm run start & node ./webpack/run-launch-browser.js http://localhost:9090/visual-testing.html",
+    "playground": "shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:9090/'",
+    "visual-testing": "shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:9090/visual-testing.html'",
     "start": "node ./webpack/run-dev-server.js",
     "prepublish": "npm run build"
   },
@@ -48,6 +48,7 @@
     "nib": "^1.1.0",
     "protagonist": "^0.20.1-refract2",
     "raw-loader": "^0.5.1",
+    "shell-executor": "^0.3.2",
     "style-loader": "^0.12.3",
     "stylus-loader": "^1.2.1",
     "superagent": "^1.3.0",
