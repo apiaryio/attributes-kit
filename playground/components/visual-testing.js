@@ -29,7 +29,17 @@ class VisualTestingApp extends React.Component {
   render() {
     const rows = this.state.fixtures.map((fixture) => {
       return (
-        <div key={fixture.name}>
+        <div className="visualTestingContainer" key={fixture.name}>
+          <div className="column">
+            <pre>
+              {fixture.mson}
+            </pre>
+          </div>
+          <div className="column">
+            <pre>
+              {JSON.stringify(fixture.parsed, null, 2)}
+            </pre>
+          </div>
           <div className="column">
             <AttributesComponent data={fixture.parsed} />
           </div>

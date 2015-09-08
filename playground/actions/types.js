@@ -1,4 +1,3 @@
 export default {
   MSON_PARSED: 'MSON_PARSED',
-  FIXTURES_READY: 'FIXTURES_READY',
 };

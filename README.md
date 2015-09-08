@@ -80,7 +80,7 @@ Input: Refract Element (e.g. Member Element).
 
 ```bash
   npm install
-  npm run develop
+  npm run playground
 ```
 
 + Run it
