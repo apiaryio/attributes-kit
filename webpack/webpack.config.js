@@ -9,7 +9,7 @@ export default _.extend({}, baseConfig, {
 
   // TODO: add support to minified version and .min.js filename
   output: {
-    path: '../dist',
+    path: path.join(__dirname, '../dist'),
     filename: '[name].js',
     library: 'Attributes',
     libraryTarget: 'umd'
