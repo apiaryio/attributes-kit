@@ -1,2 +1,2 @@
 require('babel/register');
-module.exports = require('./webpack/config.js');
+module.exports = require('./webpack/webpack.config');

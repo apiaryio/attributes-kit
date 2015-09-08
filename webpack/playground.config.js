@@ -1,12 +1,22 @@
-import Webpack from 'webpack';
-import config from './config';
+import _ from 'underscore';
+import path from 'path';
+import webpack from 'webpack';
+import baseConfig from './base.config';
 
-config.entry = {
-  playground: ['webpack/hot/dev-server', './playground/app'],
-  'visual-testing': ['webpack/hot/dev-server', './playground/app']
-};
+export default _.extend({}, baseConfig, {
+  entry: {
+    playground: ['webpack/hot/dev-server', './playground/app'],
+    'visual-testing': ['webpack/hot/dev-server', './playground/app']
+  },
 
-config.plugins = config.plugins || [];
-config.plugins.push(new Webpack.HotModuleReplacementPlugin());
+  output: {
+    path: path.join(__dirname, '../dist'),
+    filename: '[name].js'
+  },
 
-export default config;
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+
+  devtool: 'source-map'
+});

@@ -1,16 +1,12 @@
 import path from 'path';
+import nib from 'nib';
 
 export default {
   context: path.join(__dirname, '../'),
 
-  entry: {
-    attributes: './src/Attributes/Attributes',
-  },
+  entry: undefined,
 
-  output: {
-    path: path.join(__dirname, '../dist'),
-    filename: '[name].js'
-  },
+  output: undefined,
 
   // Resolve the `./src` directory so we can avoid writing
   // ../../styles/base.css
@@ -60,10 +56,8 @@ export default {
     ]
   },
 
-  devtool: 'source-map',
-
   stylus: {
-    use: [require('nib')()],
+    use: [nib()],
     import: ['nib']
-  },
+  }
 };
