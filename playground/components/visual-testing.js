@@ -1,8 +1,9 @@
 import React from 'react';
 import request from 'superagent';
 
-import RefractPreviewComponent from './refractPreview';
+import JsonFormatterComponent from './JsonFormatter';
 import {AttributesComponent} from '../../src';
+
 
 class VisualTestingApp extends React.Component {
   constructor(props) {
@@ -36,9 +37,7 @@ class VisualTestingApp extends React.Component {
             </pre>
           </div>
           <div className="column">
-            <pre>
-              {JSON.stringify(fixture.parsed, null, 2)}
-            </pre>
+            <JSONFormatterComponent data={fixture.parsed} />
           </div>
           <div className="column">
             <AttributesComponent data={fixture.parsed} />

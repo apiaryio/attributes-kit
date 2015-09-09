@@ -1,7 +1,7 @@
 import React from 'react';
 
 import EditorComponent from './editor';
-import RefractPreviewComponent from './refractPreview';
+import JsonFormatterComponent from './JsonFormatter';
 import {AttributesComponent} from '../../src';
 import actionTypes from '../actions/types';
 import dispatcher from '../dispatcher';
@@ -39,7 +39,7 @@ class PlaygroundApp extends React.Component {
         </div>
 
         <div className="column">
-          <RefractPreviewComponent />
+          <JsonFormatterComponent data={this.state.attributes} />
         </div>
 
         <div className="column">
