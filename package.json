@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/apiaryio/attributes-component#readme",
   "dependencies": {
+    "json-formatter-js": "^0.2.0",
     "minim": "^0.10.0",
     "react": "^0.13.3"
   },

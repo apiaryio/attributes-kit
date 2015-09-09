@@ -38,6 +38,10 @@ export default {
         loader: 'babel-loader'
       },
       {
+        test: /json-formatter-js\/src\/\w+.js$/,
+        loader: 'babel-loader'
+      },
+      {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader'
       },
