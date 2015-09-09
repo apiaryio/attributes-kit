@@ -14,12 +14,15 @@ if (process.env.NODE_ENV === 'test') {
 
 const compiler = Webpack(webpackConfig);
 const webpackServer = new WebpackDevServer(compiler, {
-  contentBase: path.join(__dirname, './dist'),
+  contentBase: path.join(__dirname, '../dist'),
 
   hot: true,
-  inline: true,
   quiet: false,
-  noInfo: false
+  noInfo: false,
+
+  proxy: {
+    '*': 'http://localhost:9090'
+  }
 });
 
 webpackServer.listen(8080, 'localhost', () => {
