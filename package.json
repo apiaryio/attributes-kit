@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/apiaryio/attributes-component#readme",
   "dependencies": {
-    "json-formatter-js": "^0.2.0",
     "minim": "^0.10.0",
     "react": "^0.13.3"
   },
@@ -44,6 +43,7 @@
     "flux": "^2.1.1",
     "fury": "^0.8.4-refract1",
     "jquery": "^2.1.4",
+    "json-formatter-js": "^0.2.0",
     "jsx-loader": "^0.13.2",
     "mson-zoo": "^2.0.0",
     "nib": "^1.1.0",
