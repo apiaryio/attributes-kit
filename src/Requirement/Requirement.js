@@ -10,7 +10,6 @@ class RequirementComponent extends React.Component {
 
     this.CLASS_NAME = 'attributeRequirement';
 
-    this.setRequirement();
   }
 
   setRequirement() {
@@ -33,6 +32,9 @@ class RequirementComponent extends React.Component {
   }
 
   render() {
+
+    this.setRequirement();
+
     return (
       <div className={this.getClassName()}>
         <span className="attributeRequirementIcon"></span>
