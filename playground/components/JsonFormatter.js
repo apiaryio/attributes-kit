@@ -11,13 +11,13 @@ class JsonFormatterComponent extends React.Component {
 
   componentDidMount() {
     const formatter = new JSONFormatter(this.props.data, 3, {hoverPreviewEnabled: true});
-    const nodeComponent = React.findDOMNode(this);
+    const nodeComponent = React.findDOMNode(this.refs.jsonFormatterContainer);
     nodeComponent.appendChild(formatter.render());
   }
 
   render() {
       return (
-        <div>
+        <div ref="jsonFormatterContainer">
         </div>
       );
   }
