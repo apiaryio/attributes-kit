@@ -8,7 +8,7 @@
     "test": "npm run lint",
     "lint": "eslint src --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:9090/'",
-    "visual-testing": "shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:9090/visual-testing.html'",
+    "visual-testing": "NODE_ENV=test shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:9090/visual-testing.html'",
     "start": "node ./webpack/run-dev-server.js",
     "prepublish": "npm run build"
   },
