@@ -9,13 +9,24 @@ class JsonFormatterComponent extends React.Component {
 
   }
 
+  attachJsonFormatter() {
+    if (this.nodeComponent !== undefined) {
+      const formatter = new JSONFormatter(this.props.data, 3, { hoverPreviewEnabled: true });
+      if (this.nodeComponent.hasChildNodes()) {
+        this.nodeComponent.removeChild(this.nodeComponent.firstChild);
+      }
+
+      this.nodeComponent.appendChild(formatter.render());
+    }
+  }
+
   componentDidMount() {
-    const formatter = new JSONFormatter(this.props.data, 3, {hoverPreviewEnabled: true});
-    const nodeComponent = React.findDOMNode(this.refs.jsonFormatterContainer);
-    nodeComponent.appendChild(formatter.render());
+    this.nodeComponent = React.findDOMNode(this.refs.jsonFormatterContainer);
+    this.attachJsonFormatter();
   }
 
   render() {
+      this.attachJsonFormatter();
       return (
         <div ref="jsonFormatterContainer">
         </div>

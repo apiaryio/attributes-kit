@@ -1,8 +1,7 @@
 import React from 'react';
 import request from 'superagent';
-import JSONFormatterComponent from './JSONFormatter';
 
-import RefractPreviewComponent from './refractPreview';
+import JsonFormatterComponent from './JsonFormatter';
 import {AttributesComponent} from '../../src';
 
 
