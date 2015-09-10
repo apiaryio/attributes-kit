@@ -1,21 +1,21 @@
 import _ from 'underscore';
 import path from 'path';
-import webpack from 'webpack';
 import baseConfig from './base.config';
 
 export default _.extend({}, baseConfig, {
   entry: {
-    playground: ['webpack/hot/dev-server', './playground/app']
+    attributes: './src/index'
   },
 
+  // TODO: add support to minified version and .min.js filename
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'Attributes',
+    libraryTarget: 'umd'
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
-
-  devtool: 'source-map'
+  externals: {
+    'react': 'react'
+  }
 });

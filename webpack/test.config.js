@@ -5,7 +5,7 @@ import baseConfig from './base.config';
 
 export default _.extend({}, baseConfig, {
   entry: {
-    playground: ['webpack/hot/dev-server', './playground/app']
+    test: ['webpack/hot/dev-server', './playground/app']
   },
 
   output: {
@@ -15,7 +15,5 @@ export default _.extend({}, baseConfig, {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
-
-  devtool: 'source-map'
+  ]
 });

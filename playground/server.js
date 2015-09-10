@@ -1,10 +1,9 @@
 import express from 'express';
 import bodyparser from 'body-parser';
 import protagonist from 'protagonist';
-import dedent from 'dedent'
-import mson_zoo from 'mson-zoo'
-import async from 'async'
-
+import dedent from 'dedent';
+import mson_zoo from 'mson-zoo';
+import async from 'async';
 
 // Starts server
 const app = express();
@@ -49,7 +48,6 @@ const server = app.listen(9090, 'localhost', () => {
   console.log(`Server is listening on ${host}:${port}`);
 });
 
-
 const parseMson = (mson, cb) => {
   const lines = mson.split('\n');
   let source = dedent`
@@ -74,8 +72,6 @@ const parseMson = (mson, cb) => {
       return cb(err);
     }
 
-    let attributes = null;
-
     const categories = result.content[0];
     if (categories.content[0]) {
       const category = categories.content[0];
@@ -91,6 +87,5 @@ const parseMson = (mson, cb) => {
     }
 
     return cb('No attribute parsed');
-
   });
 };

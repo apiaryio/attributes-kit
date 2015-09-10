@@ -1,16 +1,11 @@
 import path from 'path';
+import nib from 'nib';
 
 export default {
   context: path.join(__dirname, '../'),
 
-  entry: {
-    attributes: './src/Attributes/Attributes',
-  },
-
-  output: {
-    path: path.join(__dirname, '../dist'),
-    filename: '[name].js'
-  },
+  entry: undefined,
+  output: undefined,
 
   // Resolve the `./src` directory so we can avoid writing
   // ../../styles/base.css
@@ -26,6 +21,13 @@ export default {
       '.jsx',
       '.styl',
       '.svg'
+    ]
+  },
+
+  resolveLoader: {
+    modulesDirectories: [
+      'node_modules',
+      './webpack/loaders'
     ]
   },
 
@@ -55,15 +57,13 @@ export default {
       },
       {
         test: /\.(svg)$/,
-        loader: 'file-loader'
-      },
+        loader: 'svg-loader'
+      }
     ]
   },
 
-  devtool: 'source-map',
-
   stylus: {
-    use: [require('nib')()],
+    use: [nib()],
     import: ['nib']
-  },
+  }
 };
