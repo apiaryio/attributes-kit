@@ -37,7 +37,7 @@ class VisualTestingApp extends React.Component {
             </pre>
           </div>
           <div className="column">
-            <JSONFormatterComponent data={fixture.parsed} />
+            <JsonFormatterComponent data={fixture.parsed} />
           </div>
           <div className="column">
             <AttributesComponent data={fixture.parsed} />
