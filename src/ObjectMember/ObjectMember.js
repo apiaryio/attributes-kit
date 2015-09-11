@@ -4,6 +4,7 @@ import AttributeComponent from 'Attribute/Attribute';
 import KeyComponent from 'Key/Key';
 import ValueComponent from 'Value/Value';
 import RequirementComponent from 'Requirement/Requirement';
+import Description from 'Description/Description';
 
 import TYPES from 'types';
 
@@ -151,6 +152,7 @@ class ObjectMemberComponent extends React.Component {
         </div>
 
         <div className="attributeObjectMemeberDescription">
+          <Description data={this.props.data} />
         </div>
 
         {this.renderValue()}
