@@ -63,10 +63,6 @@ const parseMson = (mson, cb) => {
     ${item}`;
   });
 
-  source += dedent`
-    ### Retrieve [GET]
-  `;
-
   protagonist.parse(source.trim(), function(err, result) {
     if (err) {
       return cb(err);
