@@ -1,11 +1,11 @@
 import React from 'react';
 import request from 'superagent';
 
-import JsonFormatterComponent from './JsonFormatter';
+import JsonFormatter from './JsonFormatter';
 import {AttributesComponent} from '../../src';
 
 
-class VisualTestingApp extends React.Component {
+class VisualTesting extends React.Component {
   constructor(props) {
     super(props);
 
@@ -37,7 +37,7 @@ class VisualTestingApp extends React.Component {
             </pre>
           </div>
           <div className="column">
-            <JSONFormatterComponent data={fixture.parsed} />
+            <JsonFormatter data={fixture.parsed} />
           </div>
           <div className="column">
             <AttributesComponent data={fixture.parsed} />
@@ -54,4 +54,4 @@ class VisualTestingApp extends React.Component {
   }
 }
 
-export default VisualTestingApp;
+export default VisualTesting;

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import EditorComponent from './editor';
+import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
 import {AttributesComponent} from '../../src';
 import actionTypes from '../actions/types';
 import dispatcher from '../dispatcher';
 
-class PlaygroundApp extends React.Component {
+class Playground extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,4 +50,4 @@ class PlaygroundApp extends React.Component {
   }
 }
 
-export default PlaygroundApp;
+export default Playground;

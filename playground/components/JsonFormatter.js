@@ -1,12 +1,11 @@
 import React from 'react';
 import JSONFormatter from 'json-formatter-js/src/index';
 
-import 'json-formatter-js/dist/style.css'
+import 'json-formatter-js/dist/style.css';
 
-class JsonFormatterComponent extends React.Component {
+class JsonFormatter extends React.Component {
   constructor(props) {
     super(props);
-
   }
 
   attachJsonFormatter() {
@@ -34,4 +33,4 @@ class JsonFormatterComponent extends React.Component {
   }
 }
 
-export default JsonFormatterComponent;
+export default JsonFormatter;
