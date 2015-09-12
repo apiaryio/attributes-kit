@@ -4,13 +4,15 @@ import webpack from 'webpack';
 import baseConfig from './base.config';
 
 export default _.extend({}, baseConfig, {
-  entry: {
-    playground: ['webpack/hot/dev-server', './playground/app']
-  },
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:8080',
+    'webpack/hot/only-dev-server',
+    './playground/app'
+  ],
 
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js'
+    filename: 'playground.js'
   },
 
   plugins: [
