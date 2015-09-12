@@ -47,7 +47,7 @@
     "jsx-loader": "^0.13.2",
     "mson-zoo": "^2.0.0",
     "nib": "^1.1.0",
-    "protagonist": "^0.20.1-refract2",
+    "protagonist": "^1.0.0",
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^1.3.0",
     "shell-executor": "^0.3.2",
