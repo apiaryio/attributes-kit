@@ -1,6 +1,13 @@
 import React from 'react';
 
-class ValueComponent extends React.Component {
+import './value.styl';
+
+
+class Value extends React.Component {
+  static propTypes = {
+    value: React.PropTypes.string,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -18,4 +25,4 @@ class ValueComponent extends React.Component {
   }
 }
 
-export default ValueComponent;
+export default Value;

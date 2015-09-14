@@ -1,15 +1,18 @@
 import React from 'react';
 
-import TooltipComponent from 'Tooltip/Tooltip';
+import Tooltip from 'Tooltip/Tooltip';
 
 import './requirement.styl';
 
-class RequirementComponent extends React.Component {
+class Requirement extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
     this.CLASS_NAME = 'attributeRequirement';
-
   }
 
   setRequirement() {
@@ -32,7 +35,6 @@ class RequirementComponent extends React.Component {
   }
 
   render() {
-
     this.setRequirement();
 
     return (
@@ -40,11 +42,11 @@ class RequirementComponent extends React.Component {
         <span className="attributeRequirementIcon"></span>
 
         <span className="attributeRequirementTooltip">
-          <TooltipComponent text={this.requirement.join(' ')} />
+          <Tooltip text={this.requirement.join(' ')} />
         </span>
       </div>
     );
   }
 }
 
-export default RequirementComponent;
+export default Requirement;

@@ -4,7 +4,11 @@ import refractToComponentsMap from 'refractToComponentMap';
 
 import './attribute.styl';
 
-class AttributeComponent extends React.Component {
+class Attribute extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -17,8 +21,7 @@ class AttributeComponent extends React.Component {
     const reactComponent = refractToComponentsMap[this.props.data.element];
 
     if (typeof reactComponent === 'undefined') {
-      console.warn(`Unable to find a rendering component for ${this.props.data.element}`);
-      return null;
+      return new Error(`Unable to find a rendering component for ${this.props.data.element}`);
     }
 
     return React.createElement(reactComponent, {
@@ -27,4 +30,4 @@ class AttributeComponent extends React.Component {
   }
 }
 
-export default AttributeComponent;
+export default Attribute;

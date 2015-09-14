@@ -1,10 +1,14 @@
 import React from 'react';
 
-import AttributeComponent from 'Attribute/Attribute';
+import Attribute from 'Attribute/Attribute';
 
 import './attributes.styl';
 
-class AttributesComponent extends React.Component {
+class Attributes extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -17,11 +21,11 @@ class AttributesComponent extends React.Component {
         </div>
 
         <div className="attributesList">
-          <AttributeComponent data={this.props.data} />
+          <Attribute data={this.props.data} />
         </div>
       </div>
     );
   }
 }
 
-export default AttributesComponent;
+export default Attributes;

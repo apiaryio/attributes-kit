@@ -1,0 +1,68 @@
+.attributeArrayItem
+  width auto
+  height auto
+  padding 0
+  margin 0
+  padding-top 10px
+  padding-bottom 10px
+
+.attributeArrayItemRow
+  display flex
+  flex-direction row
+  flex-wrap nowrap
+  justify-content flex-start
+  align-items flex-start
+
+.attributeArrayItemToggle
+.attributeArrayItemKey
+.attributeArrayItemDescription
+.attributeArrayItemValue
+  flex-grow 1  
+  height auto
+  width auto
+  
+.attributeArrayItemToggle
+  width 0px
+  max-width 0px
+  min-width 0px
+  height auto
+
+.attributeArrayItem.isExpandableCollapsible
+  > .attributeArrayItemRow
+    > .attributeArrayItemToggle
+      width 20px
+      max-width 20px
+      min-width 20px
+
+.attributeArrayItemKey
+  width 40px
+  max-width 40px
+  min-width 40px
+
+.attributeArrayItemValue
+  margin-right 20px
+
+.attributeArrayItemDescription
+  width 100%
+
+.attributeArray
+  .attributeArrayItemContainer
+    .attributeArrayItem
+      border-bottom 1px solid #d8dbe4
+
+.attributeArray
+  .attributeArrayItemContainer:last-child
+    .attributeArrayItem
+      border-bottom 0
+
+.attributeArrayItemKey
+  padding-left 10px
+
+
+.attributeArrayItem.isExpanded
+  .attributeArrayItemValue
+    display block
+
+.attributeArrayItem.isCollapsed
+  .attributeArrayItemValue
+    display none

@@ -2,17 +2,28 @@ import React from 'react';
 
 import './key.styl';
 
-class KeyComponent extends React.Component {
-  render() {
-    const element = this.props.data.element;
+class Key extends React.Component {
+  static propTypes = {
+    index: React.PropTypes.number,
+    data: React.PropTypes.object,
+  }
 
-    let key = false;
-
-    if (element === 'member') {
-      key = this.props.data.content.key.content;
+  getKey() {
+    if (typeof this.props.index !== 'undefined') {
+      return this.props.index;
     }
 
-    if (!key) {
+    if (this.props.data.element === 'member') {
+      return this.props.data.content.key.content;
+    }
+
+    return undefined;
+  }
+
+  render() {
+    const key = this.getKey();
+
+    if (typeof key === 'undefined') {
       return false;
     }
 
@@ -24,4 +35,4 @@ class KeyComponent extends React.Component {
   }
 }
 
-export default KeyComponent;
+export default Key;

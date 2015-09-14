@@ -11,7 +11,6 @@
  */
 .attributeKey
   font-weight 800
-  font-family TitilliumText
   font-size 16px
 
 .attributeObjectMemeber
@@ -19,5 +18,13 @@
     color #5d6577
 
 .attributeObjectMemeber.isExpandableCollapsible
-  .attributeKey
-    color #39f
+  > .attributeObjectMemeberKey
+    > .attributeKey
+      color #39f
+
+.attributeArrayItem
+  .attributeArrayItemKey
+    .attributeKey
+      color #5d6577
+      font-size 16px
+      text-align left

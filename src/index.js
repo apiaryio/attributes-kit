@@ -1,7 +1,7 @@
-import AttributesComponent from 'Attributes/Attributes';
-import AttributeComponent from 'Attribute/Attribute';
+import Attributes from 'Attributes/Attributes';
+import Attribute from 'Attribute/Attribute';
 
 export default {
-  AttributesComponent,
-  AttributeComponent
+  Attributes,
+  Attribute,
 };

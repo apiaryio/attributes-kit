@@ -1,10 +1,14 @@
 import React from 'react';
 
-import ObjectMemberComponent from 'ObjectMember/ObjectMember';
+import ObjectMember from 'ObjectMember/ObjectMember';
 
 import './object.styl';
 
 class ObjectComponent extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -13,18 +17,20 @@ class ObjectComponent extends React.Component {
 
   render() {
     return (
-      <ul className="attributeObject">
-        {this.props.data.map((member, index) => {
-          return (
-            <li
-              className="attributeObjectMemberContainer"
-              key={index}
-            >
-              <ObjectMemberComponent data={member} />
-            </li>
-          );
-        })}
-      </ul>
+      <div className="attributeObject">
+        <div className="attributeObjectMembers">
+          {this.props.data.map((member, index) => {
+            return (
+              <div
+                className="attributeObjectMemberContainer"
+                key={index}
+              >
+                <ObjectMember data={member} />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     );
   }
 }

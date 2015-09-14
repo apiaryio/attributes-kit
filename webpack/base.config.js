@@ -37,7 +37,7 @@ export default {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader']
+        loaders: ['react-hot', 'babel-loader?stage=0']
       },
       {
         test: /json-formatter-js\/src\/\w+.js$/,

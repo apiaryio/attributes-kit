@@ -5,19 +5,23 @@ import ArrayItemComponent from 'ArrayItem/ArrayItem';
 import './array.styl';
 
 class ArrayComponent extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
-
     this.props.data = this.props.data || [];
-
   }
 
   render() {
     return (
-      <ul className="object">
+      <ul className="attributeArray">
         {this.props.data.map((member, index) => {
           return (
-            <li key={index}><ArrayItemComponent data={member} /></li>
+            <li key={index} className="attributeArrayItemContainer">
+              <ArrayItemComponent index={index} data={member} />
+            </li>
           );
         })}
       </ul>
