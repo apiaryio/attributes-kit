@@ -6,7 +6,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack -p --progress --colors",
     "test": "npm run lint && npm run unitTests",
-    "unitTests": "mocha --compilers js:babel ./src/**/test/*.js --recursive",
+    "unitTests": "mocha --compilers js:babel/register ./src/**/test/*.js --recursive",
     "lint": "eslint src --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:8080/'",
     "visual-testing": "NODE_ENV=test shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:8080/visual-testing.html'",
