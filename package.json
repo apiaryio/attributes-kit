@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --progress --colors",
-    "test": "npm run lint",
+    "test": "npm run lint && npm run unitTests",
+    "unitTests": "mocha --compilers js:babel ./src/**/test/*.js",
     "lint": "eslint src --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:8080/'",
     "visual-testing": "NODE_ENV=test shell-exec 'npm run start' 'node ./webpack/run-launch-browser.js http://localhost:8080/visual-testing.html'",
@@ -45,6 +46,7 @@
     "jquery": "^2.1.4",
     "json-formatter-js": "^0.2.0",
     "jsx-loader": "^0.13.2",
+    "mocha": "^2.3.2",
     "mson-zoo": "^2.0.0",
     "nib": "^1.1.0",
     "protagonist": "^1.0.0",
