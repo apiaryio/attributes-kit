@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ObjectMemberComponent from 'ObjectMember/ObjectMember';
+import ObjectMember from 'ObjectMember/ObjectMember';
 
 import './object.styl';
 
@@ -21,7 +21,7 @@ class ObjectComponent extends React.Component {
                 className="attributeObjectMemberContainer"
                 key={index}
               >
-                <ObjectMemberComponent data={member} />
+                <ObjectMember data={member} />
               </div>
             );
           })}
@@ -30,5 +30,9 @@ class ObjectComponent extends React.Component {
     );
   }
 }
+
+ObjectComponent.propTypes = {
+  data: React.PropTypes.object,
+};
 
 export default ObjectComponent;

@@ -4,7 +4,7 @@ import './toggle.styl';
 
 class Toggle extends React.Component {
   getClassNames() {
-    var classNames = ['attributeToggle'];
+    const classNames = ['attributeToggle'];
 
     if (this.props.isExpanded) {
       classNames.push('isExpanded');
@@ -23,5 +23,10 @@ class Toggle extends React.Component {
     );
   }
 }
+
+Toggle.propTypes = {
+  isExpanded: React.PropTypes.boolean,
+  expandCollapseEventHandler: React.PropTypes.func,
+};
 
 export default Toggle;

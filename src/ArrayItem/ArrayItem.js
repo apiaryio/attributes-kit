@@ -1,7 +1,6 @@
 import React from 'react';
 
-import KeyComponent from 'Key/Key';
-import RequirementComponent from 'Requirement/Requirement';
+import Key from 'Key/Key';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 
@@ -14,35 +13,35 @@ import {
 import './arrayItem.styl';
 
 
-class ArrayItemComponent extends React.Component {
+class ArrayItem extends React.Component {
   constructor(props) {
     super(props);
 
     // State hasn't been set; tree is expanded by default,
     // after a click, it collapses.
     this.state = {
-      isExpanded: true
+      isExpanded: true,
     };
+  }
+
+  getClassNames() {
+    const memberClassNames = ['attributeArrayItem'];
+
+    if (isExpandableAndCollapsible(this.props.data)) {
+      return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
+    }
+
+    return memberClassNames;
   }
 
   handleExpandCollapseEvent() {
     this.setState({
-      isExpanded: !this.state.isExpanded
+      isExpanded: !this.state.isExpanded,
     });
   }
 
-  getClassNames() {
-    let memberClassNames = ['attributeArrayItem'];
-
-    if (isExpandableAndCollapsible(this.props.data)) {
-      return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
-    } else {
-      return memberClassNames;
-    }
-  }
-
   renderValue() {
-    let value = getValue(this.props.data);
+    const value = getValue(this.props.data);
 
     if (value) {
       return (
@@ -50,9 +49,9 @@ class ArrayItemComponent extends React.Component {
           {value}
         </div>
       );
-    } else {
-      return false;
     }
+
+    return false;
   }
 
   render() {
@@ -67,7 +66,7 @@ class ArrayItemComponent extends React.Component {
           </div>
 
           <div className="attributeArrayItemKey">
-            <KeyComponent index={this.props.index} />
+            <Key index={this.props.index} />
           </div>
 
           {this.renderValue()}
@@ -84,4 +83,9 @@ class ArrayItemComponent extends React.Component {
   }
 }
 
-export default ArrayItemComponent;
+ArrayItem.propTypes = {
+  index: React.PropTypes.number,
+  data: React.PropTypes.object,
+};
+
+export default ArrayItem;

@@ -7,9 +7,7 @@ import './array.styl';
 class ArrayComponent extends React.Component {
   constructor(props) {
     super(props);
-
     this.props.data = this.props.data || [];
-
   }
 
   render() {
@@ -26,5 +24,9 @@ class ArrayComponent extends React.Component {
     );
   }
 }
+
+ArrayComponent.propTypes = {
+  data: React.PropTypes.object,
+};
 
 export default ArrayComponent;

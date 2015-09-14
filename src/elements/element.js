@@ -1,6 +1,6 @@
 import TYPES from 'types';
 
-let getValueType = function({element, content}) {
+const getValueType = ({element, content}) => {
   if (element === 'member') {
     return content.value.element;
   }
@@ -8,15 +8,15 @@ let getValueType = function({element, content}) {
   return element;
 };
 
-let isObject = function(element) {
+const isObject = (element) => {
   return element === TYPES.OBJECT;
 };
 
-let isArray = function(element) {
+const isArray = (element) => {
   return element === TYPES.ARRAY;
 };
 
-let isObjectOrArray = function(element) {
+const isObjectOrArray = (element) => {
   return (element === TYPES.OBJECT) || (element === TYPES.ARRAY);
 };
 

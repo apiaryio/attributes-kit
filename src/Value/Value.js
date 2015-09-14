@@ -1,6 +1,7 @@
 import React from 'react';
 
-import './value.styl'
+import './value.styl';
+
 
 class ValueComponent extends React.Component {
   constructor(props) {
@@ -19,5 +20,9 @@ class ValueComponent extends React.Component {
     );
   }
 }
+
+ValueComponent.propTypes = {
+  value: React.PropTypes.string,
+};
 
 export default ValueComponent;

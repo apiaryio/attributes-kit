@@ -5,22 +5,14 @@ import AttributeComponent from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isObject,
-  isArray,
   isObjectOrArray
 } from 'elements/element';
 
 
-let isExpandableAndCollapsible = function(element) {
+const isExpandableAndCollapsible = (element) => {
   const valueType = getValueType(element);
-
-  if (isObjectOrArray(valueType)) {
-    return true;
-  } else {
-    return false;
-  }
+  return isObjectOrArray(valueType);
 };
-
 
 // If the value is an object or an array, the component
 // does support expand/collapse functionality. In order
@@ -31,8 +23,8 @@ let isExpandableAndCollapsible = function(element) {
 // `expanded`/`collapsed` to indicate the current state;
 // `isObject`/`isArray` to state the type of the value, as
 // each has a different background color; and so on.
-let getExpandCollapseClassNames = function(element, state, classNamesToConcat) {
-  var classNames = ['isExpandableCollapsible'];
+const getExpandCollapseClassNames = (element, state, classNamesToConcat) => {
+  const classNames = ['isExpandableCollapsible'];
 
   const valueType = getValueType(element);
 
@@ -52,17 +44,16 @@ let getExpandCollapseClassNames = function(element, state, classNamesToConcat) {
 
   if (classNamesToConcat) {
     return classNamesToConcat.concat(classNames);
-  } else {
-    return classNames;
   }
+
+  return classNames;
 };
 
-let getValue = function(element) {
+const getValue = (element) => {
   let value;
 
   if (isObjectOrArray(element.element)) {
     value = <AttributeComponent data={element} />;
-  
   } else if (element.element === 'member') {
     if (isObjectOrArray(element.content.value.element)) {
       value = <AttributeComponent data={element.content.value} />;
@@ -71,10 +62,8 @@ let getValue = function(element) {
     } else {
       value = false;
     }
-  
   } else if (element.content) {
     value = <ValueComponent value={element.content} />;
-  
   } else {
     value = false;
   }

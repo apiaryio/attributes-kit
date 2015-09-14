@@ -26,4 +26,8 @@ class Description extends React.Component {
   }
 }
 
+Description.propTypes = {
+  data: React.PropTypes.object,
+};
+
 export default Description;
