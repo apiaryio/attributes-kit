@@ -5,6 +5,10 @@ import ObjectMember from 'ObjectMember/ObjectMember';
 import './object.styl';
 
 class ObjectComponent extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -30,9 +34,5 @@ class ObjectComponent extends React.Component {
     );
   }
 }
-
-ObjectComponent.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default ObjectComponent;

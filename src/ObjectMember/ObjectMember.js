@@ -15,6 +15,10 @@ import './objectMember.styl';
 
 
 class ObjectMember extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -84,9 +88,5 @@ class ObjectMember extends React.Component {
     );
   }
 }
-
-ObjectMember.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default ObjectMember;

@@ -5,6 +5,10 @@ import refractToComponentsMap from 'refractToComponentMap';
 import './attribute.styl';
 
 class Attribute extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -25,9 +29,5 @@ class Attribute extends React.Component {
     });
   }
 }
-
-Attribute.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default Attribute;

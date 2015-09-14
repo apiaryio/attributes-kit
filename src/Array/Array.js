@@ -5,6 +5,10 @@ import ArrayItemComponent from 'ArrayItem/ArrayItem';
 import './array.styl';
 
 class ArrayComponent extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
     this.props.data = this.props.data || [];
@@ -24,9 +28,5 @@ class ArrayComponent extends React.Component {
     );
   }
 }
-
-ArrayComponent.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default ArrayComponent;

@@ -3,6 +3,11 @@ import React from 'react';
 import './key.styl';
 
 class Key extends React.Component {
+  static propTypes = {
+    index: React.PropTypes.number,
+    data: React.PropTypes.object,
+  }
+
   getKey() {
     if (typeof this.props.index !== 'undefined') {
       return this.props.index;
@@ -29,10 +34,5 @@ class Key extends React.Component {
     );
   }
 }
-
-Key.propTypes = {
-  index: React.PropTypes.number,
-  data: React.PropTypes.object,
-};
 
 export default Key;

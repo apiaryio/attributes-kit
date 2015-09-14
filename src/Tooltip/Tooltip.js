@@ -3,6 +3,10 @@ import React from 'react';
 import './tooltip.styl';
 
 class Tooltip extends React.Component {
+  static propTypes = {
+    text: React.PropTypes.string,
+  }
+
   render() {
     return (
       <div className="attributeTooltip">
@@ -13,9 +17,5 @@ class Tooltip extends React.Component {
     );
   }
 }
-
-Tooltip.propTypes = {
-  text: React.PropTypes.string,
-};
 
 export default Tooltip;

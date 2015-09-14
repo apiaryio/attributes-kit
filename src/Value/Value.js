@@ -4,6 +4,10 @@ import './value.styl';
 
 
 class Value extends React.Component {
+  static propTypes = {
+    value: React.PropTypes.string,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -20,9 +24,5 @@ class Value extends React.Component {
     );
   }
 }
-
-Value.propTypes = {
-  value: React.PropTypes.string,
-};
 
 export default Value;

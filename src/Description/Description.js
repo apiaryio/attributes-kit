@@ -1,6 +1,10 @@
 import React from 'react';
 
 class Description extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -25,9 +29,5 @@ class Description extends React.Component {
     );
   }
 }
-
-Description.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default Description;

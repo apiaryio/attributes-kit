@@ -5,6 +5,10 @@ import Tooltip from 'Tooltip/Tooltip';
 import './requirement.styl';
 
 class Requirement extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -44,9 +48,5 @@ class Requirement extends React.Component {
     );
   }
 }
-
-Requirement.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default Requirement;

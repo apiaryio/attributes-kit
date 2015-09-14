@@ -14,6 +14,11 @@ import './arrayItem.styl';
 
 
 class ArrayItem extends React.Component {
+  static propTypes = {
+    index: React.PropTypes.number,
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -82,10 +87,5 @@ class ArrayItem extends React.Component {
     );
   }
 }
-
-ArrayItem.propTypes = {
-  index: React.PropTypes.number,
-  data: React.PropTypes.object,
-};
 
 export default ArrayItem;

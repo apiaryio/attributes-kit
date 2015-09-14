@@ -5,6 +5,10 @@ import Attribute from 'Attribute/Attribute';
 import './attributes.styl';
 
 class Attributes extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
@@ -23,9 +27,5 @@ class Attributes extends React.Component {
     );
   }
 }
-
-Attributes.propTypes = {
-  data: React.PropTypes.object,
-};
 
 export default Attributes;
