@@ -5,11 +5,14 @@ import Key from 'Key/Key';
 import Requirement from 'Requirement/Requirement';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
+import Type from 'Type/Type';
 
 import {
   getExpandCollapseClassNames,
   getValue
 } from 'elements/expandableCollapsibleElement';
+
+import {getType} from 'elements/element';
 
 import './objectMember.styl';
 
@@ -37,6 +40,20 @@ class ObjectMember extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
+  }
+
+  renderType() {
+    const type = getType(this.props.data);
+
+    if (type) {
+      return (
+        <div className="attributeObjectMemberType">
+          <Type type={type} />
+        </div>
+      );
+    }
+
+    return false;
   }
 
   renderValue() {
@@ -75,6 +92,8 @@ class ObjectMember extends React.Component {
         <div className="attributeObjectMemberDescription">
           <Description data={this.props.data} />
         </div>
+
+        {this.renderType()}
 
         {this.renderValue()}
 

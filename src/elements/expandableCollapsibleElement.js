@@ -8,7 +8,8 @@ import {
   getValueType,
   isObjectOrArray,
   isObject,
-  isArray
+  isArray,
+  isMember
 } from 'elements/element';
 
 
@@ -36,7 +37,7 @@ const getValue = (element) => {
 
   if (isObjectOrArray(element.element)) {
     value = <Attribute data={element} />;
-  } else if (element.element === 'member') {
+  } else if (isMember(element.element)) {
     if (isObjectOrArray(element.content.value.element)) {
       value = <Attribute data={element.content.value} />;
     } else if (element.content.value.content) {

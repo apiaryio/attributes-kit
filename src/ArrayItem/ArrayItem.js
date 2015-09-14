@@ -5,11 +5,14 @@ import classNames from 'classnames';
 import Key from 'Key/Key';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
+import Type from 'Type/Type';
 
 import {
   getExpandCollapseClassNames,
   getValue
 } from 'elements/expandableCollapsibleElement';
+
+import {getType} from 'elements/element';
 
 import './arrayItem.styl';
 
@@ -40,6 +43,20 @@ class ArrayItem extends React.Component {
     });
   }
 
+  renderType() {
+    const type = getType(this.props.data);
+
+    if (type) {
+      return (
+        <div className="attributeArrayItemType">
+          <Type type={type} />
+        </div>
+      );
+    }
+
+    return false;
+  }
+
   renderValue() {
     const value = getValue(this.props.data);
 
@@ -68,6 +85,8 @@ class ArrayItem extends React.Component {
           <div className="attributeArrayItemKey">
             <Key index={this.props.index} />
           </div>
+
+          {this.renderType()}
 
           {this.renderValue()}
         </div>
