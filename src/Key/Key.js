@@ -3,16 +3,20 @@ import React from 'react';
 import './key.styl';
 
 class KeyComponent extends React.Component {
-  render() {
-    const element = this.props.data.element;
-
-    let key = false;
-
-    if (element === 'member') {
-      key = this.props.data.content.key.content;
+  getKey() {
+    if (typeof this.props.index !== 'undefined') {
+      return this.props.index;
+    } else if (this.props.data.element === 'member') {
+      return this.props.data.content.key.content;
+    } else {
+      return undefined;
     }
+  }
 
-    if (!key) {
+  render() {
+    let key = this.getKey()
+
+    if (typeof key === 'undefined') {
       return false;
     }
 
