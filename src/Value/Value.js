@@ -3,7 +3,7 @@ import React from 'react';
 import './value.styl';
 
 
-class ValueComponent extends React.Component {
+class Value extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -21,8 +21,8 @@ class ValueComponent extends React.Component {
   }
 }
 
-ValueComponent.propTypes = {
+Value.propTypes = {
   value: React.PropTypes.string,
 };
 
-export default ValueComponent;
+export default Value;

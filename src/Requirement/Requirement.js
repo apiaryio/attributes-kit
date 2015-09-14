@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TooltipComponent from 'Tooltip/Tooltip';
+import Tooltip from 'Tooltip/Tooltip';
 
 import './requirement.styl';
 
@@ -38,7 +38,7 @@ class Requirement extends React.Component {
         <span className="attributeRequirementIcon"></span>
 
         <span className="attributeRequirementTooltip">
-          <TooltipComponent text={this.requirement.join(' ')} />
+          <Tooltip text={this.requirement.join(' ')} />
         </span>
       </div>
     );

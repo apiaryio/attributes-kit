@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ValueComponent from 'Value/Value';
-import AttributeComponent from 'Attribute/Attribute';
+import Value from 'Value/Value';
+import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
@@ -53,17 +53,17 @@ const getValue = (element) => {
   let value;
 
   if (isObjectOrArray(element.element)) {
-    value = <AttributeComponent data={element} />;
+    value = <Attribute data={element} />;
   } else if (element.element === 'member') {
     if (isObjectOrArray(element.content.value.element)) {
-      value = <AttributeComponent data={element.content.value} />;
+      value = <Attribute data={element.content.value} />;
     } else if (element.content.value.content) {
-      value = <ValueComponent value={element.content.value.content} />;
+      value = <Value value={element.content.value.content} />;
     } else {
       value = false;
     }
   } else if (element.content) {
-    value = <ValueComponent value={element.content} />;
+    value = <Value value={element.content} />;
   } else {
     value = false;
   }

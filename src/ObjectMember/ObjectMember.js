@@ -1,7 +1,7 @@
 import React from 'react';
 
-import KeyComponent from 'Key/Key';
-import RequirementComponent from 'Requirement/Requirement';
+import Key from 'Key/Key';
+import Requirement from 'Requirement/Requirement';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 
@@ -67,11 +67,11 @@ class ObjectMember extends React.Component {
         </div>
 
         <div className="attributeObjectMemeberKey">
-          <KeyComponent data={this.props.data} />
+          <Key data={this.props.data} />
         </div>
 
         <div className="attributeObjectMemeberRequirement">
-          <RequirementComponent data={this.props.data} />
+          <Requirement data={this.props.data} />
         </div>
 
         <div className="attributeObjectMemeberDescription">
