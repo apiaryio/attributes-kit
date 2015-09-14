@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './value.styl'
+
 class ValueComponent extends React.Component {
   constructor(props) {
     super(props);
