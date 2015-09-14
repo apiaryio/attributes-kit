@@ -14,10 +14,12 @@ class ArrayComponent extends React.Component {
 
   render() {
     return (
-      <ul className="object">
+      <ul className="attributeArray">
         {this.props.data.map((member, index) => {
           return (
-            <li key={index}><ArrayItemComponent data={member} /></li>
+            <li key={index} className="attributeArrayItemContainer">
+              <ArrayItemComponent index={index} data={member} />
+            </li>
           );
         })}
       </ul>
