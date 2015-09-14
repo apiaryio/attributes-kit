@@ -35,7 +35,7 @@ class ObjectMember extends React.Component {
     return memberClassNames;
   }
 
-  handleExpandCollapseEvent() {
+  handleExpandCollapseEvent = () => {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
@@ -61,7 +61,7 @@ class ObjectMember extends React.Component {
 
         <div className="attributeObjectMemeberToggle">
           <Toggle
-            expandCollapseEventHandler={this.handleExpandCollapseEvent.bind(this)}
+            expandCollapseEventHandler={this.handleExpandCollapseEvent}
             isExpanded={this.state.isExpanded}
           />
         </div>
