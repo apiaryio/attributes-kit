@@ -17,7 +17,7 @@ const isArray = (element) => {
 };
 
 const isObjectOrArray = (element) => {
-  return (element === TYPES.OBJECT) || (element === TYPES.ARRAY);
+  return isObject(element) || isArray(element);
 };
 
 export {
