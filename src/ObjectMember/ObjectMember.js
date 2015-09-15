@@ -61,7 +61,7 @@ class ObjectMember extends React.Component {
 
   render() {
     return (
-      <div className={this.getClassNames().join(' ')}>
+      <div className={this.getClassNames()}>
 
         <div className="attributeObjectMemberToggle">
           <Toggle

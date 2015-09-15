@@ -22,7 +22,7 @@ class Toggle extends React.Component {
 
   render() {
     return (
-      <div className={this.getClassNames().join(' ')} onClick={this.props.expandCollapseEventHandler}>
+      <div className={this.getClassNames()} onClick={this.props.expandCollapseEventHandler}>
         <span className="attributeToggleIcon"></span>
       </div>
     );

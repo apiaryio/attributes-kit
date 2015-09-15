@@ -25,17 +25,15 @@ const isExpandableAndCollapsible = (element) => {
 // `isObject`/`isArray` to state the type of the value, as
 // each has a different background color; and so on.
 const getExpandCollapseClassNames = (element, state, classNamesToConcat) => {
-  const classNamesArray = ['isExpandableCollapsible'];
-
   const valueType = getValueType(element);
 
   return classNames({
     isExpanded: !state || (state && state.isExpanded),
-    isCollapsed:
+    isCollapsed: state && !(state && state.isExpanded),
   },
+  'isExpandableCollapsible',
   classNamesToConcat,
   `is${valueType.charAt(0).toUpperCase() + valueType.substr(1)}`);
-
 };
 
 const getValue = (element) => {
