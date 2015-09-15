@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames'
 
 import Key from 'Key/Key';
 import Requirement from 'Requirement/Requirement';
@@ -30,13 +31,14 @@ class ObjectMember extends React.Component {
   }
 
   getClassNames() {
-    const memberClassNames = ['attributeObjectMember'];
+    let memberClassNames = 'attributeObjectMember';
 
     if (isExpandableAndCollapsible(this.props.data)) {
-      return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
+      memberClassNames = classnames(memberClassNames, getExpandCollapseClassNames(this.props.data, this.state));
     }
 
     return memberClassNames;
+
   }
 
   handleExpandCollapseEvent = () => {

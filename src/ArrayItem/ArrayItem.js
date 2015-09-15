@@ -31,10 +31,10 @@ class ArrayItem extends React.Component {
   }
 
   getClassNames() {
-    const memberClassNames = ['attributeArrayItem'];
+    let memberClassNames = 'attributeArrayItem';
 
     if (isExpandableAndCollapsible(this.props.data)) {
-      return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
+      memberClassNames = classnames(memberClassNames, getExpandCollapseClassNames(this.props.data, this.state));
     }
 
     return memberClassNames;
