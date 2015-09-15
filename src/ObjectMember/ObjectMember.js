@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import Key from 'Key/Key';
 import Requirement from 'Requirement/Requirement';
@@ -6,7 +7,6 @@ import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 
 import {
-  isExpandableAndCollapsible,
   getExpandCollapseClassNames,
   getValue
 } from 'elements/expandableCollapsibleElement';
@@ -30,13 +30,7 @@ class ObjectMember extends React.Component {
   }
 
   getClassNames() {
-    const memberClassNames = ['attributeObjectMember'];
-
-    if (isExpandableAndCollapsible(this.props.data)) {
-      return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
-    }
-
-    return memberClassNames;
+    return classNames('attributeObjectMember', getExpandCollapseClassNames(this.props.data, this.state));
   }
 
   handleExpandCollapseEvent = () => {
@@ -61,7 +55,7 @@ class ObjectMember extends React.Component {
 
   render() {
     return (
-      <div className={this.getClassNames().join(' ')}>
+      <div className={this.getClassNames()}>
 
         <div className="attributeObjectMemberToggle">
           <Toggle

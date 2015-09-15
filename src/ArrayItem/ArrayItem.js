@@ -1,11 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
+
 
 import Key from 'Key/Key';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 
 import {
-  isExpandableAndCollapsible,
   getExpandCollapseClassNames,
   getValue
 } from 'elements/expandableCollapsibleElement';
@@ -30,13 +31,7 @@ class ArrayItem extends React.Component {
   }
 
   getClassNames() {
-    const memberClassNames = ['attributeArrayItem'];
-
-    if (isExpandableAndCollapsible(this.props.data)) {
-      return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
-    }
-
-    return memberClassNames;
+    return classNames('attributeArrayItem', getExpandCollapseClassNames(this.props.data, this.state));
   }
 
   handleExpandCollapseEvent = () => {
@@ -61,7 +56,7 @@ class ArrayItem extends React.Component {
 
   render() {
     return (
-      <div className={this.getClassNames().join(' ')}>
+      <div className={this.getClassNames()}>
         <div className="attributeArrayItemRow">
           <div className="attributeArrayItemToggle">
             <Toggle
