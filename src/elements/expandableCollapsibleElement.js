@@ -6,14 +6,11 @@ import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isObjectOrArray
+  isObjectOrArray,
+  isObject,
+  isArray
 } from 'elements/element';
 
-
-const isExpandableAndCollapsible = (element) => {
-  const valueType = getValueType(element);
-  return isObjectOrArray(valueType);
-};
 
 // If the value is an object or an array, the component
 // does support expand/collapse functionality. In order
@@ -30,9 +27,10 @@ const getExpandCollapseClassNames = (element, state) => {
   return classNames({
     isExpanded: !state || (state && state.isExpanded),
     isCollapsed: state && !(state && state.isExpanded),
-  },
-  'isExpandableCollapsible',
-  `is${valueType.charAt(0).toUpperCase() + valueType.substr(1)}`);
+    isObject: isObject(element),
+    isArray: isArray(element),
+    isExpandableCollapsible: isObjectOrArray(element)
+  });
 };
 
 const getValue = (element) => {
@@ -59,7 +57,6 @@ const getValue = (element) => {
 
 
 export {
-  isExpandableAndCollapsible,
   getExpandCollapseClassNames,
   getValue
 };
