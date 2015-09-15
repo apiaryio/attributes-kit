@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames'
+import classNames from 'classnames';
 
 import Key from 'Key/Key';
 import Requirement from 'Requirement/Requirement';

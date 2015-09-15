@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 
 import Key from 'Key/Key';
@@ -30,7 +31,7 @@ class ArrayItem extends React.Component {
   }
 
   getClassNames() {
-    return classnames('attributeArrayItem', getExpandCollapseClassNames(this.props.data, this.state));
+    return classNames('attributeArrayItem', getExpandCollapseClassNames(this.props.data, this.state));
   }
 
   handleExpandCollapseEvent = () => {

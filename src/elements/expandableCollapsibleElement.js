@@ -5,7 +5,6 @@ import Value from 'Value/Value';
 import Attribute from 'Attribute/Attribute';
 
 import {
-  getValueType,
   isObjectOrArray,
   isObject,
   isArray
@@ -22,7 +21,6 @@ import {
 // `isObject`/`isArray` to state the type of the value, as
 // each has a different background color; and so on.
 const getExpandCollapseClassNames = (element, state) => {
-  const valueType = getValueType(element);
 
   return classNames({
     'isExpanded': !state || (state && state.isExpanded),
