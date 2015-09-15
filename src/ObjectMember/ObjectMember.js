@@ -30,7 +30,7 @@ class ObjectMember extends React.Component {
   }
 
   getClassNames() {
-    const memberClassNames = ['attributeObjectMemeber'];
+    const memberClassNames = ['attributeObjectMember'];
 
     if (isExpandableAndCollapsible(this.props.data)) {
       return getExpandCollapseClassNames(this.props.data, this.state, memberClassNames);
@@ -50,7 +50,7 @@ class ObjectMember extends React.Component {
 
     if (value) {
       return (
-        <div className="attributeObjectMemeberValue">
+        <div className="attributeObjectMemberValue">
           {value}
         </div>
       );
@@ -63,22 +63,22 @@ class ObjectMember extends React.Component {
     return (
       <div className={this.getClassNames().join(' ')}>
 
-        <div className="attributeObjectMemeberToggle">
+        <div className="attributeObjectMemberToggle">
           <Toggle
             expandCollapseEventHandler={this.handleExpandCollapseEvent}
             isExpanded={this.state.isExpanded}
           />
         </div>
 
-        <div className="attributeObjectMemeberKey">
+        <div className="attributeObjectMemberKey">
           <Key data={this.props.data} />
         </div>
 
-        <div className="attributeObjectMemeberRequirement">
+        <div className="attributeObjectMemberRequirement">
           <Requirement data={this.props.data} />
         </div>
 
-        <div className="attributeObjectMemeberDescription">
+        <div className="attributeObjectMemberDescription">
           <Description data={this.props.data} />
         </div>
 
