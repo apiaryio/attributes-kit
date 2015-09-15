@@ -1,3 +1,5 @@
+![BuildStatus](https://circleci.com/gh/apiaryio/attributes-component/tree/master.svg?style=shield&circle-token=18099f7d91b1c3e6ff9377b466852e78236a670c)
+
 # Attributes Component
 
 ## Top Level Components
