@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import './toggle.styl';
 
@@ -9,15 +10,10 @@ class Toggle extends React.Component {
   }
 
   getClassNames() {
-    const classNames = ['attributeToggle'];
-
-    if (this.props.isExpanded) {
-      classNames.push('isExpanded');
-    } else {
-      classNames.push('isCollapsed');
-    }
-
-    return classNames;
+    return classNames('attributeToggle', {
+      isExpanded: this.props.isExpanded,
+      isCollapsed: !this.props.isExpanded,
+    });
   }
 
   render() {

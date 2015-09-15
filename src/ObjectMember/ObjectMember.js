@@ -30,7 +30,7 @@ class ObjectMember extends React.Component {
   }
 
   getClassNames() {
-    return classnames('attributeObjectMember', getExpandCollapseClassNames(this.props.data, this.state));
+    return classNames('attributeObjectMember', getExpandCollapseClassNames(this.props.data, this.state));
   }
 
   handleExpandCollapseEvent = () => {
