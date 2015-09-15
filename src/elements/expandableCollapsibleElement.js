@@ -17,7 +17,7 @@ const isExpandableAndCollapsible = (element) => {
 // If the value is an object or an array, the component
 // does support expand/collapse functionality. In order
 // to support such functionality we have to attach
-// respective class names to the `.attributeObjectMemeber`
+// respective class names to the `.attributeObjectMember`
 // element.
 //
 // `expanded`/`collapsed` to indicate the current state;
