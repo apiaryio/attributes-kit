@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import Key from 'Key/Key';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
@@ -61,7 +62,7 @@ class ArrayItem extends React.Component {
 
   render() {
     return (
-      <div className={this.getClassNames().join(' ')}>
+      <div className={this.getClassNames()}>
         <div className="attributeArrayItemRow">
           <div className="attributeArrayItemToggle">
             <Toggle

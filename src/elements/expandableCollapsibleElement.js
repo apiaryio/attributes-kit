@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import Value from 'Value/Value';
 import Attribute from 'Attribute/Attribute';
@@ -24,29 +25,17 @@ const isExpandableAndCollapsible = (element) => {
 // `isObject`/`isArray` to state the type of the value, as
 // each has a different background color; and so on.
 const getExpandCollapseClassNames = (element, state, classNamesToConcat) => {
-  const classNames = ['isExpandableCollapsible'];
+  const classNamesArray = ['isExpandableCollapsible'];
 
   const valueType = getValueType(element);
 
-  // Attach a class name indicating a type of the value,
-  // e.g. `isObject`, `isArray`.
-  classNames.push(`
-    is${valueType.charAt(0).toUpperCase() + valueType.substr(1)}
-  `);
+  return classNames({
+    isExpanded: !state || (state && state.isExpanded),
+    isCollapsed:
+  },
+  classNamesToConcat,
+  `is${valueType.charAt(0).toUpperCase() + valueType.substr(1)}`);
 
-  if (!state) {
-    classNames.push('isExpanded');
-  } else if (state && state.isExpanded) {
-    classNames.push('isExpanded');
-  } else {
-    classNames.push('isCollapsed');
-  }
-
-  if (classNamesToConcat) {
-    return classNamesToConcat.concat(classNames);
-  }
-
-  return classNames;
 };
 
 const getValue = (element) => {
