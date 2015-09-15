@@ -25,11 +25,10 @@ const getExpandCollapseClassNames = (element, state) => {
   const valueType = getValueType(element);
 
   return classNames({
-    isExpanded: !state || (state && state.isExpanded),
-    isCollapsed: state && !(state && state.isExpanded),
-    isObject: isObject(element),
-    isArray: isArray(element),
-    isExpandableCollapsible: isObjectOrArray(element)
+    'isExpanded': !state || (state && state.isExpanded),
+    'isCollapsed': state && !(state && state.isExpanded),
+    'isExpandableCollapsible isObject': isObject(element),
+    'isExpandableCollapsible isArray': isArray(element),
   });
 };
 
