@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import Tooltip from 'Tooltip/Tooltip';
 
@@ -26,12 +27,10 @@ class Requirement extends React.Component {
   }
 
   getClassName() {
-    const classNames = this.requirement.map((req) =>
-      `is${req.charAt(0).toUpperCase() + req.substr(1)}`
-    );
-
-    classNames.push(this.CLASS_NAME);
-    return classNames.join(' ');
+    return classNames(this.CLASS_NAME,
+      this.requirement.map((req) => {
+        return `is${req.charAt(0).toUpperCase() + req.substr(1)}`;
+      }));
   }
 
   render() {
