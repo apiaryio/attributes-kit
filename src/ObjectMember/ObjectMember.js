@@ -13,7 +13,7 @@ import {
   getValue
 } from 'elements/expandableCollapsibleElement';
 
-import {getType} from 'elements/element';
+import {getType, isObjectOrArray} from 'elements/element';
 
 import './objectMember.styl';
 
@@ -58,11 +58,16 @@ class ObjectMember extends React.Component {
   }
 
   renderSamples() {
-    const attributes = this.props.data.content.value.attributes;
+    const value = this.props.data.content.value;
+
+    if (isObjectOrArray(value.element)) {
+      return false;
+    }
+
     let samples = null;
 
-    if (attributes) {
-      samples = attributes.samples;
+    if (value.attributes) {
+      samples = value.attributes.samples;
     }
 
     if (!samples) {
