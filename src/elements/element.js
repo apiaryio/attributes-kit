@@ -1,36 +1,36 @@
 import TYPES from 'types';
 
-const isMember = (element) => {
+function isMember(element) {
   return element === TYPES.MEMBER;
-};
+}
 
-const getValueType = ({element, content}) => {
+function getValueType({element, content}) {
   if (isMember(element)) {
     return content.value.element;
   }
 
   return element;
-};
+}
 
-const getType = (element) => {
+function getType(element) {
   if (isMember(element.element)) {
     return getValueType(element);
   }
 
   return element.element;
-};
+}
 
-const isObject = (element) => {
+function isObject(element) {
   return element === TYPES.OBJECT;
-};
+}
 
-const isArray = (element) => {
+function isArray(element) {
   return element === TYPES.ARRAY;
-};
+}
 
-const isObjectOrArray = (element) => {
+function isObjectOrArray(element) {
   return isObject(element) || isArray(element);
-};
+}
 
 export {
   getValueType,
