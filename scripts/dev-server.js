@@ -2,8 +2,8 @@ import WebpackDevServer from 'webpack-dev-server';
 import Webpack from 'webpack';
 import path from 'path';
 
-import playgroundConfig from './playground.config';
-import testConfig from './test.config';
+import playgroundConfig from '../webpack/playground.config';
+import testConfig from '../webpack/test.config';
 import '../playground/server';
 
 // Starts webpack-dev-server
