@@ -5,13 +5,13 @@
   "main": "src/index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --progress --colors",
-    "generateFixtures": "node ./scripts/run-generate",
+    "generate-fixtures": "node ./scripts/run.js ./generateFixtures",
     "lint": "eslint src --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",
     "prepublish": "npm run build",
-    "test": "npm run lint && npm run unitTests",
+    "test": "npm run lint && npm run unit-tests",
     "start": "node ./scripts/run.js ./devServer",
-    "unitTests": "mocha --compilers js:babel/register ./src/**/test/*.js --recursive",
+    "unit-tests": "mocha --compilers js:babel/register ./src/**/test/*.js --recursive",
     "visual-testing": "NODE_ENV=test shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/visual-testing.html'"
   },
   "repository": {
