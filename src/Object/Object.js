@@ -8,7 +8,7 @@ import './object.styl';
 
 class ObjectComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.array,
+    data: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -30,7 +30,9 @@ class ObjectComponent extends React.Component {
     }
 
     return (
-      <Samples data={samples} />
+      <div className="attributeObjectSamplesContainer">
+        <Samples data={samples} />
+      </div>
     );
   }
 
