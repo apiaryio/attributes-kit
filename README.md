@@ -1,4 +1,4 @@
-![BuildStatus](https://circleci.com/gh/apiaryio/attributes-component/tree/master.svg?style=shield&circle-token=18099f7d91b1c3e6ff9377b466852e78236a670c)
+[![Circle CI](https://circleci.com/gh/apiaryio/attributes-kit.svg?style=svg&circle-token=b2737c94f42fff64565fe49cf0bd5d776f091bdd)](https://circleci.com/gh/apiaryio/attributes-kit)
 
 # Attributes Component
 
