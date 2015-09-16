@@ -1,2 +1,2 @@
 require('babel/register');
-require('./dev-server');
+require(process.argv[2]);
