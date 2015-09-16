@@ -22,7 +22,7 @@ import {
 // `expanded`/`collapsed` to indicate the current state;
 // `isObject`/`isArray` to state the type of the value, as
 // each has a different background color; and so on.
-const getExpandCollapseClassNames = (element, state) => {
+function getExpandCollapseClassNames(element, state) {
   const valueType = getValueType(element);
   return classNames({
     'isExpanded': state.isExpanded,
@@ -30,9 +30,9 @@ const getExpandCollapseClassNames = (element, state) => {
     'isExpandableCollapsible isObject': isObject(valueType),
     'isExpandableCollapsible isArray': isArray(valueType),
   });
-};
+}
 
-const getValue = (element) => {
+function getValue(element) {
   let value;
 
   if (isObjectOrArray(element.element)) {
@@ -52,7 +52,7 @@ const getValue = (element) => {
   }
 
   return value;
-};
+}
 
 
 export {
