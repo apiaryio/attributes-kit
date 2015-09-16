@@ -48,7 +48,7 @@ const server = app.listen(9090, 'localhost', () => {
   console.log(`Server is listening on ${host}:${port}`);
 });
 
-const parseMson = (mson, cb) => {
+function parseMson (mson, cb) {
   const lines = mson.split('\n');
   let source = dedent`
     FORMAT: 1A
