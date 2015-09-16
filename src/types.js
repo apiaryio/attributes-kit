@@ -1,4 +1,5 @@
 const TYPES = {
+  MEMBER: 'member',
   ARRAY: 'array',
   OBJECT: 'object',
   STRING: 'string',

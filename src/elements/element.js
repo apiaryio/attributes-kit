@@ -1,11 +1,23 @@
 import TYPES from 'types';
 
+const isMember = (element) => {
+  return element === TYPES.MEMBER;
+};
+
 const getValueType = ({element, content}) => {
-  if (element === 'member') {
+  if (isMember(element)) {
     return content.value.element;
   }
 
   return element;
+};
+
+const getType = (element) => {
+  if (isMember(element.element)) {
+    return getValueType(element);
+  }
+
+  return element.element;
 };
 
 const isObject = (element) => {
@@ -22,6 +34,8 @@ const isObjectOrArray = (element) => {
 
 export {
   getValueType,
+  getType,
+  isMember,
   isObject,
   isArray,
   isObjectOrArray
