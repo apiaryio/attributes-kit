@@ -5,18 +5,14 @@ import './value.styl';
 
 class Value extends React.Component {
   static propTypes = {
-    value: React.PropTypes.string,
-  }
-
-  constructor(props) {
-    super(props);
+    value: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+      React.PropTypes.bool,
+    ])
   }
 
   render() {
-    if (!this.props.value) {
-      return false;
-    }
-
     return (
       <div className="attributeValue">
         {this.props.value}

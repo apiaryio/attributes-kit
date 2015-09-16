@@ -6,6 +6,7 @@ import Requirement from 'Requirement/Requirement';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 import Type from 'Type/Type';
+import Samples from 'Samples/Samples';
 
 import {
   getExpandCollapseClassNames,
@@ -56,6 +57,25 @@ class ObjectMember extends React.Component {
     return false;
   }
 
+  renderSamples() {
+    let attributes = this.props.data.content.value.attributes;
+    let samples = null;
+
+    if (attributes) {
+      samples = attributes.samples;
+    }
+
+    if (!samples) {
+      return false;
+    }
+
+    return (
+      <div className="attributeObjectMemberSamplesContainer">
+        <Samples data={samples} />
+      </div>
+    );
+  }
+
   renderValue() {
     const value = getValue(this.props.data);
 
@@ -96,6 +116,8 @@ class ObjectMember extends React.Component {
         {this.renderType()}
 
         {this.renderValue()}
+
+        {this.renderSamples()}
 
       </div>
     );
