@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "name": "attributes-components",
+      "name": "attributes-kit",
       "path": "/",
       "folder_exclude_patterns": [
         "node_modules",
