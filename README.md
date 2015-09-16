@@ -1,104 +1,145 @@
-[![Circle CI](https://circleci.com/gh/apiaryio/attributes-kit.svg?style=svg&circle-token=b2737c94f42fff64565fe49cf0bd5d776f091bdd)](https://circleci.com/gh/apiaryio/attributes-kit)
+# Attributes Kit [![Circle CI](circleci-badge)](circleci)
 
-# Attributes Component
+Attributes Kit is a (as the name suggest) kit which helps you with rendering [MSON](https://github.com/apiaryio/mson) (plain-text, human and machine readable, description format for describing data structures).
 
-## Top Level Components
-
-* `ResourceAttributesComponent`
-* `ActionAttributesComponent`
-* `PayloadAttributesComponent`
-
-Each component has its own style sheet, e.g. `ResourceAttributesComponent` has `resourceAttributes.styl`; if you want to override the default style sheets, that's the place.
-
-Reason for having these components is to apply a different theme, e.g. have a different visual rendering of the `Attributes` component.
-
-Another reason is to render additional title, or description.
-
----
-
-## Components
-
-### `AttributesComponent`
-
-It has some default styles which goes with the component.
-
-Title “Attributes”.
-
-Takes `content[0]` and passes it down to the `AttributeComponent`.
-
-### `AttributeComponent`
-
-Decides based on `element` whether to render object, or an array.
-
-### `ObjectComponent` + `ObjectMemberComponent`
-
-### `ArrayComponent` + `ArrayItemComponent`
+For instance—it turns the following...
 
 
----
-
-
-### `KeyComponent`
-
-Input: Refract Element (e.g. Member Element).
-
-```json
-{
-    "element": "member",
-    "content": {
-        "key": {
-            "element": "string",
-            "content": "id"
-        },
-        "value": {
-            "element": "string",
-            "content": "42"
-        }
-    }
-}
+```Markdown
+- id: 1
+- name: A green door
+- price: 12.50
+- tags: home, green
 ```
 
-### `ValueComponent`
-### `DescriptionComponent`
-### `RequirementComponent`
-### `TypeComponent`
-### `DefaultComponent`
-### `SamplesComponent`
+...into this.
+
+![image](https://cloud.githubusercontent.com/assets/95191/9908622/d160352a-5c94-11e5-8c90-bc1e22b02664.png)
+
+## Table of Contents
+
+* [Getting Started](#getting-started)
+* [Compatibility](#compatibility)
+* [Usage](#usage)
+  * [Installation](#installation)
+  * [Browser Builds](#browser-builds)
+  * [Custom Builds](#custom-builds)
+* [Developing](#developing)
+  * [Pre-Installation Check](#developing)
+  * [Installation](#developing)
+  * [Playground](#testing)
+  * [Testing](#testing)
+* [Contributing](#testing)
+* [Troubleshooting](#testing)
+* [License](#testing)
+
+---
+
+# Getting Started
 
 
 
 ---
 
-# Playground
+# Compatibility
 
-## How set it up
+## Node
 
-+ Clone repository
-```bash
-  $ git clone git@github.com:apiaryio/attributes-component.git
+![](https://img.shields.io/npm/v/npm.svg)
+![](https://img.shields.io/node/v/gh-badges.svg)
+
+:point_right: You are using version `0.10.39` (or newer) of Node
+
+```Bash
+node -v
+0.10.39
 ```
 
-+ Install dependencies
+:point_right: You are using version `2.11.3` (or newer) of NPM
 
-```bash
+```Bash
+npm -v
+2.11.3
+```
+
+## Browsers
+
+
+---
+
+# Usage
+
+## Installation
+
+```
+npm install attributes-kit
+```
+
+### Browser
+
+You can still `npm install attributes-kit` and use the package in the browser; with [Webpack](http://webpack.github.io/) it's a piece of cake.
+
+If you prefer to drop a `<script>` tag in your page, here's a list of browser builds that you can use. All builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box; there are both uncompressed and compressed versions, the compressed one comes with a source map file.
+
+| Uncompressed            |
+|:------------------------|
+| [`attributes-kit.js`]() |
+| The uncompressed file is best used during development or debugging. |
+
+| Compressed                   |
+|:-----------------------------|
+| [`attributes-kit.min.js`](); [`attributes-kit.min.map`]() |
+| Compressed version saves bandwidth and improves performance in production. Source map, the file is not required to run the Kit. |
+
+In case you would like to build your own version of the Attributes Kit, please see the [Custom Builds](#custom-builds) section.
+
+### Custom Builds
+
+`npm build`
+
+---
+
+## Developing
+
+### Installation
+
+1. Clone the repository
+
+  ```bash
+  $ git clone git@github.com:apiaryio/attributes-kit.git
+  ```
+
+2. Install dependencies
+
+  ```bash
+  cd ./attributes-kit
   npm install
-  npm run playground
-```
+  ```
 
-+ Run it
+3. Run it
 
-```bash
-  npm run playground
-```
+  ```bash
+  npm start
+  ```
 
-+ Open the visual testing page
-```bash
-  npm run visual-testing
-```
+**Congratulations!** You are all set to start developing now! :rocket:
+
+## Playground
+
+## Testing
 
 ---
 
+# Contributing
 
-# TO DO
+---
 
-Please see the [Issues page](https://github.com/apiaryio/attributes-component/issues) for a detailed list.
+# Troubleshooting
+
+---
+
+# License
+
+
+[circleci-badge]: https://img.shields.io/circleci/token/b2737c94f42fff64565fe49cf0bd5d776f091bdd/project/apiaryio/attributes-kit/master.svg
+[circleci]: https://circleci.com/gh/apiaryio/attributes-kit
