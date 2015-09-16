@@ -18,7 +18,7 @@
     "url": "git+https://github.com/apiaryio/attributes-kit.git"
   },
   "author": "",
-  "license": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/apiaryio/attributes-kit/issues"
   },
