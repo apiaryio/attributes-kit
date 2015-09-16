@@ -18,7 +18,7 @@ class ObjectComponent extends React.Component {
   }
 
   renderSamples() {
-    let attributes = this.props.data.attributes;
+    const attributes = this.props.data.attributes;
     let samples = null;
 
     if (attributes) {

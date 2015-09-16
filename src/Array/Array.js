@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ArrayItemComponent from 'ArrayItem/ArrayItem';
+import Samples from 'Samples/Samples';
 
 import './array.styl';
 
@@ -10,7 +11,7 @@ class ArrayComponent extends React.Component {
   }
 
   renderSamples() {
-    let attributes = this.props.data.attributes;
+    const attributes = this.props.data.attributes;
     let samples = null;
 
     if (attributes) {

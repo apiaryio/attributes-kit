@@ -58,7 +58,7 @@ class ObjectMember extends React.Component {
   }
 
   renderSamples() {
-    let attributes = this.props.data.content.value.attributes;
+    const attributes = this.props.data.content.value.attributes;
     let samples = null;
 
     if (attributes) {

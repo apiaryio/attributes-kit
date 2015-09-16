@@ -5,17 +5,17 @@ import SampleEntry from 'SampleEntry/SampleEntry';
 class Sample extends React.Component {
 
   static propTypes = {
-    data: React.PropTypes.node
+    data: React.PropTypes.node,
   }
 
   renderSampleEntries() {
-    let data = this.props.data;
+    const data = this.props.data;
     if (Array.isArray(data)) {
       return data.map((entry, index) => {
         return (
           <SampleEntry key={index} data={entry} />
         );
-      })
+      });
     }
 
     return data;

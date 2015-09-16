@@ -9,8 +9,12 @@ import {isMember, isArray, isObject} from 'elements/element';
 
 class SampleEntry extends React.Component {
 
+  static propTypes = {
+    data: React.PropTypes.node,
+  }
+
   renderEntry() {
-    let data = this.props.data;
+    const data = this.props.data;
     if (typeof data === 'object') {
       if (!data.element) {
         return false;

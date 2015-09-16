@@ -4,17 +4,23 @@ import SampleEntry from 'SampleEntry/SampleEntry';
 
 class SampleMemberValue extends React.Component {
 
+  static propTypes = {
+    data: React.PropTypes.node,
+  };
+
   renderValue() {
-    let value = this.props.data.content.value;
+    const value = this.props.data.content.value;
     if (typeof value === 'object') {
-      return (<SampleEntry data={value} />)
+      return (
+        <SampleEntry data={value} />
+      );
     }
 
     return value;
   }
 
   render() {
-    let content = this.props.data.content;
+    const content = this.props.data.content;
     return (
       <div>
         <div className="key">

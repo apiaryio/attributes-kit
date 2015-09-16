@@ -4,7 +4,7 @@ import Sample from 'Sample/Sample';
 
 class Samples extends React.Component {
   static propTypes = {
-    data: React.PropTypes.array
+    data: React.PropTypes.array,
   }
 
   render() {

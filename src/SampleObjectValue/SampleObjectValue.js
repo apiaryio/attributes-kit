@@ -3,6 +3,10 @@ import React from 'react';
 import SampleEntry from 'SampleEntry/SampleEntry';
 
 class SampleObjectValue extends React.Component {
+  static propTypes = {
+    data: React.PropTypes.object,
+  }
+
   render() {
     return (
       <div className="attributeSampleObjectValue">
