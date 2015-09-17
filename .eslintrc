@@ -1,4 +1,4 @@
-// See https://github.com/apiaryio/javascript-style-guide/tree/master/linters
+// See https://github.com/airbnb/javascript/tree/master/linters
 {
   "extends": "airbnb"
 }
