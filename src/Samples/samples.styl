@@ -1,0 +1,22 @@
+.attributeSample
+  width 100%
+  height auto
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content flex-start
+  align-items flex-start
+
+.attributeSamples
+  > .attributeObjectMemberToggle
+    width 20px
+    max-width 20px
+    min-width 20px
+
+.attributeSamples.isExpanded
+  .attributeSample
+    display block
+
+.attributeSamples.isCollapsed
+  .attributeSample
+    display none
