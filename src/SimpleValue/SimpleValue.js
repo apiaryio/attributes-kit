@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SamplePrimitiveValue from 'SamplePrimitiveValue/SamplePrimitiveValue';
-import SampleMemberValue from 'SampleMemberValue/SampleMemberValue';
-import SampleObjectValue from 'SampleObjectValue/SampleObjectValue';
-import SampleArrayValue from 'SampleArrayValue/SampleArrayValue';
+import SimplePrimitiveValue from 'SimplePrimitiveValue/SimplePrimitiveValue';
+import SimpleMemberValue from 'SimpleMemberValue/SimpleMemberValue';
+import SimpleObjectValue from 'SimpleObjectValue/SimpleObjectValue';
+import SimpleArrayValue from 'SimpleArrayValue/SimpleArrayValue';
 
 import {isMember, isArray, isObject} from 'elements/element';
 
-class SampleEntry extends React.Component {
+class SimpleValue extends React.Component {
 
   static propTypes = {
     data: React.PropTypes.node,
@@ -22,35 +22,35 @@ class SampleEntry extends React.Component {
 
       if (isMember(data.element)) {
         return (
-          <SampleMemberValue data={data} />
+          <SimpleMemberValue data={data} />
         );
       }
 
       if (isObject(data.element)) {
         return (
-          <SampleObjectValue data={data} />
+          <SimpleObjectValue data={data} />
         );
       }
 
       if (isArray(data.element)) {
         return (
-          <SampleArrayValue data={data} />
+          <SimpleArrayValue data={data} />
         );
       }
     }
 
     return (
-      <SamplePrimitiveValue data={data} />
+      <SimplePrimitiveValue data={data} />
     );
   }
 
   render() {
     return (
-      <div className="attributeSampleEntry">
+      <div className="attributeSimpleValue">
         {this.renderEntry()}
       </div>
     );
   }
 }
 
-export default SampleEntry;
+export default SimpleValue;

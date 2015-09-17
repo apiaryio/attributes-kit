@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SampleEntry from 'SampleEntry/SampleEntry';
+import SimpleValue from 'SimpleValue/SimpleValue';
 
-class SampleMemberValue extends React.Component {
+class SimpleMemberValue extends React.Component {
 
   static propTypes = {
     data: React.PropTypes.node,
@@ -12,7 +12,7 @@ class SampleMemberValue extends React.Component {
     const value = this.props.data.content.value;
     if (typeof value === 'object') {
       return (
-        <SampleEntry data={value} />
+        <SimpleValue data={value} />
       );
     }
 
@@ -34,4 +34,4 @@ class SampleMemberValue extends React.Component {
   }
 }
 
-export default SampleMemberValue;
+export default SimpleMemberValue;

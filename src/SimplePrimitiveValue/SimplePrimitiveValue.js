@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SamplePrimitiveValue extends React.Component {
+class SimplePrimitiveValue extends React.Component {
   static propTypes = {
     data: React.PropTypes.node,
   }
@@ -15,11 +15,11 @@ class SamplePrimitiveValue extends React.Component {
 
   render() {
     return (
-      <div className="attributeSamplePrimitiveValue">
+      <div className="attributeSimplePrimitiveValue">
         {this.renderValue()}
       </div>
     );
   }
 }
 
-export default SamplePrimitiveValue;
+export default SimplePrimitiveValue;

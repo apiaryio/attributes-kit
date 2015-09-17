@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SampleEntry from 'SampleEntry/SampleEntry';
+import SimpleValue from 'SimpleValue/SimpleValue';
 
 class Sample extends React.Component {
 
@@ -13,7 +13,7 @@ class Sample extends React.Component {
     if (Array.isArray(data)) {
       return data.map((entry, index) => {
         return (
-          <SampleEntry key={index} data={entry} />
+          <SimpleValue key={index} data={entry} />
         );
       });
     }

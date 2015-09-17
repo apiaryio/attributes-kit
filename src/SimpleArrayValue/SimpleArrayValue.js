@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SampleEntry from 'SampleEntry/SampleEntry';
+import SimpleValue from 'SimpleValue/SimpleValue';
 
-class SampleArrayValue extends React.Component {
+class SimpleArrayValue extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
   }
@@ -10,10 +10,10 @@ class SampleArrayValue extends React.Component {
   render() {
     const content = this.props.data.content;
     return (
-      <div className="attributeSampleArrayValue">
+      <div className="attributeSimpleArrayValue">
         {content.map((item, index) => {
           return (
-            <SampleEntry key={index} data={item} />
+            <SimpleValue key={index} data={item} />
           );
         })}
       </div>
@@ -21,4 +21,4 @@ class SampleArrayValue extends React.Component {
   }
 }
 
-export default SampleArrayValue;
+export default SimpleArrayValue;
