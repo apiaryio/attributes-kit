@@ -4,7 +4,7 @@ import SimpleValue from 'SimpleValue/SimpleValue';
 
 class Defaults extends React.Component {
   static propTypes = {
-    data: React.PropTypes.array
+    data: React.PropTypes.array,
   }
 
   renderDefaultEntries() {

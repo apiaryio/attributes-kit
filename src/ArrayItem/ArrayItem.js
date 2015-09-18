@@ -6,6 +6,7 @@ import Key from 'Key/Key';
 import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 import Type from 'Type/Type';
+import Defaults from 'Defaults/Defaults';
 
 import {
   getExpandCollapseClassNames,
@@ -71,6 +72,25 @@ class ArrayItem extends React.Component {
     return false;
   }
 
+  renderDefaults() {
+    const attributes = this.props.data.attributes;
+
+    let defaults = null;
+    if (attributes) {
+      defaults = attributes.default;
+    }
+
+    if (!defaults) {
+      return false;
+    }
+
+    return (
+      <div className="attributeArrayItemDefaultsContainer">
+        <Defaults data={defaults} />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={this.getClassNames()}>
@@ -89,6 +109,8 @@ class ArrayItem extends React.Component {
           {this.renderType()}
 
           {this.renderValue()}
+
+          {this.renderDefaults()}
         </div>
 
         <div className="attributeArrayItemRow">
