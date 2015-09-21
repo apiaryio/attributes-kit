@@ -10,7 +10,8 @@ import parseMson from './parseMson';
 const app = express();
 
 app.use(bodyparser.json());
-app.use(express.static('dist'));
+
+app.use(express.static(path.join(__dirname, '../dist')));
 app.use('/', express.static(path.join(__dirname, '/views')));
 
 app.post('/parse', (req, res) => {

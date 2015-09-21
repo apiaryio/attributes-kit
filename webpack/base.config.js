@@ -1,6 +1,8 @@
 import path from 'path';
 import nib from 'nib';
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export default {
   context: path.join(__dirname, '../'),
 
@@ -37,7 +39,13 @@ export default {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel-loader']
+        loaders: (function() {
+          const loaders = ['babel-loader?stage=0'];
+          if (!isProduction) {
+            loaders.unshift('react-hot');
+          }
+          return loaders;
+        })()
       },
       {
         test: /json-formatter-js\/src\/\w+.js$/,
@@ -61,6 +69,10 @@ export default {
       }
     ]
   },
+
+  devtool: (function() {
+    return isProduction ? false : 'source-map';
+  })(),
 
   stylus: {
     use: [nib()],

@@ -2,19 +2,24 @@ import _ from 'underscore';
 import path from 'path';
 import baseConfig from './base.config';
 
-export default _.extend({}, baseConfig, {
-  entry: {
-    attributes: './src/index'
-  },
+const isProduction = process.env.NODE_ENV === 'production';
 
-  // TODO: add support to minified version and .min.js filename
+export default _.extend({}, baseConfig, {
+  entry: './src/index',
+
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: '[name].js',
-    library: 'Attributes',
+    filename: isProduction ? 'attributes-kit.min.js' : 'attributes-kit.js',
+    library: 'AttributesKit',
+    libraryTarget: 'umd'
   },
 
   externals: {
-    'react': 'react'
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    }
   }
 });
