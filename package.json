@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack -p --progress --colors",
-    "generate-fixtures": "NODE_ENV=production node ./scripts/run.js ./generateFixtures",
+    "generate-fixtures": "NODE_ENV=production node ./scripts/run.js ./serverBuild && node ./scripts/run.js ./generateFixtures",
     "lint": "eslint src --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",
     "prepublish": "npm run build",
