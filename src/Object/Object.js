@@ -14,7 +14,7 @@ class ObjectComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.props.data = this.props.data || [];
+    this.props.data.content = this.props.data.content || [];
   }
 
   renderSamples() {
