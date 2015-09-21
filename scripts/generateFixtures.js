@@ -4,15 +4,22 @@ import fs from 'fs'
 import path from 'path'
 
 
-import Attributes from '../dist/server'
+import {Attributes} from '../dist/server'
+
+const fixtureLocation = path.join(__dirname, '../', 'fixtures');
+
+if (!fs.existsSync(fixtureLocation)) {
+    fs.mkdirSync(fixtureLocation);
+}
 
 mson_zoo.samples.forEach((sample) => {
-  const renderedElement = React.createElement(Attributes, {
+
+  const renderedElement = React.createElement('Attributes', {
     data: sample.code
   });
 
   const htmlString = React.renderToString(renderedElement);
-  fs.writeFileSync(path.join('./fixtures', `${sample.name}.html`, htmlString));
+  fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
 });
 
 process.exit(0);

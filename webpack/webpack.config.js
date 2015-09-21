@@ -12,7 +12,6 @@ export default _.extend({}, baseConfig, {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
     library: 'Attributes',
-    libraryTarget: 'umd'
   },
 
   externals: {
