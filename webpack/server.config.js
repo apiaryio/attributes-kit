@@ -20,6 +20,7 @@ export default _.extend({}, webpackConfig, {
     path: path.join(__dirname, '../dist'),
     filename: 'server.js',
   },
+  entry: [path.join(__dirname, '../scripts/generateFixtures')],
   externals: nodeModules,
   plugins: [
     new webpack.NormalModuleReplacementPlugin(/\.(css|styl)$/, 'node-noop'),
@@ -37,4 +38,13 @@ export default _.extend({}, webpackConfig, {
     ]
   },
   devtool: 'sourcemap',
+  node: {
+    console: true,
+    global: true,
+    process: true,
+    Buffer: true,
+    __filename: "true",
+    __dirname: "true",
+    setImmediate: true
+  },
 });

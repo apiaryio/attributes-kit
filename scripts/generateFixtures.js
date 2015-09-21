@@ -2,9 +2,11 @@ import React from 'react';
 import mson_zoo from 'mson-zoo'
 import fs from 'fs'
 import path from 'path'
+import protagonist from 'protagonist';
+import parseMson from '../playground/parseMson'
 
 
-import {Attributes} from '../dist/server'
+import {Attributes} from '../src/index'
 
 const fixtureLocation = path.join(__dirname, '../', 'fixtures');
 
@@ -14,12 +16,19 @@ if (!fs.existsSync(fixtureLocation)) {
 
 mson_zoo.samples.forEach((sample) => {
 
-  const renderedElement = React.createElement('Attributes', {
-    data: sample.code
-  });
+  parseMson(sample.code, (err, result) => {
+    if (err) {
+      console.error('Error during mson parse');
+      process.exit(1);
+    }
 
-  const htmlString = React.renderToString(renderedElement);
-  fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
+    const renderedElement = React.createElement(Attributes, {
+      data: result
+    });
+
+    const htmlString = React.renderToString(renderedElement);
+    fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
+  })
 });
 
-process.exit(0);
+
