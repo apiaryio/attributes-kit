@@ -50,6 +50,10 @@ class ArrayComponent extends React.Component {
   }
 
   render() {
+    if (!this.props.data.content) {
+      return false;
+    }
+
     return (
       <div className="attributeArray">
         <ul className="attributeArrayItems">

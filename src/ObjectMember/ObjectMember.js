@@ -61,6 +61,10 @@ class ObjectMember extends React.Component {
   renderSamples() {
     const value = this.props.data.content.value;
 
+    if (!value) {
+      return false;
+    }
+
     if (isObjectOrArray(value.element)) {
       return false;
     }
@@ -84,6 +88,10 @@ class ObjectMember extends React.Component {
 
   renderDefaults() {
     const value = this.props.data.content.value;
+
+    if (!value) {
+      return false;
+    }
 
     if (isObjectOrArray(value.element)) {
       return false;
