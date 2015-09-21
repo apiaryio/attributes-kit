@@ -9,7 +9,7 @@ import Type from 'Type/Type';
 
 import {
   getExpandCollapseClassNames,
-  getValue
+  getValue,
 } from 'elements/expandableCollapsibleElement';
 
 import {getType} from 'elements/element';

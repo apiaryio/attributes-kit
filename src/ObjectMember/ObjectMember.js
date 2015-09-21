@@ -10,7 +10,7 @@ import Samples from 'Samples/Samples';
 
 import {
   getExpandCollapseClassNames,
-  getValue
+  getValue,
 } from 'elements/expandableCollapsibleElement';
 
 import {getType, isObjectOrArray} from 'elements/element';
