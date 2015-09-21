@@ -35,14 +35,8 @@ export default _.extend({}, webpackConfig, {
       },
     ]
   },
-  devtool: 'sourcemap',
   node: {
-    console: true,
-    global: true,
-    process: true,
-    Buffer: true,
     __filename: "true",
     __dirname: "true",
-    setImmediate: true
   },
 });
