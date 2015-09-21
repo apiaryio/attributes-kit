@@ -1,5 +1,5 @@
 import React from 'react';
-import mson_zoo from 'mson-zoo'
+import msonZoo from 'mson-zoo'
 import fs from 'fs'
 import path from 'path'
 import protagonist from 'protagonist';
@@ -14,7 +14,7 @@ if (!fs.existsSync(fixtureLocation)) {
     fs.mkdirSync(fixtureLocation);
 }
 
-mson_zoo.samples.forEach((sample) => {
+msonZoo.samples.forEach((sample) => {
 
   parseMson(sample.code, (err, result) => {
     if (err) {
@@ -26,9 +26,10 @@ mson_zoo.samples.forEach((sample) => {
       data: result
     });
 
-    const htmlString = React.renderToString(renderedElement);
+    let htmlString = React.renderToString(renderedElement)
+                          .replace(/ data-reactid="([^"]*)"/g)
+                          .replace(/ data-react-checksum="([^"]*)"/g);
+
     fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
   })
 });
-
-

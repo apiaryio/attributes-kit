@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyparser from 'body-parser';
-import mson_zoo from 'mson-zoo';
+import msonZoo from 'mson-zoo';
 import async from 'async';
 
 import parseMson from './parseMson'
@@ -24,7 +24,7 @@ app.post('/parse', (req, res) => {
 });
 
 app.get('/fixtures', (req, res) => {
-  async.map(mson_zoo.samples, (sample, callback) => {
+  async.map(msonZoo.samples, (sample, callback) => {
     parseMson(sample.code, (err, result) => {
       if (err) {
         return callback(err);

@@ -18,9 +18,12 @@ export default _.extend({}, webpackConfig, {
   target: 'node',
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'server.js',
+    filename: '[name].js',
   },
-  entry: [path.join(__dirname, '../scripts/generateFixtures')],
+  entry: {
+    'generateFixtures': path.join(__dirname, '../scripts/generateFixtures'),
+    'test/fixturesComparision': path.join(__dirname, '../test/fixturesComparision'),
+  },
   externals: nodeModules,
   plugins: [
     new webpack.NormalModuleReplacementPlugin(/\.(css|styl)$/, 'node-noop'),

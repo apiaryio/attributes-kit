@@ -11,7 +11,7 @@ import Defaults from 'Defaults/Defaults';
 
 import {
   getExpandCollapseClassNames,
-  getValue
+  getValue,
 } from 'elements/expandableCollapsibleElement';
 
 import {getType, isObjectOrArray} from 'elements/element';

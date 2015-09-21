@@ -38,5 +38,5 @@ export {
   isMember,
   isObject,
   isArray,
-  isObjectOrArray
+  isObjectOrArray,
 };
