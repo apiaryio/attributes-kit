@@ -24,8 +24,6 @@ export default _.extend({}, webpackConfig, {
   externals: nodeModules,
   plugins: [
     new webpack.NormalModuleReplacementPlugin(/\.(css|styl)$/, 'node-noop'),
-    new webpack.BannerPlugin('require("source-map-support").install();',
-                             { raw: true, entryOnly: false }),
     new webpack.IgnorePlugin(/\.(css|styl)$/)
   ],
   module: {

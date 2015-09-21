@@ -56,7 +56,6 @@
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^1.3.0",
     "shell-executor": "^0.3.2",
-    "source-map-support": "^0.3.2",
     "style-loader": "^0.12.3",
     "stylus-loader": "1.2.x",
     "superagent": "^1.3.0",
