@@ -5,7 +5,7 @@ import baseConfig from './base.config';
 const isProduction = process.env.NODE_ENV === 'production';
 
 export default _.extend({}, baseConfig, {
-  entry: './src/index',
+  entry: './src/seed',
 
   output: {
     path: path.join(__dirname, '../dist'),
