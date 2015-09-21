@@ -12,7 +12,7 @@ mson_zoo.samples.forEach((sample) => {
   });
 
   const htmlString = React.renderToString(renderedElement);
-  fs.writeFileSync(sample.name, htmlString);
+  fs.writeFileSync(`${sample.name}.html`, htmlString);
 });
 
 process.exit(0);
