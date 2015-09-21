@@ -2,7 +2,7 @@ import React from 'react';
 
 import ObjectMember from 'ObjectMember/ObjectMember';
 import Samples from 'Samples/Samples';
-
+import Defaults from 'Defaults/Defaults';
 
 import './object.styl';
 
@@ -36,6 +36,25 @@ class ObjectComponent extends React.Component {
     );
   }
 
+  renderDefaults() {
+    const attributes = this.props.data.attributes;
+    let defaults = null;
+
+    if (attributes) {
+      defaults = attributes.default;
+    }
+
+    if (!defaults) {
+      return false;
+    }
+
+    return (
+      <div className="attributeObjectDefaultsContainer">
+        <Defaults data={defaults} />
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="attributeObject">
@@ -51,6 +70,8 @@ class ObjectComponent extends React.Component {
             );
           })}
         </div>
+
+          {this.renderDefaults()}
 
           {this.renderSamples()}
       </div>

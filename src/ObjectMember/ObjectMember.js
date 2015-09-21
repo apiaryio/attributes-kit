@@ -7,6 +7,7 @@ import Description from 'Description/Description';
 import Toggle from 'Toggle/Toggle';
 import Type from 'Type/Type';
 import Samples from 'Samples/Samples';
+import Defaults from 'Defaults/Defaults';
 
 import {
   getExpandCollapseClassNames,
@@ -81,6 +82,30 @@ class ObjectMember extends React.Component {
     );
   }
 
+  renderDefaults() {
+    const value = this.props.data.content.value;
+
+    if (isObjectOrArray(value.element)) {
+      return false;
+    }
+
+    let defaults = null;
+
+    if (value.attributes) {
+      defaults = value.attributes.default;
+    }
+
+    if (!defaults) {
+      return false;
+    }
+
+    return (
+      <div className="attributeObjectMemberDefaultsContainer">
+        <Defaults data={defaults} />
+      </div>
+    );
+  }
+
   renderValue() {
     const value = getValue(this.props.data);
 
@@ -121,6 +146,8 @@ class ObjectMember extends React.Component {
         {this.renderType()}
 
         {this.renderValue()}
+
+        {this.renderDefaults()}
 
         {this.renderSamples()}
 
