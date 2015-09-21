@@ -2,7 +2,7 @@ import React from 'react';
 import request from 'superagent';
 
 import JsonFormatter from './JsonFormatter';
-import {AttributesComponent} from '../../src';
+import {Attributes} from '../../src';
 
 
 class VisualTesting extends React.Component {
@@ -40,7 +40,7 @@ class VisualTesting extends React.Component {
             <JsonFormatter data={fixture.parsed} />
           </div>
           <div className="column">
-            <AttributesComponent data={fixture.parsed} />
+            <Attributes data={fixture.parsed} />
           </div>
         </div>
       );
