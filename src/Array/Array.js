@@ -1,8 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import ArrayItemComponent from 'ArrayItem/ArrayItem';
 import Samples from 'Samples/Samples';
 import Defaults from 'Defaults/Defaults';
+
+import {
+  containsExpandableCollapsibleElement
+} from 'elements/expandableCollapsibleElement';
 
 import './array.styl';
 
@@ -49,13 +54,20 @@ class ArrayComponent extends React.Component {
     );
   }
 
+  getClassNames() {
+    return classNames({
+      'attributeArray': true,
+      'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content)
+    });
+  }
+
   render() {
     if (!this.props.data.content) {
       return false;
     }
 
     return (
-      <div className="attributeArray">
+      <div className={this.getClassNames()}>
         <ul className="attributeArrayItems">
           {this.props.data.content.map((member, index) => {
             return (
