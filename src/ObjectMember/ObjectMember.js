@@ -93,7 +93,7 @@ class ObjectMember extends React.Component {
       return false;
     }
 
-    if (isObjectOrArray(value.element)) {
+    if (isObject(value.element)) {
       return false;
     }
 
