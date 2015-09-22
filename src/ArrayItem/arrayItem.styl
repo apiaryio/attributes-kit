@@ -9,7 +9,7 @@
 .attributeArrayItemRow
   display flex
   flex-direction row
-  flex-wrap nowrap
+  flex-wrap wrap
   justify-content flex-start
   align-items flex-start
 
@@ -17,30 +17,52 @@
 .attributeArrayItemKey
 .attributeArrayItemDescription
 .attributeArrayItemValue
-  flex-grow 1  
+  flex-grow 1
   height auto
   width auto
-  
+
 .attributeArrayItemToggle
   width 0px
   max-width 0px
   min-width 0px
   height auto
+  padding-left 10px
 
 .attributeArrayItem.isExpandableCollapsible
   > .attributeArrayItemRow
     > .attributeArrayItemToggle
-      width 20px
-      max-width 20px
-      min-width 20px
+      width 30px
+      max-width 30px
+      min-width 30px
 
 .attributeArrayItemKey
-  width 40px
-  max-width 40px
-  min-width 40px
+  width 60px
+  max-width 60px
+  min-width 60px
+
+.containsExpandableCollapsibleElements
+  .attributeArrayItemKey
+    padding-left 20px
+
+.containsExpandableCollapsibleElements
+  .attributeArrayItem.isExpandableCollapsible
+    .attributeArrayItemKey
+      padding-left 0px
 
 .attributeArrayItemValue
-  margin-right 20px
+  padding-left 20px
+  padding-right 20px
+
+.attributeArrayItem.isExpandableCollapsible
+  > .attributeArrayItemRow
+    > .attributeArrayItemValue
+      width 100%
+      padding-left 30px
+      margin-top 10px
+
+.attributeArrayItemValue
+  .attributeObjectMembers
+    border 2px solid #d8dbe4
 
 .attributeArrayItemDescription
   width 100%
@@ -48,16 +70,12 @@
 .attributeArray
   .attributeArrayItemContainer
     .attributeArrayItem
-      border-bottom 1px solid #d8dbe4
+      border-bottom 2px solid #d8dbe4
 
 .attributeArray
   .attributeArrayItemContainer:last-child
     .attributeArrayItem
       border-bottom 0
-
-.attributeArrayItemKey
-  padding-left 10px
-
 
 .attributeArrayItem.isExpanded
   .attributeArrayItemValue
