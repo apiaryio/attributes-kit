@@ -9,7 +9,7 @@ import {
   isObjectOrArray,
   isObject,
   isArray,
-  isMember
+  isMember,
 } from 'elements/element';
 
 
@@ -57,5 +57,5 @@ function getValue(element) {
 
 export {
   getExpandCollapseClassNames,
-  getValue
+  getValue,
 };
