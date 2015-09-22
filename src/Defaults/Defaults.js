@@ -2,6 +2,8 @@ import React from 'react';
 
 import SimpleValue from 'SimpleValue/SimpleValue';
 
+import './defaults.styl';
+
 class Defaults extends React.Component {
   static propTypes = {
     data: React.PropTypes.array,
@@ -23,6 +25,8 @@ class Defaults extends React.Component {
   render() {
     return (
       <div className="attributeDefaults">
+        <h2 className="attributeDefaultsTitle">Default</h2>
+
         <div className="attributeDefaultsEntries">
           {this.renderDefaultEntries()}
         </div>
