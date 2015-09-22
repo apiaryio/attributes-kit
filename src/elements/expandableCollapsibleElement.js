@@ -17,6 +17,12 @@ function isExpandableCollapsible(element) {
   return isObject(valueType) || isArray(valueType);
 }
 
+function containsExpandableCollapsibleElement(elements) {
+  return elements.some(function(element) {
+    return isExpandableCollapsible(element);
+  });
+}
+
 // If the value is an object or an array, the component
 // does support expand/collapse functionality. In order
 // to support such functionality we have to attach
@@ -63,5 +69,6 @@ function getValue(element) {
 export {
   getExpandCollapseClassNames,
   getValue,
+  containsExpandableCollapsibleElement,
   isExpandableCollapsible,
 };
