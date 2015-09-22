@@ -22,7 +22,7 @@ class SimpleMemberValue extends React.Component {
   render() {
     const content = this.props.data.content;
     return (
-      <div>
+      <div className="attributeSimpleMemberValue">
         <div className="key">
           {content.key.content}
         </div>
