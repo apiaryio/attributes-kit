@@ -2,6 +2,29 @@
   "name": "attributes-kit",
   "version": "1.0.0",
   "description": "React component for MSON rendering",
+  "keywords": [
+    "MSON",
+    "Attributes",
+    "Apiary",
+    "Refract"
+  ],
+  "contributors": [
+    {
+      "name": "František Hába",
+      "email" : "frantisek@apiary.io",
+      "url" : "http://http://www.frantisekhaba.com/"
+    },
+    {
+      "name": "Ondřej Musil",
+      "email" : "ondra@apiary.io",
+      "url" : "http://www.ondrejmusil.cz/"
+    },
+    {
+      "name": "Vincenzo Chianese",
+      "email" : "vincenzo@apiary.io",
+      "url" : "http://vncz.js.org/"
+    }
+  ],
   "main": "src/index.js",
   "scripts": {
     "build": "npm run build:server && npm run build:client",
