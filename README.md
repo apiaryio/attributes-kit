@@ -242,6 +242,7 @@ In case you would like to build your own version of the Attributes Kit, please s
 
 # License
 
+This project adheres to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#Apiary.io/vincenzo@apiary.io). By participating, you are expected to honor this code.
 
 [circleci-badge]: https://img.shields.io/circleci/token/b2737c94f42fff64565fe49cf0bd5d776f091bdd/project/apiaryio/attributes-kit/master.svg
 [circleci]: https://circleci.com/gh/apiaryio/attributes-kit
