@@ -1,4 +1,4 @@
-# Attributes Kit [![Circle CI](circleci-badge)](circleci)
+# Attributes Kit [![Circle CI](https://img.shields.io/circleci/token/b2737c94f42fff64565fe49cf0bd5d776f091bdd/project/apiaryio/attributes-kit/master.svg)](https://circleci.com/gh/apiaryio/attributes-kit)
 
 Attributes Kit is a (as the name suggest) kit which helps you with rendering [MSON](https://github.com/apiaryio/mson) (plain-text, human and machine readable, description format for describing data structures).
 
@@ -226,23 +226,4 @@ In case you would like to build your own version of the Attributes Kit, please s
 
 **Congratulations!** You are all set to start developing now! :rocket:
 
-## Playground
-
-## Testing
-
----
-
-# Contributing
-
----
-
-# Troubleshooting
-
----
-
-# License
-
 This project adheres to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#Apiary.io/vincenzo@apiary.io). By participating, you are expected to honor this code.
-
-[circleci-badge]: https://img.shields.io/circleci/token/b2737c94f42fff64565fe49cf0bd5d776f091bdd/project/apiaryio/attributes-kit/master.svg
-[circleci]: https://circleci.com/gh/apiaryio/attributes-kit
