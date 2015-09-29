@@ -36,6 +36,7 @@ Please see the **[list of supported features →](#mson-features)**
   * [Testing](#testing)
 * [Contributing](#testing)
 * [Troubleshooting](#testing)
+* [Code of Conduct](#code-of-conduct)
 * [License](#testing)
 
 ---
@@ -226,4 +227,26 @@ In case you would like to build your own version of the Attributes Kit, please s
 
 **Congratulations!** You are all set to start developing now! :rocket:
 
-This project adheres to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#Apiary.io/vincenzo@apiary.io). By participating, you are expected to honor this code.
+## Playground
+
+## Testing
+
+---
+
+# Contributing
+
+---
+
+# Troubleshooting
+
+---
+
+# Code of Conduct
+
+This project adheres to the [Open Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to honor this code.
+
+---
+
+# License
+
+
