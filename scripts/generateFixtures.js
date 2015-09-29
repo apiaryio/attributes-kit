@@ -28,6 +28,6 @@ msonZoo.samples.forEach((sample) => {
 
     let htmlString = jsBeautify.html(React.renderToStaticMarkup(renderedElement));
 
-    fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
-  });
+    fs.writeFileSync(path.join(fixtureLocation, sample.name), htmlString);
+  })
 });
