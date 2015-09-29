@@ -4,8 +4,18 @@ import JSONFormatter from 'json-formatter-js/src/index';
 import 'json-formatter-js/dist/style.css';
 
 class JsonFormatter extends React.Component {
+
+  static propTypes = {
+    data: React.PropTypes.object,
+  };
+
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    this.nodeComponent = React.findDOMNode(this.refs.jsonFormatterContainer);
+    this.attachJsonFormatter();
   }
 
   attachJsonFormatter() {
@@ -19,17 +29,12 @@ class JsonFormatter extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.nodeComponent = React.findDOMNode(this.refs.jsonFormatterContainer);
-    this.attachJsonFormatter();
-  }
-
   render() {
-      this.attachJsonFormatter();
-      return (
-        <div ref="jsonFormatterContainer">
-        </div>
-      );
+    this.attachJsonFormatter();
+    return (
+      <div ref="jsonFormatterContainer">
+      </div>
+    );
   }
 }
 

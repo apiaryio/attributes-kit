@@ -1,7 +1,7 @@
 import protagonist from 'protagonist';
 import dedent from 'dedent';
 
-export default function parseMson (mson, cb) {
+export default function parseMson(mson, cb) {
   const lines = mson.split('\n');
   let source = dedent`
     FORMAT: 1A
@@ -16,7 +16,7 @@ export default function parseMson (mson, cb) {
     ${item}`;
   });
 
-  protagonist.parse(source.trim(), function(err, result) {
+  protagonist.parse(source.trim(), (err, result) => {
     if (err) {
       return cb(err);
     }
@@ -37,4 +37,4 @@ export default function parseMson (mson, cb) {
 
     return cb('No attribute parsed');
   });
-};
+}
