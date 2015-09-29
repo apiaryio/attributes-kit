@@ -11,18 +11,18 @@
   "contributors": [
     {
       "name": "František Hába",
-      "email" : "frantisek@apiary.io",
-      "url" : "http://www.frantisekhaba.com/"
+      "email": "frantisek@apiary.io",
+      "url": "http://www.frantisekhaba.com/"
     },
     {
       "name": "Ondřej Musil",
-      "email" : "ondra@apiary.io",
-      "url" : "http://www.ondrejmusil.cz/"
+      "email": "ondra@apiary.io",
+      "url": "http://www.ondrejmusil.cz/"
     },
     {
       "name": "Vincenzo Chianese",
-      "email" : "vincenzo@apiary.io",
-      "url" : "http://vncz.js.org/"
+      "email": "vincenzo@apiary.io",
+      "url": "http://vncz.js.org/"
     }
   ],
   "main": "src/index.js",
@@ -63,13 +63,13 @@
     "babel-core": "^5.8.25",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^5.3.2",
-    "body-parser": "^1.14.0",
+    "body-parser": "^1.14.1",
     "browser-launcher2": "^0.4.6",
-    "css-loader": "^0.18.0",
+    "css-loader": "^0.19.0",
     "dedent": "^0.4.0",
     "eslint": "^1.5.0",
-    "eslint-config-airbnb": "0.0.8",
-    "eslint-plugin-react": "^3.4.2",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-plugin-react": "^3.5.0",
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
     "flux": "^2.1.1",
@@ -90,6 +90,13 @@
     "svgo": "^0.5.6",
     "underscore": "^1.8.3",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.12.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+    }
   }
 }

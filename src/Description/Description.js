@@ -25,7 +25,7 @@ class Description extends React.Component {
 
     const markdownMarkup = {__html: marked(description)};
     return (
-      <div  className="attributeDescription"
+      <div className="attributeDescription"
             dangerouslySetInnerHTML={markdownMarkup} />
     );
   }
