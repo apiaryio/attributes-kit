@@ -34,6 +34,7 @@ Please see the **[list of supported features →](#mson-features)**
   * [Installation](#developing)
   * [Playground](#testing)
   * [Testing](#testing)
+* [Versioning](#versioning)
 * [Contributing](#testing)
 * [Troubleshooting](#testing)
 * [Code of Conduct](#code-of-conduct)
@@ -230,6 +231,24 @@ In case you would like to build your own version of the Attributes Kit, please s
 ## Playground
 
 ## Testing
+
+---
+
+# Versioning
+
+[Attributes Kit](https://github.com/apiaryio/attributes-kit) is maintained under the [Semantic Versioning guidelines](http://semver.org/spec/v2.0.0.html). Releases will be numbered with the following format.
+
+```
+<major>.<minor>.<patch>
+```
+
+And constructed with the following guidelines.
+
+* Breaking backwards compatibility bumps the `<major>`
+* New additions without breaking backwards compatibility bumps the `<minor>`
+* Bug fixes and misc changes bump the `<patch>`
+
+Please see the [Releases](https://github.com/apiaryio/attributes-kit/releases) section of our GitHub project for changelog.
 
 ---
 
