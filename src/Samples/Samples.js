@@ -54,7 +54,6 @@ class Samples extends React.Component {
         Show samples
       </div>
     );
-
   }
 
   render() {

@@ -16,6 +16,13 @@ class ArrayComponent extends React.Component {
     data: React.PropTypes.object,
   }
 
+  getClassNames() {
+    return classNames({
+      'attributeArray': true,
+      'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content),
+    });
+  }
+
   renderSamples() {
     const attributes = this.props.data.attributes;
     let samples = null;
@@ -52,13 +59,6 @@ class ArrayComponent extends React.Component {
         <Defaults data={defaults} />
       </div>
     );
-  }
-
-  getClassNames() {
-    return classNames({
-      'attributeArray': true,
-      'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content)
-    });
   }
 
   render() {
