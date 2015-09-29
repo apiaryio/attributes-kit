@@ -29,7 +29,7 @@
   "scripts": {
     "build": "npm run build:server && npm run build:client",
     "build:server": "node ./scripts/run.js ./serverBuild",
-    "build:client": "echo 'One day we will have a library build'",
+    "build:client": "node ./scripts/run.js ./clientBuild",
     "generate-fixtures": "node ./dist/generateFixtures.js",
     "lint": "eslint src playground --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",

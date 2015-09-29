@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AttributesKit usage example</title>
+</head>
+<body>
+
+  <div id="container"></div>
+
+  <script src="/react.min.js"></script>
+  <script src="/attributes-kit.js"></script>
+  <script type="text/javascript">
+    var element = document.querySelector('#container');
+    AttributesKit.render({
+      "element": "object",
+      "meta": {
+        "id": "Test"
+      },
+      "content": [
+        {
+          "element": "member",
+          "content": {
+            "key": {
+              "element": "string",
+              "content": "test"
+            },
+            "value": {
+              "element": "string"
+            }
+          }
+        }
+      ]
+    }, element);
+  </script>
+</body>
+</html>
