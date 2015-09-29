@@ -1,4 +1,5 @@
 import React from 'react';
+import marked from 'marked';
 
 class Description extends React.Component {
   static propTypes = {
@@ -22,10 +23,10 @@ class Description extends React.Component {
       return false;
     }
 
+    const markdownMarkup = {__html: marked(description)};
     return (
-      <div className="attributeDescription">
-        {description}
-      </div>
+      <div  className="attributeDescription"
+            dangerouslySetInnerHTML={markdownMarkup} />
     );
   }
 }
