@@ -2,9 +2,9 @@ import express from 'express';
 import bodyparser from 'body-parser';
 import msonZoo from 'mson-zoo';
 import async from 'async';
-import path from 'path'
+import path from 'path';
 
-import parseMson from './parseMson'
+import parseMson from './parseMson';
 
 // Starts server
 const app = express();
@@ -14,19 +14,18 @@ app.use(express.static('dist'));
 app.use('/', express.static(path.join(__dirname, '/views')));
 
 app.post('/parse', (req, res) => {
-
-  const attributes = parseMson(req.body.source, (err, attributes) => {
+  parseMson(req.body.source, (err, attributes) => {
     if (err) {
       return res.status(400).json({error: err});
-    } else {
-      return res.json(attributes);
     }
+
+    return res.json(attributes);
   });
 });
 
 app.get('/examples', (req, res) => {
   return res.sendFile(path.join(__dirname, '/views/examples.html'));
-})
+});
 
 app.get('/fixtures', (req, res) => {
   async.map(msonZoo.samples, (sample, callback) => {
@@ -40,9 +39,9 @@ app.get('/fixtures', (req, res) => {
   }, (err, result) => {
     if (err) {
       return res.status(400).json({error: err});
-    } else {
-      return res.json(result);
     }
+
+    return res.json(result);
   });
 });
 

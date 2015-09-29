@@ -31,7 +31,7 @@
     "build:server": "node ./scripts/run.js ./serverBuild",
     "build:client": "echo 'One day we will have a library build'",
     "generate-fixtures": "node ./dist/generateFixtures.js",
-    "lint": "eslint src --ext .js,.es6 src",
+    "lint": "eslint src playground --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",
     "prepublish": "npm run build",
     "start": "node ./scripts/run.js ./devServer",
