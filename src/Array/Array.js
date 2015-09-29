@@ -6,7 +6,7 @@ import Samples from 'Samples/Samples';
 import Defaults from 'Defaults/Defaults';
 
 import {
-  containsExpandableCollapsibleElement
+  containsExpandableCollapsibleElement,
 } from 'elements/expandableCollapsibleElement';
 
 import './array.styl';
