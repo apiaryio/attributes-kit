@@ -1,4 +1,9 @@
 // See https://github.com/airbnb/javascript/tree/master/linters
 {
-  "extends": "airbnb"
+  "extends": "airbnb",
+  "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+  }
 }

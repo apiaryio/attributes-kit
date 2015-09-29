@@ -11,18 +11,18 @@
   "contributors": [
     {
       "name": "František Hába",
-      "email" : "frantisek@apiary.io",
-      "url" : "http://www.frantisekhaba.com/"
+      "email": "frantisek@apiary.io",
+      "url": "http://www.frantisekhaba.com/"
     },
     {
       "name": "Ondřej Musil",
-      "email" : "ondra@apiary.io",
-      "url" : "http://www.ondrejmusil.cz/"
+      "email": "ondra@apiary.io",
+      "url": "http://www.ondrejmusil.cz/"
     },
     {
       "name": "Vincenzo Chianese",
-      "email" : "vincenzo@apiary.io",
-      "url" : "http://vncz.js.org/"
+      "email": "vincenzo@apiary.io",
+      "url": "http://vncz.js.org/"
     }
   ],
   "main": "src/index.js",
@@ -36,9 +36,9 @@
     "prepublish": "npm run build",
     "start": "node ./scripts/run.js ./devServer",
     "test:unit": "mocha --compilers js:babel/register ./src/**/test/*.js --recursive",
-    "test:examples": "mocha --compilers js:babel/register ./test/**.js --recursive",
+    "test:examples": "mocha --compilers js:babel/register ./dist/test/**.js --recursive",
     "test:functional": "echo 'We don't have functional tests yet",
-    "test": "npm run lint && npm run test:unit && npm run test:functional",
+    "test": "npm run lint && npm run test:unit && npm run test:examples && npm run test:functional",
     "examples": "NODE_ENV=test shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/visual-testing.html'"
   },
   "repository": {
@@ -53,6 +53,7 @@
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
   "dependencies": {
     "classnames": "^2.1.3",
+    "marked": "^0.3.5",
     "minim": "^0.11.0",
     "react": "^0.13.3"
   },
@@ -62,13 +63,13 @@
     "babel-core": "^5.8.25",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^5.3.2",
-    "body-parser": "^1.14.0",
+    "body-parser": "^1.14.1",
     "browser-launcher2": "^0.4.6",
-    "css-loader": "^0.18.0",
+    "css-loader": "^0.19.0",
     "dedent": "^0.4.0",
     "eslint": "^1.5.0",
-    "eslint-config-airbnb": "0.0.8",
-    "eslint-plugin-react": "^3.4.2",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-plugin-react": "^3.5.0",
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
     "flux": "^2.1.1",
@@ -89,6 +90,6 @@
     "svgo": "^0.5.6",
     "underscore": "^1.8.3",
     "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^1.12.0"
   }
 }
