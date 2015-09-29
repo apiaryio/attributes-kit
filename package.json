@@ -36,7 +36,7 @@
     "prepublish": "npm run build",
     "start": "node ./scripts/run.js ./devServer",
     "test:unit": "mocha --compilers js:babel/register ./src/**/test/*.js --recursive",
-    "test:examples": "mocha --compilers js:babel/register ./test/**.js --recursive",
+    "test:examples": "mocha --compilers js:babel/register ./dist/test/**.js --recursive",
     "test:functional": "echo 'We don't have functional tests yet",
     "test": "npm run lint && npm run test:unit && npm run test:examples && npm run test:functional",
     "examples": "NODE_ENV=test shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/visual-testing.html'"
