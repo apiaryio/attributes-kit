@@ -7,16 +7,16 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 export default _.extend({}, baseConfig, {
   entry: (function() {
-    let array = [
+    let entryArray = [
       './playground/app'
     ];
 
     if (!isProduction) {
-      array.unshift('webpack/hot/only-dev-server');
-      array.unshift('webpack-dev-server/client?http://0.0.0.0:8080');
+      entryArray.unshift('webpack/hot/only-dev-server');
+      entryArray.unshift('webpack-dev-server/client?http://0.0.0.0:8080');
     }
 
-    return array;
+    return entryArray;
 
   })(),
 
@@ -26,11 +26,12 @@ export default _.extend({}, baseConfig, {
   },
 
   plugins: (function() {
+    let pluginsArray = [];
     if (!isProduction) {
-      return [new webpack.HotModuleReplacementPlugin()];
+      pluginsArray.push(new webpack.HotModuleReplacementPlugin());
     }
 
-    return [];
+    return pluginsArray;
   })(),
 
   devtool: 'source-map'
