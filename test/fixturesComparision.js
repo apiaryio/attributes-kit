@@ -24,11 +24,7 @@ describe('Comparision with reference fixtures', () => {
           data: result,
         });
 
-        htmlString = React.renderToString(renderedElement)
-                          .replace(/ data-reactid="([^"]*)"/g)
-                          .replace(/ data-react-checksum="([^"]*)"/g);
-
-
+        htmlString = React.renderToStaticMarkup(renderedElement);
       });
 
       describe('And I compare that with the reference fixture', () => {

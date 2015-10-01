@@ -26,9 +26,7 @@ msonZoo.samples.forEach((sample) => {
       data: result
     });
 
-    let htmlString = React.renderToString(renderedElement)
-                          .replace(/ data-reactid="([^"]*)"/g)
-                          .replace(/ data-react-checksum="([^"]*)"/g);
+    let htmlString = React.renderToStaticMarkup(renderedElement);
 
     fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
   })
