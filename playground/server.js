@@ -47,7 +47,7 @@ app.get('/fixtures', (req, res) => {
   });
 });
 
-const server = app.listen(process.env.PORT || 9090, () => {
+const server = app.listen(9090, 'localhost', () => {
   const host = server.address().address;
   const port = server.address().port;
 
