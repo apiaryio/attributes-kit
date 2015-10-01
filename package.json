@@ -2,6 +2,9 @@
   "name": "attributes-kit",
   "version": "1.0.0",
   "description": "React component for MSON rendering",
+   "engines": {
+      "node" : "0.12"
+  },
   "keywords": [
     "MSON",
     "Attributes",
