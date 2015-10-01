@@ -3,10 +3,9 @@ import msonZoo from 'mson-zoo'
 import fs from 'fs'
 import path from 'path'
 import protagonist from 'protagonist';
-import parseMson from '../playground/parseMson'
 
-
-import {Attributes} from '../src/index'
+import parseMson from '../playground/parseMson';
+import AttributesKit from '../src';
 
 const fixtureLocation = path.join(__dirname, '../', 'fixtures');
 
@@ -22,7 +21,7 @@ msonZoo.samples.forEach((sample) => {
       process.exit(1);
     }
 
-    const renderedElement = React.createElement(Attributes, {
+    const renderedElement = React.createElement(AttributesKit.Attributes, {
       data: result
     });
 
@@ -31,5 +30,5 @@ msonZoo.samples.forEach((sample) => {
                           .replace(/ data-react-checksum="([^"]*)"/g);
 
     fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
-  })
+  });
 });

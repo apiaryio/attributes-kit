@@ -1,8 +1,8 @@
 import React from 'react';
 
+import AttributesKit from '../../src';
 import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
-import {Attributes} from '../../src';
 import actionTypes from '../actions/types';
 import dispatcher from '../dispatcher';
 
@@ -43,7 +43,7 @@ class Playground extends React.Component {
         </div>
 
         <div className="column">
-          <Attributes data={this.state.attributes} />
+          <AttributesKit.Attributes data={this.state.attributes} />
         </div>
       </div>
     );

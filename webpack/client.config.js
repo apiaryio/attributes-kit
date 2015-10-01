@@ -20,7 +20,7 @@ if (isProduction) {
 }
 
 export default _.extend({}, baseConfig, {
-  entry: './src/seed',
+  entry: './src/index',
 
   output: {
     path: path.join(__dirname, '../dist'),
