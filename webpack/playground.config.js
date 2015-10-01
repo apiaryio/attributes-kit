@@ -15,9 +15,10 @@ export default _.extend({}, baseConfig, {
     filename: 'playground.js'
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: (function(){
+    if (process.env.NODE_ENV !== 'production')
+      return [new webpack.HotModuleReplacementPlugin()]
+  })(),
 
   devtool: 'source-map'
 });
