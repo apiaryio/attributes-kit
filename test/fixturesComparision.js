@@ -1,5 +1,6 @@
 import React from 'react';
 import msonZoo from 'mson-zoo';
+import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert'
@@ -24,7 +25,7 @@ describe('Comparision with reference fixtures', () => {
           data: result,
         });
 
-        htmlString = React.renderToStaticMarkup(renderedElement);
+        htmlString = jsBeautify.html(React.renderToStaticMarkup(renderedElement));
       });
 
       describe('And I compare that with the reference fixture', () => {
