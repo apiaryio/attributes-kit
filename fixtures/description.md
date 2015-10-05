@@ -1,16 +1,177 @@
-<div class="attributes"><div class="attributesTitle"><h3 class="attributesTitleText">Attributes</h3></div><div class="attributesList"><div class="attributeObject"><div class="attributeObjectMembers"><div class="attributeObjectMemberContainer"><div class="attributeObjectMember isExpanded"><div class="attributeObjectMemberToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeObjectMemberKey"><div class="attributeKey">id</div></div><div class="attributeObjectMemberRequirement"><div class="attributeRequirement isRequired"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">required</span></div></span></div></div><div class="attributeObjectMemberDescription"><div class="attributeDescription"><p>The unique identifier for a product</p>
-</div></div><div class="attributeObjectMemberType"><div class="attributeType">number</div></div><div class="attributeObjectMemberValue"><div class="attributeValue">1</div></div></div></div><div class="attributeObjectMemberContainer"><div class="attributeObjectMember isExpanded"><div class="attributeObjectMemberToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeObjectMemberKey"><div class="attributeKey">name</div></div><div class="attributeObjectMemberRequirement"><div class="attributeRequirement isRequired"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">required</span></div></span></div></div><div class="attributeObjectMemberDescription"><div class="attributeDescription"><p>Name of the product</p>
-</div></div><div class="attributeObjectMemberType"><div class="attributeType">string</div></div><div class="attributeObjectMemberValue"><div class="attributeValue">A green door</div></div></div></div><div class="attributeObjectMemberContainer"><div class="attributeObjectMember isExpanded"><div class="attributeObjectMemberToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeObjectMemberKey"><div class="attributeKey">price</div></div><div class="attributeObjectMemberRequirement"><div class="attributeRequirement isRequired"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">required</span></div></span></div></div><div class="attributeObjectMemberDescription"><noscript></noscript></div><div class="attributeObjectMemberType"><div class="attributeType">number</div></div><div class="attributeObjectMemberValue"><div class="attributeValue">12.5</div></div></div></div><div class="attributeObjectMemberContainer"><div class="attributeObjectMember isExpanded isExpandableCollapsible isArray"><div class="attributeObjectMemberToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeObjectMemberKey"><div class="attributeKey">tags</div></div><div class="attributeObjectMemberRequirement"><div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div></span></div></div><div class="attributeObjectMemberDescription"><div class="attributeDescription"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-<p>Sed sed lacus a arcu vehicula ultricies sed vel nibh. Mauris id cursus felis.</p>
-<p>Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-<ul>
-<li><p>unus</p>
-</li>
-<li><p>duo</p>
-</li>
-<li><p>tres</p>
-</li>
-<li><p>quattuor</p>
-</li>
-</ul>
-</div></div><div class="attributeObjectMemberType"><div class="attributeType">array</div></div><div class="attributeObjectMemberValue"><div class="attributeArray"><ul class="attributeArrayItems"><li class="attributeArrayItemContainer"><div class="attributeArrayItem isExpanded"><div class="attributeArrayItemRow"><div class="attributeArrayItemToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeArrayItemKey"><div class="attributeKey">0</div></div><div class="attributeArrayItemType"><div class="attributeType">string</div></div><div class="attributeArrayItemValue"><div class="attributeValue">home</div></div></div><div class="attributeArrayItemRow"><div class="attributeArrayItemDescription"><noscript></noscript></div></div></div></li><li class="attributeArrayItemContainer"><div class="attributeArrayItem isExpanded"><div class="attributeArrayItemRow"><div class="attributeArrayItemToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeArrayItemKey"><div class="attributeKey">1</div></div><div class="attributeArrayItemType"><div class="attributeType">string</div></div><div class="attributeArrayItemValue"><div class="attributeValue">green</div></div></div><div class="attributeArrayItemRow"><div class="attributeArrayItemDescription"><noscript></noscript></div></div></div></li></ul></div></div></div></div></div></div></div></div>
+<div class="attributes">
+    <div class="attributesTitle">
+        <h3 class="attributesTitleText">Attributes</h3></div>
+    <div class="attributesList">
+        <div class="attributeObject">
+            <div class="attributeObjectMembers">
+                <div class="attributeObjectMemberContainer">
+                    <div class="attributeObjectMember isExpanded">
+                        <div class="attributeObjectMemberToggle">
+                            <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                        </div>
+                        <div class="attributeObjectMemberKey">
+                            <div class="attributeKey">id</div>
+                        </div>
+                        <div class="attributeObjectMemberRequirement">
+                            <div class="attributeRequirement isRequired"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">required</span></div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="attributeObjectMemberDescription">
+                        <div class="attributeDescription">
+                            <p>The unique identifier for a product</p>
+                        </div>
+                    </div>
+                    <div class="attributeObjectMemberType">
+                        <div class="attributeType">number</div>
+                    </div>
+                    <div class="attributeObjectMemberValue">
+                        <div class="attributeValue">1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="attributeObjectMemberContainer">
+                <div class="attributeObjectMember isExpanded">
+                    <div class="attributeObjectMemberToggle">
+                        <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                    </div>
+                    <div class="attributeObjectMemberKey">
+                        <div class="attributeKey">name</div>
+                    </div>
+                    <div class="attributeObjectMemberRequirement">
+                        <div class="attributeRequirement isRequired"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">required</span></div>
+                        </span>
+                    </div>
+                </div>
+                <div class="attributeObjectMemberDescription">
+                    <div class="attributeDescription">
+                        <p>Name of the product</p>
+                    </div>
+                </div>
+                <div class="attributeObjectMemberType">
+                    <div class="attributeType">string</div>
+                </div>
+                <div class="attributeObjectMemberValue">
+                    <div class="attributeValue">A green door</div>
+                </div>
+            </div>
+        </div>
+        <div class="attributeObjectMemberContainer">
+            <div class="attributeObjectMember isExpanded">
+                <div class="attributeObjectMemberToggle">
+                    <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                </div>
+                <div class="attributeObjectMemberKey">
+                    <div class="attributeKey">price</div>
+                </div>
+                <div class="attributeObjectMemberRequirement">
+                    <div class="attributeRequirement isRequired"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">required</span></div>
+                    </span>
+                </div>
+            </div>
+            <div class="attributeObjectMemberDescription">
+                <noscript></noscript>
+            </div>
+            <div class="attributeObjectMemberType">
+                <div class="attributeType">number</div>
+            </div>
+            <div class="attributeObjectMemberValue">
+                <div class="attributeValue">12.5</div>
+            </div>
+        </div>
+    </div>
+    <div class="attributeObjectMemberContainer">
+        <div class="attributeObjectMember isExpanded isExpandableCollapsible isArray">
+            <div class="attributeObjectMemberToggle">
+                <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+            </div>
+            <div class="attributeObjectMemberKey">
+                <div class="attributeKey">tags</div>
+            </div>
+            <div class="attributeObjectMemberRequirement">
+                <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                </span>
+            </div>
+        </div>
+        <div class="attributeObjectMemberDescription">
+            <div class="attributeDescription">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>Sed sed lacus a arcu vehicula ultricies sed vel nibh. Mauris id cursus felis.</p>
+                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                <ul>
+                    <li>
+                        <p>unus</p>
+                    </li>
+                    <li>
+                        <p>duo</p>
+                    </li>
+                    <li>
+                        <p>tres</p>
+                    </li>
+                    <li>
+                        <p>quattuor</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="attributeObjectMemberType">
+            <div class="attributeType">array</div>
+        </div>
+        <div class="attributeObjectMemberValue">
+            <div class="attributeArray">
+                <ul class="attributeArrayItems">
+                    <li class="attributeArrayItemContainer">
+                        <div class="attributeArrayItem isExpanded">
+                            <div class="attributeArrayItemRow">
+                                <div class="attributeArrayItemToggle">
+                                    <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                                </div>
+                                <div class="attributeArrayItemKey">
+                                    <div class="attributeKey">0</div>
+                                </div>
+                                <div class="attributeArrayItemType">
+                                    <div class="attributeType">string</div>
+                                </div>
+                                <div class="attributeArrayItemValue">
+                                    <div class="attributeValue">home</div>
+                                </div>
+                            </div>
+                            <div class="attributeArrayItemRow">
+                                <div class="attributeArrayItemDescription">
+                                    <noscript></noscript>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="attributeArrayItemContainer">
+                        <div class="attributeArrayItem isExpanded">
+                            <div class="attributeArrayItemRow">
+                                <div class="attributeArrayItemToggle">
+                                    <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                                </div>
+                                <div class="attributeArrayItemKey">
+                                    <div class="attributeKey">1</div>
+                                </div>
+                                <div class="attributeArrayItemType">
+                                    <div class="attributeType">string</div>
+                                </div>
+                                <div class="attributeArrayItemValue">
+                                    <div class="attributeValue">green</div>
+                                </div>
+                            </div>
+                            <div class="attributeArrayItemRow">
+                                <div class="attributeArrayItemDescription">
+                                    <noscript></noscript>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>

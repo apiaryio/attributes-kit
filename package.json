@@ -74,6 +74,7 @@
     "file-loader": "^0.8.4",
     "flux": "^2.1.1",
     "jquery": "^2.1.4",
+    "js-beautify": "^1.5.10",
     "json-formatter-js": "^0.2.0",
     "jsx-loader": "^0.13.2",
     "mocha": "^2.3.3",

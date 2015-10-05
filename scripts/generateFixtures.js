@@ -1,5 +1,6 @@
 import React from 'react';
 import msonZoo from 'mson-zoo'
+import jsBeautify from 'js-beautify';
 import fs from 'fs'
 import path from 'path'
 import protagonist from 'protagonist';
@@ -25,7 +26,7 @@ msonZoo.samples.forEach((sample) => {
       data: result
     });
 
-    let htmlString = React.renderToStaticMarkup(renderedElement);
+    let htmlString = jsBeautify.html(React.renderToStaticMarkup(renderedElement));
 
     fs.appendFileSync(path.join(fixtureLocation, sample.name), htmlString);
   });
