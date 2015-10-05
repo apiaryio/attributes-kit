@@ -254,6 +254,8 @@ Please see the [Releases](https://github.com/apiaryio/attributes-kit/releases) s
 
 # Contributing
 
+Please see the [Contributions guidelines](./CONTRIBUTING.md).
+
 ---
 
 # Troubleshooting
