@@ -2,13 +2,18 @@ import Webpack from 'webpack';
 import path from 'path';
 
 import clientConfig from '../webpack/client.config';
+
+const isProduction = process.env.NODE_ENV === 'production';
+
 if (process.argv.length > 3 ) {
   if (process.argv[3] == 'full') {
     console.info("Performing a full dep client build.")
     clientConfig.externals = {};
+    clientConfig.output.filename = isProduction ? 'attributes-kit-full.min.js' : 'attributes-kit-full.js';
   }
-  else if (process.argv[3] == 'none') {
+  else if (process.argv[3] == 'noDep') {
     console.info("Performing a no dep client build.")
+   clientConfig.output.filename = isProduction ? 'attributes-kit-noDep.min.js' : 'attributes-kit-noDep.js';
    clientConfig.externals = {
     'react': {
       root: 'React',
