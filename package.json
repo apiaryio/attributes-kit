@@ -30,9 +30,10 @@
   ],
   "main": "src/index.js",
   "scripts": {
-    "build": "npm run build:server && npm run build:client",
+    "build": "npm run build:server && npm run build:client:full",
     "build:server": "node ./scripts/run.js ./serverBuild",
-    "build:client": "node ./scripts/run.js ./clientBuild",
+    "build:client:full": "node ./scripts/run.js ./clientBuild full",
+    "build:client:none": "node ./scripts/run.js ./clientBuild none",
     "generate-fixtures": "node ./dist/generateFixtures.js",
     "lint": "eslint src playground --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",
