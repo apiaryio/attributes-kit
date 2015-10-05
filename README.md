@@ -187,7 +187,14 @@ In case you would like to build your own version of the Attributes Kit, please s
 
 ### Custom Builds
 
-`npm build`
+`attributes-kit` can be imported into your project in different ways, depending on your bundling system and other things (such as power surges, cosmic radiations, tides, economic trend, weather situation, metro delays, planets alignment and so on.)
+
+Actually, the default scenario is **importing** the source code. It means that, in order to be used, you're kind of forced to use **Webpack** as module loader and import into hosting application some loaders that can be found into [package.json](./package.json) file, `devDependencies`.
+
+A definitely better idea is
+
+```javascript
+```
 
 ---
 
