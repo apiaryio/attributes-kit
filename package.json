@@ -58,7 +58,6 @@
   "dependencies": {
     "classnames": "^2.1.5",
     "marked": "^0.3.5",
-    "minim": "^0.11.0",
     "react": "^0.13.3"
   },
   "devDependencies": {
