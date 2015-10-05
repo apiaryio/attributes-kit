@@ -169,32 +169,39 @@ Even if in different forms, `attributes-kit` will always take the same parameter
 
 ## Browser
 
-You can still `npm install attributes-kit` and use the package in the browser; with [Webpack](http://webpack.github.io/) it's a piece of cake.
+`attributes-kit` can be imported into your project in different ways, depending on your bundling system and other things (such as power surges, cosmic radiations, tides, economic trend, weather situation, metro delays, planets alignment and so on.)
 
-If you prefer to drop a `<script>` tag in your page, here's a list of browser builds that you can use. All builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box; there are both uncompressed and compressed versions, the compressed one comes with a source map file.
+Actually, the default scenario, when requiring the package directly using `require('attributes-kit')` is **importing** the raw source code. It means that, in order to be used, you're kind of forced to use **Webpack** as module loader and import into hosting application some loaders that can be found into [package.json](./package.json) file, `devDependencies`.
 
-| Uncompressed            |
+If you prefer to drop a `<script>` tag in your page, here's a list of browser builds that you can use. All builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box;
+
+Those files are located into `dist` directory, so, to use them into your application, you have to use something like `require('attributes-kit/dist/attributes-kit-noDep')` (in case of `attributes-kit-noDep.js` and so on)
+
+All the builds are ES5 traspiled.
+
+| All-in-one build        |
+|:------------------------|
+| [`attributes-kit-full.js`]() |
+| [`attributes-kit-full-min.js`]() |
+| This build contains all required dependencies, React included. It means that it **can** be used into your application without installing anything else. On the other side, if you're already using `React` for other purposes, you will have a library duplication that can be avoided using the _React free build_.|
+
+| React free build        |
 |:------------------------|
 | [`attributes-kit.js`]() |
-| The uncompressed file is best used during development or debugging. |
+| [`attributes-kit-min.js`]() |
+| This build contains all the required dependencies, except for React. It means that it **cannot** be used into your application without installing React into it and wiring it to be injected into a `require('react')` call |
 
-| Compressed                   |
-|:-----------------------------|
-| [`attributes-kit.min.js`](); [`attributes-kit.min.map`]() |
-| Compressed version saves bandwidth and improves performance in production. Source map, the file is not required to run the Kit. |
+| Dependency free build        |
+|:------------------------|
+| [`attributes-kit-noDep.js`]() |
+| [`attributes-kit-noDep-min.js`]() |
+| This build does not contain any of required dependencies, React included. It means that it **cannot** be used into your application without installing all `dependencies` into [package.json](./package.json) and wired to be injected into a `require('dep')` call |
 
 In case you would like to build your own version of the Attributes Kit, please see the [Custom Builds](#custom-builds) section.
 
 ### Custom Builds
 
-`attributes-kit` can be imported into your project in different ways, depending on your bundling system and other things (such as power surges, cosmic radiations, tides, economic trend, weather situation, metro delays, planets alignment and so on.)
-
-Actually, the default scenario is **importing** the source code. It means that, in order to be used, you're kind of forced to use **Webpack** as module loader and import into hosting application some loaders that can be found into [package.json](./package.json) file, `devDependencies`.
-
-A definitely better idea is
-
-```javascript
-```
+Not supported ATM.
 
 ---
 
