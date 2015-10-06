@@ -13,9 +13,9 @@ Actually, the best bug report would be issuing a pull request with a failing tes
 
 We have actually different labels grouped into 3 categories:
 
-1. [Pull Request] Status (provides information about PR/Bug status)
-2. [Pull Request] Team (internal label used to make sure the bug is being tracked by Apiary internal systems)
-3. [Issue] Type (provides a description of the bug type)
+1. Status (provides information about PR/Bug status)
+2. Team (internal label used to make sure the bug is being tracked by Apiary internal systems)
+3. Type (provides a description of the bug type)
 
 Status        | Description
 ------------- | -------------
