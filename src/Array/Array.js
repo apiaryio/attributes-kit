@@ -17,10 +17,10 @@ class ArrayComponent extends React.Component {
   }
 
   getClassNames() {
-    return classNames({
-      'attributeArray': true,
-      'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content),
-    });
+    return classNames(
+      'attributeArray',
+      {'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content)}
+    );
   }
 
   renderSamples() {
