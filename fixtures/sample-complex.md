@@ -1,1 +1,36 @@
-<div class="attributes"undefinedundefined><div class="attributesTitle"undefined><h3 class="attributesTitleText"undefined>Attributes</h3></div><div class="attributesList"undefined><div class="attributeObject"undefined><div class="attributeObjectMembers"undefined><div class="attributeObjectMemberContainer"undefined><div class="attributeObjectMember isExpanded isExpandableCollapsible isArray"undefined><div class="attributeObjectMemberToggle"undefined><div class="attributeToggle isExpanded"undefined><span class="attributeToggleIcon"undefined></span></div></div><div class="attributeObjectMemberKey"undefined><div class="attributeKey"undefined>colors</div><div class="attributeObjectMemberType"undefined><div class="attributeType"undefined>array</div></div></div><div class="attributeObjectMemberRequirement"undefined><div class="attributeRequirement isOptional"undefined><span class="attributeRequirementIcon"undefined></span><span class="attributeRequirementTooltip"undefined><div class="attributeTooltip"undefined><span class="attributeTooltipText"undefined>optional</span></div></span></div></div><div class="attributeObjectMemberDescription"undefined><noscriptundefined></noscript></div><div class="attributeObjectMemberValueRow"undefined><div class="attributeObjectMemberValue"undefined><noscriptundefined></noscript></div></div></div></div></div></div></div></div><div class="attributes"><div class="attributesTitle"><h3 class="attributesTitleText">Attributes</h3></div><div class="attributesList"><div class="attributeObject"><div class="attributeObjectMembers"><div class="attributeObjectMemberContainer"><div class="attributeObjectMember isExpanded isExpandableCollapsible isArray"><div class="attributeObjectMemberToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeObjectMemberKey"><div class="attributeKey">colors</div></div><div class="attributeObjectMemberRequirement"><div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div></span></div></div><div class="attributeObjectMemberDescription"><noscript></noscript></div><div class="attributeObjectMemberType"><div class="attributeType">array</div></div><div class="attributeObjectMemberValue"><noscript></noscript></div></div></div></div></div></div></div>
+<div class="attributes">
+    <div class="attributesTitle">
+        <h3 class="attributesTitleText">Attributes</h3></div>
+    <div class="attributesList">
+        <div class="attributeObject">
+            <div class="attributeObjectMembers">
+                <div class="attributeObjectMemberContainer">
+                    <div class="attributeObjectMember isExpanded isExpandableCollapsible isArray">
+                        <div class="attributeObjectMemberToggle">
+                            <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                        </div>
+                        <div class="attributeObjectMemberKey">
+                            <div class="attributeKey">colors</div>
+                            <div class="attributeObjectMemberType">
+                                <div class="attributeType">array</div>
+                            </div>
+                        </div>
+                        <div class="attributeObjectMemberRequirement">
+                            <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="attributeObjectMemberDescription">
+                        <noscript></noscript>
+                    </div>
+                    <div class="attributeObjectMemberValueRow">
+                        <div class="attributeObjectMemberValue">
+                            <noscript></noscript>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

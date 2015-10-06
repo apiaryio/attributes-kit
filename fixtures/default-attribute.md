@@ -1,1 +1,46 @@
-<div class="attributes"undefinedundefined><div class="attributesTitle"undefined><h3 class="attributesTitleText"undefined>Attributes</h3></div><div class="attributesList"undefined><div class="attributeObject"undefined><div class="attributeObjectMembers"undefined><div class="attributeObjectMemberContainer"undefined><div class="attributeObjectMember isExpanded"undefined><div class="attributeObjectMemberToggle"undefined><div class="attributeToggle isExpanded"undefined><span class="attributeToggleIcon"undefined></span></div></div><div class="attributeObjectMemberKey"undefined><div class="attributeKey"undefined>list</div><div class="attributeObjectMemberType"undefined><div class="attributeType"undefined>enum</div></div></div><div class="attributeObjectMemberRequirement"undefined><div class="attributeRequirement isOptional"undefined><span class="attributeRequirementIcon"undefined></span><span class="attributeRequirementTooltip"undefined><div class="attributeTooltip"undefined><span class="attributeTooltipText"undefined>optional</span></div></span></div></div><div class="attributeObjectMemberDescription"undefined><noscriptundefined></noscript></div><div class="attributeObjectMemberValueRow"undefined><div class="attributeObjectMemberValue"undefined><div class="attributeValue"undefined><spanundefined>string</span><spanundefined>3</span><spanundefined>string</span><spanundefined>4</span></div></div><div class="attributeObjectMemberDefaultsContainer"undefined><div class="attributeDefaults"undefined><h2 class="attributeDefaultsTitle"undefined>Default</h2><div class="attributeDefaultsEntries"undefined><div class="attributeSimpleValue"undefined><div class="attributeSimplePrimitiveValue"undefined>4</div></div></div></div></div></div></div></div></div></div></div></div><div class="attributes"><div class="attributesTitle"><h3 class="attributesTitleText">Attributes</h3></div><div class="attributesList"><div class="attributeObject"><div class="attributeObjectMembers"><div class="attributeObjectMemberContainer"><div class="attributeObjectMember isExpanded"><div class="attributeObjectMemberToggle"><div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div></div><div class="attributeObjectMemberKey"><div class="attributeKey">list</div></div><div class="attributeObjectMemberRequirement"><div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div></span></div></div><div class="attributeObjectMemberDescription"><noscript></noscript></div><div class="attributeObjectMemberType"><div class="attributeType">enum</div></div><div class="attributeObjectMemberValue"><div class="attributeValue">string3string4</div></div><div class="attributeObjectMemberDefaultsContainer"><div class="attributeDefaults"><div class="attributeDefaultsEntries"><div class="attributeSimpleValue"><div class="attributeSimplePrimitiveValue">4</div></div></div></div></div></div></div></div></div></div></div>
+<div class="attributes">
+    <div class="attributesTitle">
+        <h3 class="attributesTitleText">Attributes</h3></div>
+    <div class="attributesList">
+        <div class="attributeObject">
+            <div class="attributeObjectMembers">
+                <div class="attributeObjectMemberContainer">
+                    <div class="attributeObjectMember isExpanded">
+                        <div class="attributeObjectMemberToggle">
+                            <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
+                        </div>
+                        <div class="attributeObjectMemberKey">
+                            <div class="attributeKey">list</div>
+                            <div class="attributeObjectMemberType">
+                                <div class="attributeType">enum</div>
+                            </div>
+                        </div>
+                        <div class="attributeObjectMemberRequirement">
+                            <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="attributeObjectMemberDescription">
+                        <noscript></noscript>
+                    </div>
+                    <div class="attributeObjectMemberValueRow">
+                        <div class="attributeObjectMemberValue">
+                            <div class="attributeValue">string3string4</div>
+                        </div>
+                        <div class="attributeObjectMemberDefaultsContainer">
+                            <div class="attributeDefaults">
+                                <h2 class="attributeDefaultsTitle">Default</h2>
+                                <div class="attributeDefaultsEntries">
+                                    <div class="attributeSimpleValue">
+                                        <div class="attributeSimplePrimitiveValue">4</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
