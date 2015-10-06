@@ -27,6 +27,7 @@ Please see the **[list of supported features →](#mson-features)**
 * [Compatibility](#compatibility)
 * [Usage](#usage)
   * [Installation](#installation)
+  * [API](#api)
   * [Browser Builds](#browser-builds)
   * [Custom Builds](#custom-builds)
 * [Developing](#developing)
@@ -181,7 +182,40 @@ npm -v
 npm install attributes-kit
 ```
 
-### Browser
+## API
+
+### Using the static method
+
+```javascript
+import AttributesKit from 'AttributesKit';
+AttributesKit.render(data, element, options);
+```
+
+### Using the class instance
+
+```javascript
+import AttributesKit from 'AttributesKit';
+let attributes = new AttributesKit({element, options});
+attributes.render(data);
+```
+
+### Using the React component directly
+
+```javascript
+import AttributesKit from 'AttributesKit';
+import React from 'react';
+React.render(<Attributes.AttributesKit data={data} />, this.element);
+```
+
+### Parameters
+
+Even if in different forms, `attributes-kit` will always take the same parameters
+
+- `data` - A valid [Refract](https://github.com/refractproject/refract-spec) element to be rendered.
+- `element` - A DOM node where the rendered MSON will be placed.
+- `options` - An options object that will drive MSON rendering (unused for now).
+
+## Browser
 
 You can still `npm install attributes-kit` and use the package in the browser; with [Webpack](http://webpack.github.io/) it's a piece of cake.
 
