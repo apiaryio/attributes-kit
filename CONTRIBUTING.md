@@ -1,5 +1,48 @@
 # Contributing
 
+First of all, thank you! It's great that you want to contribute to this repository. In order to make the entire process faster and a pleasant experience, we kindly ask you to read this document.
+
+## Reporting a bug
+As most of GitHub open source projects, we're using the integrated issue trackers with some custom rules, basically dictated with labels usages.
+
+We do not have any particular strict rule about title and text. Of course, more details you'll write, more easy will be for us to fix the thing or answer your question.
+
+Actually, the best bug report would be issuing a pull request with a failing test. However, for **this** particular repository, the broken _MSON_ snippet will be enough.
+
+### Labels Usage
+
+We have actually different labels grouped into 3 categories:
+
+1. [Pull Request] Status (provides information about PR/Bug status)
+2. [Pull Request] Team (internal label used to make sure the bug is being tracked by Apiary internal systems)
+3. [Issue] Type (provides a description of the bug type)
+
+Status        | Description
+------------- | -------------
+Accepted      | The **PR** has been reviewed; it is ready to be merged.
+In Progress   | The **PR** is not complete yet and needs further work.
+
+Team             | Description
+-----------------| ------------
+Core Application | Sets the issue/pr ownership to the *CAT* Apiary Team
+
+Note that the **Team: Core Application** is mandatory in all the PRs in order to track it into internal Apiary systems.
+
+As noted above, those labels **MUST** be applied on all Pull requests.
+
+Type          | Description
+------------- | -------------
+Bug           | Bug in the codebase.
+Enhancement   | Enhancement request (better support, edge cases).
+Feature       | New feature request.
+Performance   | Performance problems.
+Refactoring   | Refactoring request.
+Research      | Means we have no idea how to do that (yet).
+
+Those kind of labels should be applied on All Issues. If it makes sense, multiple labels can be applied to the same issue.
+
+Once the bug/feature will be implemented/shipped, all the material provided in the issue (such as MSON code) will be evaluated to be inserted into the tests suites. In particular, the MSON code will be (probably) be integrated into [mson-zoo](https://github.com/apiaryio/mson-zoo) repository.
+
 ## Add new fixtures
 `attributes-kit` uses a series of **MSON** fixtures to test its rendered output and displaying the showcase page as well. Those fixture are actually imported from an external package, [mson-zoo](https://www.npmjs.com/package/mson-zoo), manteined by [Apiary](https://apiary.io).
 
