@@ -1,6 +1,8 @@
 import React from 'react';
 import marked from 'marked';
 
+import './description.styl';
+
 class Description extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,

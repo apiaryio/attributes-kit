@@ -34,24 +34,43 @@ class Samples extends React.Component {
     });
   }
 
+  renderToggleText() {
+    let expandText = '';
+
+    if (this.state.isExpanded) {
+      expandText = 'Hide samples…';
+    } else {
+      expandText = 'Show samples…';
+    }
+
+    return (
+      <div
+        className="attributeSamplesToggleText"
+        onClick={this.handleExpandCollapseEvent}>
+        {expandText}
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className={this.getClassNames()}>
+        {this.renderToggleText()}
+
         <div className="attributeSamplesToggle">
           <Toggle
             expandCollapseEventHandler={this.handleExpandCollapseEvent}
             isExpanded={this.state.isExpanded}
           />
         </div>
-        <div className="attributeSamplesHeader">
-          Samples
-        </div>
 
-        {this.props.data.map((sample, index) => {
-          return (
-            <Sample key={index} data={sample} />
-          );
-        })}
+        <div className="attributeSamplesList">
+          {this.props.data.map((sample, index) => {
+            return (
+              <Sample key={index} data={sample} />
+            );
+          })}
+        </div>
       </div>
     );
   }

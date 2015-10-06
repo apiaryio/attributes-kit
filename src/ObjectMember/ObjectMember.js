@@ -14,7 +14,7 @@ import {
   getValue,
 } from 'elements/expandableCollapsibleElement';
 
-import {getType, isObjectOrArray} from 'elements/element';
+import {getType, isObjectOrArray, isObject} from 'elements/element';
 
 import './objectMember.styl';
 
@@ -80,7 +80,7 @@ class ObjectMember extends React.Component {
     }
 
     return (
-      <div className="attributeObjectMemberSamplesContainer">
+      <div className="attributeObjectMemberSamplesRow">
         <Samples data={samples} />
       </div>
     );
@@ -93,7 +93,7 @@ class ObjectMember extends React.Component {
       return false;
     }
 
-    if (isObjectOrArray(value.element)) {
+    if (isObject(value.element)) {
       return false;
     }
 
@@ -141,6 +141,7 @@ class ObjectMember extends React.Component {
 
         <div className="attributeObjectMemberKey">
           <Key data={this.props.data} />
+          {this.renderType()}
         </div>
 
         <div className="attributeObjectMemberRequirement">
@@ -151,11 +152,10 @@ class ObjectMember extends React.Component {
           <Description data={this.props.data} />
         </div>
 
-        {this.renderType()}
-
-        {this.renderValue()}
-
-        {this.renderDefaults()}
+        <div className="attributeObjectMemberValueRow">
+          {this.renderValue()}
+          {this.renderDefaults()}
+        </div>
 
         {this.renderSamples()}
 

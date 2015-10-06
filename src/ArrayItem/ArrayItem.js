@@ -13,7 +13,9 @@ import {
   getValue,
 } from 'elements/expandableCollapsibleElement';
 
-import {getType} from 'elements/element';
+import {
+  getType,
+} from 'elements/element';
 
 import './arrayItem.styl';
 
@@ -104,12 +106,10 @@ class ArrayItem extends React.Component {
 
           <div className="attributeArrayItemKey">
             <Key index={this.props.index} />
+            {this.renderType()}
           </div>
 
-          {this.renderType()}
-
           {this.renderValue()}
-
           {this.renderDefaults()}
         </div>
 

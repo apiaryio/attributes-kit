@@ -49,7 +49,7 @@ class ObjectComponent extends React.Component {
     }
 
     return (
-      <div className="attributeObjectDefaultsContainer">
+      <div className="attributeObjectDefaults">
         <Defaults data={defaults} />
       </div>
     );
@@ -71,9 +71,8 @@ class ObjectComponent extends React.Component {
           })}
         </div>
 
-          {this.renderDefaults()}
-
-          {this.renderSamples()}
+        {this.renderDefaults()}
+        {this.renderSamples()}
       </div>
     );
   }

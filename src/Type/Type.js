@@ -1,5 +1,8 @@
 import React from 'react';
 
+import './type.styl';
+
+
 class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
