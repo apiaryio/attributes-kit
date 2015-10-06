@@ -35,23 +35,19 @@ class Samples extends React.Component {
   }
 
   renderToggleText() {
+    let expandText = '';
+
     if (this.state.isExpanded) {
-      return (
-        <div
-          className="attributeSamplesToggleText"
-          onClick={this.handleExpandCollapseEvent}
-        >
-          Hide samples…
-        </div>
-      );
+      expandText = 'Hide samples…';
+    } else {
+      expandText = 'Show samples…';
     }
 
     return (
       <div
         className="attributeSamplesToggleText"
-        onClick={this.handleExpandCollapseEvent}
-      >
-        Show samples
+        onClick={this.handleExpandCollapseEvent}>
+        {expandText}
       </div>
     );
   }

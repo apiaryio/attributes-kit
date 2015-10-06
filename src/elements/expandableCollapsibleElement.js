@@ -18,7 +18,7 @@ function isExpandableCollapsible(element) {
 }
 
 function containsExpandableCollapsibleElement(elements) {
-  return elements.some(function(element) {
+  return elements.some((element) => {
     return isExpandableCollapsible(element);
   });
 }
