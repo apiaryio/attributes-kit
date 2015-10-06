@@ -49,9 +49,4 @@ app.get('/fixtures', (req, res) => {
   });
 });
 
-const server = app.listen(9090, 'localhost', () => {
-  const host = server.address().address;
-  const port = server.address().port;
-
-  console.log(`Server is listening on ${host}:${port}`);
-});
+app.listen(9090, 'localhost', () => {});

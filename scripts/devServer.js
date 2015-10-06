@@ -19,5 +19,7 @@ const webpackServer = new WebpackDevServer(compiler, {
 });
 
 webpackServer.listen(process.env.PORT || 8080, () => {
-  console.log('Webpack server is running');
+  console.log('+--------------------------------------------+');
+  console.log(`|Server is listening on http://localhost:8080|`);
+  console.log('+--------------------------------------------+');
 });
