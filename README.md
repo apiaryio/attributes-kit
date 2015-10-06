@@ -44,6 +44,8 @@ Please see the **[list of supported features →](#mson-features)**
 
 # Getting Started
 
+## Live Preview
+This application is deployed on Heroku and it's live on [https://attributes-kit.herokuapp.com](https://attributes-kit.herokuapp.com), and the [Review apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature is enabled. With review apps enabled for a Heroku app, Heroku will create temporary apps for each pull request that’s opened on the GitHub repo that’s connected to the parent app.
 
 ---
 

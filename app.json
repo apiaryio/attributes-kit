@@ -1,0 +1,9 @@
+{
+  "name":"attributes-kit",
+  "description":"attributes-kit",
+  "scripts":{},
+  "env":{
+    "NPM_CONFIG_PRODUCTION":"false"
+  },
+  "addons":[]
+}
