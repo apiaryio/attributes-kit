@@ -11,7 +11,7 @@ class Description extends React.Component {
   constructor(props) {
     super(props);
 
-    this.md = MarkdownIt('default', {
+    this.md = new MarkdownIt('default', {
       html: true,
       linkify: true,
       typographer: true,

@@ -27,7 +27,7 @@
                                 <li><code>Properties</code>
                                     <ul>
                                         <li>This one.</li>
-                                        <li>That one. </li>
+                                        <li>That one.</li>
                                     </ul>
                                 </li>
                             </ul>
