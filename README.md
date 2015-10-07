@@ -18,6 +18,10 @@ For instance—it turns the following...
 
 Please see the **[list of supported features →](#mson-features)**
 
+### Preview
+
+This application has been deployed to Heroku, **try it out at [attributes-kit.herokuapp.com](https://attributes-kit.herokuapp.com)**.
+
 ---
 
 ## Table of Contents
@@ -45,8 +49,48 @@ Please see the **[list of supported features →](#mson-features)**
 
 # Getting Started
 
-## Live Preview
-This application is deployed on Heroku and it's live on [https://attributes-kit.herokuapp.com](https://attributes-kit.herokuapp.com), and the [Review apps](https://devcenter.heroku.com/articles/github-integration-review-apps) feature is enabled. With review apps enabled for a Heroku app, Heroku will create temporary apps for each pull request that’s opened on the GitHub repo that’s connected to the parent app.
+> _**Note:**_ Attributes Kit hasn't been published to NPM just yet, before we do that, please `git clone` the repository.
+
+1. **Clone the repository**
+
+  ```bash
+  $ git clone git@github.com:apiaryio/attributes-kit.git
+  ```
+
+2. **Install dependencies**
+
+  ```bash
+  cd ./attributes-kit
+  npm install
+  ```
+
+3. **Run it**
+
+  ```bash
+  npm start
+  ```
+
+  You can go to [localhost:8080](http://localhost:8080) to try out the [Playground](https://attributes-kit.herokuapp.com/), or to [/examples.html](http://localhost:8080/examples.html) to see the list of examples.
+
+4. **Use it**
+
+  Render the Attributes Kit using the `render` method.
+
+  ```JavaScript
+  import AttributesKit from 'AttributesKit';
+  let attributes = new AttributesKit({element, options});
+  attributes.render(data);
+  ```
+
+  Or you can use the React component directly.
+
+  ```JavaScript
+  import {AttributesKit} from 'AttributesKit';
+
+  // E.g. <AttributesKit data={data} />
+  ```
+
+You're done! **Great job!** :+1:
 
 ---
 
