@@ -1,5 +1,5 @@
 import React from 'react';
-import marked from 'marked';
+import MarkdownIt from 'markdown-it/dist/markdown-it';
 
 import './description.styl';
 
@@ -10,6 +10,8 @@ class Description extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.md = new MarkdownIt();
   }
 
   render() {
@@ -25,7 +27,7 @@ class Description extends React.Component {
       return false;
     }
 
-    const markdownMarkup = {__html: marked(description)};
+    const markdownMarkup = {__html: this.md.render(description)};
     return (
       <div className="attributeDescription"
             dangerouslySetInnerHTML={markdownMarkup} />
