@@ -7,7 +7,7 @@ import './requirement.styl';
 
 class Requirement extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    requirement: React.PropTypes.string,
   }
 
   constructor(props) {
@@ -16,32 +16,20 @@ class Requirement extends React.Component {
     this.CLASS_NAME = 'attributeRequirement';
   }
 
-  setRequirement() {
-    this.requirement = ['optional'];
-
-    if (this.props.data.attributes) {
-      if (this.props.data.attributes.typeAttributes) {
-        this.requirement = this.props.data.attributes.typeAttributes;
-      }
-    }
-  }
-
   getClassName() {
     return classNames(this.CLASS_NAME,
-      this.requirement.map((req) => {
+      this.props.requirement.map((req) => {
         return `is${req.charAt(0).toUpperCase() + req.substr(1)}`;
       }));
   }
 
   render() {
-    this.setRequirement();
-
     return (
       <div className={this.getClassName()}>
         <span className="attributeRequirementIcon"></span>
 
         <span className="attributeRequirementTooltip">
-          <Tooltip text={this.requirement.join(' ')} />
+          <Tooltip text={this.props.requirement.join(' ')} />
         </span>
       </div>
     );

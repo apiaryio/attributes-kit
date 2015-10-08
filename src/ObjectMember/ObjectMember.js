@@ -137,6 +137,14 @@ class ObjectMember extends React.Component {
       }
     }
 
+    let requirement = ['optional'];
+
+    if (this.props.data.attributes) {
+      if (this.props.data.attributes.typeAttributes) {
+        requirement = this.props.data.attributes.typeAttributes;
+      }
+    }
+
     return (
       <div className={this.getClassNames()}>
 
@@ -153,7 +161,7 @@ class ObjectMember extends React.Component {
         </div>
 
         <div className="attributeObjectMemberRequirement">
-          <Requirement data={this.props.data} />
+          <Requirement requirement={requirement} />
         </div>
 
         <div className="attributeObjectMemberDescription">
