@@ -8,17 +8,18 @@ import './object.styl';
 
 class ObjectComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    content: React.PropTypes.array,
+    attributes: React.PropTypes.object,
   }
 
   constructor(props) {
     super(props);
 
-    this.props.data.content = this.props.data.content || [];
+    this.props.content = this.props.content || [];
   }
 
   renderSamples() {
-    const attributes = this.props.data.attributes;
+    const attributes = this.props.attributes;
     let samples = null;
 
     if (attributes) {
@@ -37,7 +38,7 @@ class ObjectComponent extends React.Component {
   }
 
   renderDefaults() {
-    const attributes = this.props.data.attributes;
+    const attributes = this.props.attributes;
     let defaults = null;
 
     if (attributes) {
@@ -59,7 +60,7 @@ class ObjectComponent extends React.Component {
     return (
       <div className="attributeObject">
         <div className="attributeObjectMembers">
-          {this.props.data.content.map((member, index) => {
+          {this.props.content.map((member, index) => {
             return (
               <div
                 className="attributeObjectMemberContainer"

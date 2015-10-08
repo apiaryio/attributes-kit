@@ -25,7 +25,8 @@ class Attribute extends React.Component {
     }
 
     return React.createElement(reactComponent, {
-      data: this.props.data,
+      content: this.props.data.content,
+      attributes: this.props.data.attributes,
     });
   }
 }

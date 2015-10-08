@@ -13,18 +13,19 @@ import './array.styl';
 
 class ArrayComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    content: React.PropTypes.array,
+    attributes: React.PropTypes.object,
   }
 
   getClassNames() {
     return classNames(
       'attributeArray',
-      {'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content)}
+      {'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.content)}
     );
   }
 
   renderSamples() {
-    const attributes = this.props.data.attributes;
+    const attributes = this.props.attributes;
     let samples = null;
 
     if (attributes) {
@@ -43,7 +44,7 @@ class ArrayComponent extends React.Component {
   }
 
   renderDefaults() {
-    const attributes = this.props.data.attributes;
+    const attributes = this.props.attributes;
     let defaults = null;
 
     if (attributes) {
@@ -62,14 +63,14 @@ class ArrayComponent extends React.Component {
   }
 
   render() {
-    if (!this.props.data.content) {
+    if (!this.props.content) {
       return false;
     }
 
     return (
       <div className={this.getClassNames()}>
         <ul className="attributeArrayItems">
-          {this.props.data.content.map((member, index) => {
+          {this.props.content.map((member, index) => {
             return (
               <li key={index} className="attributeArrayItemContainer">
                 <ArrayItemComponent index={index} data={member} />
