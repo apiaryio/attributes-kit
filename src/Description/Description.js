@@ -5,7 +5,7 @@ import './description.styl';
 
 class Description extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    description: React.PropTypes.string,
   }
 
   constructor(props) {
@@ -13,19 +13,11 @@ class Description extends React.Component {
   }
 
   render() {
-    let description = null;
-
-    if (this.props.data.meta) {
-      if (this.props.data.meta.description) {
-        description = this.props.data.meta.description;
-      }
-    }
-
-    if (!description) {
+    if (!this.props.description) {
       return false;
     }
 
-    const markdownMarkup = {__html: marked(description)};
+    const markdownMarkup = {__html: marked(this.props.description)};
     return (
       <div className="attributeDescription"
             dangerouslySetInnerHTML={markdownMarkup} />

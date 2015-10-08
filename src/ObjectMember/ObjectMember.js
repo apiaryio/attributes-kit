@@ -129,6 +129,14 @@ class ObjectMember extends React.Component {
   }
 
   render() {
+    let description = null;
+
+    if (this.props.data.meta) {
+      if (this.props.data.meta.description) {
+        description = this.props.data.meta.description;
+      }
+    }
+
     return (
       <div className={this.getClassNames()}>
 
@@ -149,7 +157,7 @@ class ObjectMember extends React.Component {
         </div>
 
         <div className="attributeObjectMemberDescription">
-          <Description data={this.props.data} />
+          <Description description={description} />
         </div>
 
         <div className="attributeObjectMemberValueRow">
