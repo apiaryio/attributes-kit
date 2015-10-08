@@ -4,7 +4,11 @@ import './key.styl';
 
 class Key extends React.Component {
   static propTypes = {
-    itemKey: React.PropTypes.number,
+    itemKey: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
+
   }
 
   render() {
