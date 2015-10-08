@@ -105,7 +105,7 @@ class ArrayItem extends React.Component {
           </div>
 
           <div className="attributeArrayItemKey">
-            <Key index={this.props.index} />
+            <Key itemKey={this.props.index} />
             {this.renderType()}
           </div>
 

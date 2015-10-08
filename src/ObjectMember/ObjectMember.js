@@ -145,6 +145,13 @@ class ObjectMember extends React.Component {
       }
     }
 
+    let key = '';
+
+    if (this.props.data.element === 'member') {
+      key = this.props.data.content.key.content;
+    }
+
+
     return (
       <div className={this.getClassNames()}>
 
@@ -156,7 +163,7 @@ class ObjectMember extends React.Component {
         </div>
 
         <div className="attributeObjectMemberKey">
-          <Key data={this.props.data} />
+          <Key itemKey={key} />
           {this.renderType()}
         </div>
 
