@@ -32,7 +32,7 @@
   "scripts": {
     "build": "npm run build:server && npm run build:client",
     "build:server": "node ./scripts/run.js ./serverBuild",
-    "build:client": "npm run build:client:full && npm run build:client:noDep && npm run build:client:react",
+    "build:client": "npm run build:client:full && npm run build:client:noDep && npm run build:client:react && NODE_ENV=production npm run build:client:full",
     "build:client:react": "node ./scripts/run.js ./clientBuild",
     "build:client:full": "node ./scripts/run.js ./clientBuild full",
     "build:client:noDep": "node ./scripts/run.js ./clientBuild noDep",

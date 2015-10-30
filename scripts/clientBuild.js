@@ -7,13 +7,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 if (process.argv.length > 3 ) {
   if (process.argv[3] == 'full') {
-    console.info("Performing a full dep client build.")
+    console.info("Performing a full dep client build.");
     clientConfig.externals = {};
-    clientConfig.output.filename = isProduction ? 'attributes-kit-full.min.js' : 'attributes-kit-full.js';
+    clientConfig.output.filename = isProduction ? 'attributes-kit.min.js' : 'attributes-kit.js';
   }
   else if (process.argv[3] == 'noDep') {
-    console.info("Performing a no dep client build.")
-   clientConfig.output.filename = isProduction ? 'attributes-kit-noDep.min.js' : 'attributes-kit-noDep.js';
+    console.info("Performing a no dep client build.");
+   clientConfig.output.filename = isProduction ? 'attributes-kit-no-deps.min.js' : 'attributes-kit-no-deps.js';
    clientConfig.externals = {
     'react': {
       root: 'React',
@@ -34,6 +34,9 @@ if (process.argv.length > 3 ) {
       amd: 'marked'
     },
    };
+  }
+  else {
+    console.info("Performing a no-react build");
   }
 }
 
