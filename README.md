@@ -30,20 +30,18 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
 * [Status](#status)
 * [Compatibility](#compatibility)
 * [Usage](#usage)
-  * [Installation](#installation)
   * [API](#api)
-  * [Browser Builds](#browser-builds)
-  * [Custom Builds](#custom-builds)
+  * [Browser](#browser)
+  * [Server](#server)
 * [Developing](#developing)
-  * [Pre-Installation Check](#developing)
-  * [Installation](#developing)
+  * [Installation](#installation)
   * [Playground](#testing)
   * [Testing](#testing)
 * [Versioning](#versioning)
 * [Contributing](#testing)
-* [Troubleshooting](#testing)
+* [Troubleshooting](#troubleshooting)
 * [Code of Conduct](#code-of-conduct)
-* [License](#testing)
+* [License](#license)
 
 ---
 
@@ -77,7 +75,8 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
   Render the Attributes Kit using the `render` method.
 
   ```JavaScript
-  import AttributesKit from 'AttributesKit';
+  import AttributesKit from 'attributes-kit';
+
   let attributes = new AttributesKit({element, options});
   attributes.render(data);
   ```
@@ -85,9 +84,9 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
   Or you can use the React component directly.
 
   ```JavaScript
-  import {AttributesKit} from 'AttributesKit';
+  import {Attributes} from 'attributes-kit';
 
-  // E.g. <AttributesKit data={data} />
+  // E.g. <Attributes data={data} />
   ```
 
 You're done! **Great job!** :+1:
@@ -123,85 +122,180 @@ npm -v
 
 ## Browsers
 
+| Browser                 |
+|:------------------------|
+| ![](https://img.shields.io/badge/Google%20Chrome-15+-blue.svg) |
+| ![](https://img.shields.io/badge/Safari-6.1+-lightgrey.svg) |
+| ![](https://img.shields.io/badge/Firefox-28+-orange.svg) |
+| ![](https://img.shields.io/badge/Edge-12+-blue.svg) |
+| ![](https://img.shields.io/badge/IE-11+-blue.svg) |
+| ![](https://img.shields.io/badge/Opera-12.1+-red.svg) |
 
 ---
 
 # Usage
 
-## Installation
-
-```
-npm install attributes-kit
-```
+* [API](#api)
+* [Browser](#browser)
+* [Server](#server)
 
 ## API
 
-### Using the static method
+* [`render` Method](#render-method)
+* [Class Instance](#class-instance)
+* [React Component](#react-component)
 
-```javascript
-import AttributesKit from 'AttributesKit';
+#### `render` Method
+
+```JavaScript
+import AttributesKit from 'attributes-kit';
+
 AttributesKit.render(data, element, options);
 ```
 
-### Using the class instance
+#### Class Instance
 
-```javascript
-import AttributesKit from 'AttributesKit';
+```JavaScript
+import AttributesKit from 'attributes-kit';
+
 let attributes = new AttributesKit({element, options});
 attributes.render(data);
 ```
 
-### Using the React component directly
+#### React Component
 
-```javascript
-import AttributesKit from 'AttributesKit';
+```JavaScript
 import React from 'react';
-React.render(<Attributes.AttributesKit data={data} />, this.element);
+import {Attributes} from 'attributes-kit';
+
+React.render(<Attributes data={data} />, element);
 ```
 
 ### Parameters
 
-Even if in different forms, `attributes-kit` will always take the same parameters
+Attributes Kit always takes the same parameters.
 
-- `data` - A valid [Refract](https://github.com/refractproject/refract-spec) element to be rendered.
-- `element` - A DOM node where the rendered MSON will be placed.
-- `options` - An options object that will drive MSON rendering (unused for now).
+| Parameter | Description |
+|:----------|:-----------|
+| `data`    | [Refract](https://github.com/refractproject/refract-spec) element to be rendered. |
+| `element` | A DOM node or a CSS selector; Attributes Kit will be rendered inside the element. |
+| `options` | An options object to customize the rendering. |
 
 ## Browser
 
-`attributes-kit` can be imported into your project in different ways, depending on your bundling system and other things (such as power surges, cosmic radiations, tides, economic trend, weather situation, metro delays, planets alignment and so on.)
+1. **Install the package**
 
-Actually, the default scenario, when requiring the package directly using `require('attributes-kit')` is **importing** the raw source code. It means that, in order to be used, you're kind of forced to use **Webpack** as module loader and import into hosting application some loaders that can be found into [package.json](./package.json) file, `devDependencies`.
+  ```Bash
+  npm install attributes-kit
+  ```
 
-If you prefer to drop a `<script>` tag in your page, here's a list of browser builds that you can use. All builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box;
+2. **Require the package**
 
-Those files are located into `dist` directory, so, to use them into your application, you have to use something like `require('attributes-kit/dist/attributes-kit-noDep')` (in case of `attributes-kit-noDep.js` and so on)
+  ###### ES6
 
-All the builds are ES5 traspiled.
+  ```JavaScript
+  import AttributesKit from 'attributes-kit';
+  ```
 
-| All-in-one build        |
+  ###### ES5
+
+  ```JavaScript
+  var AttributesKit = require('attributes-kit');
+  ```
+
+3. **Use it**
+
+  Use the Attributes Kit, you can see the [API](#api).
+
+### `<script>` tag
+
+If you prefer to drop a `<script>` tag in your page, here's how to do it. Just a note—all builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box.
+
+1. **Download the latest release**
+
+  Go to the [Releases](https://github.com/apiaryio/attributes-kit/releases) page and download the latest release.
+
+2. **Choose the build**
+
+  You can download the build directly, or all builds are located in the `dist` folder.
+
+  | Development Build       |
+  |:------------------------|
+  | [attributes-kit.js]()   |
+  | Works out of the box, the uncompressed file is best used during development or debugging. |
+
+  | Production Build        |
+  |:------------------------|
+  | [attributes-kit-min.js](); [attributes-kit-min.js.map]() |
+  | Works out of the box, compressed version saves bandwidth and improves performance in production. `attributes-kit-min.js.map` is not required to run the Kit. |
+
+3. **Drop the `<script>` tag**
+
+  ```HTML
+  <script src="./attributes-kit.js"></script>
+  ```
+
+4. **Use it**
+
+  ```JavaSript
+  var AttributesKit = window.AttributesKit;
+  AttributesKit.render(data, element, options);
+  ```
+
+  Please see the [API](#api).
+
+### Advanced
+
+There are two more builds mainly for more advanced use cases.
+
+| Build without React     |
 |:------------------------|
-| [`attributes-kit-full.js`]() |
-| [`attributes-kit-full-min.js`]() |
-| This build contains all required dependencies, React included. It means that it **can** be used into your application without installing anything else. On the other side, if you're already using `React` for other purposes, you will have a library duplication that can be avoided using the _React free build_.|
+| [`attributes-kit-no-react.js`]() |
+| This build *does not* contain React dependency. You have to install React manually, or your application lists React in its dependencies (in `package.json`). |
 
-| React free build        |
-|:------------------------|
-| [`attributes-kit.js`]() |
-| [`attributes-kit-min.js`]() |
-| This build contains all the required dependencies, except for React. It means that it **cannot** be used into your application without installing React into it and wiring it to be injected into a `require('react')` call |
+| Build without dependencies |
+|:---------------------------|
+| [`attributes-kit-no-deps.js`]() |
+| This build *does not* contain any dependencies of the Attributes Kit. You have to install all dependencies manually, or your application lists them all in (e.g.) `package.json`. |
 
-| Dependency free build        |
-|:------------------------|
-| [`attributes-kit-noDep.js`]() |
-| [`attributes-kit-noDep-min.js`]() |
-| This build does not contain any of required dependencies, React included. It means that it **cannot** be used into your application without installing all `dependencies` into [package.json](./package.json) and wired to be injected into a `require('dep')` call |
+## Server
 
-In case you would like to build your own version of the Attributes Kit, please see the [Custom Builds](#custom-builds) section.
+You can use the Attributes Kit on the server too. For instance—you can generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl you pages for SEO purposes.
 
-### Custom Builds
+1. **Install the package**
 
-Not supported ATM.
+  ```Bash
+  npm install attributes-kit
+  ```
+
+2. **Require the package**
+
+  Please mind the `dist/attributes-kit-server` suffix.
+
+  ###### ES6
+
+  ```JavaScript
+  import AttributesKit from 'attributes-kit/dist/attributes-kit-server';
+  ```
+
+  ###### ES5
+
+  ```JavaScript
+  var AttributesKit = require('attributes-kit/dist/attributes-kit-server');
+  ```
+
+3. **Use it**
+
+  ```JavaScript
+  import React from 'react';
+  import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
+
+  const element = React.createElement(Attributes, {
+    data: [Refract Element]
+  });
+
+  React.renderToString(element);
+  ```
 
 ---
 
