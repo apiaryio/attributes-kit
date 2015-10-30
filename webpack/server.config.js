@@ -18,7 +18,7 @@ export default _.extend({}, webpackConfig, {
   target: 'node',
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'attributes-kit-server.js',
+    filename: '[name].js',
   },
   entry: {
     'generateFixtures': path.join(__dirname, '../scripts/generateFixtures'),
