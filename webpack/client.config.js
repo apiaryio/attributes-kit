@@ -24,7 +24,7 @@ export default _.extend({}, baseConfig, {
 
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: isProduction ? 'attributes-kit.min.js' : 'attributes-kit.js',
+    filename: isProduction ? 'attributes-kit-no-react.min.js' : 'attributes-kit-no-react.js',
     library: 'AttributesKit',
     libraryTarget: 'umd'
   },

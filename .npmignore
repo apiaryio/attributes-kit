@@ -1,7 +1,6 @@
 .DS_Store
 *.sublime-workspace
-npm-debug.log
-node_modules
-/dist
 /fixtures
 app.json
+dist/test
+dist/generateFixtures*

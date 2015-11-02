@@ -2,8 +2,8 @@
   "name": "attributes-kit",
   "version": "1.0.0",
   "description": "React component for MSON rendering",
-   "engines": {
-      "node" : "0.12"
+  "engines": {
+    "node": "0.12"
   },
   "keywords": [
     "MSON",
@@ -28,11 +28,14 @@
       "url": "http://vncz.js.org/"
     }
   ],
-  "main": "src/index.js",
+  "main": "dist/attributes-kit",
   "scripts": {
     "build": "npm run build:server && npm run build:client",
     "build:server": "node ./scripts/run.js ./serverBuild",
-    "build:client": "node ./scripts/run.js ./clientBuild",
+    "build:client": "npm run build:client:full && npm run build:client:noDep && npm run build:client:react && NODE_ENV=production npm run build:client:full",
+    "build:client:react": "node ./scripts/run.js ./clientBuild",
+    "build:client:full": "node ./scripts/run.js ./clientBuild full",
+    "build:client:noDep": "node ./scripts/run.js ./clientBuild noDep",
     "generate-fixtures": "node ./dist/generateFixtures.js",
     "lint": "eslint src playground --ext .js,.es6 src",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",
@@ -55,12 +58,6 @@
     "url": "https://github.com/apiaryio/attributes-kit/issues"
   },
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
-  "dependencies": {
-    "classnames": "^2.1.5",
-    "marked": "^0.3.5",
-    "minim": "^0.11.0",
-    "react": "^0.13.3"
-  },
   "devDependencies": {
     "async": "^1.4.2",
     "babel": "^5.8.21",
@@ -69,7 +66,8 @@
     "babel-loader": "^5.3.2",
     "body-parser": "^1.14.1",
     "browser-launcher2": "^0.4.6",
-    "css-loader": "^0.19.0",
+    "classnames": "^2.1.5",
+    "css-loader": "^0.21.0",
     "dedent": "^0.4.0",
     "eslint": "^1.5.0",
     "eslint-config-airbnb": "^0.1.0",
@@ -80,13 +78,13 @@
     "jquery": "^2.1.4",
     "js-beautify": "^1.5.10",
     "json-formatter-js": "^0.2.0",
-    "jsx-loader": "^0.13.2",
+    "marked": "^0.3.5",
     "mocha": "^2.3.3",
     "mson-zoo": "^2.0.0",
     "nib": "^1.1.0",
-    "node-noop": "0.0.1",
+    "node-noop": "^1.0.0",
     "protagonist": "^1.0.0",
-    "raw-loader": "^0.5.1",
+    "react": "^0.13.3",
     "react-hot-loader": "^1.3.0",
     "shell-executor": "^0.3.2",
     "style-loader": "^0.12.4",

@@ -24,15 +24,32 @@
                         <noscript></noscript>
                     </div>
                     <div class="attributeObjectMemberValueRow">
-                        <div class="attributeObjectMemberValue">
-                            <div class="attributeValue">string3string4</div>
-                        </div>
                         <div class="attributeObjectMemberDefaultsContainer">
                             <div class="attributeDefaults">
                                 <h2 class="attributeDefaultsTitle">Default</h2>
                                 <div class="attributeDefaultsEntries">
                                     <div class="attributeSimpleValue">
                                         <div class="attributeSimplePrimitiveValue">4</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attributeObjectMemberSamplesRow">
+                        <div class="attributeSamples isCollapsed">
+                            <div class="attributeSamplesToggleText">Show samples…</div>
+                            <div class="attributeSamplesToggle">
+                                <div class="attributeToggle isCollapsed"><span class="attributeToggleIcon"></span></div>
+                            </div>
+                            <div class="attributeSamplesList">
+                                <div class="attributeSample">
+                                    <div class="attributeSampleEntries">
+                                        <div class="attributeSimpleValue">
+                                            <div class="attributeSimplePrimitiveValue">3</div>
+                                        </div>
+                                        <div class="attributeSimpleValue">
+                                            <div class="attributeSimplePrimitiveValue">4</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
