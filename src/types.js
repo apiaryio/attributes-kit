@@ -4,6 +4,7 @@ const TYPES = {
   OBJECT: 'object',
   STRING: 'string',
   NUMBER: 'number',
+  ENUM: 'enum'
 };
 
 export default TYPES;

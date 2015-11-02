@@ -129,7 +129,7 @@ class ObjectMember extends React.Component {
   }
 
   render() {
-    if (getType(this.props.data) === 'enum' || getType(this.props.data) === 'select') {
+    if (getType(this.props.data) === 'select') {
       return (<noscript/>);
     }
 
