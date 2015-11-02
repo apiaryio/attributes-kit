@@ -14,7 +14,7 @@ import {
   getValue,
 } from 'elements/expandableCollapsibleElement';
 
-import {getType, isObjectOrArray, isObject} from 'elements/element';
+import {getType, isNestedObject, isObject} from 'elements/element';
 
 import './objectMember.styl';
 
@@ -65,7 +65,7 @@ class ObjectMember extends React.Component {
       return false;
     }
 
-    if (isObjectOrArray(value.element)) {
+    if (isNestedObject(value.element)) {
       return false;
     }
 

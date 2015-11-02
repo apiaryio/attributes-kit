@@ -6,7 +6,7 @@ import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isObjectOrArray,
+  isNestedObject,
   isObject,
   isArray,
   isMember,
@@ -47,10 +47,10 @@ function getExpandCollapseClassNames(element, state) {
 
 function getValue(element) {
   let value;
-  if (isObjectOrArray(element.element)) {
+  if (isNestedObject(element.element)) {
     value = <Attribute data={element} />;
   } else if (isMember(element.element)) {
-    if (isObjectOrArray(element.content.value.element)) {
+    if (isNestedObject(element.content.value.element)) {
       value = <Attribute data={element.content.value} />;
     } else if (element.content.value.content) {
       value = <Value value={element.content.value.content} />;
