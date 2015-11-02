@@ -28,7 +28,7 @@
       "url": "http://vncz.js.org/"
     }
   ],
-  "main": "src/index.js",
+  "main": "dist/attributes-kit",
   "scripts": {
     "build": "npm run build:server && npm run build:client",
     "build:server": "node ./scripts/run.js ./serverBuild",
