@@ -5,32 +5,9 @@
         <div class="attributeObject">
             <div class="attributeObjectMembers">
                 <div class="attributeObjectMemberContainer">
-                    <div class="attributeObjectMember isExpanded">
-                        <div class="attributeObjectMemberToggle">
-                            <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                        </div>
-                        <div class="attributeObjectMemberKey">
-                            <div class="attributeKey">address</div>
-                            <div class="attributeObjectMemberType">
-                                <div class="attributeType">enum</div>
-                            </div>
-                        </div>
-                        <div class="attributeObjectMemberRequirement">
-                            <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="attributeObjectMemberDescription">
-                        <noscript></noscript>
-                    </div>
-                    <div class="attributeObjectMemberValueRow">
-                        <div class="attributeObjectMemberValue">
-                            <div class="attributeValue">number4number2number42</div>
-                        </div>
-                    </div>
+                    <noscript></noscript>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

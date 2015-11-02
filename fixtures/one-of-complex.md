@@ -27,14 +27,20 @@
                 </div>
             </div>
             <div class="attributeObjectMemberContainer">
+                <noscript></noscript>
+            </div>
+            <div class="attributeObjectMemberContainer">
+                <noscript></noscript>
+            </div>
+            <div class="attributeObjectMemberContainer">
                 <div class="attributeObjectMember isExpanded">
                     <div class="attributeObjectMemberToggle">
                         <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
                     </div>
                     <div class="attributeObjectMemberKey">
-                        <noscript></noscript>
+                        <div class="attributeKey">country</div>
                         <div class="attributeObjectMemberType">
-                            <div class="attributeType">select</div>
+                            <div class="attributeType">string</div>
                         </div>
                     </div>
                     <div class="attributeObjectMemberRequirement">
@@ -45,62 +51,10 @@
                 <div class="attributeObjectMemberDescription">
                     <noscript></noscript>
                 </div>
-                <div class="attributeObjectMemberValueRow">
-                    <div class="attributeObjectMemberValue">
-                        <div class="attributeValue">optionmemberstringcitystringoptionmemberstringtownstring</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="attributeObjectMemberContainer">
-            <div class="attributeObjectMember isExpanded">
-                <div class="attributeObjectMemberToggle">
-                    <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                </div>
-                <div class="attributeObjectMemberKey">
-                    <noscript></noscript>
-                    <div class="attributeObjectMemberType">
-                        <div class="attributeType">select</div>
-                    </div>
-                </div>
-                <div class="attributeObjectMemberRequirement">
-                    <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
-                    </span>
-                </div>
-            </div>
-            <div class="attributeObjectMemberDescription">
-                <noscript></noscript>
-            </div>
-            <div class="attributeObjectMemberValueRow">
-                <div class="attributeObjectMemberValue">
-                    <div class="attributeValue">optionmemberstringstatestringoptionselectoptionmemberstringprovincestringoptionmemberstringterritorystring</div>
-                </div>
+                <div class="attributeObjectMemberValueRow"></div>
             </div>
         </div>
     </div>
-    <div class="attributeObjectMemberContainer">
-        <div class="attributeObjectMember isExpanded">
-            <div class="attributeObjectMemberToggle">
-                <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-            </div>
-            <div class="attributeObjectMemberKey">
-                <div class="attributeKey">country</div>
-                <div class="attributeObjectMemberType">
-                    <div class="attributeType">string</div>
-                </div>
-            </div>
-            <div class="attributeObjectMemberRequirement">
-                <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
-                </span>
-            </div>
-        </div>
-        <div class="attributeObjectMemberDescription">
-            <noscript></noscript>
-        </div>
-        <div class="attributeObjectMemberValueRow"></div>
-    </div>
-</div>
-</div>
 </div>
 </div>
 </div>

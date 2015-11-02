@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDomServer from 'react-dom/server';
 import msonZoo from 'mson-zoo'
 import jsBeautify from 'js-beautify';
 import fs from 'fs'
@@ -26,7 +27,7 @@ msonZoo.samples.forEach((sample) => {
       data: result
     });
 
-    let htmlString = jsBeautify.html(React.renderToStaticMarkup(renderedElement));
+    let htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
 
     fs.writeFileSync(path.join(fixtureLocation, sample.name), htmlString);
   })
