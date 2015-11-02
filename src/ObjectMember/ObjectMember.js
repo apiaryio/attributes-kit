@@ -129,6 +129,29 @@ class ObjectMember extends React.Component {
   }
 
   render() {
+    let description = null;
+
+    if (this.props.data.meta) {
+      if (this.props.data.meta.description) {
+        description = this.props.data.meta.description;
+      }
+    }
+
+    let requirement = ['optional'];
+
+    if (this.props.data.attributes) {
+      if (this.props.data.attributes.typeAttributes) {
+        requirement = this.props.data.attributes.typeAttributes;
+      }
+    }
+
+    let key = '';
+
+    if (this.props.data.element === 'member') {
+      key = this.props.data.content.key.content;
+    }
+
+
     return (
       <div className={this.getClassNames()}>
 
@@ -140,16 +163,16 @@ class ObjectMember extends React.Component {
         </div>
 
         <div className="attributeObjectMemberKey">
-          <Key data={this.props.data} />
+          <Key itemKey={key} />
           {this.renderType()}
         </div>
 
         <div className="attributeObjectMemberRequirement">
-          <Requirement data={this.props.data} />
+          <Requirement requirement={requirement} />
         </div>
 
         <div className="attributeObjectMemberDescription">
-          <Description data={this.props.data} />
+          <Description description={description} />
         </div>
 
         <div className="attributeObjectMemberValueRow">

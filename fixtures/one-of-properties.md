@@ -33,7 +33,7 @@
                                                 <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
                                             </div>
                                             <div class="attributeObjectMemberKey">
-                                                <noscript></noscript>
+                                                <div class="attributeKey"></div>
                                                 <div class="attributeObjectMemberType">
                                                     <div class="attributeType">select</div>
                                                 </div>
