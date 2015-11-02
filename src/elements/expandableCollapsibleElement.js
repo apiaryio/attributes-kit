@@ -10,11 +10,12 @@ import {
   isObject,
   isArray,
   isMember,
+  isEnum,
 } from 'elements/element';
 
 function isExpandableCollapsible(element) {
   const valueType = getValueType(element);
-  return isObject(valueType) || isArray(valueType);
+  return isObject(valueType) || isArray(valueType) || isEnum(valueType);
 }
 
 function containsExpandableCollapsibleElement(elements) {
@@ -40,6 +41,7 @@ function getExpandCollapseClassNames(element, state) {
     'isExpandableCollapsible': isExpandableCollapsible(element),
     'isObject': isObject(valueType),
     'isArray': isArray(valueType),
+    'isEnum': isEnum(valueType),
   });
 }
 
