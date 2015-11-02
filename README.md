@@ -288,13 +288,14 @@ You can use the Attributes Kit on the server too. For instance—you can generat
 
   ```JavaScript
   import React from 'react';
+  import ReactDomServer from 'react-dom/server'
   import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
 
   const element = React.createElement(Attributes, {
     data: [Refract Element]
   });
 
-  React.renderToString(element);
+  ReactDomServer.renderToString(element);
   ```
 
 ---
