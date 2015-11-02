@@ -13,6 +13,7 @@ class Value extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div className="attributeValue">
         {this.props.value}

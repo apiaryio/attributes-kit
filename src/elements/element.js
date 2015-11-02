@@ -32,8 +32,8 @@ function isEnum(element) {
   return element === TYPES.ENUM;
 }
 
-function isObjectOrArray(element) {
-  return isObject(element) || isArray(element);
+function isNestedObject(element) {
+  return isObject(element) || isArray(element) || isEnum(element);
 }
 
 export {
@@ -43,5 +43,5 @@ export {
   isObject,
   isArray,
   isEnum,
-  isObjectOrArray,
+  isNestedObject,
 };
