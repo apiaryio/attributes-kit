@@ -21,6 +21,12 @@ if (process.argv.length > 3 ) {
       commonjs: 'react',
       amd: 'react'
     },
+    'react-dom': {
+      root: 'react-dom',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    },
     'classnames': {
       root: 'classnames',
       commonjs2: 'classnames',
