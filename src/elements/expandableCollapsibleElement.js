@@ -45,7 +45,6 @@ function getExpandCollapseClassNames(element, state) {
 
 function getValue(element) {
   let value;
-
   if (isObjectOrArray(element.element)) {
     value = <Attribute data={element} />;
   } else if (isMember(element.element)) {

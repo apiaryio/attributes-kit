@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import {EventEmitter} from 'events';
 
 import Attributes from 'Attributes/Attributes';
@@ -53,7 +54,7 @@ class AttributesKit extends EventEmitter {
   }
 
   render(data) {
-    React.render(<Attributes data={data} />, this.element);
+    ReactDom.render(<Attributes data={data} />, this.element);
   }
 }
 

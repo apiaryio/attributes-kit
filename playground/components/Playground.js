@@ -1,5 +1,4 @@
 import React from 'react';
-
 import AttributesKit from '../../src';
 import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
