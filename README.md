@@ -165,10 +165,10 @@ attributes.render(data);
 #### React Component
 
 ```JavaScript
-import React from 'react';
+import ReactDom from 'react-dom';
 import {Attributes} from 'attributes-kit';
 
-React.render(<Attributes data={data} />, element);
+ReactDom.render(<Attributes data={data} />, element);
 ```
 
 ### Parameters
