@@ -14,8 +14,9 @@ import {
 } from 'elements/element';
 
 function isExpandableCollapsible(element) {
+  // Probably this function can be removed.
   const valueType = getValueType(element);
-  return isObject(valueType) || isArray(valueType) || isEnum(valueType);
+  return isNestedObject(valueType);
 }
 
 function containsExpandableCollapsibleElement(elements) {
