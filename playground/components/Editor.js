@@ -4,7 +4,7 @@ import EditorActions from '../actions/editor';
 
 class EditorComponent extends React.Component {
 
-  _handleChange(event) {
+  _handleChange = (event) => {
     this.setState({value: event.target.value});
     EditorActions.parse(event.target.value);
   }
