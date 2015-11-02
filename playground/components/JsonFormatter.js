@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom'
 import JSONFormatter from 'json-formatter-js/src/index';
 
 import 'json-formatter-js/dist/style.css';
@@ -14,7 +15,7 @@ class JsonFormatter extends React.Component {
   }
 
   componentDidMount() {
-    this.nodeComponent = React.findDOMNode(this.refs.jsonFormatterContainer);
+    this.nodeComponent = ReactDom.findDOMNode(this.refs.jsonFormatterContainer);
     this.attachJsonFormatter();
   }
 
