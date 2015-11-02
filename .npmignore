@@ -2,3 +2,5 @@
 *.sublime-workspace
 /fixtures
 app.json
+dist/test
+dist/generateFixtures*
