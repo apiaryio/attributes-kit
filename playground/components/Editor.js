@@ -2,6 +2,8 @@ import React from 'react';
 
 import EditorActions from '../actions/editor';
 
+import TabOverride from './taboverride';
+
 class EditorComponent extends React.Component {
 
   _handleChange = (event) => {
@@ -9,9 +11,14 @@ class EditorComponent extends React.Component {
     EditorActions.parse(event.target.value);
   }
 
+  componentDidMount() {
+    debugger
+    TabOverride.set(this.refs.textarea);
+  }
+
   render() {
     return (
-      <textarea onChange={this._handleChange} />
+      <textarea ref="textarea" onChange={this._handleChange} />
     );
   }
 }
