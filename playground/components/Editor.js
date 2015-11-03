@@ -12,7 +12,8 @@ class EditorComponent extends React.Component {
   }
 
   componentDidMount() {
-    debugger
+    TabOverride.tabSize(4);
+    TabOverride.autoIndent(true);
     TabOverride.set(this.refs.textarea);
   }
 
