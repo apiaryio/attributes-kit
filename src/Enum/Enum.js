@@ -14,4 +14,4 @@ class EnumComponent extends React.Component {
   }
 }
 
-export default EnumComponent
+export default EnumComponent;

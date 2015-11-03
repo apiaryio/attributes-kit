@@ -10,10 +10,9 @@ class Value extends React.Component {
       React.PropTypes.number,
       React.PropTypes.bool,
     ]),
-  }
+  };
 
   render() {
-    debugger
     return (
       <div className="attributeValue">
         {this.props.value}
