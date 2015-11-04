@@ -7,7 +7,7 @@ import path from 'path'
 import protagonist from 'protagonist';
 
 import parseMson from '../playground/parseMson';
-import AttributesKit from '../src';
+import AttributesKit from '../dist/attributes-kit-server';
 
 const fixtureLocation = path.join(__dirname, '../', 'fixtures');
 

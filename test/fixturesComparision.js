@@ -8,7 +8,7 @@ import assert from 'assert'
 
 
 import parseMson from '../playground/parseMson'
-import {Attributes} from '../src/index';
+import {Attributes} from '../dist/attributes-kit-server';
 
 describe('Comparision with reference fixtures', () => {
 

@@ -19,10 +19,10 @@ export default _.extend({}, webpackConfig, {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
+    libraryTarget: 'umd'
   },
   entry: {
-    'generateFixtures': path.join(__dirname, '../scripts/generateFixtures'),
-    'test/fixturesComparision': path.join(__dirname, '../test/fixturesComparision'),
+    'attributes-kit-server': path.join(__dirname, '../src/index'),
   },
   externals: nodeModules,
   plugins: [
