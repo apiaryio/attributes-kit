@@ -12,28 +12,49 @@ class JsonFormatter extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      jsonFormatted: true,
+    };
   }
 
   componentDidMount() {
-    this.nodeComponent = ReactDom.findDOMNode(this.refs.jsonFormatterContainer);
     this.attachJsonFormatter();
   }
 
   attachJsonFormatter() {
-    if (this.nodeComponent !== undefined) {
-      const formatter = new JSONFormatter(this.props.data, 3, { hoverPreviewEnabled: true });
-      if (this.nodeComponent.hasChildNodes()) {
-        this.nodeComponent.removeChild(this.nodeComponent.firstChild);
+    if (this.refs.jsonFormatterContainer !== undefined) {
+      const formatter = new JSONFormatter(this.props.data, 3, { hoverPreviewEnabled: false });
+      if (this.refs.jsonFormatterContainer.hasChildNodes()) {
+        this.refs.jsonFormatterContainer.removeChild(this.refs.jsonFormatterContainer.firstChild);
       }
 
-      this.nodeComponent.appendChild(formatter.render());
+      this.refs.jsonFormatterContainer.appendChild(formatter.render());
     }
+  }
+
+  switchJsonView = () => {
+    this.setState((state) => {
+      return { jsonFormatted: !state.jsonFormatted };
+    });
   }
 
   render() {
     this.attachJsonFormatter();
+
+    const jsonFormatterStyle = {
+      display: this.state.jsonFormatted === true ? 'inherit' : 'none',
+    };
+
+    const preFormatterStyle = {
+      display: this.state.jsonFormatted === true ? 'none' : 'inherit',
+    };
+
     return (
-      <div ref="jsonFormatterContainer">
+      <div>
+        <button onClick={this.switchJsonView}>Switch view</button>
+        <div style={jsonFormatterStyle} ref="jsonFormatterContainer" />
+        <pre style={preFormatterStyle}>{JSON.stringify(this.props.data, null, 2)}</pre>
       </div>
     );
   }

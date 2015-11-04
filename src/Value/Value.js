@@ -10,7 +10,7 @@ class Value extends React.Component {
       React.PropTypes.number,
       React.PropTypes.bool,
     ]),
-  }
+  };
 
   render() {
     return (

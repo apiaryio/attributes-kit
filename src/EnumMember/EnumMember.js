@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import Key from 'Key/Key';
 import Requirement from 'Requirement/Requirement';
 import Description from 'Description/Description';
@@ -16,10 +15,7 @@ import {
 
 import {getType, isNestedObject, isObject} from 'elements/element';
 
-import './objectMember.styl';
-
-
-class ObjectMember extends React.Component {
+class EnumMember extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
   }
@@ -35,7 +31,7 @@ class ObjectMember extends React.Component {
   }
 
   getClassNames() {
-    return classNames('attributeObjectMember', getExpandCollapseClassNames(this.props.data, this.state));
+    return classNames('attributeEnumMember', getExpandCollapseClassNames(this.props.data, this.state));
   }
 
   handleExpandCollapseEvent = () => {
@@ -49,7 +45,7 @@ class ObjectMember extends React.Component {
 
     if (type) {
       return (
-        <div className="attributeObjectMemberType">
+        <div className="attributeEnumMemberType">
           <Type type={type} />
         </div>
       );
@@ -59,7 +55,7 @@ class ObjectMember extends React.Component {
   }
 
   renderSamples() {
-    const value = this.props.data.content.value;
+    const value = this.props.data.content;
 
     if (!value) {
       return false;
@@ -80,14 +76,14 @@ class ObjectMember extends React.Component {
     }
 
     return (
-      <div className="attributeObjectMemberSamplesRow">
+      <div className="attributeEnumMemberSamplesRow">
         <Samples data={samples} />
       </div>
     );
   }
 
   renderDefaults() {
-    const value = this.props.data.content.value;
+    const value = this.props.data.content;
 
     if (!value) {
       return false;
@@ -108,7 +104,7 @@ class ObjectMember extends React.Component {
     }
 
     return (
-      <div className="attributeObjectMemberDefaultsContainer">
+      <div className="attributeEnumMemberDefaultsContainer">
         <Defaults data={defaults} />
       </div>
     );
@@ -119,7 +115,7 @@ class ObjectMember extends React.Component {
 
     if (value) {
       return (
-        <div className="attributeObjectMemberValue">
+        <div className="attributeEnumMemberValue">
           {value}
         </div>
       );
@@ -136,27 +132,27 @@ class ObjectMember extends React.Component {
     return (
       <div className={this.getClassNames()}>
 
-        <div className="attributeObjectMemberToggle">
+        <div className="attributeEnumMemberToggle">
           <Toggle
             expandCollapseEventHandler={this.handleExpandCollapseEvent}
             isExpanded={this.state.isExpanded}
           />
         </div>
 
-        <div className="attributeObjectMemberKey">
+        <div className="attributeEnumMemberKey">
           <Key data={this.props.data} />
           {this.renderType()}
         </div>
 
-        <div className="attributeObjectMemberRequirement">
+        <div className="attributeEnumMemberRequirement">
           <Requirement data={this.props.data} />
         </div>
 
-        <div className="attributeObjectMemberDescription">
+        <div className="attributeEnumMemberDescription">
           <Description data={this.props.data} />
         </div>
 
-        <div className="attributeObjectMemberValueRow">
+        <div className="attributeEnumMemberValueRow">
           {this.renderValue()}
           {this.renderDefaults()}
         </div>
@@ -168,4 +164,4 @@ class ObjectMember extends React.Component {
   }
 }
 
-export default ObjectMember;
+export default EnumMember;

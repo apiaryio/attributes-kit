@@ -1,12 +1,10 @@
 import React from 'react';
 
-import ObjectMember from 'ObjectMember/ObjectMember';
+import EnumMember from 'EnumMember/EnumMember';
 import Samples from 'Samples/Samples';
 import Defaults from 'Defaults/Defaults';
 
-import './object.styl';
-
-class ObjectComponent extends React.Component {
+class EnumComponent extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
   }
@@ -15,14 +13,33 @@ class ObjectComponent extends React.Component {
     super(props);
 
     this.props.data.content = this.props.data.content || [];
-    this.attributes = this.props.data.attributes || {};
+  }
+
+  renderSamples() {
+    const attributes = this.props.data.attributes;
+    let samples = null;
+
+    if (attributes) {
+      samples = attributes.samples;
+    }
+
+    if (!samples) {
+      return false;
+    }
+
+    return (
+      <div className="attributeObjectSamplesContainer">
+        <Samples data={samples} />
+      </div>
+    );
   }
 
   renderDefaults() {
+    const attributes = this.props.data.attributes;
     let defaults = null;
 
-    if (this.attributes) {
-      defaults = this.attributes.default;
+    if (attributes) {
+      defaults = attributes.default;
     }
 
     if (!defaults) {
@@ -36,23 +53,9 @@ class ObjectComponent extends React.Component {
     );
   }
 
-  renderSamplesDropdown() {
-    if (this.attributes.samples) {
-      return (
-        <select>
-          {this.attributes.samples[0].map((sample, index) => {
-              const sampleName = sample.content.key.content;
-            return (<option value={sampleName} key={sampleName}>{sampleName}</option>);
-          })}
-        </select>
-      );
-    }
-  }
-
   render() {
     return (
       <div className="attributeObject">
-      {this.renderSamplesDropdown()}
         <div className="attributeObjectMembers">
           {this.props.data.content.map((member, index) => {
             return (
@@ -60,16 +63,17 @@ class ObjectComponent extends React.Component {
                 className="attributeObjectMemberContainer"
                 key={index}
               >
-                <ObjectMember data={member} />
+                <EnumMember data={member} />
               </div>
             );
           })}
         </div>
 
         {this.renderDefaults()}
+        {this.renderSamples()}
       </div>
     );
   }
 }
 
-export default ObjectComponent;
+export default EnumComponent;
