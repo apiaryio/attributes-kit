@@ -17,25 +17,6 @@ class ObjectComponent extends React.Component {
     this.props.data.content = this.props.data.content || [];
   }
 
-  renderSamples() {
-    const attributes = this.props.data.attributes;
-    let samples = null;
-
-    if (attributes) {
-      samples = attributes.samples;
-    }
-
-    if (!samples) {
-      return false;
-    }
-
-    return (
-      <div className="attributeObjectSamplesContainer">
-        <Samples data={samples} />
-      </div>
-    );
-  }
-
   renderDefaults() {
     const attributes = this.props.data.attributes;
     let defaults = null;
@@ -72,7 +53,6 @@ class ObjectComponent extends React.Component {
         </div>
 
         {this.renderDefaults()}
-        {this.renderSamples()}
       </div>
     );
   }
