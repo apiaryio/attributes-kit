@@ -15,14 +15,14 @@ class ObjectComponent extends React.Component {
     super(props);
 
     this.props.data.content = this.props.data.content || [];
+    this.attributes = this.props.data.attributes || {};
   }
 
   renderDefaults() {
-    const attributes = this.props.data.attributes;
     let defaults = null;
 
-    if (attributes) {
-      defaults = attributes.default;
+    if (this.attributes) {
+      defaults = this.attributes.default;
     }
 
     if (!defaults) {
@@ -36,9 +36,23 @@ class ObjectComponent extends React.Component {
     );
   }
 
+  renderSamplesDropdown() {
+    if (this.attributes.samples) {
+      return (
+        <select>
+          {this.attributes.samples[0].map((sample, index) => {
+              const sampleName = sample.content.key.content;
+            return (<option value={sampleName} key={sampleName}>{sampleName}</option>);
+          })}
+        </select>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="attributeObject">
+      {this.renderSamplesDropdown()}
         <div className="attributeObjectMembers">
           {this.props.data.content.map((member, index) => {
             return (
