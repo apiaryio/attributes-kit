@@ -6,15 +6,17 @@ import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isObjectOrArray,
+  isNestedObject,
   isObject,
   isArray,
   isMember,
+  isEnum,
 } from 'elements/element';
 
 function isExpandableCollapsible(element) {
+  // Probably this function can be removed.
   const valueType = getValueType(element);
-  return isObject(valueType) || isArray(valueType);
+  return isNestedObject(valueType);
 }
 
 function containsExpandableCollapsibleElement(elements) {
@@ -40,15 +42,16 @@ function getExpandCollapseClassNames(element, state) {
     'isExpandableCollapsible': isExpandableCollapsible(element),
     'isObject': isObject(valueType),
     'isArray': isArray(valueType),
+    'isEnum': isEnum(valueType),
   });
 }
 
 function getValue(element) {
   let value;
-  if (isObjectOrArray(element.element)) {
+  if (isNestedObject(element.element)) {
     value = <Attribute data={element} />;
   } else if (isMember(element.element)) {
-    if (isObjectOrArray(element.content.value.element)) {
+    if (isNestedObject(element.content.value.element)) {
       value = <Attribute data={element.content.value} />;
     } else if (element.content.value.content) {
       value = <Value value={element.content.value.content} />;

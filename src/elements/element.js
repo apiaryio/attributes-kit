@@ -28,8 +28,12 @@ function isArray(element) {
   return element === TYPES.ARRAY;
 }
 
-function isObjectOrArray(element) {
-  return isObject(element) || isArray(element);
+function isEnum(element) {
+  return element === TYPES.ENUM;
+}
+
+function isNestedObject(element) {
+  return isObject(element) || isArray(element) || isEnum(element);
 }
 
 export {
@@ -38,5 +42,6 @@ export {
   isMember,
   isObject,
   isArray,
-  isObjectOrArray,
+  isEnum,
+  isNestedObject,
 };

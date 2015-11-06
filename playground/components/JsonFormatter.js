@@ -21,7 +21,7 @@ class JsonFormatter extends React.Component {
 
   attachJsonFormatter() {
     if (this.nodeComponent !== undefined) {
-      const formatter = new JSONFormatter(this.props.data, 3, { hoverPreviewEnabled: true });
+      const formatter = new JSONFormatter(this.props.data, 3, { hoverPreviewEnabled: false });
       if (this.nodeComponent.hasChildNodes()) {
         this.nodeComponent.removeChild(this.nodeComponent.firstChild);
       }
