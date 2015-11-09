@@ -82,10 +82,13 @@ function getValue(element) {
   return value;
 }
 
+// Alias
+let renderValue = getValue;
 
 export {
   getExpandCollapseClassNames,
   getValue,
+  renderValue,
   containsExpandableCollapsibleElement,
   isExpandableCollapsible,
   isStructured,
