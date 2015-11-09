@@ -1,7 +1,9 @@
 import React from 'react';
+import _ from 'lodash';
 import marked from 'marked';
 
-import './description.styl';
+import './description.styl'
+
 
 class Description extends React.Component {
   static propTypes = {
@@ -12,12 +14,27 @@ class Description extends React.Component {
     super(props);
   }
 
+  renderStyles() {
+    let styles = {
+      root: {
+        fontFamily: 'Source Sans Pro',
+        fontSize: '16px',
+        color: '#8A93A3',
+        lineHeight: '150%',
+      }
+    };
+
+    return _.merge(styles, this.props.style || {});
+  }
+
   render() {
+    const styles = this.renderStyles();
+
     let description = null;
 
-    if (this.props.data.meta) {
-      if (this.props.data.meta.description) {
-        description = this.props.data.meta.description;
+    if (this.props.element.meta) {
+      if (this.props.element.meta.description) {
+        description = this.props.element.meta.description;
       }
     }
 
@@ -26,9 +43,12 @@ class Description extends React.Component {
     }
 
     const markdownMarkup = {__html: marked(description)};
+
     return (
-      <div className="attributeDescription"
-            dangerouslySetInnerHTML={markdownMarkup} />
+      <div
+        style={styles.root}
+        className="attributeDescription"
+        dangerouslySetInnerHTML={markdownMarkup} />
     );
   }
 }
