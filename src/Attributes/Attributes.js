@@ -2,11 +2,10 @@ import React from 'react';
 
 import Attribute from 'Attribute/Attribute';
 
-import './attributes.styl';
-
 class Attributes extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    theme: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -15,13 +14,16 @@ class Attributes extends React.Component {
 
   render() {
     return (
-      <div className="attributes">
-        <div className="attributesTitle">
-          <h3 className="attributesTitleText">Attributes</h3>
+      <div>
+        <div>
+          <h1>Attributes</h1>
         </div>
 
-        <div className="attributesList">
-          <Attribute element={this.props.element} />
+        <div>
+          <Attribute
+            element={this.props.element}
+            theme={this.props.theme}
+          />
         </div>
       </div>
     );
