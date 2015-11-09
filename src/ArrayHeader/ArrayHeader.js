@@ -3,8 +3,6 @@ import React from 'react';
 import Type from 'Type/Type';
 import SampleToggle from 'SampleToggle/SampleToggle';
 
-import {BORDER_COLOR} from 'theme';
-
 import {
   hasSamples,
 } from 'elements/element';
@@ -18,7 +16,13 @@ class ArrayHeader extends React.Component {
     sampleTitle: React.PropTypes.string,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         border: `1px solid ${BORDER_COLOR}`,

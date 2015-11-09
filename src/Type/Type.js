@@ -5,8 +5,6 @@ import {
   getType,
 } from 'elements/element';
 
-import {TYPE_COLOR} from 'theme';
-
 class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
@@ -15,7 +13,13 @@ class Type extends React.Component {
     style: React.PropTypes.object,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   getStyles() {
+    const {TYPE_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         width: '100%',

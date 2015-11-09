@@ -24,13 +24,15 @@ import {
   isLastArrayItem,
 } from 'elements/element';
 
-import {BORDER_COLOR} from 'theme';
-
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     index: React.PropTypes.number,
+  }
+
+  static contextTypes = {
+    theme: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -57,6 +59,8 @@ class StructuredObjectProperty extends React.Component {
   }
 
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,

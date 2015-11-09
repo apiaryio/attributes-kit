@@ -1,8 +1,6 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import {BORDER_COLOR} from 'theme';
-
 class Ruler extends React.Component {
   static propTypes = {
     children: React.PropTypes.oneOfType([
@@ -12,11 +10,17 @@ class Ruler extends React.Component {
     style: React.PropTypes.object,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
 
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         width: '100%',

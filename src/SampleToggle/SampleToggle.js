@@ -4,8 +4,6 @@ import lodash from 'lodash';
 import Column from 'Column/Column';
 import Row from 'Row/Row';
 
-import {SAMPLE_TOGGLE_TITLE_COLOR} from 'theme';
-
 class SampleToggle extends React.Component {
   static propTypes = {
     onClick: React.PropTypes.func,
@@ -15,7 +13,13 @@ class SampleToggle extends React.Component {
     sampleTitle: React.PropTypes.string,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   renderStyles() {
+    const {SAMPLE_TOGGLE_TITLE_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         cursor: 'pointer',

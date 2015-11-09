@@ -6,12 +6,6 @@ import {
   isMember,
 } from 'elements/element';
 
-import {
-  VALUE_COLOR,
-  VALUE_BACKGROUND_COLOR,
-  VALUE_BORDER_RADIUS,
-} from 'theme';
-
 class Value extends React.Component {
   static propTypes = {
     value: React.PropTypes.oneOfType([
@@ -23,7 +17,17 @@ class Value extends React.Component {
     style: React.PropTypes.object,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   renderStyles() {
+    const {
+      VALUE_COLOR,
+      VALUE_BACKGROUND_COLOR,
+      VALUE_BORDER_RADIUS,
+    } = this.context.theme;
+
     const styles = {
       float: 'left',
       width: 'auto',

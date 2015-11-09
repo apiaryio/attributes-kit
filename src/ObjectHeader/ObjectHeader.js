@@ -12,8 +12,6 @@ import {
   isArray,
 } from 'elements/element';
 
-import {BORDER_COLOR} from 'theme';
-
 class ObjectHeader extends React.Component {
   static propTypes = {
     expandableCollapsible: React.PropTypes.bool,
@@ -25,7 +23,13 @@ class ObjectHeader extends React.Component {
     onSampleToggleClick: React.PropTypes.func,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,

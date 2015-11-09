@@ -5,8 +5,6 @@ import Column from 'Column/Column';
 import Row from 'Row/Row';
 import SampleArrayItem from 'SampleArrayItem/SampleArrayItem';
 
-import {BORDER_COLOR} from 'theme';
-
 class SampleArray extends React.Component {
   static propTypes = {
     samples: React.PropTypes.array,
@@ -14,11 +12,17 @@ class SampleArray extends React.Component {
     showArrayHeader: React.PropTypes.bool,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   getSamples() {
     return (this.props.samples || this.props.element.content);
   }
 
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       sampleArrayItems: {
         border: `1px solid ${BORDER_COLOR}`,

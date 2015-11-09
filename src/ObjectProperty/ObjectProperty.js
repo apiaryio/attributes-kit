@@ -18,8 +18,6 @@ import {
   isLastArrayItem,
 } from 'elements/element';
 
-import {BORDER_COLOR} from 'theme';
-
 class ObjectProperty extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -27,11 +25,17 @@ class ObjectProperty extends React.Component {
     parentElement: React.PropTypes.object,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
   }
 
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,

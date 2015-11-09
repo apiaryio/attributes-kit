@@ -1,6 +1,7 @@
 import React from 'react';
 
 import refractToComponentsMap from 'refractToComponentMap';
+import theme from 'theme'
 
 class Attribute extends React.Component {
   static propTypes = {
@@ -9,8 +10,18 @@ class Attribute extends React.Component {
     parentElement: React.PropTypes.object,
   }
 
+  static childContextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
+  }
+
+  getChildContext() {
+    return {
+      theme
+    };
   }
 
   render() {

@@ -10,8 +10,6 @@ import ArrayHeader from 'ArrayHeader/ArrayHeader';
 import ArraySamples from 'ArraySamples/ArraySamples';
 import ArrayDefaults from 'ArrayDefaults/ArrayDefaults';
 
-import {ARRAY_ITEMS_BORDER_COLOR} from 'theme';
-
 import {
   isStructured,
 } from 'elements/expandableCollapsibleElement';
@@ -20,6 +18,10 @@ import {
 class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+  }
+
+  static contextTypes = {
+    theme: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -37,6 +39,8 @@ class ArrayComponent extends React.Component {
   }
 
   renderStyles() {
+    const {ARRAY_ITEMS_BORDER_COLOR} = this.context.theme;
+
     const styles = {
       arrayItems: {
         root: {

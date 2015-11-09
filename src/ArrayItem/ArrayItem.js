@@ -9,8 +9,6 @@ import Row from 'Row/Row';
 import Type from 'Type/Type';
 import Value from 'Value/Value';
 
-import {BORDER_COLOR} from 'theme';
-
 import {
   isLastArrayItem,
 } from 'elements/element';
@@ -27,7 +25,13 @@ class ArrayItem extends React.Component {
     parentElement: React.PropTypes.object,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,

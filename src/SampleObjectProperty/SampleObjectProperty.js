@@ -18,13 +18,15 @@ import {
   containsExpandableCollapsibleElement,
 } from 'elements/expandableCollapsibleElement';
 
-import {BORDER_COLOR} from 'theme';
-
 class SampleArray extends React.Component {
   static propTypes = {
     parentElement: React.PropTypes.object,
     element: React.PropTypes.object,
     index: React.PropTypes.number,
+  }
+
+  static contextTypes = {
+    theme: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -42,6 +44,8 @@ class SampleArray extends React.Component {
   }
 
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       root: {
         paddingTop: '8px',

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {KEY_COLOR} from 'theme';
-
 class Key extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -9,7 +7,13 @@ class Key extends React.Component {
     onClick: React.PropTypes.func,
   }
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
   getStyles() {
+    const {KEY_COLOR} = this.context.theme;
+
     this.styles = {
       key: {
         float: 'left',

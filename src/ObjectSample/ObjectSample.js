@@ -5,12 +5,14 @@ import Row from 'Row/Row';
 import Sample from 'Sample/Sample';
 import SampleToggle from 'SampleToggle/SampleToggle';
 
-import {BORDER_COLOR} from 'theme';
-
 class ObjectSample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     samples: React.PropTypes.array,
+  }
+
+  static contextTypes = {
+    theme: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -28,6 +30,8 @@ class ObjectSample extends React.Component {
   }
 
   renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
     const styles = {
       header: {
         borderTop: `1px solid ${BORDER_COLOR}`,
