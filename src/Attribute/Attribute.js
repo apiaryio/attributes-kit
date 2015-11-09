@@ -1,10 +1,13 @@
 import React from 'react';
+import lodash from 'lodash';
 
 import refractToComponentsMap from 'refractToComponentMap';
+
 import theme from 'theme';
 
 class Attribute extends React.Component {
   static propTypes = {
+    theme: React.PropTypes.object,
     element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
@@ -20,7 +23,7 @@ class Attribute extends React.Component {
 
   getChildContext() {
     return {
-      theme,
+      theme: lodash.merge(this.props.theme || {}, theme),
     };
   }
 
