@@ -2,8 +2,6 @@ import React from 'react';
 
 import refractToComponentsMap from 'refractToComponentMap';
 
-import './attribute.styl';
-
 class Attribute extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
