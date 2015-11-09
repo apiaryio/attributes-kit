@@ -65,7 +65,7 @@
                                                                                         <div style="width:12px;height:12px;background-repeat:no-repeat;background-position:left center;background-image:url([object Object]);background-size:7px 12px;"></div>
                                                                                     </div>
                                                                                     <div style="flex-grow:1;height:auto;width:auto;">
-                                                                                        <div style="line-height:12px;font-family:Source Sans Pro;font-size:12px;color:#A3A7B2;text-transform:uppercase;padding-left:6px;">Sample</div>
+                                                                                        <div style="line-height:12px;letter-spacing:0.85px;font-family:Source Sans Pro;font-size:12px;color:#A3A7B2;text-transform:uppercase;padding-left:6px;">Sample</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -118,7 +118,7 @@
                                                                                         <div style="width:12px;height:12px;background-repeat:no-repeat;background-position:left center;background-image:url([object Object]);background-size:7px 12px;"></div>
                                                                                     </div>
                                                                                     <div style="flex-grow:1;height:auto;width:auto;">
-                                                                                        <div style="line-height:12px;font-family:Source Sans Pro;font-size:12px;color:#A3A7B2;text-transform:uppercase;padding-left:6px;">Sample</div>
+                                                                                        <div style="line-height:12px;letter-spacing:0.85px;font-family:Source Sans Pro;font-size:12px;color:#A3A7B2;text-transform:uppercase;padding-left:6px;">Sample</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
