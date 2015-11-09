@@ -3,24 +3,26 @@ import _ from 'lodash';
 
 import {
   getType,
-} from 'elements/element'
+} from 'elements/element';
 
 
 class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
     element: React.PropTypes.object,
+    onClick: React.PropTypes.function,
+    style: React.PropTypes.object,
   }
 
   getStyles() {
-    let styles = {
+    const styles = {
       root: {
         width: '100%',
         fontFamily: 'Source Code Pro',
         fontWeight: 'regular',
         fontSize: '14px',
         color: '#8A93A3',
-      }
+      },
     };
 
     return _.merge(styles, this.props.style || {});

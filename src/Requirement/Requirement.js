@@ -21,11 +21,11 @@ class Requirement extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         float: 'left',
         width: '100%',
-        height: 'auto'
+        height: 'auto',
       },
       asterisk: {
         float: 'left',
@@ -34,7 +34,7 @@ class Requirement extends React.Component {
         backgroundImage: `url(${require('./asterisk.svg')})`,
         backgroundSize: '10px 11px',
         backgroundRepeat: 'no-repeat',
-      }
+      },
     };
 
     return styles;

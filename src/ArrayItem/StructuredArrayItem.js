@@ -4,17 +4,11 @@ import ArrayItemDefaults from 'ArrayItemDefaults/ArrayItemDefaults';
 import ArrayItemIndex from 'ArrayItemIndex/ArrayItemIndex';
 import ArrayItemSamples from 'ArrayItemSamples/ArrayItemSamples';
 import Column from 'Column/Column';
-import Defaults from 'Defaults/Defaults';
 import Description from 'Description/Description';
 import Row from 'Row/Row';
-import Type from 'Type/Type';
-import Value from 'Value/Value';
-import Ruler from 'Ruler/Ruler';
-import Toggle from 'Toggle/Toggle';
 
 import {
   isLastArrayItem,
-  isObjectOrArray,
   isObject,
   isArray,
 } from 'elements/element';
@@ -29,6 +23,7 @@ class StructuredArrayItem extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -49,7 +44,7 @@ class StructuredArrayItem extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         borderBottom: '1px solid #E8EBEE',
         paddingTop: '8px',
@@ -63,13 +58,13 @@ class StructuredArrayItem extends React.Component {
       type: {
         root: {
           marginBottom: '4px',
-        }
+        },
       },
       toggleColumn: {
         width: '30px',
         maxWidth: '30px',
         minWidth: '30px',
-      }
+      },
     };
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);

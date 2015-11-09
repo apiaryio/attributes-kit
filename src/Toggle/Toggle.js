@@ -8,7 +8,7 @@ class Toggle extends React.Component {
   }
 
   renderStyles() {
-    let styles = {};
+    const styles = {};
 
     styles.root = {
       width: '100%',

@@ -4,17 +4,20 @@ import Type from 'Type/Type';
 import SampleToggle from 'SampleToggle/SampleToggle';
 
 import {
-  hasSamples
+  hasSamples,
 } from 'elements/element';
 
 
 class ArrayHeader extends React.Component {
   static propTypes = {
-
+    isExpanded: React.PropTypes.boolean,
+    element: React.PropTypes.object,
+    onSampleToggleClick: React.PropTypes.function,
+    sampleTitle: React.PropTypes.string,
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         border: '1px solid #E8EBEE',
         borderBottom: '1px solid #E8EBEE',
@@ -28,13 +31,13 @@ class ArrayHeader extends React.Component {
       sampleToggle: {
         root: {
           marginTop: '4px',
-        }
+        },
       },
       type: {
         root: {
           fontSize: '12px',
-        }
-      }
+        },
+      },
     };
 
     if (this.props.isExpanded) {
@@ -42,7 +45,7 @@ class ArrayHeader extends React.Component {
     }
 
     return styles;
-  };
+  }
 
   renderSampleToggle(styles) {
     if (this.props.element && hasSamples(this.props.element)) {

@@ -4,7 +4,8 @@ import _ from 'lodash';
 
 class Ruler extends React.Component {
   static propTypes = {
-
+    children: React.PropTypes.array,
+    style: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -12,13 +13,13 @@ class Ruler extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         width: '100%',
         height: 'auto',
         paddingLeft: '13px',
         borderLeft: '1px solid #E8EBEE',
-      }
+      },
     };
 
     return _.merge(styles, this.props.style || {});

@@ -1,20 +1,31 @@
 import React from 'react';
 import _ from 'lodash';
 
-import Row from 'Row/Row'
-import Column from 'Column/Column'
+import Column from 'Column/Column';
+import Row from 'Row/Row';
 import SampleArray from 'SampleArray/SampleArray';
 import SampleObject from 'SampleObject/SampleObject';
+import SampleToggle from 'SampleToggle/SampleToggle';
 import Value from 'Value/Value';
 
-import SampleToggle from 'SampleToggle/SampleToggle';
-
-import {isMember, isArray, isObject} from 'elements/element';
+import {
+  isArray,
+  isObject,
+} from 'elements/element';
 
 
 class Sample extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
+    style: React.PropTypes.object,
+    element: React.PropTypes.object,
+    showArrayHeader: React.PropTypes.boolen,
+    showObjectHeader: React.PropTypes.boolean,
+    showRuler: React.PropTypes.boolean,
+    parentElement: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.boolean,
+    sample: React.PropTypes.object,
+    samples: React.PropTypes.array,
   }
 
   constructor(props) {
@@ -26,21 +37,20 @@ class Sample extends React.Component {
   }
 
   handleExpandCollapse = () => {
-    console.log('aaa')
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       row: {
 
       },
       value: {
         marginTop: '4px',
         marginBottom: '4px',
-      }
+      },
     };
 
     return _.merge(styles, this.props.style || {});

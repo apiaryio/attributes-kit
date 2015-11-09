@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Row from 'Row/Row'
-import Column from 'Column/Column'
-import Sample from 'Sample/Sample'
-import Key from 'Key/Key'
-import Type from 'Type/Type'
-import Value from 'Value/Value'
-import Toggle from 'Toggle/Toggle'
-import Ruler from 'Ruler/Ruler'
+import Row from 'Row/Row';
+import Column from 'Column/Column';
+import Sample from 'Sample/Sample';
+import Key from 'Key/Key';
+import Type from 'Type/Type';
+import Value from 'Value/Value';
+import Toggle from 'Toggle/Toggle';
+import Ruler from 'Ruler/Ruler';
 
 import {
   isObjectOrArray,
@@ -15,20 +15,22 @@ import {
 } from 'elements/element';
 
 import {
-  containsExpandableCollapsibleElement
-} from 'elements/expandableCollapsibleElement'
+  containsExpandableCollapsibleElement,
+} from 'elements/expandableCollapsibleElement';
 
 
 class SampleArray extends React.Component {
   static propTypes = {
-
+    parentElement: React.PropTypes.object,
+    element: React.PropTypes.object,
+    index: React.PropTypes.number,
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      isExpanded: true
+      isExpanded: true,
     };
   }
 
@@ -39,7 +41,7 @@ class SampleArray extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         paddingTop: '8px',
         paddingBottom: '8px',
@@ -72,13 +74,13 @@ class SampleArray extends React.Component {
         root: {
           marginLeft: '6px',
           paddingBottom: '13px',
-        }
+        },
       },
       type: {
         root: {
           marginBottom: '4px',
-        }
-      }
+        },
+      },
     };
 
     if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {

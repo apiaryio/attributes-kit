@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import {EventEmitter} from 'events';
 
-import Attributes from 'Attributes/Attributes';
-import Attribute from 'Attribute/Attribute';
+import AttributesComponent from 'Attributes/Attributes';
+import AttributeComponent from 'Attribute/Attribute';
 
 class AttributesKit extends EventEmitter {
   static render(data, element, options) {
@@ -21,9 +21,6 @@ class AttributesKit extends EventEmitter {
     attributesKit.render(data);
     return attributesKit;
   }
-
-  static Attributes = Attributes;
-  static Attribute = Attribute;
 
   constructor(options) {
     super();
@@ -54,9 +51,12 @@ class AttributesKit extends EventEmitter {
   }
 
   render(data) {
-    ReactDom.render(<Attributes data={data} />, this.element);
+    ReactDom.render(<AttributesComponent data={data} />, this.element);
   }
 }
+
+AttributesKit.Attributes = AttributesComponent;
+AttributesKit.Attribute = AttributeComponent;
 
 // Exports
 export default AttributesKit;

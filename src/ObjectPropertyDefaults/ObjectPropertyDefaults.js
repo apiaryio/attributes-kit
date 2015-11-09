@@ -1,9 +1,6 @@
 import React from 'react';
 
-import Defaults from 'Defaults/Defaults'
-
 import {
-  isObject,
   isObjectOrArray,
 } from 'elements/element';
 
@@ -18,7 +15,6 @@ class ObjectPropertySamples extends React.Component {
   }
 
   render() {
-    console.log('element', this.props.element)
     if (!this.props.element) {
       return false;
     }
@@ -37,22 +33,8 @@ class ObjectPropertySamples extends React.Component {
       return false;
     }
 
-    let defaults = null;
-
-    if (value.attributes) {
-      defaults = value.attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
-    }
-
-    console.log(defaults)
-
     return (
-      <div style={this.renderStyles()}>
-        ObjectPropertyDefaults
-      </div>
+      <div style={this.renderStyles()}></div>
     );
   }
 }

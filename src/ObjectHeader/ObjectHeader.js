@@ -14,11 +14,17 @@ import {
 
 class ObjectHeader extends React.Component {
   static propTypes = {
-
+    expandableCollapsible: React.PropTypes.boolean,
+    parentElement: React.PropTypes.object,
+    element: React.PropTypes.object,
+    isExpanded: React.PropTypes.boolean,
+    onTypeClick: React.PropTypes.function,
+    onToggleClick: React.PropTypes.function,
+    onSampleToggleClick: React.PropTypes.function,
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         borderBottom: '1px solid #E8EBEE',
         paddingBottom: '8px',
@@ -32,13 +38,13 @@ class ObjectHeader extends React.Component {
       },
       type: {
         root: {
-          fontSize: '12px'
-        }
+          fontSize: '12px',
+        },
       },
       sampleToggle: {
         root: {
           marginTop: '4px',
-        }
+        },
       },
     };
 
@@ -58,7 +64,7 @@ class ObjectHeader extends React.Component {
     }
 
     return styles;
-  };
+  }
 
   renderSampleToggle(styles) {
     if (this.props.element && hasSamples(this.props.element)) {

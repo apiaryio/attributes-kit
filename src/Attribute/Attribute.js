@@ -7,6 +7,8 @@ import './attribute.styl';
 class Attribute extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.boolean,
+    parentElement: React.PropTypes.object,
   }
 
   constructor(props) {

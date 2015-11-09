@@ -14,10 +14,11 @@ class Value extends React.Component {
       React.PropTypes.bool,
     ]),
     element: React.PropTypes.object,
+    style: React.PropTypes.object,
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       float: 'left',
       width: 'auto',
       height: 'auto',

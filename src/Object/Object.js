@@ -5,22 +5,15 @@ import ObjectHeader from 'ObjectHeader/ObjectHeader';
 import ObjectSamples from 'ObjectSamples/ObjectSamples';
 import ObjectDefaults from 'ObjectDefaults/ObjectDefaults';
 import Ruler from 'Ruler/Ruler';
-import Toggle from 'Toggle/Toggle';
 import Row from 'Row/Row';
 import Column from 'Column/Column';
-
-import {
-  isStructured
-} from 'elements/expandableCollapsibleElement'
-
-import {
-  getType
-} from 'elements/element'
 
 
 class ObjectComponent extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.boolean,
+    parentElement: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -40,15 +33,14 @@ class ObjectComponent extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
-      root: {
-      },
+    const styles = {
       ruler: {
         root: {
           paddingBottom: '0px',
-        }
+        },
       },
-      objectPropertiesRow: {}
+      objectPropertiesRow: {
+      },
     };
 
     if (this.props.expandableCollapsible) {

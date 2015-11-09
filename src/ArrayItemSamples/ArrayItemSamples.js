@@ -1,13 +1,8 @@
 import React from 'react';
 
 import Sample from 'Sample/Sample';
-
 import Row from 'Row/Row';
 import Column from 'Column/Column';
-
-import {
-  isObjectOrArray,
-} from 'elements/element';
 
 
 class ArrayItemSamples extends React.Component {
@@ -19,15 +14,15 @@ class ArrayItemSamples extends React.Component {
     return {
       row: {
         marginTop: '2px',
-      }
+      },
     };
   }
 
   renderSamples(samples) {
-    let style = {
+    const style = {
       row: {
         marginTop: '6px',
-      }
+      },
     };
 
     return samples.map((sample, index) => {

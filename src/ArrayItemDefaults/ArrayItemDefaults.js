@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Defaults from 'Defaults/Defaults'
+import Defaults from 'Defaults/Defaults';
 
 import {
   isObject,

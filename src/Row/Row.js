@@ -4,7 +4,9 @@ import _ from 'lodash';
 
 class Row extends React.Component {
   static propTypes = {
-
+    onClick: React.PropTypes.function,
+    style: React.PropTypes.object,
+    children: React.PropTypes.array,
   }
 
   constructor(props) {
@@ -12,7 +14,7 @@ class Row extends React.Component {
   }
 
   getStyles() {
-    let styles = {
+    const styles = {
       width: '100%',
       height: 'auto',
       display: 'flex',

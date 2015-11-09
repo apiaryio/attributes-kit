@@ -3,17 +3,19 @@ import _ from 'lodash';
 
 import Column from 'Column/Column';
 import Row from 'Row/Row';
-import Toggle from 'Toggle/Toggle';
 
 
 class SampleToggle extends React.Component {
   static propTypes = {
     onClick: React.PropTypes.func,
     sampleName: React.PropTypes.string,
+    isExpanded: React.PropTypes.boolean,
+    style: React.PropTypes.object,
+    sampleTitle: React.PropTypes.string,
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         cursor: 'pointer',
       },
@@ -35,7 +37,7 @@ class SampleToggle extends React.Component {
         color: '#A3A7B2',
         textTransform: 'uppercase',
         paddingLeft: '6px',
-      }
+      },
     };
 
     if (this.props.isExpanded) {

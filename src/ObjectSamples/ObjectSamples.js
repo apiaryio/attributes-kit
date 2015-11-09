@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Row from 'Row/Row'
-import Column from 'Column/Column'
-import ObjectSample from 'ObjectSample/ObjectSample'
+import Column from 'Column/Column';
+import ObjectSample from 'ObjectSample/ObjectSample';
+import Row from 'Row/Row';
+
 
 class ObjectSamples extends React.Component {
   static propTypes = {
-
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -14,9 +15,7 @@ class ObjectSamples extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
-      root: {}
-    };
+    const styles = {};
 
     return styles;
   }

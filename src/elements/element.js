@@ -63,13 +63,11 @@ function isObjectOrArray(element) {
 function hasSamples(element) {
   const attributes = element.attributes;
 
-  let samples = null;
-
   if (attributes) {
     return !!attributes.samples;
-  } else {
-    return false;
   }
+
+  return false;
 }
 
 function isLastArrayItem(arrayElement, currentArrayItemIndex) {

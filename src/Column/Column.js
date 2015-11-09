@@ -4,11 +4,12 @@ import _ from 'lodash';
 
 class Column extends React.Component {
   static propTypes = {
-    style: React.PropTypes.Object,
+    style: React.PropTypes.object,
+    children: React.PropTypes.array,
   }
 
   getStyles() {
-    let styles = {
+    const styles = {
       flexGrow: 1,
       height: 'auto',
       width: 'auto',

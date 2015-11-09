@@ -19,16 +19,17 @@ import {
 } from 'elements/expandableCollapsibleElement';
 
 import {
-  isObjectOrArray,
   isObject,
   isArray,
   isLastArrayItem,
 } from 'elements/element';
 
+
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
+    index: React.PropTypes.number,
   }
 
   constructor(props) {
@@ -55,7 +56,7 @@ class StructuredObjectProperty extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         borderBottom: '1px solid #E8EBEE',
         paddingTop: '8px',
@@ -84,13 +85,13 @@ class StructuredObjectProperty extends React.Component {
           width: 'auto',
           marginLeft: '6px',
           paddingBottom: '8px',
-        }
+        },
       },
       description: {
         root: {
           marginTop: '4px',
-        }
-      }
+        },
+      },
     };
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);

@@ -18,7 +18,7 @@ function isExpandableCollapsible(element) {
 }
 
 // Alias
-let isStructured = isExpandableCollapsible;
+const isStructured = isExpandableCollapsible;
 
 function containsExpandableCollapsibleElement(elements) {
   return elements.some((element) => {
@@ -58,28 +58,36 @@ function getExpandCollapseClassNames(element, state) {
   });
 }
 
-function getValue(element, props={}) {
+function getValue(element, props = {}) {
   let value;
   if (isObjectOrArray(element.element)) {
-    value = <Attribute
-      data={element}
-      expandableCollapsible={props.expandableCollapsible}
-      parentElement={props.parentElement}
-    />;
-  } else if (isMember(element.element)) {
-    if (isObjectOrArray(element.content.value.element)) {
-      value = <Attribute
-        data={element.content.value}
+    value = (
+      <Attribute
+        data={element}
         expandableCollapsible={props.expandableCollapsible}
         parentElement={props.parentElement}
-      />;
+      />
+    );
+  } else if (isMember(element.element)) {
+    if (isObjectOrArray(element.content.value.element)) {
+      value = (
+        <Attribute
+          data={element.content.value}
+          expandableCollapsible={props.expandableCollapsible}
+          parentElement={props.parentElement}
+        />
+      );
     } else if (element.content.value.content) {
-      value = <Value value={element.content.value.content} />;
+      value = (
+        <Value value={element.content.value.content} />
+      );
     } else {
       value = false;
     }
   } else if (element.content) {
-    value = <Value value={element.content} />;
+    value = (
+      <Value value={element.content} />
+    );
   } else {
     value = false;
   }
@@ -88,7 +96,7 @@ function getValue(element, props={}) {
 }
 
 // Alias
-let renderValue = getValue;
+const renderValue = getValue;
 
 export {
   getExpandCollapseClassNames,

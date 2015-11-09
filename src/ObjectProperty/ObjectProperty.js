@@ -11,15 +11,17 @@ import Type from 'Type/Type';
 import Value from 'Value/Value';
 
 import {
-  containsExpandableCollapsibleElement
+  containsExpandableCollapsibleElement,
 } from 'elements/expandableCollapsibleElement';
 
 import {
   isLastArrayItem,
 } from 'elements/element';
 
+
 class ObjectProperty extends React.Component {
   static propTypes = {
+    index: React.PropTypes.number,
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
   }
@@ -29,7 +31,7 @@ class ObjectProperty extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         borderBottom: '1px solid #E8EBEE',
         paddingTop: '8px',
@@ -47,8 +49,8 @@ class ObjectProperty extends React.Component {
       type: {
         root: {
           marginBottom: '4px',
-        }
-      }
+        },
+      },
     };
 
     if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {
@@ -63,7 +65,7 @@ class ObjectProperty extends React.Component {
   }
 
   render() {
-    let styles = this.renderStyles();
+    const styles = this.renderStyles();
 
     return (
       <Row style={styles.root}>

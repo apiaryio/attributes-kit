@@ -1,9 +1,11 @@
 import React from 'react';
 
+
 class Key extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
     data: React.PropTypes.object,
+    onClick: React.PropTypes.function,
   }
 
   getStyles() {
@@ -16,8 +18,8 @@ class Key extends React.Component {
         fontWeight: '500',
         fontSize: '16px',
         color: '#4C5264',
-        lineHeight: '18px'
-      }
+        lineHeight: '18px',
+      },
     };
 
     return this.styles;

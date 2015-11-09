@@ -8,7 +8,7 @@ import SampleToggle from 'SampleToggle/SampleToggle';
 
 class ObjectDefaults extends React.Component {
   static propTypes = {
-
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -26,7 +26,7 @@ class ObjectDefaults extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         marginTop: '8px',
         border: '1px solid #E8EBEE',
@@ -38,12 +38,12 @@ class ObjectDefaults extends React.Component {
         paddingBottom: '8px',
         paddingLeft: '8px',
         paddingRight: '8px',
-      }
+      },
     };
 
     if (this.state.isExpanded) {
       styles.header.borderBottom = '1px solid #E8EBEE';
-    };
+    }
 
     return styles;
   }
@@ -69,10 +69,10 @@ class ObjectDefaults extends React.Component {
       return false;
     }
 
-    let element = {
+    const element = {
       element: 'object',
-      content: defaults
-    }
+      content: defaults,
+    };
 
     return (
       <Row>

@@ -5,9 +5,10 @@ import Row from 'Row/Row';
 import Sample from 'Sample/Sample';
 import SampleToggle from 'SampleToggle/SampleToggle';
 
+
 class ArrayDefaults extends React.Component {
   static propTypes = {
-
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -25,7 +26,7 @@ class ArrayDefaults extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       header: {
         background: '#F8F8F9',
         borderLeft: '1px solid #E8EBEE',
@@ -34,12 +35,12 @@ class ArrayDefaults extends React.Component {
         paddingBottom: '8px',
         paddingLeft: '8px',
         paddingRight: '8px',
-      }
+      },
     };
 
     if (!this.state.isExpanded) {
       styles.header.borderBottom = '1px solid #E8EBEE';
-    };
+    }
 
     return styles;
   }

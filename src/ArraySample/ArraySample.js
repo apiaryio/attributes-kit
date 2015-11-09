@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Row from 'Row/Row'
-import Column from 'Column/Column'
-import Sample from 'Sample/Sample'
-import SampleToggle from 'SampleToggle/SampleToggle'
+import Row from 'Row/Row';
+import Column from 'Column/Column';
+import Sample from 'Sample/Sample';
+import SampleToggle from 'SampleToggle/SampleToggle';
 
 
 class ArraySample extends React.Component {
   static propTypes = {
-
+    element: React.PropTypes.object,
+    samples: React.PropTypes.array,
   }
 
   constructor(props) {
@@ -26,7 +27,7 @@ class ArraySample extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       header: {
         background: '#F8F8F9',
         borderLeft: '1px solid #E8EBEE',
@@ -35,12 +36,12 @@ class ArraySample extends React.Component {
         paddingBottom: '8px',
         paddingLeft: '8px',
         paddingRight: '8px',
-      }
+      },
     };
 
     if (!this.state.isExpanded) {
       styles.header.borderBottom = '1px solid #E8EBEE';
-    };
+    }
 
     return styles;
   }

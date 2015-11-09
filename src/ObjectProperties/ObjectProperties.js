@@ -5,17 +5,17 @@ import ObjectProperty from 'ObjectProperty/ObjectProperty';
 import StructuredObjectProperty from 'ObjectProperty/StructuredObjectProperty';
 
 import {
-  isStructured
-} from 'elements/expandableCollapsibleElement'
+  isStructured,
+} from 'elements/expandableCollapsibleElement';
 
 import {
-  getType
-} from 'elements/element'
+  getType,
+} from 'elements/element';
 
 
 class ObjectProperties extends React.Component {
   static propTypes = {
-
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -27,7 +27,7 @@ class ObjectProperties extends React.Component {
       root: {
         width: '100%',
         height: 'auto',
-      }
+      },
     };
   }
 

@@ -1,30 +1,27 @@
 import React from 'react';
 
-import Type from 'Type/Type'
-import Value from 'Value/Value'
+import Type from 'Type/Type';
+import Value from 'Value/Value';
 import Row from 'Row/Row';
 import Column from 'Column/Column';
 import Sample from 'Sample/Sample';
 
 import {
   isObjectOrArray,
-  isLastArrayItem,
 } from 'elements/element';
-
-import {
-  containsExpandableCollapsibleElement,
-  containsObject,
-  containsArray,
-} from 'elements/expandableCollapsibleElement'
 
 
 class SampleArrayItem extends React.Component {
   static propTypes = {
-
+    index: React.PropTypes.number,
+    samples: React.PropTypes.array,
+    sample: React.PropTypes.object,
+    element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         borderBottom: '1px solid #E8EBEE',
         paddingTop: '8px',
@@ -47,18 +44,6 @@ class SampleArrayItem extends React.Component {
       styles.root.paddingBottom = '0px';
     }
 
-    /*if (containsExpandableCollapsibleElement(this.props.samples)) {
-      styles.column.paddingLeft = '28px';
-    }*/
-
-    /*if (containsObject(this.props.samples)) {
-      styles.column.paddingLeft = '28px';
-    }
-
-    if (isObjectOrArray(this.props.sample)) {
-      styles.column.paddingLeft = '8px';
-    }*/
-
     return styles;
   }
 
@@ -72,7 +57,7 @@ class SampleArrayItem extends React.Component {
             <Sample
               parentElement={this.props.parentElement}
               element={this.props.sample}
-              expandableCollapsible={true}
+              expandableCollapsible="true"
               // Temp
               showRuler={this.props.parentElement.element === 'array'}
             />

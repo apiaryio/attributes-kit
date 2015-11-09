@@ -1,30 +1,30 @@
 import React from 'react';
 
-import SampleArrayItem from 'SampleArrayItem/SampleArrayItem'
+import ArrayHeader from 'ArrayHeader/ArrayHeader';
+import Column from 'Column/Column';
+import Row from 'Row/Row';
+import SampleArrayItem from 'SampleArrayItem/SampleArrayItem';
 
-import Row from 'Row/Row'
-import Column from 'Column/Column'
-import ArrayHeader from 'ArrayHeader/ArrayHeader'
 
 class SampleArray extends React.Component {
   static propTypes = {
-
-  }
-
-  renderStyles() {
-    let styles = {
-      root: {
-      },
-      sampleArrayItems: {
-        border: '1px solid #E8EBEE',
-      }
-    };
-
-    return styles;
+    samples: React.PropTypes.array,
+    element: React.PropTypes.object,
+    showArrayHeader: React.PropTypes.boolean,
   }
 
   getSamples() {
     return (this.props.samples || this.props.element.content);
+  }
+
+  renderStyles() {
+    const styles = {
+      sampleArrayItems: {
+        border: '1px solid #E8EBEE',
+      },
+    };
+
+    return styles;
   }
 
   renderArrayHeader() {
@@ -33,7 +33,7 @@ class SampleArray extends React.Component {
     }
 
     return (
-      <ArrayHeader isExpanded={true} />
+      <ArrayHeader isExpanded="true" />
     );
   }
 
@@ -47,7 +47,7 @@ class SampleArray extends React.Component {
     const styles = this.renderStyles();
 
     return (
-      <Row style={styles.root}>
+      <Row>
         <Column>
           {this.renderArrayHeader()}
 

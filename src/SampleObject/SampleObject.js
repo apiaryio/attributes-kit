@@ -1,17 +1,19 @@
 import React from 'react';
-import ObjectHeader from 'ObjectHeader/ObjectHeader'
-import Row from 'Row/Row'
-import Column from 'Column/Column'
-import Ruler from 'Ruler/Ruler'
-import SampleObjectProperty from 'SampleObjectProperty/SampleObjectProperty'
 
-import {
-  containsExpandableCollapsibleElement,
-} from 'elements/expandableCollapsibleElement';
+import ObjectHeader from 'ObjectHeader/ObjectHeader';
+import Row from 'Row/Row';
+import Column from 'Column/Column';
+import Ruler from 'Ruler/Ruler';
+import SampleObjectProperty from 'SampleObjectProperty/SampleObjectProperty';
+
 
 class SampleObject extends React.Component {
   static propTypes = {
-
+    showRuler: React.PropTypes.boolean,
+    element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.boolean,
+    showObjectHeader: React.PropTypes.boolean,
   }
 
   constructor(props) {
@@ -29,14 +31,14 @@ class SampleObject extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       column: {
         paddingLeft: '8px',
       },
       ruler: {
         root: {
           marginLeft: '6px',
-        }
+        },
       },
     };
 
@@ -94,7 +96,6 @@ class SampleObject extends React.Component {
         {this.renderSampleObjectProperties()}
       </Column>
     );
-
   }
 
   render() {

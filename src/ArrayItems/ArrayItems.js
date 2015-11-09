@@ -4,7 +4,8 @@ import _ from 'lodash';
 
 class ArrayItems extends React.Component {
   static propTypes = {
-
+    style: React.PropTypes.object,
+    children: React.PropTypes.array,
   }
 
   constructor(props) {
@@ -12,14 +13,14 @@ class ArrayItems extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         width: '100%',
         height: 'auto',
-      }
+      },
     };
 
-    return _.merge(styles, this.props.style || {})
+    return _.merge(styles, this.props.style || {});
   }
 
   render() {

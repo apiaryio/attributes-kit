@@ -1,9 +1,8 @@
 import React from 'react';
 
-import Sample from 'Sample/Sample';
-
-import Row from 'Row/Row';
 import Column from 'Column/Column';
+import Row from 'Row/Row';
+import Sample from 'Sample/Sample';
 
 import {
   isObjectOrArray,
@@ -19,15 +18,15 @@ class ObjectPropertySamples extends React.Component {
     return {
       row: {
         marginTop: '2px',
-      }
+      },
     };
   }
 
   renderSamples(samples) {
-    let style = {
+    const style = {
       row: {
         marginTop: '6px',
-      }
+      },
     };
 
     return samples.map((sample, index) => {

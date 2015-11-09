@@ -4,7 +4,6 @@ import ArrayItemDefaults from 'ArrayItemDefaults/ArrayItemDefaults';
 import ArrayItemIndex from 'ArrayItemIndex/ArrayItemIndex';
 import ArrayItemSamples from 'ArrayItemSamples/ArrayItemSamples';
 import Column from 'Column/Column';
-import Defaults from 'Defaults/Defaults';
 import Description from 'Description/Description';
 import Row from 'Row/Row';
 import Type from 'Type/Type';
@@ -15,7 +14,7 @@ import {
 } from 'elements/element';
 
 import {
-  containsExpandableCollapsibleElement
+  containsExpandableCollapsibleElement,
 } from 'elements/expandableCollapsibleElement';
 
 
@@ -27,7 +26,7 @@ class ArrayItem extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         borderBottom: '1px solid #E8EBEE',
         paddingTop: '8px',
@@ -39,8 +38,8 @@ class ArrayItem extends React.Component {
       type: {
         root: {
           marginBottom: '4px',
-        }
-      }
+        },
+      },
     };
 
     // Last array item doesn't have a border.

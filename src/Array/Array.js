@@ -35,12 +35,12 @@ class ArrayComponent extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       arrayItems: {
         root: {
           border: '1px solid #E8EBEE',
-        }
-      }
+        },
+      },
     };
 
     return styles;
@@ -79,7 +79,7 @@ class ArrayComponent extends React.Component {
   }
 
   render() {
-    let styles = this.renderStyles();
+    const styles = this.renderStyles();
 
     if (!this.props.data.content) {
       return false;

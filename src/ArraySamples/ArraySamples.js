@@ -1,11 +1,11 @@
 import React from 'react';
 
-import ArraySample from 'ArraySample/ArraySample'
+import ArraySample from 'ArraySample/ArraySample';
 
 
 class ArraySamples extends React.Component {
   static propTypes = {
-
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -13,8 +13,8 @@ class ArraySamples extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
-      root: {}
+    const styles = {
+      root: {},
     };
 
     return styles;

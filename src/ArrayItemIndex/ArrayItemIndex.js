@@ -7,7 +7,7 @@ class ArrayItemIndex extends React.Component {
   }
 
   renderStyles() {
-    let styles = {
+    const styles = {
       root: {
         position: 'absolute',
         top: '8px',
@@ -16,7 +16,7 @@ class ArrayItemIndex extends React.Component {
         fontSize: '14px',
         color: '#C8CDD4',
         lineHeight: '18px',
-      }
+      },
     };
 
     return styles;
