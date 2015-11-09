@@ -37,6 +37,7 @@ class SampleToggle extends React.Component {
       },
       title: {
         lineHeight: '12px',
+        letterSpacing: '0.85px',
         fontFamily: 'Source Sans Pro',
         fontSize: '12px',
         color: SAMPLE_TOGGLE_TITLE_COLOR,
