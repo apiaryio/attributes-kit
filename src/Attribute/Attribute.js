@@ -1,7 +1,7 @@
 import React from 'react';
 
 import refractToComponentsMap from 'refractToComponentMap';
-import theme from 'theme'
+import theme from 'theme';
 
 class Attribute extends React.Component {
   static propTypes = {
@@ -20,7 +20,7 @@ class Attribute extends React.Component {
 
   getChildContext() {
     return {
-      theme
+      theme,
     };
   }
 
