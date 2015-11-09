@@ -16,7 +16,7 @@ For instance—it turns the following...
 
 ![image](https://cloud.githubusercontent.com/assets/95191/11047966/72b60254-8735-11e5-83eb-2f68720acd7f.png)
 
-Please see the **[list of supported features →](#mson-features)**
+Please see the **[list of supported features →](./STATUS.md)**
 
 ### Preview
 
