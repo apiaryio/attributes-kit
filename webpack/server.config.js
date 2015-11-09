@@ -26,8 +26,8 @@ export default _.extend({}, webpackConfig, {
   },
   externals: nodeModules,
   plugins: [
-    new webpack.NormalModuleReplacementPlugin(/\.(css|styl)$/, 'node-noop'),
-    new webpack.IgnorePlugin(/\.(css|styl)$/)
+    new webpack.NormalModuleReplacementPlugin(/\.(svg|css|styl)$/, 'node-noop'),
+    new webpack.IgnorePlugin(/\.(svg|css|styl)$/)
   ],
   module: {
     loaders: [
