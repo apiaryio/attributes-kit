@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="26px" height="16px" viewBox="0 0 26 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
-    <title>Slice 1</title>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.1 (15681) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow Up Copy 2</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <path d="M23,2.88 L13,13 L3,2.88" id="Shape" stroke="#333333" stroke-width="4" opacity="0.5" sketch:type="MSShapeGroup"></path>
+        <path d="M5.99840686,4.29436216 L10.046904,0.327879005 C10.487114,-0.103413292 11.2160191,-0.107631964 11.6629383,0.330233587 C12.1129733,0.771151857 12.1109334,1.47696528 11.6653415,1.91353043 L6.80522237,6.67519388 C6.58551189,6.89045349 6.29388615,6.99932711 6.00129737,6.99994849 C5.70485047,7.00272704 5.41399106,6.89308824 5.19159136,6.67519388 L0.331472201,1.91353043 C-0.108737818,1.48223814 -0.113043718,0.768099139 0.333875468,0.330233587 C0.783910493,-0.110684682 1.50431784,-0.108686146 1.94990974,0.327879005 L5.99840686,4.29436216 L5.99840686,4.29436216 Z" id="Arrow-Up-Copy-2" fill="#49B7FF" sketch:type="MSShapeGroup"></path>
     </g>
 </svg>
