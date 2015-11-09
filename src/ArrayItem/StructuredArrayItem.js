@@ -9,21 +9,43 @@ import Description from 'Description/Description';
 import Row from 'Row/Row';
 import Type from 'Type/Type';
 import Value from 'Value/Value';
+import Ruler from 'Ruler/Ruler';
+import Toggle from 'Toggle/Toggle';
 
 import {
   isLastArrayItem,
+  isObjectOrArray,
+  isObject,
+  isArray,
 } from 'elements/element';
 
 import {
-  containsExpandableCollapsibleElement
+  isExpandableCollapsible,
+  containsExpandableCollapsibleElement,
+  renderValue,
 } from 'elements/expandableCollapsibleElement';
 
-
-class ArrayItem extends React.Component {
+class StructuredArrayItem extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
-    parentElement: React.PropTypes.object,
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      'isExpandableCollapsible': isExpandableCollapsible(this.props.element),
+      'isObject': isObject(this.props.element),
+      'isArray': isArray(this.props.element),
+    };
+
+    // State hasn't been set; tree is expanded by default,
+    // after a click, it collapses.
+    if (this.state.isExpandableCollapsible) {
+      this.state.isExpanded = true;
+      this.state.containsExpandableCollapsibleElement = containsExpandableCollapsibleElement(this.props.parentElement.content);
+    }
   }
 
   renderStyles() {
@@ -34,22 +56,30 @@ class ArrayItem extends React.Component {
         paddingBottom: '8px',
       },
       column: {
+        width: '100%',
         paddingLeft: '8px',
+        paddingRight: '8px',
       },
       type: {
         root: {
           marginBottom: '4px',
         }
+      },
+      toggleColumn: {
+        width: '30px',
+        maxWidth: '30px',
+        minWidth: '30px',
       }
     };
 
-    // Last array item doesn't have a border.
-    if (isLastArrayItem(this.props.parentElement, this.props.index)) {
-      styles.root.borderBottom = 'none';
-    }
+    const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
 
-    if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {
-      styles.column.paddingLeft = '28px';
+    // Last array item doesn't have a border.
+    if (isLast) {
+      styles.root.borderBottom = 'none';
+      styles.root.paddingBottom = '0px';
+    } else {
+      styles.root.paddingBottom = '0px';
     }
 
     return styles;
@@ -62,19 +92,20 @@ class ArrayItem extends React.Component {
       <Row style={styles.root}>
         <ArrayItemIndex index={this.props.index} />
 
-        <Column style={styles.column}>
-          <Row>
-            <Type
-              element={this.props.element}
-              style={styles.type} />
-          </Row>
-
+        <Column>
           <Row>
             <Description element={this.props.element} />
           </Row>
+        </Column>
 
+        <Column style={styles.column}>
           <Row>
-            <Value element={this.props.element} />
+            {
+              renderValue(this.props.element, {
+                expandableCollapsible: true,
+                parentElement: this.props.parentElement,
+              })
+            }
           </Row>
 
           <Row>
@@ -84,10 +115,11 @@ class ArrayItem extends React.Component {
           <Row>
             <ArrayItemDefaults element={this.props.element} />
           </Row>
+
         </Column>
       </Row>
     );
   }
 }
 
-export default ArrayItem;
+export default StructuredArrayItem;
