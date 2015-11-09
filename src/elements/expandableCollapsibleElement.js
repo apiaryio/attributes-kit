@@ -28,6 +28,18 @@ function containsExpandableCollapsibleElement(elements) {
   });
 }
 
+function containsObject(elements) {
+  return elements.some((element) => {
+    return isObject(element);
+  });
+}
+
+function containsArray(elements) {
+  return elements.some((element) => {
+    return isArray(element);
+  });
+}
+
 // If the value is an object or an array, the component
 // does support expand/collapse functionality. In order
 // to support such functionality we have to attach
@@ -77,4 +89,6 @@ export {
   containsExpandableCollapsibleElement,
   isExpandableCollapsible,
   isStructured,
+  containsArray,
+  containsObject,
 };
