@@ -40,7 +40,7 @@ class Description extends React.Component {
       return false;
     }
 
-    const markdownMarkup = {lodashlodashhtml: marked(description)};
+    const markdownMarkup = {__html: marked(description)};
 
     return (
       <div

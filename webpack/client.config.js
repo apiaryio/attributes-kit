@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import lodash from 'lodash';
 import path from 'path';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
@@ -19,7 +19,7 @@ if (isProduction) {
   plugins.push(new UglifyJsPlugin());
 }
 
-export default _.extend({}, baseConfig, {
+export default lodash.extend({}, baseConfig, {
   entry: './src/index',
 
   output: {

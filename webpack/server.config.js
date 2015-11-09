@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import lodash from 'lodash';
 import path from 'path';
 import fs from 'fs';
 import webpack from 'webpack';
@@ -14,7 +14,7 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
-export default _.extend({}, webpackConfig, {
+export default lodash.extend({}, webpackConfig, {
   target: 'node',
   output: {
     path: path.join(__dirname, '../dist'),

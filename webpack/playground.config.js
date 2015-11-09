@@ -1,11 +1,11 @@
-import _ from 'underscore';
+import lodash from 'lodash';
 import path from 'path';
 import webpack from 'webpack';
 import baseConfig from './base.config';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-export default _.extend({}, baseConfig, {
+export default lodash.extend({}, baseConfig, {
   entry: (function() {
     let entryArray = [
       './playground/app'
