@@ -1,0 +1,32 @@
+import React from 'react';
+import _ from 'underscore';
+
+class Column extends React.Component {
+  static propTypes = {
+
+  }
+
+  constructor(props) {
+    super(props);
+  }
+
+  getStyles() {
+    let styles = {
+      flexGrow: 1,
+      height: 'auto',
+      width: 'auto',
+    };
+
+    return _.extend(styles, this.props.style);
+  }
+
+  render() {
+    return (
+      <div style={this.getStyles()}>
+        {this.props.children}
+      </div>
+    );
+  }
+}
+
+export default Column;
