@@ -6,7 +6,10 @@ import AttributesComponent from 'Attributes/Attributes';
 import AttributeComponent from 'Attribute/Attribute';
 
 class AttributesKit extends EventEmitter {
-  static render(data, element, options) {
+  static Attributes = AttributesComponent
+  static Attribute = AttributeComponent
+
+  static render(refractElement, element, options) {
     let elementSelector = null;
     if (typeof element === 'string') {
       elementSelector = element;
@@ -18,7 +21,7 @@ class AttributesKit extends EventEmitter {
       options,
     });
 
-    attributesKit.render(data);
+    attributesKit.render(refractElement);
     return attributesKit;
   }
 
@@ -50,13 +53,10 @@ class AttributesKit extends EventEmitter {
     return this.element;
   }
 
-  render(data) {
-    ReactDom.render(<AttributesComponent element={data} />, this.element);
+  render(refractElement) {
+    ReactDom.render(<AttributesComponent element={refractElement} />, this.element);
   }
 }
-
-AttributesKit.Attributes = AttributesComponent;
-AttributesKit.Attribute = AttributeComponent;
 
 // Exports
 export default AttributesKit;
