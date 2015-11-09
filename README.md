@@ -14,7 +14,7 @@ For instance—it turns the following...
 
 ...into this.
 
-![image](https://cloud.githubusercontent.com/assets/95191/9908622/d160352a-5c94-11e5-8c90-bc1e22b02664.png)
+![image](https://cloud.githubusercontent.com/assets/95191/11047966/72b60254-8735-11e5-83eb-2f68720acd7f.png)
 
 Please see the **[list of supported features →](#mson-features)**
 
