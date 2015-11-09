@@ -2,135 +2,55 @@
     <div class="attributesTitle">
         <h3 class="attributesTitleText">Attributes</h3></div>
     <div class="attributesList">
-        <div class="attributeObject">
-            <div class="attributeObjectMembers">
-                <div class="attributeObjectMemberContainer">
-                    <div class="attributeObjectMember isExpanded isExpandableCollapsible isArray">
-                        <div class="attributeObjectMemberToggle">
-                            <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                        </div>
-                        <div class="attributeObjectMemberKey">
-                            <div class="attributeKey">tags</div>
-                            <div class="attributeObjectMemberType">
-                                <div class="attributeType">array</div>
-                            </div>
-                        </div>
-                        <div class="attributeObjectMemberRequirement">
-                            <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
-                            </span>
+        <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+            <div style="flex-grow:1;height:auto;width:auto;">
+                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+                    <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;border-bottom:1px solid #E8EBEE;padding-bottom:8px;padding-left:0px;padding-top:4px;">
+                        <div style="flex-grow:1;height:auto;width:auto;">
+                            <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:12px;color:#8A93A3;">object</div>
                         </div>
                     </div>
-                    <div class="attributeObjectMemberDescription">
-                        <noscript></noscript>
-                    </div>
-                    <div class="attributeObjectMemberValueRow">
-                        <div class="attributeObjectMemberValue">
-                            <div class="attributeArray containsExpandableCollapsibleElements">
-                                <ul class="attributeArrayItems">
-                                    <li class="attributeArrayItemContainer">
-                                        <div class="attributeArrayItem isExpanded isExpandableCollapsible isObject">
-                                            <div class="attributeArrayItemRow">
-                                                <div class="attributeArrayItemToggle">
-                                                    <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                                                </div>
-                                                <div class="attributeArrayItemKey">
-                                                    <div class="attributeKey">0</div>
-                                                    <div class="attributeArrayItemType">
-                                                        <div class="attributeType">object</div>
-                                                    </div>
-                                                </div>
-                                                <div class="attributeArrayItemValue">
-                                                    <div class="attributeObject">
-                                                        <div class="attributeObjectMembers">
-                                                            <div class="attributeObjectMemberContainer">
-                                                                <div class="attributeObjectMember isExpanded">
-                                                                    <div class="attributeObjectMemberToggle">
-                                                                        <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                                                                    </div>
-                                                                    <div class="attributeObjectMemberKey">
-                                                                        <div class="attributeKey">name</div>
-                                                                        <div class="attributeObjectMemberType">
-                                                                            <div class="attributeType">string</div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="attributeObjectMemberRequirement">
-                                                                        <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="attributeObjectMemberDescription">
-                                                                    <noscript></noscript>
-                                                                </div>
-                                                                <div class="attributeObjectMemberValueRow">
-                                                                    <div class="attributeObjectMemberValue">
-                                                                        <div class="attributeValue">snow</div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="attributeObjectMemberContainer">
-                                                            <div class="attributeObjectMember isExpanded">
-                                                                <div class="attributeObjectMemberToggle">
-                                                                    <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                                                                </div>
-                                                                <div class="attributeObjectMemberKey">
-                                                                    <div class="attributeKey">description</div>
-                                                                    <div class="attributeObjectMemberType">
-                                                                        <div class="attributeType">string</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="attributeObjectMemberRequirement">
-                                                                    <div class="attributeRequirement isOptional"><span class="attributeRequirementIcon"></span><span class="attributeRequirementTooltip"><div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="attributeObjectMemberDescription">
-                                                                <noscript></noscript>
-                                                            </div>
-                                                            <div class="attributeObjectMemberValueRow"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                </div>
+                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+                    <div style="width:100%;height:auto;">
+                        <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;border-bottom:none;padding-top:8px;padding-bottom:8px;">
+                            <div style="flex-grow:1;height:auto;width:auto;">
+                                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+                                    <div style="flex-grow:1;height:auto;width:20px;max-width:20px;min-width:20px;">
+                                        <div style="width:100%;height:auto;">
+                                            <div style="width:100%;height:20px;background-repeat:no-repeat;background-position:left center;background-image:url([object Object]);background-size:7px 12px;"></div>
                                         </div>
-                            </div>
-                            <div class="attributeArrayItemRow">
-                                <div class="attributeArrayItemDescription">
+                                    </div>
+                                    <div style="flex-grow:1;height:auto;width:100px;max-width:100px;min-width:100px;">
+                                        <div style="float:left;width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:16px;color:#4C5264;line-height:18px;">tags</div>
+                                    </div>
+                                    <div style="flex-grow:1;height:auto;width:25px;max-width:25px;min-width:25px;">
+                                        <div style="float:left;width:100%;height:auto;">
+                                            <div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                                        </div>
+                                    </div>
+                                    <div style="flex-grow:1;height:auto;width:auto;">
+                                        <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:14px;color:#8A93A3;">array</div>
+                                    </div>
+                                </div>
+                                <div style="width:auto;height:auto;padding-left:13px;border-left:1px solid #ffffff;margin-left:6px;padding-bottom:0px;">
+                                    <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+                                        <noscript></noscript>
+                                    </div>
+                                </div>
+                                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+                                    <noscript></noscript>
                                     <noscript></noscript>
                                 </div>
                             </div>
                         </div>
-                        </li>
-                        <li class="attributeArrayItemContainer">
-                            <div class="attributeArrayItem isExpanded">
-                                <div class="attributeArrayItemRow">
-                                    <div class="attributeArrayItemToggle">
-                                        <div class="attributeToggle isExpanded"><span class="attributeToggleIcon"></span></div>
-                                    </div>
-                                    <div class="attributeArrayItemKey">
-                                        <div class="attributeKey">1</div>
-                                        <div class="attributeArrayItemType">
-                                            <div class="attributeType">number</div>
-                                        </div>
-                                    </div>
-                                    <div class="attributeArrayItemValue">
-                                        <div class="attributeValue">42</div>
-                                    </div>
-                                </div>
-                                <div class="attributeArrayItemRow">
-                                    <div class="attributeArrayItemDescription">
-                                        <noscript></noscript>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        </ul>
                     </div>
+                </div>
+                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
+                    <noscript></noscript>
+                    <noscript></noscript>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
 </div>
