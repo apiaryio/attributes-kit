@@ -16,7 +16,6 @@ class ArrayItemIndex extends React.Component {
         fontSize: '14px',
         color: '#C8CDD4',
         lineHeight: '18px',
-        color: '#C8CDD4'
       }
     };
 
