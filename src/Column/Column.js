@@ -4,11 +4,7 @@ import _ from 'lodash';
 
 class Column extends React.Component {
   static propTypes = {
-
-  }
-
-  constructor(props) {
-    super(props);
+    style: React.PropTypes.Object,
   }
 
   getStyles() {
