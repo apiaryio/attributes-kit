@@ -1,5 +1,6 @@
 import React from 'react';
-import _ from 'underscore';
+import _ from 'lodash';
+
 
 class Row extends React.Component {
   static propTypes = {
@@ -22,7 +23,7 @@ class Row extends React.Component {
       position: 'relative',
     };
 
-    return _.extend(styles, this.props.style);
+    return _.merge(styles, this.props.style || {});
   }
 
   render() {
