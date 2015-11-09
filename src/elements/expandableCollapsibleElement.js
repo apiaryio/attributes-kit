@@ -19,6 +19,9 @@ function isExpandableCollapsible(element) {
   return isNestedObject(valueType);
 }
 
+// Alias
+let isStructured = isExpandableCollapsible;
+
 function containsExpandableCollapsibleElement(elements) {
   return elements.some((element) => {
     return isExpandableCollapsible(element);
@@ -73,4 +76,5 @@ export {
   getValue,
   containsExpandableCollapsibleElement,
   isExpandableCollapsible,
+  isStructured,
 };
