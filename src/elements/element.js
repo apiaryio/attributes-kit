@@ -58,6 +58,17 @@ function isEnum(element) {
 
 function isNestedObject(element) {
   return isObject(element) || isArray(element) || isEnum(element);
+function hasSamples(element) {
+  const attributes = element.attributes;
+
+  let samples = null;
+
+  if (attributes) {
+    return !!attributes.samples;
+  } else {
+    return false;
+  }
+}
 }
 
 export {
@@ -68,4 +79,5 @@ export {
   isObject,
   isArray,
   isNestedObject,
+  hasSamples,
 };
