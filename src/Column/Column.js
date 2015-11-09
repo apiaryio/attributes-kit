@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 
 class Column extends React.Component {
@@ -15,7 +15,7 @@ class Column extends React.Component {
       width: 'auto',
     };
 
-    return _.merge(styles, this.props.style);
+    return lodash.merge(styles, this.props.style);
   }
 
   render() {

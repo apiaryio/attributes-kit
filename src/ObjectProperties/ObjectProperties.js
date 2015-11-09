@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 import ObjectProperty from 'ObjectProperty/ObjectProperty';
 import StructuredObjectProperty from 'ObjectProperty/StructuredObjectProperty';
@@ -36,7 +36,7 @@ class ObjectProperties extends React.Component {
       return false;
     }
 
-    if (_.isEmpty(this.props.element.content)) {
+    if (lodash.isEmpty(this.props.element.content)) {
       return false;
     }
 

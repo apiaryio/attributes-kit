@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 
 class Row extends React.Component {
@@ -25,7 +25,7 @@ class Row extends React.Component {
       position: 'relative',
     };
 
-    return _.merge(styles, this.props.style || {});
+    return lodash.merge(styles, this.props.style || {});
   }
 
   render() {

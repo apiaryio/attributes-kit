@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 import Column from 'Column/Column';
 import Row from 'Row/Row';
@@ -48,7 +48,7 @@ class SampleToggle extends React.Component {
       styles.icon.backgroundSize = '7px 12px';
     }
 
-    return _.merge(styles, this.props.style || {});
+    return lodash.merge(styles, this.props.style || {});
   }
 
   render() {

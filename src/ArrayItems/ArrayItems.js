@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 
 class ArrayItems extends React.Component {
@@ -20,7 +20,7 @@ class ArrayItems extends React.Component {
       },
     };
 
-    return _.merge(styles, this.props.style || {});
+    return lodash.merge(styles, this.props.style || {});
   }
 
   render() {

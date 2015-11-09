@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 import marked from 'marked';
 
 import './description.styl';
@@ -22,7 +22,7 @@ class Description extends React.Component {
       },
     };
 
-    return _.merge(styles, this.props.style || {});
+    return lodash.merge(styles, this.props.style || {});
   }
 
   render() {
@@ -40,7 +40,7 @@ class Description extends React.Component {
       return false;
     }
 
-    const markdownMarkup = {__html: marked(description)};
+    const markdownMarkup = {lodashlodashhtml: marked(description)};
 
     return (
       <div

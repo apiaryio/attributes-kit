@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import lodash from 'lodash';
 
 import Column from 'Column/Column';
 import Row from 'Row/Row';
@@ -53,7 +53,7 @@ class Sample extends React.Component {
       },
     };
 
-    return _.merge(styles, this.props.style || {});
+    return lodash.merge(styles, this.props.style || {});
   }
 
   renderSample(sample, styles) {
