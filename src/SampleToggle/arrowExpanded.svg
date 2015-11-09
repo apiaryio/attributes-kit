@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.1 (15681) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Base-theme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Example-Copy-26" sketch:type="MSArtboardGroup" transform="translate(-134.000000, -200.000000)" fill="#C3CDD7">
+            <g id="array" sketch:type="MSLayerGroup" transform="translate(118.000000, 166.000000)">
+                <g id="Header" sketch:type="MSShapeGroup">
+                    <g id="Sample-toggler" transform="translate(16.000000, 30.000000)">
+                        <g id="Sample-toggler-/-open" transform="translate(0.000000, 4.000000)">
+                            <path d="M9.87651729,0.328982962 C10.3092617,-0.103761481 11.0258052,-0.107994357 11.465145,0.331345472 C11.9075479,0.773748296 11.9055426,1.48193817 11.4675075,1.91997322 L6.68981175,6.69766901 C6.47382737,6.91365339 6.18714736,7.02289358 5.89952062,7.02351705 C5.6081012,7.02630496 5.32217452,6.91629701 5.10354652,6.69766901 L0.325850723,1.91997322 C-0.10689372,1.48722878 -0.111126596,0.7706853 0.328213233,0.331345472 C0.770616057,-0.111057353 1.47880593,-0.109052088 1.91684098,0.328982962 L5.89667913,4.30882112 L9.87651729,0.328982962 Z" id="arrow"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
