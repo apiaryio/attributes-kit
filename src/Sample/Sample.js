@@ -18,12 +18,15 @@ class Sample extends React.Component {
   static propTypes = {
     style: React.PropTypes.object,
     element: React.PropTypes.object,
-    showArrayHeader: React.PropTypes.boolen,
-    showObjectHeader: React.PropTypes.boolean,
-    showRuler: React.PropTypes.boolean,
+    showArrayHeader: React.PropTypes.bool,
+    showObjectHeader: React.PropTypes.bool,
+    showRuler: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
-    expandableCollapsible: React.PropTypes.boolean,
-    sample: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.bool,
+    sample: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
     samples: React.PropTypes.array,
   }
 

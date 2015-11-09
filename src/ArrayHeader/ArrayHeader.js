@@ -10,9 +10,9 @@ import {
 
 class ArrayHeader extends React.Component {
   static propTypes = {
-    isExpanded: React.PropTypes.boolean,
+    isExpanded: React.PropTypes.bool,
     element: React.PropTypes.object,
-    onSampleToggleClick: React.PropTypes.function,
+    onSampleToggleClick: React.PropTypes.func,
     sampleTitle: React.PropTypes.string,
   }
 

@@ -4,9 +4,12 @@ import lodash from 'lodash';
 
 class Row extends React.Component {
   static propTypes = {
-    onClick: React.PropTypes.function,
+    onClick: React.PropTypes.func,
     style: React.PropTypes.object,
-    children: React.PropTypes.array,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.object,
+      React.PropTypes.array,
+    ]),
   }
 
   constructor(props) {

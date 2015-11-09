@@ -14,13 +14,13 @@ import {
 
 class ObjectHeader extends React.Component {
   static propTypes = {
-    expandableCollapsible: React.PropTypes.boolean,
+    expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
     element: React.PropTypes.object,
-    isExpanded: React.PropTypes.boolean,
-    onTypeClick: React.PropTypes.function,
-    onToggleClick: React.PropTypes.function,
-    onSampleToggleClick: React.PropTypes.function,
+    isExpanded: React.PropTypes.bool,
+    onTypeClick: React.PropTypes.func,
+    onToggleClick: React.PropTypes.func,
+    onSampleToggleClick: React.PropTypes.func,
   }
 
   renderStyles() {

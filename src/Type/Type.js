@@ -10,7 +10,7 @@ class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
     element: React.PropTypes.object,
-    onClick: React.PropTypes.function,
+    onClick: React.PropTypes.func,
     style: React.PropTypes.object,
   }
 

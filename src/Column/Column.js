@@ -5,7 +5,10 @@ import lodash from 'lodash';
 class Column extends React.Component {
   static propTypes = {
     style: React.PropTypes.object,
-    children: React.PropTypes.array,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.object,
+      React.PropTypes.array,
+    ]),
   }
 
   getStyles() {

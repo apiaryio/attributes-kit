@@ -12,7 +12,7 @@ import Column from 'Column/Column';
 class ObjectComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-    expandableCollapsible: React.PropTypes.boolean,
+    expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
   }
 

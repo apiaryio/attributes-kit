@@ -9,7 +9,7 @@ class SampleToggle extends React.Component {
   static propTypes = {
     onClick: React.PropTypes.func,
     sampleName: React.PropTypes.string,
-    isExpanded: React.PropTypes.boolean,
+    isExpanded: React.PropTypes.bool,
     style: React.PropTypes.object,
     sampleTitle: React.PropTypes.string,
   }

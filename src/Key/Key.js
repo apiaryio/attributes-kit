@@ -5,7 +5,7 @@ class Key extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
-    onClick: React.PropTypes.function,
+    onClick: React.PropTypes.func,
   }
 
   getStyles() {

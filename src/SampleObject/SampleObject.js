@@ -9,11 +9,11 @@ import SampleObjectProperty from 'SampleObjectProperty/SampleObjectProperty';
 
 class SampleObject extends React.Component {
   static propTypes = {
-    showRuler: React.PropTypes.boolean,
+    showRuler: React.PropTypes.bool,
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
-    expandableCollapsible: React.PropTypes.boolean,
-    showObjectHeader: React.PropTypes.boolean,
+    expandableCollapsible: React.PropTypes.bool,
+    showObjectHeader: React.PropTypes.bool,
   }
 
   constructor(props) {

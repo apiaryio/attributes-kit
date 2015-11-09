@@ -3,7 +3,7 @@ import React from 'react';
 
 class Toggle extends React.Component {
   static propTypes = {
-    isExpanded: React.PropTypes.boolean,
+    isExpanded: React.PropTypes.bool,
     onClick: React.PropTypes.func,
   }
 

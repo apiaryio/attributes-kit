@@ -4,7 +4,10 @@ import lodash from 'lodash';
 
 class Ruler extends React.Component {
   static propTypes = {
-    children: React.PropTypes.array,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.object,
+      React.PropTypes.array,
+    ]),
     style: React.PropTypes.object,
   }
 
