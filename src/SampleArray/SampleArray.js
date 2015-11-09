@@ -10,7 +10,7 @@ class SampleArray extends React.Component {
   static propTypes = {
     samples: React.PropTypes.array,
     element: React.PropTypes.object,
-    showArrayHeader: React.PropTypes.boolean,
+    showArrayHeader: React.PropTypes.bool,
   }
 
   getSamples() {

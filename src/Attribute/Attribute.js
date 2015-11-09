@@ -6,7 +6,7 @@ import './attribute.styl';
 
 class Attribute extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.boolean,
     parentElement: React.PropTypes.object,
   }
@@ -16,18 +16,18 @@ class Attribute extends React.Component {
   }
 
   render() {
-    if (!this.props.data) {
+    if (!this.props.element) {
       return false;
     }
 
-    const reactComponent = refractToComponentsMap[this.props.data.element];
+    const reactComponent = refractToComponentsMap[this.props.element.element];
 
     if (typeof reactComponent === 'undefined') {
-      return new Error(`Unable to find a rendering component for ${this.props.data.element}`);
+      return new Error(`Unable to find a rendering component for ${this.props.element.element}`);
     }
 
     return React.createElement(reactComponent, {
-      data: this.props.data,
+      element: this.props.element,
       expandableCollapsible: this.props.expandableCollapsible,
       parentElement: this.props.parentElement,
     });

@@ -7,7 +7,6 @@ import './description.styl';
 
 class Description extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
     element: React.PropTypes.object,
     style: React.PropTypes.object,
   }

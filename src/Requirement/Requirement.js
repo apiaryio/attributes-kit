@@ -5,15 +5,15 @@ import Tooltip from 'Tooltip/Tooltip';
 
 class Requirement extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   }
 
   getRequirement() {
     let requirement = ['optional'];
 
-    if (this.props.data.attributes) {
-      if (this.props.data.attributes.typeAttributes) {
-        requirement = this.props.data.attributes.typeAttributes;
+    if (this.props.element.attributes) {
+      if (this.props.element.attributes.typeAttributes) {
+        requirement = this.props.element.attributes.typeAttributes;
       }
     }
 

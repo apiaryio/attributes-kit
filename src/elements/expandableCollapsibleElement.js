@@ -63,7 +63,7 @@ function getValue(element, props = {}) {
   if (isObjectOrArray(element.element)) {
     value = (
       <Attribute
-        data={element}
+        element={element}
         expandableCollapsible={props.expandableCollapsible}
         parentElement={props.parentElement}
       />
@@ -72,7 +72,7 @@ function getValue(element, props = {}) {
     if (isObjectOrArray(element.content.value.element)) {
       value = (
         <Attribute
-          data={element.content.value}
+          element={element.content.value}
           expandableCollapsible={props.expandableCollapsible}
           parentElement={props.parentElement}
         />

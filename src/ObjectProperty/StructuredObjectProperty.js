@@ -44,7 +44,7 @@ class StructuredObjectProperty extends React.Component {
     // State hasn't been set; tree is expanded by default,
     // after a click, it collapses.
     if (this.state.isExpandableCollapsible) {
-      this.state.isExpanded = false;
+      this.state.isExpanded = true;
       this.state.containsExpandableCollapsibleElement = containsExpandableCollapsibleElement(this.props.parentElement.content);
     }
   }
@@ -141,12 +141,12 @@ class StructuredObjectProperty extends React.Component {
             <Column style={styles.keyColumn} >
               <Key
                 onClick={this.handleExpandCollapse}
-                data={this.props.element}
+                element={this.props.element}
               />
             </Column>
 
             <Column style={styles.requirementColumn}>
-              <Requirement data={this.props.element} />
+              <Requirement element={this.props.element} />
             </Column>
 
             <Column>

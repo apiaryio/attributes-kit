@@ -70,11 +70,11 @@ class ObjectProperty extends React.Component {
     return (
       <Row style={styles.root}>
         <Column style={styles.keyColumn}>
-          <Key data={this.props.element} />
+          <Key element={this.props.element} />
         </Column>
 
         <Column style={styles.requirementColumn}>
-          <Requirement data={this.props.element} />
+          <Requirement element={this.props.element} />
         </Column>
 
         <Column>

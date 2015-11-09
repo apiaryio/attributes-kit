@@ -6,7 +6,7 @@ import './attributes.styl';
 
 class Attributes extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -21,7 +21,7 @@ class Attributes extends React.Component {
         </div>
 
         <div className="attributesList">
-          <Attribute data={this.props.data} />
+          <Attribute element={this.props.element} />
         </div>
       </div>
     );

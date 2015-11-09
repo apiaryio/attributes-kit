@@ -368,4 +368,3 @@ This project adheres to the [Open Code of Conduct](./CODE_OF_CONDUCT.md). By par
 # License
 
 [MIT](./LICENSE.md).
-

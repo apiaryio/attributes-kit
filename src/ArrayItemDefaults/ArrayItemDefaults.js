@@ -47,7 +47,7 @@ class ArrayItemDefaults extends React.Component {
 
     return (
       <div style={this.renderStyles()}>
-        <Defaults data={defaults} />
+        <Defaults element={defaults} />
       </div>
     );
   }

@@ -51,7 +51,7 @@ class AttributesKit extends EventEmitter {
   }
 
   render(data) {
-    ReactDom.render(<AttributesComponent data={data} />, this.element);
+    ReactDom.render(<AttributesComponent element={data} />, this.element);
   }
 }
 

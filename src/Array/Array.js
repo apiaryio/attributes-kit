@@ -17,7 +17,7 @@ import {
 
 class ArrayComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -54,14 +54,14 @@ class ArrayComponent extends React.Component {
     return (
       <ArrayItems style={styles.arrayItems}>
         {
-          this.props.data.content.map((element, index) => {
+          this.props.element.content.map((element, index) => {
             if (isStructured(element)) {
               return (
                 <StructuredArrayItem
                   key={index}
                   index={index}
                   element={element}
-                  parentElement={this.props.data} />
+                  parentElement={this.props.element} />
               );
             }
 
@@ -70,7 +70,7 @@ class ArrayComponent extends React.Component {
                 key={index}
                 index={index}
                 element={element}
-                parentElement={this.props.data} />
+                parentElement={this.props.element} />
             );
           })
         }
@@ -81,7 +81,7 @@ class ArrayComponent extends React.Component {
   render() {
     const styles = this.renderStyles();
 
-    if (!this.props.data.content) {
+    if (!this.props.element.content) {
       return false;
     }
 
@@ -89,7 +89,7 @@ class ArrayComponent extends React.Component {
       <Row>
         <Column>
           <ArrayHeader
-            element={this.props.data}
+            element={this.props.element}
             isExpanded={this.state.isExpanded}
             onSampleToggleClick={this.handleExpandCollapse}
             sampleTitle="Description"
@@ -97,8 +97,8 @@ class ArrayComponent extends React.Component {
 
           {this.renderArrayItems(styles)}
 
-          <ArraySamples element={this.props.data} />
-          <ArrayDefaults element={this.props.data} />
+          <ArraySamples element={this.props.element} />
+          <ArrayDefaults element={this.props.element} />
         </Column>
       </Row>
     );

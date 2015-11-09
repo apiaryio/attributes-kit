@@ -4,7 +4,7 @@ import React from 'react';
 class Key extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
     onClick: React.PropTypes.function,
   }
 
@@ -30,8 +30,8 @@ class Key extends React.Component {
       return this.props.index;
     }
 
-    if (this.props.data.element === 'member') {
-      return this.props.data.content.key.content;
+    if (this.props.element.element === 'member') {
+      return this.props.element.content.key.content;
     }
 
     return undefined;

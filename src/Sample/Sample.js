@@ -16,7 +16,6 @@ import {
 
 class Sample extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
     style: React.PropTypes.object,
     element: React.PropTypes.object,
     showArrayHeader: React.PropTypes.boolen,
@@ -104,13 +103,13 @@ class Sample extends React.Component {
       );
     }
 
-    const sample = this.props.data || this.props.sample;
-
     const styles = this.renderStyles();
 
     return (
       <Row style={styles.row}>
-        {this.renderSample(sample, styles)}
+        {
+          this.renderSample(this.props.sample, styles)
+        }
       </Row>
     );
   }

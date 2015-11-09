@@ -129,7 +129,7 @@ class SampleArray extends React.Component {
               <Column style={styles.keyColumn}>
                 <Key
                   onClick={this.handleExpandCollapse}
-                  data={this.props.element}
+                  element={this.props.element}
                 />
               </Column>
             </Row>
@@ -154,7 +154,7 @@ class SampleArray extends React.Component {
     return (
       <Row style={styles.root}>
         <Column style={styles.keyColumn}>
-          <Key data={this.props.element} />
+          <Key element={this.props.element} />
         </Column>
 
         <Column>

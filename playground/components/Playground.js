@@ -38,11 +38,11 @@ class Playground extends React.Component {
         </div>
 
         <div className="column">
-          <JsonFormatterComponent data={this.state.attributes} />
+          <JsonFormatterComponent element={this.state.attributes} />
         </div>
 
         <div className="column">
-          <AttributesKit.Attributes data={this.state.attributes} />
+          <AttributesKit.Attributes element={this.state.attributes} />
         </div>
       </div>
     );

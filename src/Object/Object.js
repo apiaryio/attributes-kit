@@ -11,7 +11,7 @@ import Column from 'Column/Column';
 
 class ObjectComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.boolean,
     parentElement: React.PropTypes.object,
   }
@@ -19,7 +19,7 @@ class ObjectComponent extends React.Component {
   constructor(props) {
     super(props);
 
-    this.props.data.content = this.props.data.content || [];
+    this.props.element.content = this.props.element.content || [];
 
     this.state = {
       isExpanded: true,
@@ -58,13 +58,13 @@ class ObjectComponent extends React.Component {
     if (this.props.expandableCollapsible) {
       return (
         <Ruler style={styles.ruler}>
-          <ObjectProperties element={this.props.data} />
+          <ObjectProperties element={this.props.element} />
         </Ruler>
       );
     }
 
     return (
-      <ObjectProperties element={this.props.data} />
+      <ObjectProperties element={this.props.element} />
     );
   }
 
@@ -80,7 +80,7 @@ class ObjectComponent extends React.Component {
               onSampleToggleClick={this.handleExpandCollapse}
               onTypeClick={this.handleExpandCollapse}
               isExpanded={this.state.isExpanded}
-              element={this.props.data}
+              element={this.props.element}
               parentElement={this.props.parentElement}
               expandableCollapsible={this.props.expandableCollapsible}
             />
@@ -91,8 +91,8 @@ class ObjectComponent extends React.Component {
           </Row>
 
           <Row>
-            <ObjectSamples element={this.props.data} />
-            <ObjectDefaults element={this.props.data} />
+            <ObjectSamples element={this.props.element} />
+            <ObjectDefaults element={this.props.element} />
           </Row>
         </Column>
       </Row>

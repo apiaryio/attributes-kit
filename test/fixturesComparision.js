@@ -23,7 +23,7 @@ describe('Comparision with reference fixtures', () => {
           return done(err);
         }
         renderedElement = React.createElement(Attributes, {
-          data: result,
+          element: result,
         });
 
         htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
