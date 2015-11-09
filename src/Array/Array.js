@@ -1,87 +1,106 @@
 import React from 'react';
-import classNames from 'classnames';
 
-import ArrayItemComponent from 'ArrayItem/ArrayItem';
-import Samples from 'Samples/Samples';
-import Defaults from 'Defaults/Defaults';
+import Row from 'Row/Row';
+import Column from 'Column/Column';
+
+import ArrayItem from 'ArrayItem/ArrayItem';
+import StructuredArrayItem from 'ArrayItem/StructuredArrayItem';
+import ArrayItems from 'ArrayItems/ArrayItems';
+import ArrayHeader from 'ArrayHeader/ArrayHeader';
+import ArraySamples from 'ArraySamples/ArraySamples';
+import ArrayDefaults from 'ArrayDefaults/ArrayDefaults';
 
 import {
-  containsExpandableCollapsibleElement,
+  isStructured,
 } from 'elements/expandableCollapsibleElement';
 
-import './array.styl';
 
 class ArrayComponent extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
   }
 
-  getClassNames() {
-    return classNames(
-      'attributeArray',
-      {'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content)}
-    );
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isExpanded: true,
+    };
   }
 
-  renderSamples() {
-    const attributes = this.props.data.attributes;
-    let samples = null;
+  handleExpandCollapse = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  }
 
-    if (attributes) {
-      samples = attributes.samples;
-    }
+  renderStyles() {
+    let styles = {
+      arrayItems: {
+        root: {
+          border: '1px solid #E8EBEE',
+        }
+      }
+    };
 
-    if (!samples) {
+    return styles;
+  }
+
+  renderArrayItems(styles) {
+    if (!this.state.isExpanded) {
       return false;
     }
 
     return (
-      <div className="attributeArraySamplesContainer">
-        <Samples data={samples} />
-      </div>
-    );
-  }
+      <ArrayItems style={styles.arrayItems}>
+        {
+          this.props.data.content.map((element, index) => {
+            if (isStructured(element)) {
+              return (
+                <StructuredArrayItem
+                  key={index}
+                  index={index}
+                  element={element}
+                  parentElement={this.props.data} />
+              );
+            }
 
-  renderDefaults() {
-    const attributes = this.props.data.attributes;
-    let defaults = null;
-
-    if (attributes) {
-      defaults = attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
-    }
-
-    return (
-      <div className="attributeArrayDefaultsContainer">
-        <Defaults data={defaults} />
-      </div>
+            return (
+              <ArrayItem
+                key={index}
+                index={index}
+                element={element}
+                parentElement={this.props.data} />
+            );
+          })
+        }
+      </ArrayItems>
     );
   }
 
   render() {
+    let styles = this.renderStyles();
+
     if (!this.props.data.content) {
       return false;
     }
 
     return (
-      <div className={this.getClassNames()}>
-        <ul className="attributeArrayItems">
-          {this.props.data.content.map((member, index) => {
-            return (
-              <li key={index} className="attributeArrayItemContainer">
-                <ArrayItemComponent index={index} data={member} />
-              </li>
-            );
-          })}
-        </ul>
+      <Row>
+        <Column>
+          <ArrayHeader
+            element={this.props.data}
+            isExpanded={this.state.isExpanded}
+            onSampleToggleClick={this.handleExpandCollapse}
+            sampleTitle="Description"
+          />
 
-        {this.renderDefaults()}
+          {this.renderArrayItems(styles)}
 
-        {this.renderSamples()}
-      </div>
+          <ArraySamples element={this.props.data} />
+          <ArrayDefaults element={this.props.data} />
+        </Column>
+      </Row>
     );
   }
 }
