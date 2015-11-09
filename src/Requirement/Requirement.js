@@ -1,48 +1,61 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import Tooltip from 'Tooltip/Tooltip';
 
-import './requirement.styl';
 
 class Requirement extends React.Component {
   static propTypes = {
     data: React.PropTypes.object,
   }
 
-  constructor(props) {
-    super(props);
-
-    this.CLASS_NAME = 'attributeRequirement';
-  }
-
-  setRequirement() {
-    this.requirement = ['optional'];
+  getRequirement() {
+    let requirement = ['optional'];
 
     if (this.props.data.attributes) {
       if (this.props.data.attributes.typeAttributes) {
-        this.requirement = this.props.data.attributes.typeAttributes;
+        requirement = this.props.data.attributes.typeAttributes;
       }
+    }
+
+    return requirement;
+  }
+
+  renderStyles() {
+    let styles = {
+      root: {
+        float: 'left',
+        width: '100%',
+        height: 'auto'
+      },
+      asterisk: {
+        float: 'left',
+        width: '10px',
+        height: '11px',
+        backgroundImage: `url(${require('./asterisk.svg')})`,
+        backgroundSize: '10px 11px',
+        backgroundRepeat: 'no-repeat',
+      }
+    };
+
+    return styles;
+  }
+
+  renderAsterisk(requirement, styles) {
+    if (requirement[0] === 'required') {
+      return (
+        <span style={styles.asterisk}></span>
+      );
     }
   }
 
-  getClassName() {
-    return classNames(this.CLASS_NAME,
-      this.requirement.map((req) => {
-        return `is${req.charAt(0).toUpperCase() + req.substr(1)}`;
-      }));
-  }
-
   render() {
-    this.setRequirement();
+    const styles = this.renderStyles();
+    const requirement = this.getRequirement();
 
     return (
-      <div className={this.getClassName()}>
-        <span className="attributeRequirementIcon"></span>
-
-        <span className="attributeRequirementTooltip">
-          <Tooltip text={this.requirement.join(' ')} />
-        </span>
+      <div style={styles.root}>
+        {this.renderAsterisk(requirement, styles)}
+        <Tooltip text={requirement.join(' ')} />
       </div>
     );
   }
