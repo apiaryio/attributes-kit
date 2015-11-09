@@ -56,8 +56,10 @@ function isEnum(element) {
   return element === TYPES.ENUM;
 }
 
-function isNestedObject(element) {
-  return isObject(element) || isArray(element) || isEnum(element);
+function isObjectOrArray(element) {
+  return isObject(element) || isArray(element);
+}
+
 function hasSamples(element) {
   const attributes = element.attributes;
 
@@ -78,6 +80,6 @@ export {
   isEnum,
   isObject,
   isArray,
-  isNestedObject,
+  isObjectOrArray,
   hasSamples,
 };
