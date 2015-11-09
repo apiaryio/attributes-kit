@@ -5,6 +5,7 @@ import Row from 'Row/Row';
 import Sample from 'Sample/Sample';
 import SampleToggle from 'SampleToggle/SampleToggle';
 
+import {BORDER_COLOR} from 'theme';
 
 class ObjectSample extends React.Component {
   static propTypes = {
@@ -29,7 +30,7 @@ class ObjectSample extends React.Component {
   renderStyles() {
     const styles = {
       header: {
-        borderTop: '1px solid #E8EBEE',
+        borderTop: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
         paddingLeft: '8px',
@@ -37,7 +38,7 @@ class ObjectSample extends React.Component {
       },
     };
 
-    styles.header.borderBottom = '1px solid #E8EBEE';
+    styles.header.borderBottom = `1px solid ${BORDER_COLOR}`;
 
     return styles;
   }

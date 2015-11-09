@@ -4,6 +4,7 @@ import lodash from 'lodash';
 import Column from 'Column/Column';
 import Row from 'Row/Row';
 
+import {SAMPLE_TOGGLE_TITLE_COLOR} from 'theme';
 
 class SampleToggle extends React.Component {
   static propTypes = {
@@ -34,7 +35,7 @@ class SampleToggle extends React.Component {
         lineHeight: '12px',
         fontFamily: 'Source Sans Pro',
         fontSize: '12px',
-        color: '#A3A7B2',
+        color: SAMPLE_TOGGLE_TITLE_COLOR,
         textTransform: 'uppercase',
         paddingLeft: '6px',
       },

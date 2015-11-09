@@ -18,6 +18,7 @@ import {
   containsExpandableCollapsibleElement,
 } from 'elements/expandableCollapsibleElement';
 
+import {BORDER_COLOR} from 'theme';
 
 class SampleArray extends React.Component {
   static propTypes = {
@@ -45,7 +46,7 @@ class SampleArray extends React.Component {
       root: {
         paddingTop: '8px',
         paddingBottom: '8px',
-        borderBottom: '1px solid #E8EBEE',
+        borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingRight: '8px',
       },
       separator: {
@@ -55,7 +56,7 @@ class SampleArray extends React.Component {
       separatorLine: {
         width: '100%',
         height: '1px',
-        backgroundColor: '#E8EBEE',
+        backgroundColor: BORDER_COLOR,
       },
       toggleColumn: {
         width: '20px',
@@ -99,7 +100,7 @@ class SampleArray extends React.Component {
       styles.separator.display = 'none';
       styles.root.paddingBottom = '8px';
       // Only when other Samples/Defaults?
-      styles.root.borderBottom = '1px solid #E8EBEE';
+      styles.root.borderBottom = `1px solid ${BORDER_COLOR}`;
     }
 
     if (isLastArrayItem(this.props.parentElement, this.props.index)) {

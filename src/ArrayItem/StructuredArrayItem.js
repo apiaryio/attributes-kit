@@ -19,6 +19,8 @@ import {
   renderValue,
 } from 'elements/expandableCollapsibleElement';
 
+import {BORDER_COLOR} from 'theme';
+
 class StructuredArrayItem extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -46,7 +48,7 @@ class StructuredArrayItem extends React.Component {
   renderStyles() {
     const styles = {
       root: {
-        borderBottom: '1px solid #E8EBEE',
+        borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
       },

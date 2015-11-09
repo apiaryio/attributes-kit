@@ -12,6 +12,8 @@ import {
   isArray,
 } from 'elements/element';
 
+import {BORDER_COLOR} from 'theme';
+
 class ObjectHeader extends React.Component {
   static propTypes = {
     expandableCollapsible: React.PropTypes.bool,
@@ -26,7 +28,7 @@ class ObjectHeader extends React.Component {
   renderStyles() {
     const styles = {
       root: {
-        borderBottom: '1px solid #E8EBEE',
+        borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingBottom: '8px',
         paddingLeft: '0px',
         paddingTop: '4px',

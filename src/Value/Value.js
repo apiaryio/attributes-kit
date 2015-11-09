@@ -6,6 +6,12 @@ import {
   isMember,
 } from 'elements/element';
 
+import {
+  VALUE_COLOR,
+  VALUE_BACKGROUND_COLOR,
+  VALUE_BORDER_RADIUS,
+} from 'theme';
+
 class Value extends React.Component {
   static propTypes = {
     value: React.PropTypes.oneOfType([
@@ -25,15 +31,15 @@ class Value extends React.Component {
       margin: '0',
       padding: '0',
       fontWeight: '600',
-      backgroundColor: '#f0f1f4',
-      borderRadius: '4px',
+      backgroundColor: VALUE_BACKGROUND_COLOR,
+      borderRadius: VALUE_BORDER_RADIUS,
       paddingTop: '2px',
       paddingBottom: '2px',
       paddingLeft: '4px',
       paddingRight: '4px',
       fontFamily: 'Source Sans Pro',
       fontSize: '15px',
-      color: '#4C5264',
+      color: VALUE_COLOR,
       lineHeight: '19px',
     };
 

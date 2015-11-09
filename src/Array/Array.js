@@ -10,6 +10,8 @@ import ArrayHeader from 'ArrayHeader/ArrayHeader';
 import ArraySamples from 'ArraySamples/ArraySamples';
 import ArrayDefaults from 'ArrayDefaults/ArrayDefaults';
 
+import {ARRAY_ITEMS_BORDER_COLOR} from 'theme';
+
 import {
   isStructured,
 } from 'elements/expandableCollapsibleElement';
@@ -38,7 +40,7 @@ class ArrayComponent extends React.Component {
     const styles = {
       arrayItems: {
         root: {
-          border: '1px solid #E8EBEE',
+          border: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         },
       },
     };

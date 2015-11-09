@@ -1,0 +1,16 @@
+const THEME = {
+  BORDER_COLOR: '#E8EBEE',
+  ARRAY_ITEMS_BORDER_COLOR: '#E8EBEE',
+  KEY_COLOR: '#4C5264',
+  TYPE_COLOR: '#8A93A3',
+
+  /* Value */
+  VALUE_COLOR: '#4C5264',
+  VALUE_BACKGROUND_COLOR: '#f0f1f4',
+  VALUE_BORDER_RADIUS: '4px',
+
+  /* SampleToggle */
+  SAMPLE_TOGGLE_TITLE_COLOR: '#A3A7B2',
+};
+
+export default THEME;

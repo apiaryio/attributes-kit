@@ -5,6 +5,7 @@ import Column from 'Column/Column';
 import Sample from 'Sample/Sample';
 import SampleToggle from 'SampleToggle/SampleToggle';
 
+import {BORDER_COLOR} from 'theme';
 
 class ArraySample extends React.Component {
   static propTypes = {
@@ -30,8 +31,8 @@ class ArraySample extends React.Component {
     const styles = {
       header: {
         background: '#F8F8F9',
-        borderLeft: '1px solid #E8EBEE',
-        borderRight: '1px solid #E8EBEE',
+        borderLeft: `1px solid ${BORDER_COLOR}`,
+        borderRight: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
         paddingLeft: '8px',
@@ -40,7 +41,7 @@ class ArraySample extends React.Component {
     };
 
     if (!this.state.isExpanded) {
-      styles.header.borderBottom = '1px solid #E8EBEE';
+      styles.header.borderBottom = `1px solid ${BORDER_COLOR}`;
     }
 
     return styles;

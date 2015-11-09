@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {KEY_COLOR} from 'theme';
 
 class Key extends React.Component {
   static propTypes = {
@@ -17,7 +18,7 @@ class Key extends React.Component {
         fontFamily: 'Source Code Pro',
         fontWeight: '500',
         fontSize: '16px',
-        color: '#4C5264',
+        color: KEY_COLOR,
         lineHeight: '18px',
       },
     };

@@ -1,6 +1,7 @@
 import React from 'react';
 import lodash from 'lodash';
 
+import {BORDER_COLOR} from 'theme';
 
 class Ruler extends React.Component {
   static propTypes = {
@@ -21,7 +22,7 @@ class Ruler extends React.Component {
         width: '100%',
         height: 'auto',
         paddingLeft: '13px',
-        borderLeft: '1px solid #E8EBEE',
+        borderLeft: `1px solid ${BORDER_COLOR}`,
       },
     };
 

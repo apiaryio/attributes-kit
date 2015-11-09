@@ -5,6 +5,7 @@ import {
   getType,
 } from 'elements/element';
 
+import {TYPE_COLOR} from 'theme';
 
 class Type extends React.Component {
   static propTypes = {
@@ -21,7 +22,7 @@ class Type extends React.Component {
         fontFamily: 'Source Code Pro',
         fontWeight: 'regular',
         fontSize: '14px',
-        color: '#8A93A3',
+        color: TYPE_COLOR,
       },
     };
 
