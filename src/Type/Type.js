@@ -1,19 +1,57 @@
 import React from 'react';
+import _ from 'lodash';
 
-import './type.styl';
+import {
+  getType,
+} from 'elements/element'
 
 
 class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
+    element: React.PropTypes.object,
+  }
+
+  getStyles() {
+    let styles = {
+      root: {
+        width: '100%',
+        fontFamily: 'Source Code Pro',
+        fontWeight: 'regular',
+        fontSize: '14px',
+        color: '#8A93A3',
+      }
+    };
+
+    return _.merge(styles, this.props.style || {});
   }
 
   render() {
-    return (
-      <div className="attributeType">
-        {this.props.type}
-      </div>
-    );
+    if (this.props.type) {
+      return (
+        <div
+          style={this.getStyles().root}
+          onClick={this.props.onClick}
+        >
+          {this.props.type}
+        </div>
+      );
+    }
+
+    if (this.props.element) {
+      const type = getType(this.props.element);
+
+      if (type) {
+        return (
+          <div
+            style={this.getStyles().root}
+            onClick={this.props.onClick}
+          >
+            {type}
+          </div>
+        );
+      }
+    }
   }
 }
 
