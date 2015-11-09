@@ -1,5 +1,6 @@
 import React from 'react';
-import _ from 'underscore';
+import _ from 'lodash';
+
 
 class Column extends React.Component {
   static propTypes = {
@@ -17,7 +18,7 @@ class Column extends React.Component {
       width: 'auto',
     };
 
-    return _.extend(styles, this.props.style);
+    return _.merge(styles, this.props.style);
   }
 
   render() {
