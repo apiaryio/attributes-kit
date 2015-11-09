@@ -71,6 +71,10 @@ function hasSamples(element) {
     return false;
   }
 }
+
+function isLastArrayItem(arrayElement, currentArrayItemIndex) {
+  const numberOfArrayItems = arrayElement.content.length;
+  return (numberOfArrayItems - 1) === currentArrayItemIndex;
 }
 
 export {
@@ -82,4 +86,5 @@ export {
   isArray,
   isObjectOrArray,
   hasSamples,
+  isLastArrayItem,
 };
