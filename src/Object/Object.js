@@ -1,10 +1,22 @@
 import React from 'react';
 
-import ObjectMember from 'ObjectMember/ObjectMember';
-import Samples from 'Samples/Samples';
-import Defaults from 'Defaults/Defaults';
+import ObjectProperties from 'ObjectProperties/ObjectProperties';
+import ObjectHeader from 'ObjectHeader/ObjectHeader';
+import ObjectSamples from 'ObjectSamples/ObjectSamples';
+import ObjectDefaults from 'ObjectDefaults/ObjectDefaults';
+import Ruler from 'Ruler/Ruler';
+import Toggle from 'Toggle/Toggle';
+import Row from 'Row/Row';
+import Column from 'Column/Column';
 
-import './object.styl';
+import {
+  isStructured
+} from 'elements/expandableCollapsibleElement'
+
+import {
+  getType
+} from 'elements/element'
+
 
 class ObjectComponent extends React.Component {
   static propTypes = {
@@ -15,65 +27,83 @@ class ObjectComponent extends React.Component {
     super(props);
 
     this.props.data.content = this.props.data.content || [];
+
+    this.state = {
+      isExpanded: true,
+    };
   }
 
-  renderSamples() {
-    const attributes = this.props.data.attributes;
-    let samples = null;
+  handleExpandCollapse = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  }
 
-    if (attributes) {
-      samples = attributes.samples;
+  renderStyles() {
+    let styles = {
+      root: {
+      },
+      ruler: {
+        root: {
+          paddingBottom: '0px',
+        }
+      },
+      objectPropertiesRow: {}
+    };
+
+    if (this.props.expandableCollapsible) {
+      styles.objectPropertiesRow.paddingLeft = '6px';
     }
 
-    if (!samples) {
+    return styles;
+  }
+
+  renderObjectProperties(styles) {
+    if (!this.state.isExpanded) {
       return false;
     }
 
-    return (
-      <div className="attributeObjectSamplesContainer">
-        <Samples data={samples} />
-      </div>
-    );
-  }
-
-  renderDefaults() {
-    const attributes = this.props.data.attributes;
-    let defaults = null;
-
-    if (attributes) {
-      defaults = attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
+    if (this.props.expandableCollapsible) {
+      return (
+        <Ruler style={styles.ruler}>
+          <ObjectProperties element={this.props.data} />
+        </Ruler>
+      );
     }
 
     return (
-      <div className="attributeObjectDefaults">
-        <Defaults data={defaults} />
-      </div>
+      <ObjectProperties element={this.props.data} />
     );
   }
 
   render() {
-    return (
-      <div className="attributeObject">
-        <div className="attributeObjectMembers">
-          {this.props.data.content.map((member, index) => {
-            return (
-              <div
-                className="attributeObjectMemberContainer"
-                key={index}
-              >
-                <ObjectMember data={member} />
-              </div>
-            );
-          })}
-        </div>
+    const styles = this.renderStyles();
 
-        {this.renderDefaults()}
-        {this.renderSamples()}
-      </div>
+    return (
+      <Row>
+        <Column>
+          <Row>
+            <ObjectHeader
+              onToggleClick={this.handleExpandCollapse}
+              onSampleToggleClick={this.handleExpandCollapse}
+              onTypeClick={this.handleExpandCollapse}
+              isExpanded={this.state.isExpanded}
+              element={this.props.data}
+              parentElement={this.props.parentElement}
+              expandableCollapsible={this.props.expandableCollapsible}
+            />
+          </Row>
+
+          <Row style={styles.objectPropertiesRow}>
+            {this.renderObjectProperties(styles)}
+          </Row>
+
+          <Row>
+            <ObjectSamples element={this.props.data} />
+            <ObjectDefaults element={this.props.data} />
+          </Row>
+        </Column>
+      </Row>
     );
   }
 }
