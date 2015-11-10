@@ -46,6 +46,8 @@ class Requirement extends React.Component {
         <span style={styles.asterisk}></span>
       );
     }
+
+    return false;
   }
 
   render() {
