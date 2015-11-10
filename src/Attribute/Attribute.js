@@ -1,31 +1,47 @@
 import React from 'react';
+import lodash from 'lodash';
 
 import refractToComponentsMap from 'refractToComponentMap';
 
-import './attribute.styl';
+import theme from 'theme';
 
 class Attribute extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    theme: React.PropTypes.object,
+    element: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.bool,
+    parentElement: React.PropTypes.object,
+  }
+
+  static childContextTypes = {
+    theme: React.PropTypes.object,
   }
 
   constructor(props) {
     super(props);
   }
 
+  getChildContext() {
+    return {
+      theme: lodash.merge(theme, this.props.theme || {}),
+    };
+  }
+
   render() {
-    if (!this.props.data) {
+    if (!this.props.element) {
       return false;
     }
 
-    const reactComponent = refractToComponentsMap[this.props.data.element];
+    const reactComponent = refractToComponentsMap[this.props.element.element];
 
     if (typeof reactComponent === 'undefined') {
-      return new Error(`Unable to find a rendering component for ${this.props.data.element}`);
+      return new Error(`Unable to find a rendering component for ${this.props.element.element}`);
     }
 
     return React.createElement(reactComponent, {
-      data: this.props.data,
+      element: this.props.element,
+      expandableCollapsible: this.props.expandableCollapsible,
+      parentElement: this.props.parentElement,
     });
   }
 }

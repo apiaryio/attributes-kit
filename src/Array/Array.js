@@ -1,87 +1,112 @@
 import React from 'react';
-import classNames from 'classnames';
 
-import ArrayItemComponent from 'ArrayItem/ArrayItem';
-import Samples from 'Samples/Samples';
-import Defaults from 'Defaults/Defaults';
+import Row from 'Row/Row';
+import Column from 'Column/Column';
+
+import ArrayItem from 'ArrayItem/ArrayItem';
+import StructuredArrayItem from 'ArrayItem/StructuredArrayItem';
+import ArrayItems from 'ArrayItems/ArrayItems';
+import ArrayHeader from 'ArrayHeader/ArrayHeader';
+import ArraySamples from 'ArraySamples/ArraySamples';
+import ArrayDefaults from 'ArrayDefaults/ArrayDefaults';
 
 import {
-  containsExpandableCollapsibleElement,
+  isStructured,
 } from 'elements/expandableCollapsibleElement';
 
-import './array.styl';
 
 class ArrayComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   }
 
-  getClassNames() {
-    return classNames(
-      'attributeArray',
-      {'containsExpandableCollapsibleElements': containsExpandableCollapsibleElement(this.props.data.content)}
-    );
+  static contextTypes = {
+    theme: React.PropTypes.object,
   }
 
-  renderSamples() {
-    const attributes = this.props.data.attributes;
-    let samples = null;
+  constructor(props) {
+    super(props);
 
-    if (attributes) {
-      samples = attributes.samples;
-    }
+    this.state = {
+      isExpanded: true,
+    };
+  }
 
-    if (!samples) {
+  handleExpandCollapse = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  }
+
+  renderStyles() {
+    const {ARRAY_ITEMS_BORDER_COLOR} = this.context.theme;
+
+    const styles = {
+      arrayItems: {
+        root: {
+          border: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
+        },
+      },
+    };
+
+    return styles;
+  }
+
+  renderArrayItems(styles) {
+    if (!this.state.isExpanded) {
       return false;
     }
 
     return (
-      <div className="attributeArraySamplesContainer">
-        <Samples data={samples} />
-      </div>
-    );
-  }
+      <ArrayItems style={styles.arrayItems}>
+        {
+          this.props.element.content.map((element, index) => {
+            if (isStructured(element)) {
+              return (
+                <StructuredArrayItem
+                  key={index}
+                  index={index}
+                  element={element}
+                  parentElement={this.props.element} />
+              );
+            }
 
-  renderDefaults() {
-    const attributes = this.props.data.attributes;
-    let defaults = null;
-
-    if (attributes) {
-      defaults = attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
-    }
-
-    return (
-      <div className="attributeArrayDefaultsContainer">
-        <Defaults data={defaults} />
-      </div>
+            return (
+              <ArrayItem
+                key={index}
+                index={index}
+                element={element}
+                parentElement={this.props.element} />
+            );
+          })
+        }
+      </ArrayItems>
     );
   }
 
   render() {
-    if (!this.props.data.content) {
+    const styles = this.renderStyles();
+
+    if (!this.props.element.content) {
       return false;
     }
 
     return (
-      <div className={this.getClassNames()}>
-        <ul className="attributeArrayItems">
-          {this.props.data.content.map((member, index) => {
-            return (
-              <li key={index} className="attributeArrayItemContainer">
-                <ArrayItemComponent index={index} data={member} />
-              </li>
-            );
-          })}
-        </ul>
+      <Row>
+        <Column>
+          <ArrayHeader
+            element={this.props.element}
+            isExpanded={this.state.isExpanded}
+            onSampleToggleClick={this.handleExpandCollapse}
+            sampleTitle="Description"
+          />
 
-        {this.renderDefaults()}
+          {this.renderArrayItems(styles)}
 
-        {this.renderSamples()}
-      </div>
+          <ArraySamples element={this.props.element} />
+          <ArrayDefaults element={this.props.element} />
+        </Column>
+      </Row>
     );
   }
 }

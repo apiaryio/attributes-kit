@@ -5,9 +5,8 @@ import JSONFormatter from 'json-formatter-js/src/index';
 import 'json-formatter-js/dist/style.css';
 
 class JsonFormatter extends React.Component {
-
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   };
 
   constructor(props) {
@@ -21,7 +20,7 @@ class JsonFormatter extends React.Component {
 
   attachJsonFormatter() {
     if (this.nodeComponent !== undefined) {
-      const formatter = new JSONFormatter(this.props.data, 3, { hoverPreviewEnabled: false });
+      const formatter = new JSONFormatter(this.props.element, 3, { hoverPreviewEnabled: false });
       if (this.nodeComponent.hasChildNodes()) {
         this.nodeComponent.removeChild(this.nodeComponent.firstChild);
       }

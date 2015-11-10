@@ -17,7 +17,7 @@ import {getType, isNestedObject, isObject} from 'elements/element';
 
 class EnumMember extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
@@ -31,7 +31,7 @@ class EnumMember extends React.Component {
   }
 
   getClassNames() {
-    return classNames('attributeEnumMember', getExpandCollapseClassNames(this.props.data, this.state));
+    return classNames('attributeEnumMember', getExpandCollapseClassNames(this.props.element, this.state));
   }
 
   handleExpandCollapseEvent = () => {
@@ -41,7 +41,7 @@ class EnumMember extends React.Component {
   }
 
   renderType() {
-    const type = getType(this.props.data);
+    const type = getType(this.props.element);
 
     if (type) {
       return (
@@ -55,7 +55,7 @@ class EnumMember extends React.Component {
   }
 
   renderSamples() {
-    const value = this.props.data.content;
+    const value = this.props.element.content;
 
     if (!value) {
       return false;
@@ -77,13 +77,13 @@ class EnumMember extends React.Component {
 
     return (
       <div className="attributeEnumMemberSamplesRow">
-        <Samples data={samples} />
+        <Samples element={samples} />
       </div>
     );
   }
 
   renderDefaults() {
-    const value = this.props.data.content;
+    const value = this.props.element.content;
 
     if (!value) {
       return false;
@@ -105,13 +105,13 @@ class EnumMember extends React.Component {
 
     return (
       <div className="attributeEnumMemberDefaultsContainer">
-        <Defaults data={defaults} />
+        <Defaults element={defaults} />
       </div>
     );
   }
 
   renderValue() {
-    const value = getValue(this.props.data);
+    const value = getValue(this.props.element);
 
     if (value) {
       return (
@@ -125,7 +125,7 @@ class EnumMember extends React.Component {
   }
 
   render() {
-    if (getType(this.props.data) === 'select') {
+    if (getType(this.props.element) === 'select') {
       return (<noscript/>);
     }
 
@@ -140,16 +140,16 @@ class EnumMember extends React.Component {
         </div>
 
         <div className="attributeEnumMemberKey">
-          <Key data={this.props.data} />
+          <Key element={this.props.element} />
           {this.renderType()}
         </div>
 
         <div className="attributeEnumMemberRequirement">
-          <Requirement data={this.props.data} />
+          <Requirement element={this.props.element} />
         </div>
 
         <div className="attributeEnumMemberDescription">
-          <Description data={this.props.data} />
+          <Description element={this.props.element} />
         </div>
 
         <div className="attributeEnumMemberValueRow">

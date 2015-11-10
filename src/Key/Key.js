@@ -1,11 +1,33 @@
 import React from 'react';
 
-import './key.styl';
-
 class Key extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
+    onClick: React.PropTypes.func,
+  }
+
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
+
+  getStyles() {
+    const {KEY_COLOR} = this.context.theme;
+
+    this.styles = {
+      key: {
+        float: 'left',
+        width: '100%',
+        height: 'auto',
+        fontFamily: 'Source Code Pro',
+        fontWeight: '500',
+        fontSize: '16px',
+        color: KEY_COLOR,
+        lineHeight: '18px',
+      },
+    };
+
+    return this.styles;
   }
 
   getKey() {
@@ -13,8 +35,8 @@ class Key extends React.Component {
       return this.props.index;
     }
 
-    if (this.props.data.element === 'member') {
-      return this.props.data.content.key.content;
+    if (this.props.element.element === 'member') {
+      return this.props.element.content.key.content;
     }
 
     return undefined;
@@ -28,7 +50,10 @@ class Key extends React.Component {
     }
 
     return (
-      <div className="attributeKey">
+      <div
+        style={this.getStyles().key}
+        onClick={this.props.onClick}
+      >
         {key}
       </div>
     );

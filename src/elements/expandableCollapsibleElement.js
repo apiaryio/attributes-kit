@@ -6,22 +6,35 @@ import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isNestedObject,
+  isObjectOrArray,
   isObject,
   isArray,
   isMember,
-  isEnum,
 } from 'elements/element';
 
 function isExpandableCollapsible(element) {
-  // Probably this function can be removed.
   const valueType = getValueType(element);
-  return isNestedObject(valueType);
+  return isObject(valueType) || isArray(valueType);
 }
+
+// Alias
+const isStructured = isExpandableCollapsible;
 
 function containsExpandableCollapsibleElement(elements) {
   return elements.some((element) => {
     return isExpandableCollapsible(element);
+  });
+}
+
+function containsObject(elements) {
+  return elements.some((element) => {
+    return isObject(element);
+  });
+}
+
+function containsArray(elements) {
+  return elements.some((element) => {
+    return isArray(element);
   });
 }
 
@@ -42,24 +55,39 @@ function getExpandCollapseClassNames(element, state) {
     'isExpandableCollapsible': isExpandableCollapsible(element),
     'isObject': isObject(valueType),
     'isArray': isArray(valueType),
-    'isEnum': isEnum(valueType),
   });
 }
 
-function getValue(element) {
+function getValue(element, props = {}) {
   let value;
-  if (isNestedObject(element.element)) {
-    value = <Attribute data={element} />;
+  if (isObjectOrArray(element.element)) {
+    value = (
+      <Attribute
+        element={element}
+        expandableCollapsible={props.expandableCollapsible}
+        parentElement={props.parentElement}
+      />
+    );
   } else if (isMember(element.element)) {
-    if (isNestedObject(element.content.value.element)) {
-      value = <Attribute data={element.content.value} />;
+    if (isObjectOrArray(element.content.value.element)) {
+      value = (
+        <Attribute
+          element={element.content.value}
+          expandableCollapsible={props.expandableCollapsible}
+          parentElement={props.parentElement}
+        />
+      );
     } else if (element.content.value.content) {
-      value = <Value value={element.content.value.content} />;
+      value = (
+        <Value value={element.content.value.content} />
+      );
     } else {
       value = false;
     }
   } else if (element.content) {
-    value = <Value value={element.content} />;
+    value = (
+      <Value value={element.content} />
+    );
   } else {
     value = false;
   }
@@ -67,10 +95,16 @@ function getValue(element) {
   return value;
 }
 
+// Alias
+const renderValue = getValue;
 
 export {
   getExpandCollapseClassNames,
   getValue,
+  renderValue,
   containsExpandableCollapsibleElement,
   isExpandableCollapsible,
+  isStructured,
+  containsArray,
+  containsObject,
 };

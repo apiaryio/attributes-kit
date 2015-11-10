@@ -1,125 +1,96 @@
 import React from 'react';
-import classNames from 'classnames';
 
-
-import Key from 'Key/Key';
+import ArrayItemDefaults from 'ArrayItemDefaults/ArrayItemDefaults';
+import ArrayItemIndex from 'ArrayItemIndex/ArrayItemIndex';
+import ArrayItemSamples from 'ArrayItemSamples/ArrayItemSamples';
+import Column from 'Column/Column';
 import Description from 'Description/Description';
-import Toggle from 'Toggle/Toggle';
+import Row from 'Row/Row';
 import Type from 'Type/Type';
-import Defaults from 'Defaults/Defaults';
+import Value from 'Value/Value';
 
 import {
-  getExpandCollapseClassNames,
-  getValue,
-} from 'elements/expandableCollapsibleElement';
-
-import {
-  getType,
+  isLastArrayItem,
 } from 'elements/element';
 
-import './arrayItem.styl';
+import {
+  containsExpandableCollapsibleElement,
+} from 'elements/expandableCollapsibleElement';
 
 
 class ArrayItem extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
   }
 
-  constructor(props) {
-    super(props);
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  }
 
-    // State hasn't been set; tree is expanded by default,
-    // after a click, it collapses.
-    this.state = {
-      isExpanded: true,
+  renderStyles() {
+    const {BORDER_COLOR} = this.context.theme;
+
+    const styles = {
+      root: {
+        borderBottom: `1px solid ${BORDER_COLOR}`,
+        paddingTop: '8px',
+        paddingBottom: '8px',
+      },
+      column: {
+        paddingLeft: '8px',
+      },
+      type: {
+        root: {
+          marginBottom: '4px',
+        },
+      },
     };
-  }
 
-  getClassNames() {
-    return classNames('attributeArrayItem', getExpandCollapseClassNames(this.props.data, this.state));
-  }
-
-  handleExpandCollapseEvent = () => {
-    this.setState({
-      isExpanded: !this.state.isExpanded,
-    });
-  }
-
-  renderType() {
-    const type = getType(this.props.data);
-
-    if (type) {
-      return (
-        <div className="attributeArrayItemType">
-          <Type type={type} />
-        </div>
-      );
+    // Last array item doesn't have a border.
+    if (isLastArrayItem(this.props.parentElement, this.props.index)) {
+      styles.root.borderBottom = 'none';
     }
 
-    return false;
-  }
-
-  renderValue() {
-    const value = getValue(this.props.data);
-
-    if (value) {
-      return (
-        <div className="attributeArrayItemValue">
-          {value}
-        </div>
-      );
+    if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {
+      styles.column.paddingLeft = '28px';
     }
 
-    return false;
-  }
-
-  renderDefaults() {
-    const attributes = this.props.data.attributes;
-
-    let defaults = null;
-    if (attributes) {
-      defaults = attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
-    }
-
-    return (
-      <div className="attributeArrayItemDefaultsContainer">
-        <Defaults data={defaults} />
-      </div>
-    );
+    return styles;
   }
 
   render() {
+    const styles = this.renderStyles();
+
     return (
-      <div className={this.getClassNames()}>
-        <div className="attributeArrayItemRow">
-          <div className="attributeArrayItemToggle">
-            <Toggle
-              expandCollapseEventHandler={this.handleExpandCollapseEvent}
-              isExpanded={this.state.isExpanded}
-            />
-          </div>
+      <Row style={styles.root}>
+        <ArrayItemIndex index={this.props.index} />
 
-          <div className="attributeArrayItemKey">
-            <Key index={this.props.index} />
-            {this.renderType()}
-          </div>
+        <Column style={styles.column}>
+          <Row>
+            <Type
+              element={this.props.element}
+              style={styles.type} />
+          </Row>
 
-          {this.renderValue()}
-          {this.renderDefaults()}
-        </div>
+          <Row>
+            <Description element={this.props.element} />
+          </Row>
 
-        <div className="attributeArrayItemRow">
-          <div className="attributeArrayItemDescription">
-            <Description data={this.props.data} />
-          </div>
-        </div>
+          <Row>
+            <Value element={this.props.element} />
+          </Row>
 
-      </div>
+          <Row>
+            <ArrayItemSamples element={this.props.element} />
+          </Row>
+
+          <Row>
+            <ArrayItemDefaults element={this.props.element} />
+          </Row>
+        </Column>
+      </Row>
     );
   }
 }

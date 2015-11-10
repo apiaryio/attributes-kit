@@ -6,17 +6,17 @@ import Defaults from 'Defaults/Defaults';
 
 class EnumComponent extends React.Component {
   static propTypes = {
-    data: React.PropTypes.object,
+    element: React.PropTypes.object,
   }
 
   constructor(props) {
     super(props);
 
-    this.props.data.content = this.props.data.content || [];
+    this.props.element.content = this.props.element.content || [];
   }
 
   renderSamples() {
-    const attributes = this.props.data.attributes;
+    const attributes = this.props.element.attributes;
     let samples = null;
 
     if (attributes) {
@@ -29,13 +29,13 @@ class EnumComponent extends React.Component {
 
     return (
       <div className="attributeObjectSamplesContainer">
-        <Samples data={samples} />
+        <Samples element={samples} />
       </div>
     );
   }
 
   renderDefaults() {
-    const attributes = this.props.data.attributes;
+    const attributes = this.props.element.attributes;
     let defaults = null;
 
     if (attributes) {
@@ -48,7 +48,7 @@ class EnumComponent extends React.Component {
 
     return (
       <div className="attributeObjectDefaults">
-        <Defaults data={defaults} />
+        <Defaults element={defaults} />
       </div>
     );
   }
@@ -57,13 +57,13 @@ class EnumComponent extends React.Component {
     return (
       <div className="attributeObject">
         <div className="attributeObjectMembers">
-          {this.props.data.content.map((member, index) => {
+          {this.props.element.content.map((member, index) => {
             return (
               <div
                 className="attributeObjectMemberContainer"
                 key={index}
               >
-                <EnumMember data={member} />
+                <EnumMember element={member} />
               </div>
             );
           })}

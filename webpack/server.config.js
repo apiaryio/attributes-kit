@@ -1,4 +1,4 @@
-import _ from 'underscore';
+import lodash from 'lodash';
 import path from 'path';
 import fs from 'fs';
 import webpack from 'webpack';
@@ -14,7 +14,7 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
-export default _.extend({}, webpackConfig, {
+export default lodash.extend({}, webpackConfig, {
   target: 'node',
   output: {
     path: path.join(__dirname, '../dist'),
@@ -26,8 +26,8 @@ export default _.extend({}, webpackConfig, {
   },
   externals: nodeModules,
   plugins: [
-    new webpack.NormalModuleReplacementPlugin(/\.(css|styl)$/, 'node-noop'),
-    new webpack.IgnorePlugin(/\.(css|styl)$/)
+    new webpack.NormalModuleReplacementPlugin(/\.(svg|css|styl)$/, 'node-noop'),
+    new webpack.IgnorePlugin(/\.(svg|css|styl)$/)
   ],
   module: {
     loaders: [

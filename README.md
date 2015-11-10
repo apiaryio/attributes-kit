@@ -14,9 +14,9 @@ For instance—it turns the following...
 
 ...into this.
 
-![image](https://cloud.githubusercontent.com/assets/95191/9908622/d160352a-5c94-11e5-8c90-bc1e22b02664.png)
+![image](https://cloud.githubusercontent.com/assets/95191/11047966/72b60254-8735-11e5-83eb-2f68720acd7f.png)
 
-Please see the **[list of supported features →](#mson-features)**
+Please see the **[list of supported features →](./STATUS.md)**
 
 ### Preview
 
@@ -78,7 +78,7 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
   import AttributesKit from 'attributes-kit';
 
   let attributes = new AttributesKit({element, options});
-  attributes.render(data);
+  attributes.render(refractElement);
   ```
 
   Or you can use the React component directly.
@@ -86,7 +86,7 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
   ```JavaScript
   import {Attributes} from 'attributes-kit';
 
-  // E.g. <Attributes data={data} />
+  // E.g. <Attributes element={refractElement} />
   ```
 
 You're done! **Great job!** :+1:
@@ -150,7 +150,7 @@ npm -v
 ```JavaScript
 import AttributesKit from 'attributes-kit';
 
-AttributesKit.render(data, element, options);
+AttributesKit.render(refractElement, element, options);
 ```
 
 #### Class Instance
@@ -159,7 +159,7 @@ AttributesKit.render(data, element, options);
 import AttributesKit from 'attributes-kit';
 
 let attributes = new AttributesKit({element, options});
-attributes.render(data);
+attributes.render(refractElement);
 ```
 
 #### React Component
@@ -168,7 +168,7 @@ attributes.render(data);
 import ReactDom from 'react-dom';
 import {Attributes} from 'attributes-kit';
 
-ReactDom.render(<Attributes data={data} />, element);
+ReactDom.render(<Attributes element={refractElement} />, element);
 ```
 
 ### Parameters
@@ -177,7 +177,7 @@ Attributes Kit always takes the same parameters.
 
 | Parameter | Description |
 |:----------|:-----------|
-| `data`    | [Refract](https://github.com/refractproject/refract-spec) element to be rendered. |
+| `refractElement`    | [Refract](https://github.com/refractproject/refract-spec) element to be rendered. |
 | `element` | A DOM node or a CSS selector; Attributes Kit will be rendered inside the element. |
 | `options` | An options object to customize the rendering. |
 
@@ -239,7 +239,7 @@ If you prefer to drop a `<script>` tag in your page, here's how to do it. Just a
 
   ```JavaSript
   var AttributesKit = window.AttributesKit;
-  AttributesKit.render(data, element, options);
+  AttributesKit.render(refractElement, element, options);
   ```
 
   Please see the [API](#api).
@@ -292,7 +292,7 @@ You can use the Attributes Kit on the server too. For instance—you can generat
   import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
 
   const element = React.createElement(Attributes, {
-    data: [Refract Element]
+    refractElement: [Refract Element]
   });
 
   ReactDomServer.renderToString(element);
@@ -368,4 +368,3 @@ This project adheres to the [Open Code of Conduct](./CODE_OF_CONDUCT.md). By par
 # License
 
 [MIT](./LICENSE.md).
-
