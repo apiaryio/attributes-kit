@@ -23,7 +23,7 @@ class Attribute extends React.Component {
 
   getChildContext() {
     return {
-      theme: lodash.merge(this.props.theme || {}, theme),
+      theme: lodash.merge(theme, this.props.theme || {}),
     };
   }
 
