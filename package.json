@@ -1,5 +1,5 @@
 {
-  "name": "@apiaryio/attributes-kit",
+  "name": "attributes-kit",
   "version": "0.9.0",
   "description": "React component for MSON rendering",
   "engines": {

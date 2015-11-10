@@ -3,6 +3,4 @@ import path from 'path';
 
 import serverConfig from '../webpack/server.config';
 
-const compiler = Webpack(serverConfig, (err, stat) => {
-  console.info('Webpack server-side build done.');
-});
+const compiler = Webpack(serverConfig, (err, stat) => {});
