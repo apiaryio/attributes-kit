@@ -1,7 +1,7 @@
-<div class="attributes">
-    <div class="attributesTitle">
-        <h3 class="attributesTitleText">Attributes</h3></div>
-    <div class="attributesList">
+<div>
+    <div>
+        <h1>Attributes</h1></div>
+    <div>
         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
             <div style="flex-grow:1;height:auto;width:auto;">
                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
