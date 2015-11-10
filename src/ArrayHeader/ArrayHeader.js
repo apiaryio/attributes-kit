@@ -21,7 +21,10 @@ class ArrayHeader extends React.Component {
   }
 
   renderStyles() {
-    const {BORDER_COLOR} = this.context.theme;
+    const {
+      BORDER_COLOR,
+      ARRAY_HEADER_BACKGROUND_COLOR,
+    } = this.context.theme;
 
     const styles = {
       root: {
@@ -32,7 +35,7 @@ class ArrayHeader extends React.Component {
         paddingLeft: '8px',
         paddingTop: '4px',
         width: '100%',
-        backgroundColor: '#F8F8F9',
+        backgroundColor: ARRAY_HEADER_BACKGROUND_COLOR,
       },
       sampleToggle: {
         root: {
