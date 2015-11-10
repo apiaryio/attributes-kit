@@ -14,7 +14,7 @@
                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;">
                     <div style="width:100%;height:auto;">
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
-                            <div style="flex-grow:1;height:auto;width:auto;max-width:120px;padding-left:20px;">
+                            <div style="flex-grow:1;height:auto;width:120px;max-width:120px;min-width:120px;padding-left:20px;">
                                 <div style="float:left;width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:16px;color:#4C5264;line-height:18px;">id</div>
                             </div>
                             <div style="flex-grow:1;height:auto;width:25px;max-width:25px;min-width:25px;">
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
-                            <div style="flex-grow:1;height:auto;width:auto;max-width:120px;padding-left:20px;">
+                            <div style="flex-grow:1;height:auto;width:120px;max-width:120px;min-width:120px;padding-left:20px;">
                                 <div style="float:left;width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:16px;color:#4C5264;line-height:18px;">name</div>
                             </div>
                             <div style="flex-grow:1;height:auto;width:25px;max-width:25px;min-width:25px;">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
-                            <div style="flex-grow:1;height:auto;width:auto;max-width:120px;padding-left:20px;">
+                            <div style="flex-grow:1;height:auto;width:120px;max-width:120px;min-width:120px;padding-left:20px;">
                                 <div style="float:left;width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:16px;color:#4C5264;line-height:18px;">price</div>
                             </div>
                             <div style="flex-grow:1;height:auto;width:25px;max-width:25px;min-width:25px;">
@@ -278,7 +278,7 @@
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;position:relative;border-bottom:0px;padding-top:8px;padding-bottom:8px;">
-                            <div style="flex-grow:1;height:auto;width:auto;max-width:120px;padding-left:20px;">
+                            <div style="flex-grow:1;height:auto;width:120px;max-width:120px;min-width:120px;padding-left:20px;">
                                 <div style="float:left;width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:16px;color:#4C5264;line-height:18px;">available</div>
                             </div>
                             <div style="flex-grow:1;height:auto;width:25px;max-width:25px;min-width:25px;">
