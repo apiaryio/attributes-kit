@@ -7,12 +7,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 if (process.argv.length > 3 ) {
   if (process.argv[3] == 'full') {
-    console.info("Performing a full dep client build.");
     clientConfig.externals = {};
     clientConfig.output.filename = isProduction ? 'attributes-kit.min.js' : 'attributes-kit.js';
   }
   else if (process.argv[3] == 'noDep') {
-    console.info("Performing a no dep client build.");
    clientConfig.output.filename = isProduction ? 'attributes-kit-no-deps.min.js' : 'attributes-kit-no-deps.js';
    clientConfig.externals = {
     'react': {
@@ -41,11 +39,6 @@ if (process.argv.length > 3 ) {
     },
    };
   }
-  else {
-    console.info("Performing a no-react build");
-  }
 }
 
-const compiler = Webpack(clientConfig, (err, stat) => {
-  console.info('Webpack client build done.');
-});
+const compiler = Webpack(clientConfig, (err, stat) => {});
