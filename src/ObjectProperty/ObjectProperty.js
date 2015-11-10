@@ -43,8 +43,9 @@ class ObjectProperty extends React.Component {
         paddingBottom: '8px',
       },
       keyColumn: {
-        width: 'auto',
+        width: '120px',
         maxWidth: '120px',
+        minWidth: '120px',
       },
       requirementColumn: {
         width: '25px',
