@@ -146,19 +146,11 @@ npm -v
 
 If you prefer to drop a `<script>` tag in your page, here's how to do it. Just a note—all builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box.
 
-The UMD build is also available on npmcdn:
+1. **Choose the build**
 
-```html
-<script src="https://npmcdn.com/attributes-kit/dist/attributes-kit.js"></script>
-```
+  ###### **Download the latest release**
 
-1. **Download the latest release**
-
-  Go to the [Releases](https://github.com/apiaryio/attributes-kit/releases) page and download the latest release.
-
-2. **Choose the build**
-
-  You can download the build directly, or all builds are located in the `dist` folder.
+    Go to the [Releases](https://github.com/apiaryio/attributes-kit/releases) page and download the latest release, or you can download all the builds directly below.
 
   | Development Build       |
   |:------------------------|
@@ -170,13 +162,24 @@ The UMD build is also available on npmcdn:
   | [`attributes-kit.min.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js) |
   | Works out of the box, compressed version saves bandwidth and improves performance in production. |
 
-3. **Drop the `<script>` tag**
+
+  ###### **Use CDN**
+
+  | Development Build       |
+  |:------------------------|
+  | [`https://npmcdn.com/attributes-kit/dist/attributes-kit.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.js) |
+
+  | Production Build       |
+  |:------------------------|
+  | [`https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js) |
+
+2. **Drop the `<script>` tag**
 
   ```HTML
   <script src="./attributes-kit.js"></script>
   ```
 
-4. **Use it**
+3. **Use it**
 
   ```JavaSript
   var AttributesKit = window.AttributesKit;
