@@ -146,6 +146,12 @@ npm -v
 
 If you prefer to drop a `<script>` tag in your page, here's how to do it. Just a note—all builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box.
 
+The UMD build is also available on npmcdn:
+
+```html
+<script src="https://npmcdn.com/attributes-kit/dist/attributes-kit.js"></script>
+```
+
 1. **Download the latest release**
 
   Go to the [Releases](https://github.com/apiaryio/attributes-kit/releases) page and download the latest release.
