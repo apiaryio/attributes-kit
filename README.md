@@ -156,12 +156,12 @@ If you prefer to drop a `<script>` tag in your page, here's how to do it. Just a
 
   | Development Build       |
   |:------------------------|
-  | [`attributes-kit.js`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit.js); [`attributes-kit.js.map`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit.js.map) |
+  | [`attributes-kit.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.js); [`attributes-kit.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit.js.map) |
   | Works out of the box, the uncompressed file is best used during development or debugging. `attributes-kit.js.map` is not required to run the Kit. |
 
   | Production Build        |
   |:------------------------|
-  | [`attributes-kit.min.js`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit.min.js) |
+  | [`attributes-kit.min.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js) |
   | Works out of the box, compressed version saves bandwidth and improves performance in production. |
 
 3. **Drop the `<script>` tag**
@@ -185,12 +185,12 @@ There are two more builds mainly for more advanced use cases.
 
 | Build without React     |
 |:------------------------|
-| [`attributes-kit-no-react.js`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit-no-react.js); [`attributes-kit-no-react.js.map`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit-no-react.js.map) |
+| [`attributes-kit-no-react.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-react.js); [`attributes-kit-no-react.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-react.js.map) |
 | This build *does not* contain React dependency. You have to install React manually, or your application lists React in its dependencies (in `package.json`). |
 
 | Build without dependencies |
 |:---------------------------|
-| [`attributes-kit-no-deps.js`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit-no-deps.js); [`attributes-kit-no-deps.js.map`](https://github.com/apiaryio/attributes-kit/releases/download/0.9/attributes-kit-no-deps.js.map) |
+| [`attributes-kit-no-deps.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-deps.js); [`attributes-kit-no-deps.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-deps.js.map) |
 | This build *does not* contain any dependencies of the Attributes Kit. You have to install all dependencies manually, or your application lists them all in (e.g.) `package.json`. |
 
 ## Server
