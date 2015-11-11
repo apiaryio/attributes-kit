@@ -1,9 +1,8 @@
-# Attributes Kit [![Circle CI](https://img.shields.io/circleci/token/b2737c94f42fff64565fe49cf0bd5d776f091bdd/project/apiaryio/attributes-kit/master.svg)](https://circleci.com/gh/apiaryio/attributes-kit)
+# Attributes Kit [![Circle CI](https://img.shields.io/circleci/project/apiaryio/attributes-kit/master.svg)](https://circleci.com/gh/apiaryio/attributes-kit)
 
 Attributes Kit is a (as the name suggest) kit which helps you with rendering [MSON](https://github.com/apiaryio/mson) (plain-text, human and machine readable, description format for describing data structures).
 
 For instance—it turns the following...
-
 
 ```Markdown
 - id: 1
@@ -47,12 +46,10 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
 
 # Getting Started
 
-> _**Note:**_ Attributes Kit hasn't been published to NPM just yet, before we do that, please `git clone` the repository.
-
 1. **Clone the repository**
 
   ```bash
-  $ git clone git@github.com:apiaryio/attributes-kit.git
+  git clone git@github.com:apiaryio/attributes-kit.git
   ```
 
 2. **Install dependencies**
@@ -70,26 +67,9 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
 
   You can go to [localhost:8080](http://localhost:8080) to try out the [Playground](https://attributes-kit.herokuapp.com/), or to [/examples.html](http://localhost:8080/examples.html) to see the list of examples.
 
-4. **Use it**
+4. **You're done!** :+1:
 
-  Render the Attributes Kit using the `render` method.
-
-  ```JavaScript
-  import AttributesKit from 'attributes-kit';
-
-  let attributes = new AttributesKit({element, options});
-  attributes.render(refractElement);
-  ```
-
-  Or you can use the React component directly.
-
-  ```JavaScript
-  import {Attributes} from 'attributes-kit';
-
-  // E.g. <Attributes element={refractElement} />
-  ```
-
-You're done! **Great job!** :+1:
+If you would like to use it in your application, please see the [Usage](#usage) section.
 
 ---
 
@@ -102,9 +82,6 @@ Please see the [`STATUS.md`](./STATUS.md) file.
 # Compatibility
 
 ## Node
-
-![](https://img.shields.io/npm/v/npm.svg)
-![](https://img.shields.io/node/v/gh-badges.svg)
 
 :point_right: You are using version `0.10.39` (or newer) of Node
 
@@ -135,51 +112,9 @@ npm -v
 
 # Usage
 
-* [API](#api)
 * [Browser](#browser)
 * [Server](#server)
-
-## API
-
-* [`render` Method](#render-method)
-* [Class Instance](#class-instance)
-* [React Component](#react-component)
-
-#### `render` Method
-
-```JavaScript
-import AttributesKit from 'attributes-kit';
-
-AttributesKit.render(refractElement, element, options);
-```
-
-#### Class Instance
-
-```JavaScript
-import AttributesKit from 'attributes-kit';
-
-let attributes = new AttributesKit({element, options});
-attributes.render(refractElement);
-```
-
-#### React Component
-
-```JavaScript
-import ReactDom from 'react-dom';
-import {Attributes} from 'attributes-kit';
-
-ReactDom.render(<Attributes element={refractElement} />, element);
-```
-
-### Parameters
-
-Attributes Kit always takes the same parameters.
-
-| Parameter | Description |
-|:----------|:-----------|
-| `refractElement`    | [Refract](https://github.com/refractproject/refract-spec) element to be rendered. |
-| `element` | A DOM node or a CSS selector; Attributes Kit will be rendered inside the element. |
-| `options` | An options object to customize the rendering. |
+* [API](#api)
 
 ## Browser
 
@@ -194,13 +129,13 @@ Attributes Kit always takes the same parameters.
   ###### ES6
 
   ```JavaScript
-  import AttributesKit from 'attributes-kit';
+  import AttributesKit from 'attributes-kit/dist/attributes-kit';
   ```
 
   ###### ES5
 
   ```JavaScript
-  var AttributesKit = require('attributes-kit');
+  var AttributesKit = require('attributes-kit/dist/attributes-kit');
   ```
 
 3. **Use it**
@@ -211,31 +146,40 @@ Attributes Kit always takes the same parameters.
 
 If you prefer to drop a `<script>` tag in your page, here's how to do it. Just a note—all builds do support [UMD](https://github.com/umdjs/umd) ([AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) and [CommonJS](http://wiki.commonjs.org/wiki/CommonJS)) out of the box.
 
-1. **Download the latest release**
+1. **Choose the build**
 
-  Go to the [Releases](https://github.com/apiaryio/attributes-kit/releases) page and download the latest release.
+  ###### **Download the latest release**
 
-2. **Choose the build**
-
-  You can download the build directly, or all builds are located in the `dist` folder.
+    Go to the [Releases](https://github.com/apiaryio/attributes-kit/releases) page and download the latest release, or you can download all the builds directly below.
 
   | Development Build       |
   |:------------------------|
-  | [attributes-kit.js]()   |
-  | Works out of the box, the uncompressed file is best used during development or debugging. |
+  | [`attributes-kit.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.js); [`attributes-kit.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit.js.map) |
+  | Works out of the box, the uncompressed file is best used during development or debugging. `attributes-kit.js.map` is not required to run the Kit. |
 
   | Production Build        |
   |:------------------------|
-  | [attributes-kit-min.js](); [attributes-kit-min.js.map]() |
-  | Works out of the box, compressed version saves bandwidth and improves performance in production. `attributes-kit-min.js.map` is not required to run the Kit. |
+  | [`attributes-kit.min.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js) |
+  | Works out of the box, compressed version saves bandwidth and improves performance in production. |
 
-3. **Drop the `<script>` tag**
+
+  ###### **Use CDN**
+
+  | Development Build       |
+  |:------------------------|
+  | [`https://npmcdn.com/attributes-kit/dist/attributes-kit.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.js) |
+
+  | Production Build       |
+  |:------------------------|
+  | [`https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit.min.js) |
+
+2. **Drop the `<script>` tag**
 
   ```HTML
   <script src="./attributes-kit.js"></script>
   ```
 
-4. **Use it**
+3. **Use it**
 
   ```JavaSript
   var AttributesKit = window.AttributesKit;
@@ -250,12 +194,12 @@ There are two more builds mainly for more advanced use cases.
 
 | Build without React     |
 |:------------------------|
-| [`attributes-kit-no-react.js`]() |
+| [`attributes-kit-no-react.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-react.js); [`attributes-kit-no-react.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-react.js.map) |
 | This build *does not* contain React dependency. You have to install React manually, or your application lists React in its dependencies (in `package.json`). |
 
 | Build without dependencies |
 |:---------------------------|
-| [`attributes-kit-no-deps.js`]() |
+| [`attributes-kit-no-deps.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-deps.js); [`attributes-kit-no-deps.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-deps.js.map) |
 | This build *does not* contain any dependencies of the Attributes Kit. You have to install all dependencies manually, or your application lists them all in (e.g.) `package.json`. |
 
 ## Server
@@ -292,11 +236,53 @@ You can use the Attributes Kit on the server too. For instance—you can generat
   import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
 
   const element = React.createElement(Attributes, {
-    refractElement: [Refract Element]
+    element: [Refract Element]
   });
 
   ReactDomServer.renderToString(element);
   ```
+
+## API
+
+* [`render` Method](#render-method)
+* [Class Instance](#class-instance)
+* [React Component](#react-component)
+
+#### `render` Method
+
+```JavaScript
+import AttributesKit from 'attributes-kit/dist/attributes-kit';
+
+AttributesKit.render(refractElement, element, options);
+```
+
+#### Class Instance
+
+```JavaScript
+import AttributesKit from 'attributes-kit/dist/attributes-kit';
+
+let attributes = new AttributesKit({element, options});
+attributes.render(refractElement);
+```
+
+#### React Component
+
+```JavaScript
+import ReactDom from 'react-dom';
+import {Attributes} from 'attributes-kit/dist/attributes-kit';
+
+ReactDom.render(<Attributes element={refractElement} />, element);
+```
+
+### Parameters
+
+Attributes Kit always takes the same parameters.
+
+| Parameter | Description |
+|:----------|:-----------|
+| `refractElement` | [Refract](https://github.com/refractproject/refract-spec) element to be rendered. |
+| `element` | A DOM node or a CSS selector; Attributes Kit will be rendered inside the element. |
+| `options` | An options object to customize the rendering. |
 
 ---
 
@@ -307,7 +293,7 @@ You can use the Attributes Kit on the server too. For instance—you can generat
 1. Clone the repository
 
   ```bash
-  $ git clone git@github.com:apiaryio/attributes-kit.git
+  git clone git@github.com:apiaryio/attributes-kit.git
   ```
 
 2. Install dependencies
