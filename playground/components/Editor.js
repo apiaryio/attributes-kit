@@ -1,8 +1,9 @@
 import React from 'react';
 import AceEditor from 'react-ace';
+import lodash from 'lodash';
 
-import 'brace/mode/json';
 import 'brace/theme/github';
+import 'brace/mode/text';
 
 import EditorActions from '../actions/editor';
 
@@ -29,7 +30,10 @@ class EditorComponent extends React.Component {
     return (
       <AceEditor
         onLoad={this.onLoad}
+        heigth="500px"
+        width="100%"
         theme="github"
+        mode="text"
         onChange={this.handleChange}
         name="msonEditor"
         value={this.state.msonCode}
