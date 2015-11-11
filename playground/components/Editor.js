@@ -1,17 +1,41 @@
 import React from 'react';
+import AceEditor from 'react-ace';
+
+import 'brace/mode/json';
+import 'brace/theme/github';
 
 import EditorActions from '../actions/editor';
 
 class EditorComponent extends React.Component {
 
-  _handleChange = (event) => {
-    this.setState({value: event.target.value});
-    EditorActions.parse(event.target.value);
-  }
+  constructor() {
+    super();
+
+    this.state = {
+      msonCode: '',
+    }
+  };
+
+  onLoad = (aceEditor) => {
+    this.aceEditor = aceEditor;
+  };
+
+  handleChange = (msonCode) => {
+    this.setState({msonCode});
+    EditorActions.parse(msonCode);
+  };
 
   render() {
     return (
-      <textarea ref="textarea" onChange={this._handleChange} />
+      <AceEditor
+        onLoad={this.onLoad}
+        mode="json"
+        theme="github"
+        onChange={this.handleChange}
+        name="msonEditor"
+        value={this.state.msonCode}
+        editorProps={{$blockScrolling: true}}
+      />
     );
   }
 }

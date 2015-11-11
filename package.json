@@ -37,7 +37,7 @@
     "build:client:full": "node ./scripts/run.js ./clientBuild full",
     "build:client:noDep": "node ./scripts/run.js ./clientBuild noDep",
     "generate-fixtures": "npm run build:server && node ./scripts/run.js ./generateFixtures",
-    "lint": "eslint src playground --ignore-pattern playground/components/TabOverride.js",
+    "lint": "eslint src playground",
     "playground": "shell-exec 'npm run start' 'node ./scripts/run.js ./launchBrowser http://localhost:8080/'",
     "prepublish": "not-in-install && npm run build || :",
     "start": "node ./scripts/run.js ./devServer",
