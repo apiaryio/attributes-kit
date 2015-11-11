@@ -233,7 +233,7 @@ You can use the Attributes Kit on the server too. For instance—you can generat
   import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
 
   const element = React.createElement(Attributes, {
-    refractElement: [Refract Element]
+    element: [Refract Element]
   });
 
   ReactDomServer.renderToString(element);
