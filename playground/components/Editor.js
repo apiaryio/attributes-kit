@@ -29,7 +29,6 @@ class EditorComponent extends React.Component {
     return (
       <AceEditor
         onLoad={this.onLoad}
-        mode="json"
         theme="github"
         onChange={this.handleChange}
         name="msonEditor"

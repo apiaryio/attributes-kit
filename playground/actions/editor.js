@@ -19,6 +19,7 @@ export default {
         dispatcher.dispatch({
           type: types.MSON_PARSED,
           attributes: res.body,
+          errors: JSON.parse(res.text),
         });
       });
   },
