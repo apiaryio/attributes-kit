@@ -26,19 +26,19 @@ class EditorComponent extends React.Component {
       ## Welcome Message
         - message: Hello everyone (string)
 
-            Message for all the good folks at the
-            [API Blueprint issue #191](https://goo.gl/NZYvm1)
+          Message for all the good folks at the
+          [API Blueprint issue #191](https://goo.gl/NZYvm1)
 
         - author
-            - name: Z
-            - twitter: @zdne
-            - address
-                - company: \`Apiary, INC\`
-                - street: 325 Ninth Street (required)
-                - city: San Francisco
-                - state: CA
-                - zip (number, required)
-                - tags: red, green, blue
+          - name: Z
+          - twitter: @zdne
+          - address
+            - company: \`Apiary, INC\`
+            - street: 325 Ninth Street (required)
+            - city: San Francisco
+            - state: CA
+            - zip (number, required)
+            - tags: red, green, blue
       `,
     };
   }
