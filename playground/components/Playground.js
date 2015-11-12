@@ -33,17 +33,33 @@ class Playground extends React.Component {
   render() {
     return (
       <div className="playgrund-app">
-        <div className="column">
-          <EditorComponent />
-        </div>
+        <header className="playground-header">
+          <a href="/" className="logo">Attributes Kit Playground</a>
+          <ul className="docs-links">
+            <li><a href="https://github.com/apiaryio/attributes-kit" target="_blank" className="attributes-kit-repo">Attributes Kit Repository</a></li>
+            <li><a href="https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md" target="_blank" className="mson-doc">MSON Specification</a></li>
+          </ul>
+        </header>
+        <div className="playground-columns">
+          <div className="column editor-column">
+            <ul className="column-controls">
+              <li><a href="">Copy</a></li>
+            </ul>
+            <EditorComponent />
+          </div>
 
-        <div className="column">
-          <JsonFormatterComponent element={this.state.attributes} />
-        </div>
-
-        <div className="column">
-          <AttributesKit.Attributes element={this.state.attributes} />
-        </div>
+          <div className="column result-column">
+            <ul className="column-controls">
+              <li><a href="">Show Refract</a></li>
+            </ul>
+            <div className="tab">
+              <JsonFormatterComponent element={this.state.attributes} />
+            </div>
+            <div className="tab active">
+              <AttributesKit.Attributes element={this.state.attributes} />
+            </div>
+          </div>
+          </div>
       </div>
     );
   }
