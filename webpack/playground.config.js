@@ -5,7 +5,7 @@ import baseConfig from './base.config';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-export default lodash.extend({}, baseConfig, {
+export default lodash.merge({}, baseConfig, {
   entry: (function() {
     let entryArray = [
       './playground/app'
@@ -19,6 +19,12 @@ export default lodash.extend({}, baseConfig, {
     return entryArray;
 
   })(),
+
+  resolve: {
+    alias: {
+      brace: 'react-ace/node_modules/brace',
+    },
+  },
 
   output: {
     path: path.join(__dirname, '../dist'),

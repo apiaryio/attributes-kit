@@ -5,6 +5,7 @@ import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert'
+import dedent from 'dedent';
 
 
 import parseMson from '../playground/parseMson'
@@ -18,7 +19,13 @@ describe('Comparision with reference fixtures', () => {
 
     describe(`If I render ${sample.name} on the server`, (done) => {
 
-      parseMson(sample.code, (err, result) => {
+      let header = dedent`
+        # Data Structures
+
+        ## MSON Struct
+      `;
+
+      parseMson(`${header}\n${sample.code}`, (err, result) => {
         if (err) {
           return done(err);
         }
