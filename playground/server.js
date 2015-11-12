@@ -31,7 +31,7 @@ app.get('/fixtures', (req, res) => {
     const header = dedent`
       # Data Structures
 
-      ## Mson Struct
+      ## MSON Struct
     `;
 
     parseMson(`${header}\n${sample.code}`, (err, result) => {

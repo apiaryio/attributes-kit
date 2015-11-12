@@ -20,7 +20,7 @@ msonZoo.samples.forEach((sample) => {
   let header = dedent`
     # Data Structures
 
-    ## Mson Struct
+    ## MSON Struct
   `;
 
   parseMson(`${header}\n${sample.code}`, (err, result) => {
