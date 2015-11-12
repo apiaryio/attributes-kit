@@ -11,7 +11,7 @@ import EditorActions from '../actions/editor';
 class EditorComponent extends React.Component {
 
   static propTypes = {
-    errors: React.PropTypes.object,
+    errors: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
   }
 
 
