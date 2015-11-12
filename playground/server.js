@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
-
 import express from 'express';
 import bodyparser from 'body-parser';
 import msonZoo from 'mson-zoo';
 import async from 'async';
 import path from 'path';
+import dedent from 'dedent';
 
 import parseMson from './parseMson';
 
@@ -29,7 +28,13 @@ app.get('/examples', (req, res) => {
 
 app.get('/fixtures', (req, res) => {
   async.map(msonZoo.samples, (sample, callback) => {
-    parseMson(sample.code, (err, result) => {
+    const header = dedent`
+      # Data Structures
+
+      ## Mson Struct
+    `;
+
+    parseMson(`${header}\n${sample.code}`, (err, result) => {
       if (err) {
         return callback(err);
       }

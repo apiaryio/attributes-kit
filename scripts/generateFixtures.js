@@ -23,7 +23,7 @@ msonZoo.samples.forEach((sample) => {
     ## Mson Struct
   `;
 
-  parseMson(`${header}\n\t${sample.code}`, (err, result) => {
+  parseMson(`${header}\n${sample.code}`, (err, result) => {
     if (err) {
       console.error('Error during mson parse');
       process.exit(1);
