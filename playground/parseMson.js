@@ -1,26 +1,11 @@
 import protagonist from 'protagonist';
-import dedent from 'dedent';
 
 export default function parseMson(mson, cb) {
-  const lines = mson.split('\n');
-  let source = dedent`
-    FORMAT: 1A
-    # Attributes
-    # Group Test
-    ## Test [/test]
-    + Attributes
-    `;
-
-  lines.forEach((item) => {
-    source += `
-    ${item}`;
-  });
-
-  protagonist.parse(source.trim(), (err, result) => {
+  protagonist.parse(mson.trim(), (err, result) => {
     if (err) {
       return cb(err);
     }
-
+    console.log(result);
     const categories = result.content[0];
     if (categories.content[0]) {
       const category = categories.content[0];

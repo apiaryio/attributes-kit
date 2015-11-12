@@ -1,6 +1,7 @@
 import React from 'react';
 import AceEditor from 'react-ace';
 import lodash from 'lodash';
+import dedent from 'dedent';
 
 import 'brace/theme/github';
 import 'brace/mode/text';
@@ -13,7 +14,12 @@ class EditorComponent extends React.Component {
     super();
 
     this.state = {
-      msonCode: '',
+      msonCode: dedent`
+        # Data Structures
+
+        ## User
+        + name (required, string)
+      `,
     }
   };
 
