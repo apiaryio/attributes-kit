@@ -1,11 +1,9 @@
 import React from 'react';
-import dedent from 'dedent'
 
 import AttributesKit from '../../src';
 import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
 import actionTypes from '../actions/types';
-import EditorActions from '../actions/editor';
 import dispatcher from '../dispatcher';
 
 class Playground extends React.Component {

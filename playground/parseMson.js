@@ -2,7 +2,6 @@ import protagonist from 'protagonist';
 
 export default function parseMson(mson, cb) {
   protagonist.parse(mson.trim(), (err, result) => {
-
     try {
       const categories = result.content[0];
       if (categories.content[0]) {
@@ -15,10 +14,8 @@ export default function parseMson(mson, cb) {
           }
         }
       }
-    }
-    catch (e) {
+    } catch (e) {
       return cb(err);
     }
-
   });
 }

@@ -10,11 +10,16 @@ import EditorActions from '../actions/editor';
 
 class EditorComponent extends React.Component {
 
+  static propTypes = {
+    errors: React.PropTypes.object,
+  }
+
+
   constructor() {
     super();
 
     this.state = {
-      msonCode:     dedent`
+      msonCode: dedent`
 
       # Data Structures
 
@@ -35,9 +40,9 @@ class EditorComponent extends React.Component {
                 - state: CA
                 - zip (number, required)
                 - tags: red, green, blue
-      `
-    }
-  };
+      `,
+    };
+  }
 
   componentDidMount() {
     EditorActions.parse(this.state.msonCode);
@@ -47,7 +52,7 @@ class EditorComponent extends React.Component {
     this.aceEditor = aceEditor;
 
     let annotations = [];
-    console.log(this.props.errors)
+
     const session = this.aceEditor.getSession();
     if (lodash.isArray(this.props.errors)) {
       annotations = this.props.errors.map(this.generateAnnotation);
@@ -57,15 +62,12 @@ class EditorComponent extends React.Component {
 
     if (lodash.isEmpty(annotations)) {
       session.clearAnnotations();
-    }
-    else {
+    } else {
       session.setAnnotations(annotations);
     }
-
   };
 
   generateAnnotation(error) {
-
     const errorLine = this.state.msonCode
       .substring(error.location[0].index)
       .split('\n')[0];
