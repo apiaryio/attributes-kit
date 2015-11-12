@@ -4,7 +4,7 @@ import msonZoo from 'mson-zoo'
 import jsBeautify from 'js-beautify';
 import fs from 'fs'
 import path from 'path'
-import protagonist from 'protagonist';
+import dedent from 'dedent';
 
 import parseMson from '../playground/parseMson';
 import AttributesKit from '../dist/attributes-kit-server';
@@ -17,7 +17,13 @@ if (!fs.existsSync(fixtureLocation)) {
 
 msonZoo.samples.forEach((sample) => {
 
-  parseMson(sample.code, (err, result) => {
+  let header = dedent`
+    # Data Structures
+
+    ## Mson Struct
+  `;
+
+  parseMson(`${header}\n\t${sample.code}`, (err, result) => {
     if (err) {
       console.error('Error during mson parse');
       process.exit(1);
