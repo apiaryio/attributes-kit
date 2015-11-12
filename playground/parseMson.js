@@ -14,6 +14,12 @@ export default function parseMson(mson, cb) {
           }
         }
       }
+
+      return cb({
+        code: 0,
+        message: 'No attributes found in the payload.',
+        location: [],
+      });
     } catch (e) {
       return cb(err);
     }
