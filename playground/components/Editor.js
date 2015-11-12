@@ -68,14 +68,18 @@ class EditorComponent extends React.Component {
   };
 
   generateAnnotation(error) {
-    const errorLine = this.state.msonCode
-      .substring(error.location[0].index)
-      .split('\n')[0];
+    let errorRow = 0;
 
-    const lines = this.state.msonCode.split('\n');
-    const errorRow = lodash(lines).findIndex((line) => {
-      return (line.indexOf(errorLine) > -1);
-    });
+    if (error.location.length > 0) {
+      const errorLine = this.state.msonCode
+        .substring(error.location[0].index)
+        .split('\n')[0];
+
+      const lines = this.state.msonCode.split('\n');
+      errorRow = lodash(lines).findIndex((line) => {
+        return (line.indexOf(errorLine) > -1);
+      });
+    }
 
     return {
       type: 'error',
