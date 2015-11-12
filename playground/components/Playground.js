@@ -1,8 +1,11 @@
 import React from 'react';
+import dedent from 'dedent'
+
 import AttributesKit from '../../src';
 import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
 import actionTypes from '../actions/types';
+import EditorActions from '../actions/editor';
 import dispatcher from '../dispatcher';
 
 class Playground extends React.Component {
@@ -12,7 +15,9 @@ class Playground extends React.Component {
     this._onChange = this._onChange.bind(this);
 
     this.state = {
-      attributes: null,
+      parseResult: {
+        errors: [],
+      },
     };
   }
 
@@ -26,7 +31,7 @@ class Playground extends React.Component {
 
   _onChange(payload) {
     if (payload.type === actionTypes.MSON_PARSED) {
-      this.setState({attributes: payload.attributes});
+      this.setState({parseResult: payload});
     }
   }
 
@@ -34,15 +39,17 @@ class Playground extends React.Component {
     return (
       <div className="playgrund-app">
         <div className="column">
-          <EditorComponent />
+          <EditorComponent errors={this.state.parseResult.errors} />
         </div>
 
         <div className="column">
-          <JsonFormatterComponent element={this.state.attributes} />
+          <JsonFormatterComponent
+            element={this.state.parseResult.attributes} />
         </div>
 
         <div className="column">
-          <AttributesKit.Attributes element={this.state.attributes} />
+          <AttributesKit.Attributes
+            element={this.state.parseResult.attributes} />
         </div>
       </div>
     );

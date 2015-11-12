@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import request from 'superagent';
 
 import dispatcher from '../dispatcher';
@@ -12,14 +10,10 @@ export default {
       .send({source})
       .set('Accept', 'application/json')
       .end((err, res) => {
-        if (err) {
-          return console.error(res.text);
-        }
-
         dispatcher.dispatch({
           type: types.MSON_PARSED,
-          attributes: res.body,
-          errors: JSON.parse(res.text),
+          attributes: res.body.attributes,
+          errors: res.body.errors,
         });
       });
   },

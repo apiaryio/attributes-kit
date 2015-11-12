@@ -19,11 +19,7 @@ app.use('/', express.static(path.join(__dirname, '/views')));
 
 app.post('/parse', (req, res) => {
   parseMson(req.body.source, (err, attributes) => {
-    if (err) {
-      return res.status(400).json({error: err});
-    }
-
-    return res.json(attributes);
+    return res.json({errors: err, attributes: attributes});
   });
 });
 
