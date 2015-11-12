@@ -1,3 +1,15 @@
+clearfix()
+  zoom 1
+  &:after
+  &:before
+    content ""
+    display table
+  &:after
+    clear both
+
+text-color = #8A93A3
+link-hover = #9999CC
+
 *
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
@@ -6,18 +18,144 @@
   margin 0
   padding 0
 
+body
+  -webkit-font-smoothing antialiased
+  position relative
+
+body,
+html,
+#playgroundContainer
+  height 100%
+
+.playground-header
+  font-size 16px
+  background #FFFFFF
+  box-shadow 0px 2px 14px 0px rgba(51,67,88,0.10)
+  position relative
+  z-index 2
+  clearfix()
+
+.logo
+  display block
+  color text-color
+  text-decoration none
+  text-transform uppercase
+  font-family 'Source Code Pro'
+  font-weight 400
+  font-size .625rem
+  letter-spacing .125rem
+  line-height 50px
+  padding 0 20px
+
+  &:hover
+    color darken(text-color, 30%)
+
+.docs-links
+  li
+    display inline-block
+  a
+    display block
+    color text-color
+    text-decoration none
+    text-transform uppercase
+    font-family 'Source Sans Pro', sans-serif
+    font-weight bold
+    font-size .625rem
+    letter-spacing .0625rem
+    line-height 50px
+    padding 0 20px
+
+    &:hover
+      color link-hover
+
 .visualTestingContainer
   display flex
   flex-wrap wrap
   justify-content space-between
 
-.column
-  float: left
-  width 30%
-  padding 10px
-
+.playgrund-app
+  width 100%
+  height 100%
 
 .column
+  position relative
+  min-height 300px
+
   textarea
+    position absolute
+    left 0
+    right 0
+    top 50px
+    bottom 0
+    outline none
+    background transparent
+    border 0
+    padding 30px
+    font-family 'Source Code Pro'
+    font-weight 300
+    font-size .8125rem
+    color #24272E
+    line-height 1.5rem
     width 100%
-    min-height 200px
+
+    &:hover
+    &:focus
+      outline none
+
+.editor-column
+  padding 30px
+  padding-left: 0
+  background #F4F6F9
+  font-size 16px
+
+.result-column
+  padding 30px
+
+.tab
+  display none
+
+  &.active
+    display block
+
+.column-controls
+  text-align right
+  list-style none
+  padding 0
+  margin 0
+
+  li
+    display inline-block
+
+    a
+      font-weight 600
+      opacity 0.5
+      font-family 'Source Sans Pro', sans-serif
+      font-size .7125rem
+      color text-color
+      letter-spacing .0625rem
+      text-transform uppercase
+      text-decoration none
+      cursor pointer
+
+      &:hover
+        opacity 1
+
+@media all and (min-width 800px)
+  .playground-columns
+    display flex
+    flex-direction row
+    flex 1
+
+  .playgrund-app
+    display flex
+    flex-direction column
+
+  .column
+    flex 1
+
+  .playground-header
+    .logo
+      float left
+
+    .docs-links
+      float right

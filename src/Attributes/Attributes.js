@@ -16,10 +16,6 @@ class Attributes extends React.Component {
     return (
       <div>
         <div>
-          <h1>Attributes</h1>
-        </div>
-
-        <div>
           <Attribute
             element={this.props.element}
             theme={this.props.theme}
