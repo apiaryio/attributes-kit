@@ -67,7 +67,7 @@
     "browser-launcher2": "^0.4.6",
     "classnames": "^2.1.5",
     "css-loader": "^0.21.0",
-    "dedent": "^0.4.0",
+    "dedent": "^0.6.0",
     "eslint": "^1.5.0",
     "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-react": "^3.5.1",
@@ -93,8 +93,8 @@
     "style-loader": "^0.12.4",
     "stylus-loader": "1.2.x",
     "superagent": "^1.3.0",
-    "svgo": "^0.5.6",
-    "webpack": "^1.12.2",
+    "svgo": "^0.6.0",
+    "webpack": "^1.12.4",
     "webpack-dev-server": "^1.12.0"
   }
 }
