@@ -26,16 +26,14 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
 ## Table of Contents
 
 * [Getting Started](#getting-started)
-* [Status](#status)
-* [Compatibility](#compatibility)
 * [Usage](#usage)
   * [API](#api)
   * [Browser](#browser)
   * [Server](#server)
 * [Developing](#developing)
   * [Installation](#installation)
-  * [Playground](#testing)
-  * [Testing](#testing)
+* [Compatibility](#compatibility)
+* [Status](#status)
 * [Versioning](#versioning)
 * [Contributing](#testing)
 * [Troubleshooting](#troubleshooting)
@@ -70,43 +68,6 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
 4. **You're done!** :+1:
 
 If you would like to use it in your application, please see the [Usage](#usage) section.
-
----
-
-# Status
-
-Please see the [`STATUS.md`](./STATUS.md) file.
-
----
-
-# Compatibility
-
-## Node
-
-:point_right: You are using version `0.10.39` (or newer) of Node
-
-```Bash
-node -v
-0.10.39
-```
-
-:point_right: You are using version `2.11.3` (or newer) of NPM
-
-```Bash
-npm -v
-2.11.3
-```
-
-## Browsers
-
-| Browser                 |
-|:------------------------|
-| ![](https://img.shields.io/badge/Google%20Chrome-15+-blue.svg) |
-| ![](https://img.shields.io/badge/Safari-6.1+-lightgrey.svg) |
-| ![](https://img.shields.io/badge/Firefox-28+-orange.svg) |
-| ![](https://img.shields.io/badge/Edge-12+-blue.svg) |
-| ![](https://img.shields.io/badge/IE-11+-blue.svg) |
-| ![](https://img.shields.io/badge/Opera-12.1+-red.svg) |
 
 ---
 
@@ -311,9 +272,33 @@ Attributes Kit always takes the same parameters.
 
 **Congratulations!** You are all set to start developing now! :rocket:
 
-## Playground
+---
 
-## Testing
+# Compatibility
+
+| Package                 | Version |
+|:------------------------|:--------|
+| React | `0.14+` |
+| React DOM | `0.14+` |
+| Node | `0.10.40+` |
+| NPM | `2.11+` |
+
+### Browsers
+
+| Browser                 | Version |
+|:------------------------|:--------|
+| Google Chrome | `15+` |
+| Safari | `6.1+` |
+| Firefox | `28+` |
+| Edge | `12+` |
+| IE | `11+` |
+| Opera | `12.1+` |
+
+---
+
+# Status
+
+Please see the [`STATUS.md`](./STATUS.md) file.
 
 ---
 
