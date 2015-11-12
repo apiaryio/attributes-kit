@@ -4,7 +4,7 @@ import dedent from 'dedent';
 import lodash from 'lodash';
 
 import 'brace/theme/github';
-import 'brace/mode/text';
+import 'brace/mode/markdown';
 
 import EditorActions from '../actions/editor';
 
@@ -27,8 +27,7 @@ class EditorComponent extends React.Component {
         - message: Hello everyone (string)
 
             Message for all the good folks at the
-            [API Blueprint issue #191]
-            (https://github.com/apiaryio/api-blueprint/issues/191)
+            [API Blueprint issue #191](https://goo.gl/NZYvm1)
 
         - author
             - name: Z
@@ -54,6 +53,8 @@ class EditorComponent extends React.Component {
     let annotations = [];
 
     const session = this.aceEditor.getSession();
+
+
     if (lodash.isArray(this.props.errors)) {
       annotations = this.props.errors.map(this.generateAnnotation);
     } else if (lodash.isObject(this.props.errors)) {
@@ -100,10 +101,11 @@ class EditorComponent extends React.Component {
         heigth="500px"
         width="100%"
         theme="github"
-        mode="text"
+        mode="markdown"
         onChange={this.handleChange}
         name="msonEditor"
         value={this.state.msonCode}
+        tabSize={2}
         editorProps={{$blockScrolling: true}}
       />
     );
