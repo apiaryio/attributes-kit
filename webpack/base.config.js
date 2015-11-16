@@ -40,7 +40,7 @@ export default {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
         loaders: (function() {
-          const loaders = ['babel-loader?stage=0'];
+          const loaders = ['babel-loader'];
           if (!isProduction) {
             loaders.unshift('react-hot');
           }
