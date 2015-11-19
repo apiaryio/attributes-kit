@@ -19,7 +19,7 @@ class EditorComponent extends React.Component {
     super();
 
     this.state = {
-      clientSideParsing: true,
+      clientSideParsing: false,
       msonCode: dedent`
 
       # Data Structures
@@ -60,7 +60,10 @@ class EditorComponent extends React.Component {
       annotations = this.props.errors.map(this.generateAnnotation);
     } else if (lodash.isObject(this.props.errors)) {
       annotations.push(this.generateAnnotation(this.props.errors));
+    } else if (typeof(this.props.error) === 'string') {
+      annotations.push({type: 'error', text: this.props.errors, row: 0});
     }
+
 
     if (lodash.isEmpty(annotations)) {
       session.clearAnnotations();
@@ -90,8 +93,10 @@ class EditorComponent extends React.Component {
     };
   }
 
-  clientSide = () => {
-    this.setState({clientSideParsing: true});
+  handleSwitchParserType = () => {
+    this.setState((state) => {
+      return {clientSideParsing: !state.clientSideParsing};
+    });
   }
 
   handleChange = (msonCode) => {
@@ -102,7 +107,6 @@ class EditorComponent extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.clientSide}>Client Side parsing</button>
         <AceEditor
           onLoad={this.onLoad}
           heigth="500px"
@@ -115,6 +119,11 @@ class EditorComponent extends React.Component {
           tabSize={2}
           editorProps={{$blockScrolling: true}}
         />
+
+        <button onClick={this.handleSwitchParserType}>
+          {'Switch to ' + (this.state.clientSideParsing ? 'drafter' : 'drafter.js')}
+        </button>
+
       </div>
     );
   }
