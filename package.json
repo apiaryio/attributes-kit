@@ -69,6 +69,7 @@
     "classnames": "^2.1.5",
     "css-loader": "^0.21.0",
     "dedent": "^0.6.0",
+    "drafter.js": "^2.0.0-pre.1",
     "eslint": "^1.5.0",
     "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-react": "^3.5.1",

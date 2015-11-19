@@ -19,6 +19,7 @@ class EditorComponent extends React.Component {
     super();
 
     this.state = {
+      clientSideParsing: true,
       msonCode: dedent`
 
       # Data Structures
@@ -44,7 +45,7 @@ class EditorComponent extends React.Component {
   }
 
   componentDidMount() {
-    EditorActions.parse(this.state.msonCode);
+    EditorActions.parse(this.state.msonCode, this.state.clientSideParsing);
   }
 
   onLoad = (aceEditor) => {
@@ -89,25 +90,32 @@ class EditorComponent extends React.Component {
     };
   }
 
+  clientSide = () => {
+    this.setState({clientSideParsing: true});
+  }
+
   handleChange = (msonCode) => {
     this.setState({msonCode});
-    EditorActions.parse(msonCode);
+    EditorActions.parse(msonCode, this.state.clientSideParsing);
   };
 
   render() {
     return (
-      <AceEditor
-        onLoad={this.onLoad}
-        heigth="500px"
-        width="100%"
-        theme="github"
-        mode="markdown"
-        onChange={this.handleChange}
-        name="msonEditor"
-        value={this.state.msonCode}
-        tabSize={2}
-        editorProps={{$blockScrolling: true}}
-      />
+      <div>
+        <button onClick={this.clientSide}>Client Side parsing</button>
+        <AceEditor
+          onLoad={this.onLoad}
+          heigth="500px"
+          width="100%"
+          theme="github"
+          mode="markdown"
+          onChange={this.handleChange}
+          name="msonEditor"
+          value={this.state.msonCode}
+          tabSize={2}
+          editorProps={{$blockScrolling: true}}
+        />
+      </div>
     );
   }
 }
