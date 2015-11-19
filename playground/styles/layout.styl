@@ -12,15 +12,7 @@
   justify-content space-between
 
 .column
-  float: left
-  width 30%
-  padding 10px
-
-
-.column
-  textarea
-    width 100%
-    min-height 200px
+  width 100%
 
 .header
   display flex
@@ -51,6 +43,13 @@
       &:last-child
         margin-right 20px
 
+      a
+        text-decoration none
+
+.body
+  display flex
+  justify-content space-between
+  box-shadow 0px 2px 14px 0px rgba(51,67,88,0.10)
 
 .ico
   &:before
@@ -61,10 +60,12 @@
     float left
     margin-right 6px
 
-.githubIco
+.gitHubIco
+  @extend .ico
   &:before
     background: url('icon-github.svg') no-repeat
 
 .documentationIco
+  @extend .ico
   &:before
     background: url('icon-documentation.svg') no-repeat
