@@ -19,6 +19,7 @@ class EditorComponent extends React.Component {
     super();
 
     this.state = {
+      clientSideParsing: false,
       msonCode: dedent`
 
       # Data Structures
@@ -44,7 +45,7 @@ class EditorComponent extends React.Component {
   }
 
   componentDidMount() {
-    EditorActions.parse(this.state.msonCode);
+    EditorActions.parse(this.state.msonCode, this.state.clientSideParsing);
   }
 
   onLoad = (aceEditor) => {
@@ -59,7 +60,10 @@ class EditorComponent extends React.Component {
       annotations = this.props.errors.map(this.generateAnnotation);
     } else if (lodash.isObject(this.props.errors)) {
       annotations.push(this.generateAnnotation(this.props.errors));
+    } else if (typeof(this.props.error) === 'string') {
+      annotations.push({type: 'error', text: this.props.errors, row: 0});
     }
+
 
     if (lodash.isEmpty(annotations)) {
       session.clearAnnotations();
@@ -89,25 +93,38 @@ class EditorComponent extends React.Component {
     };
   }
 
+  handleSwitchParserType = () => {
+    this.setState((state) => {
+      return {clientSideParsing: !state.clientSideParsing};
+    });
+  }
+
   handleChange = (msonCode) => {
     this.setState({msonCode});
-    EditorActions.parse(msonCode);
+    EditorActions.parse(msonCode, this.state.clientSideParsing);
   };
 
   render() {
     return (
-      <AceEditor
-        onLoad={this.onLoad}
-        heigth="500px"
-        width="100%"
-        theme="github"
-        mode="markdown"
-        onChange={this.handleChange}
-        name="msonEditor"
-        value={this.state.msonCode}
-        tabSize={2}
-        editorProps={{$blockScrolling: true}}
-      />
+      <div>
+        <AceEditor
+          onLoad={this.onLoad}
+          heigth="500px"
+          width="100%"
+          theme="github"
+          mode="markdown"
+          onChange={this.handleChange}
+          name="msonEditor"
+          value={this.state.msonCode}
+          tabSize={2}
+          editorProps={{$blockScrolling: true}}
+        />
+
+        <button onClick={this.handleSwitchParserType}>
+          {'Switch to ' + (this.state.clientSideParsing ? 'drafter' : 'drafter.js')}
+        </button>
+
+      </div>
     );
   }
 }
