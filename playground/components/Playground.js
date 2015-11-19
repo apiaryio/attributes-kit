@@ -37,21 +37,34 @@ class Playground extends React.Component {
 
   render() {
     return (
-      <div className="playgrund-app">
-        <div className="column">
-          <EditorComponent errors={this.state.parseResult.errors} />
+      <div className="playground-app">
+        <div className="header">
+        <div className="leftSide"><span>Attributes Kit Playground</span></div>
+        <div className="rightSide">
+          <span>
+            <a target="_blank" className="ico githubIco" href="https://github.com/apiaryio/attributes-kit">Attributes Kit Repository</a>
+          </span>
+          <span>
+            <a target="_blank" className="ico documentationIco" href="https://github.com/apiaryio/mson">Mson Documentation</a>
+          </span>
         </div>
+        </div>
+        <div className="body">
+          <div className="column">
+            <EditorComponent errors={this.state.parseResult.errors} />
+          </div>
 
-        <div className="column">
-          <JsonFormatterComponent
-            element={this.state.parseResult.attributes} />
-        </div>
+          <div className="column">
+            <JsonFormatterComponent
+              element={this.state.parseResult.attributes} />
+          </div>
 
-        <div className="column">
-          <AttributesKit.Attributes
-            element={this.state.parseResult.attributes} />
-        </div>
+          <div className="column">
+            <AttributesKit.Attributes
+              element={this.state.parseResult.attributes} />
+          </div>
       </div>
+    </div>
     );
   }
 }

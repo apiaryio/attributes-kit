@@ -21,3 +21,50 @@
   textarea
     width 100%
     min-height 200px
+
+.header
+  display flex
+  justify-content space-around
+  padding-top 20px
+  padding-left 20px
+  padding-bottom 20px
+  color #626c7e
+  font-family "Source Code Pro"
+  font-size 10px
+  font-weight 400
+  line-height 13px
+  text-transform uppercase
+
+  .leftSide
+    width 100%
+    display flex
+    justify-content flex-start
+
+  .rightSide
+    width 100%
+    display flex
+    justify-content flex-end
+
+    span
+      margin-left 36px
+
+      &:last-child
+        margin-right 20px
+
+
+.ico
+  &:before
+    content ''
+    display block
+    width 17px
+    height 17px
+    float left
+    margin-right 6px
+
+.githubIco
+  &:before
+    background: url('icon-github.svg') no-repeat
+
+.documentationIco
+  &:before
+    background: url('icon-documentation.svg') no-repeat
