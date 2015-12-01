@@ -1,19 +1,21 @@
 /* eslint-disable no-console */
 
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
+import { Router, Route } from 'react-router';
 
 import Playground from './components/Playground';
 import VisualTesting from './components/VisualTesting';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import './styles/layout.styl';
 
-console.log('Welcome in playground');
+const history = createBrowserHistory();
 
-if (document.getElementById('playgroundContainer') !== null) {
-  ReactDom.render(<Playground />, document.getElementById('playgroundContainer'));
-}
-
-if (document.getElementById('visualtestingContainer') !== null) {
-  ReactDom.render(<VisualTesting />, document.getElementById('visualtestingContainer'));
-}
+render((
+  <Router history={history}>
+    <Route path="/" component={Playground}/>
+    <Route path="/playground" component={Playground}/>
+    <Route path="/examples" component={VisualTesting}/>
+  </Router>
+), document.getElementById('applicationContainer'));

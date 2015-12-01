@@ -12,18 +12,10 @@ const app = express();
 
 app.use(bodyparser.json());
 
-app.use(express.static(path.join(__dirname, '../dist')));
-app.use('/react.min.js', express.static(path.join(__dirname, '../node_modules/react/dist/react.min.js')));
-app.use('/', express.static(path.join(__dirname, '/views')));
-
 app.post('/parse', (req, res) => {
   parseMson(req.body.source, (err, attributes) => {
     return res.json({errors: err, attributes: attributes});
   });
-});
-
-app.get('/examples', (req, res) => {
-  return res.sendFile(path.join(__dirname, '/views/examples.html'));
 });
 
 app.get('/fixtures', (req, res) => {
@@ -48,6 +40,10 @@ app.get('/fixtures', (req, res) => {
 
     return res.json(result);
   });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'views', 'index.html'));
 });
 
 app.listen(9090, 'localhost', () => {});
