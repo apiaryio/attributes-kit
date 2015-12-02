@@ -1,3 +1,15 @@
 {
-  "stage": 0
+  "stage": 0,
+  "plugins": ["react-transform"],
+  "extra": {
+    "react-transform": {
+      "transforms": [{
+        "transform": "react-transform-catch-errors",
+        "imports": [
+          "react",
+          "./src/Error/Error",
+        ]
+      }]
+    }
+  }
 }
