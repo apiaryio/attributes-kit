@@ -28,8 +28,9 @@ class EditorComponent extends React.Component {
         - message: Hello everyone (string)
 
             Message for all the good folks at the
-            [API Blueprint issue #191]
-            (https://github.com/apiaryio/api-blueprint/issues/191)
+            [API Blueprint issue #191][1]
+
+            [1]: https://github.com/apiaryio/api-blueprint/issues/191
 
         - author
             - name: Z
