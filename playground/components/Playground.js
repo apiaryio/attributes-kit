@@ -10,8 +10,6 @@ class Playground extends React.Component {
   constructor(props) {
     super(props);
 
-    this._onChange = this._onChange.bind(this);
-
     this.state = {
       parseResult: {
         errors: [],
@@ -29,7 +27,7 @@ class Playground extends React.Component {
     this.dispatcherIds.forEach((id) => dispatcher.unregister(id));
   }
 
-  _onChange(payload) {
+  _onChange = (payload) => {
     if (payload.type === actionTypes.MSON_PARSED) {
       this.setState({parseResult: payload});
     }
