@@ -5,6 +5,7 @@ import request from 'superagent';
 
 import JsonFormatter from './JsonFormatter';
 import AttributesKit from '../../src';
+import DefaultLayout from './DefaultLayout';
 
 
 class VisualTesting extends React.Component {
@@ -32,7 +33,7 @@ class VisualTesting extends React.Component {
   render() {
     const rows = this.state.fixtures.map((fixture) => {
       return (
-        <div className="visualTestingContainer" key={fixture.name}>
+        <div key={fixture.name}>
           <div className="column">
             <pre>
               {fixture.mson}
@@ -49,9 +50,9 @@ class VisualTesting extends React.Component {
     });
 
     return (
-      <div className="playgrund-app">
+      <DefaultLayout>
         {rows}
-      </div>
+      </DefaultLayout>
     );
   }
 }
