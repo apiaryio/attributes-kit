@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 import EditorComponent from './Editor';
 import actionTypes from '../actions/types';
@@ -45,6 +46,9 @@ class Playground extends React.Component {
         <div className="column">
           {React.cloneElement(this.props.children, {element: this.state.parseResult.attributes})}
         </div>
+
+        <Link activeStyle={{display: 'none'}} to="/playground/attributes">Show Attributes Kit</Link>
+        <Link activeStyle={{display: 'none'}} to="/playground/refract">Show Refract</Link>
       </div>
     );
   }
