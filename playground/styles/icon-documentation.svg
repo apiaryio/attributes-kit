@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-documentation</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Empty-state" sketch:type="MSArtboardGroup" transform="translate(-1061.000000, -20.000000)" fill="#9999CC">
-            <g id="Header" sketch:type="MSLayerGroup">
-                <path d="M1061,24 L1071,24 L1071,26 L1061,26 L1061,24 Z M1061,28 L1068,28 L1068,30 L1061,30 L1061,28 Z M1061,20 L1066,20 L1066,22 L1061,22 L1061,20 Z" id="icon-documentation" sketch:type="MSShapeGroup"></path>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+  <path fill="#99C" fill-rule="evenodd" d="M0 4h10v2H0V4zm0 4h7v2H0V8zm0-8h5v2H0V0z"/>
 </svg>
