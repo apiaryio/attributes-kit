@@ -51,7 +51,9 @@ class VisualTesting extends React.Component {
 
     return (
       <DefaultLayout>
-        {rows}
+        <div className="examplesContainer">
+          {rows}
+        </div>
       </DefaultLayout>
     );
   }

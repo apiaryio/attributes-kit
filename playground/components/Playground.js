@@ -39,18 +39,20 @@ class Playground extends React.Component {
   render() {
     return (
       <DefaultLayout>
-        <div className="column">
-          <EditorComponent errors={this.state.parseResult.errors} />
-        </div>
+        <div className="playgroundContainer">
+          <div className="column">
+            <EditorComponent errors={this.state.parseResult.errors} />
+          </div>
 
-        <div className="column">
-          <JsonFormatterComponent
-            element={this.state.parseResult.attributes} />
-        </div>
+          <div className="column">
+            <JsonFormatterComponent
+              element={this.state.parseResult.attributes} />
+          </div>
 
-        <div className="column">
-          <AttributesKit.Attributes
-            element={this.state.parseResult.attributes} />
+          <div className="column">
+            <AttributesKit.Attributes
+              element={this.state.parseResult.attributes} />
+          </div>
         </div>
     </DefaultLayout>
     );

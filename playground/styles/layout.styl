@@ -6,9 +6,6 @@
   margin 0
   padding 0
 
-.column
-  width 100%
-
 .header
   display flex
   justify-content space-around
@@ -42,9 +39,24 @@
         text-decoration none
 
 .body
+  box-shadow 0px 2px 14px 0px rgba(51,67,88,0.10)
+
+.playgroundContainer
   display flex
   justify-content space-between
-  box-shadow 0px 2px 14px 0px rgba(51,67,88,0.10)
+
+  .column
+    width 100%
+
+.examplesContainer
+  display flex
+  justify-content space-between
+  flex-direction column
+
+  .column
+    width 33%
+    float left
+
 
 .ico
   &:before
