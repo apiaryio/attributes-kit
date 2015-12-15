@@ -17,14 +17,16 @@ class Playground extends React.Component {
         errors: [],
       },
     };
+
+    this.dispatcherIds = [];
   }
 
   componentDidMount() {
-    dispatcher.register(this._onChange);
+    this.dispatcherIds.push(dispatcher.register(this._onChange));
   }
 
   componentWillUnmount() {
-    dispatcher.unregister(this._onChange);
+    this.dispatcherIds.forEach((id) => dispatcher.unregister(id));
   }
 
   _onChange(payload) {

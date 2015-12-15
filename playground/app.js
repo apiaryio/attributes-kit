@@ -10,10 +10,8 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 
 import './styles/layout.styl';
 
-const history = createBrowserHistory();
-
 render((
-  <Router history={history}>
+  <Router history={createBrowserHistory()}>
     <Route path="/" component={Playground}/>
     <Route path="/playground" component={Playground}/>
     <Route path="/examples" component={VisualTesting}/>
