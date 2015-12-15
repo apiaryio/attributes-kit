@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AttributesKit from '../../src';
+import DefaultLayout from './DefaultLayout';
 import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
 import actionTypes from '../actions/types';
@@ -37,34 +38,21 @@ class Playground extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="header">
-        <div className="leftSide"><span>Attributes Kit Playground</span></div>
-        <div className="rightSide">
-          <span>
-            <a target="_blank" className="gitHubIco" href="https://github.com/apiaryio/attributes-kit">Attributes Kit Repository</a>
-          </span>
-          <span>
-            <a target="_blank" className="documentationIco" href="https://github.com/apiaryio/mson">Mson Documentation</a>
-          </span>
+      <DefaultLayout>
+        <div className="column">
+          <EditorComponent errors={this.state.parseResult.errors} />
         </div>
+
+        <div className="column">
+          <JsonFormatterComponent
+            element={this.state.parseResult.attributes} />
         </div>
-        <div className="body">
-          <div className="column">
-            <EditorComponent errors={this.state.parseResult.errors} />
-          </div>
 
-          <div className="column">
-            <JsonFormatterComponent
-              element={this.state.parseResult.attributes} />
-          </div>
-
-          <div className="column">
-            <AttributesKit.Attributes
-              element={this.state.parseResult.attributes} />
-          </div>
-      </div>
-    </div>
+        <div className="column">
+          <AttributesKit.Attributes
+            element={this.state.parseResult.attributes} />
+        </div>
+    </DefaultLayout>
     );
   }
 }

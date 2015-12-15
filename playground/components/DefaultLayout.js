@@ -2,7 +2,7 @@ import React from 'react';
 
 class DefaultLayout extends React.Component {
   static propTypes = {
-    children: React.propTypes.array,
+    children: React.PropTypes.arrayOf(React.PropTypes.element),
   };
 
   render() {
