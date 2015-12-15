@@ -1,12 +1,14 @@
 import React from 'react';
 
-import AttributesKit from '../../src';
 import EditorComponent from './Editor';
-import JsonFormatterComponent from './JsonFormatter';
 import actionTypes from '../actions/types';
 import dispatcher from '../dispatcher';
 
 class Playground extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.element,
+  };
+
   constructor(props) {
     super(props);
 
@@ -41,13 +43,7 @@ class Playground extends React.Component {
         </div>
 
         <div className="column">
-          <JsonFormatterComponent
-            element={this.state.parseResult.attributes} />
-        </div>
-
-        <div className="column">
-          <AttributesKit.Attributes
-            element={this.state.parseResult.attributes} />
+          {React.cloneElement(this.props.children, {element: this.state.parseResult.attributes})}
         </div>
       </div>
     );
