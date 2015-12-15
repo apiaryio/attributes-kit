@@ -1,7 +1,6 @@
 import React from 'react';
 
 import AttributesKit from '../../src';
-import DefaultLayout from './DefaultLayout';
 import EditorComponent from './Editor';
 import JsonFormatterComponent from './JsonFormatter';
 import actionTypes from '../actions/types';
@@ -38,23 +37,21 @@ class Playground extends React.Component {
 
   render() {
     return (
-      <DefaultLayout>
-        <div className="playgroundContainer">
-          <div className="column">
-            <EditorComponent errors={this.state.parseResult.errors} />
-          </div>
-
-          <div className="column">
-            <JsonFormatterComponent
-              element={this.state.parseResult.attributes} />
-          </div>
-
-          <div className="column">
-            <AttributesKit.Attributes
-              element={this.state.parseResult.attributes} />
-          </div>
+      <div className="playgroundContainer">
+        <div className="column">
+          <EditorComponent errors={this.state.parseResult.errors} />
         </div>
-    </DefaultLayout>
+
+        <div className="column">
+          <JsonFormatterComponent
+            element={this.state.parseResult.attributes} />
+        </div>
+
+        <div className="column">
+          <AttributesKit.Attributes
+            element={this.state.parseResult.attributes} />
+        </div>
+      </div>
     );
   }
 }

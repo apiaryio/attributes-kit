@@ -12,7 +12,7 @@ class DefaultLayout extends React.Component {
         <div className="header">
         <div className="leftSide">
           <span className="headerTitle">Attributes Kit</span>
-          <span><Link to="/">Playground</Link></span>
+          <span><Link to="/playground">Playground</Link></span>
           <span><Link to="/examples">Examples</Link></span>
         </div>
         <div className="rightSide">

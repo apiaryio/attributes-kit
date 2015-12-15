@@ -5,7 +5,6 @@ import request from 'superagent';
 
 import JsonFormatter from './JsonFormatter';
 import AttributesKit from '../../src';
-import DefaultLayout from './DefaultLayout';
 
 
 class VisualTesting extends React.Component {
@@ -50,11 +49,9 @@ class VisualTesting extends React.Component {
     });
 
     return (
-      <DefaultLayout>
-        <div className="examplesContainer">
-          {rows}
-        </div>
-      </DefaultLayout>
+      <div className="examplesContainer">
+        {rows}
+      </div>
     );
   }
 }
