@@ -1,7 +1,7 @@
-var Svgo = require('svgo');
-var svgo = new Svgo();
+import Svgo from 'svgo';
+const svgo = new Svgo();
 
-module.exports = function(source) {
+export default function(source) {
   var callback = this.async();
   this.cacheable();
 
