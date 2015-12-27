@@ -30,7 +30,7 @@ class ArrayItem extends React.Component {
   }
 
   renderStyles() {
-    const {BORDER_COLOR} = this.context.theme;
+    const { BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {
@@ -71,7 +71,8 @@ class ArrayItem extends React.Component {
           <Row>
             <Type
               element={this.props.element}
-              style={styles.type} />
+              style={styles.type}
+            />
           </Row>
 
           <Row>

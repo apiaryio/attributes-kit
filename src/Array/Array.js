@@ -39,7 +39,7 @@ class ArrayComponent extends React.Component {
   }
 
   renderStyles() {
-    const {ARRAY_ITEMS_BORDER_COLOR} = this.context.theme;
+    const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
     const styles = {
       arrayItems: {
@@ -67,7 +67,8 @@ class ArrayComponent extends React.Component {
                   key={index}
                   index={index}
                   element={element}
-                  parentElement={this.props.element} />
+                  parentElement={this.props.element}
+                />
               );
             }
 
@@ -76,7 +77,8 @@ class ArrayComponent extends React.Component {
                 key={index}
                 index={index}
                 element={element}
-                parentElement={this.props.element} />
+                parentElement={this.props.element}
+              />
             );
           })
         }

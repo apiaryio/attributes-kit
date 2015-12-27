@@ -12,7 +12,7 @@ class Key extends React.Component {
   }
 
   getStyles() {
-    const {KEY_COLOR} = this.context.theme;
+    const { KEY_COLOR } = this.context.theme;
 
     this.styles = {
       key: {

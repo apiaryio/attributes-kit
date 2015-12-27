@@ -76,8 +76,8 @@ class ArrayHeader extends React.Component {
       <div style={styles.root}>
         <Type
           type="array"
-          style={styles.type} />
-
+          style={styles.type}
+        />
         {this.renderSampleToggle(styles)}
       </div>
     );

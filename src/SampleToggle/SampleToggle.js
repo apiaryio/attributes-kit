@@ -18,7 +18,7 @@ class SampleToggle extends React.Component {
   }
 
   renderStyles() {
-    const {SAMPLE_TOGGLE_TITLE_COLOR} = this.context.theme;
+    const { SAMPLE_TOGGLE_TITLE_COLOR } = this.context.theme;
 
     const styles = {
       root: {

@@ -18,7 +18,7 @@ class Type extends React.Component {
   }
 
   getStyles() {
-    const {TYPE_COLOR} = this.context.theme;
+    const { TYPE_COLOR } = this.context.theme;
 
     const styles = {
       root: {

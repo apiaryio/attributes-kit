@@ -1,15 +1,15 @@
 import React from 'react';
-import ReactDomServer from 'react-dom/server'
+import ReactDomServer from 'react-dom/server';
 import msonZoo from 'mson-zoo';
 import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
-import assert from 'assert'
+import assert from 'assert';
 import dedent from 'dedent';
 
 
-import parseMson from '../playground/parseMson'
-import {Attributes} from '../dist/attributes-kit-server';
+import parseMson from '../playground/parseMson';
+import { Attributes } from '../dist/attributes-kit-server';
 
 describe('Comparision with reference fixtures', () => {
 
@@ -29,6 +29,7 @@ describe('Comparision with reference fixtures', () => {
         if (err) {
           return done(err);
         }
+
         renderedElement = React.createElement(Attributes, {
           element: result,
         });

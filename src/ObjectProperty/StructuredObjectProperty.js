@@ -59,7 +59,7 @@ class StructuredObjectProperty extends React.Component {
   }
 
   renderStyles() {
-    const {BORDER_COLOR} = this.context.theme;
+    const { BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {

@@ -13,7 +13,7 @@ import {
   getValue,
 } from 'elements/expandableCollapsibleElement';
 
-import {getType, isNestedObject, isObject} from 'elements/element';
+import { getType, isNestedObject, isObject } from 'elements/element';
 
 class EnumMember extends React.Component {
   static propTypes = {
