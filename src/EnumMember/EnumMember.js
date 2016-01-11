@@ -31,7 +31,8 @@ class EnumMember extends React.Component {
   }
 
   getClassNames() {
-    return classNames('attributeEnumMember', getExpandCollapseClassNames(this.props.element, this.state));
+    return classNames('attributeEnumMember',
+      getExpandCollapseClassNames(this.props.element, this.state));
   }
 
   handleExpandCollapseEvent = () => {

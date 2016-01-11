@@ -50,11 +50,11 @@ function containsArray(elements) {
 function getExpandCollapseClassNames(element, state) {
   const valueType = getValueType(element);
   return classNames({
-    'isExpanded': state.isExpanded,
-    'isCollapsed': !state.isExpanded,
-    'isExpandableCollapsible': isExpandableCollapsible(element),
-    'isObject': isObject(valueType),
-    'isArray': isArray(valueType),
+    isExpanded: state.isExpanded,
+    isCollapsed: !state.isExpanded,
+    isExpandableCollapsible: isExpandableCollapsible(element),
+    isObject: isObject(valueType),
+    isArray: isArray(valueType),
   });
 }
 

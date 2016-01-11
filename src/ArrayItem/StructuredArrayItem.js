@@ -34,16 +34,17 @@ class StructuredArrayItem extends React.Component {
     super(props);
 
     this.state = {
-      'isExpandableCollapsible': isExpandableCollapsible(this.props.element),
-      'isObject': isObject(this.props.element),
-      'isArray': isArray(this.props.element),
+      isExpandableCollapsible: isExpandableCollapsible(this.props.element),
+      isObject: isObject(this.props.element),
+      isArray: isArray(this.props.element),
     };
 
     // State hasn't been set; tree is expanded by default,
     // after a click, it collapses.
     if (this.state.isExpandableCollapsible) {
       this.state.isExpanded = true;
-      this.state.containsExpandableCollapsibleElement = containsExpandableCollapsibleElement(this.props.parentElement.content);
+      this.state.containsExpandableCollapsibleElement =
+        containsExpandableCollapsibleElement(this.props.parentElement.content);
     }
   }
 
