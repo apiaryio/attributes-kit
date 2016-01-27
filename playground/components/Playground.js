@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-import AttributesKit from '../../src';
 import EditorComponent from './Editor';
-import JsonFormatterComponent from './JsonFormatter';
 import actionTypes from '../actions/types';
 import dispatcher from '../dispatcher';
 
 class Playground extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.element,
+  };
+
   constructor(props) {
     super(props);
-
-    this._onChange = this._onChange.bind(this);
 
     this.state = {
       parseResult: {
@@ -29,7 +30,7 @@ class Playground extends React.Component {
     this.dispatcherIds.forEach((id) => dispatcher.unregister(id));
   }
 
-  _onChange(payload) {
+  _onChange = (payload) => {
     if (payload.type === actionTypes.MSON_PARSED) {
       this.setState({parseResult: payload});
     }
@@ -37,20 +38,17 @@ class Playground extends React.Component {
 
   render() {
     return (
-      <div className="playgrund-app">
+      <div className="playgroundContainer">
         <div className="column">
           <EditorComponent errors={this.state.parseResult.errors} />
         </div>
 
         <div className="column">
-          <JsonFormatterComponent
-            element={this.state.parseResult.attributes} />
+          {React.cloneElement(this.props.children, {element: this.state.parseResult.attributes})}
         </div>
 
-        <div className="column">
-          <AttributesKit.Attributes
-            element={this.state.parseResult.attributes} />
-        </div>
+        <Link activeStyle={{display: 'none'}} to="/playground/attributes">Show Attributes Kit</Link>
+        <Link activeStyle={{display: 'none'}} to="/playground/refract">Show Refract</Link>
       </div>
     );
   }

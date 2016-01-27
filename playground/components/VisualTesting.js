@@ -32,7 +32,7 @@ class VisualTesting extends React.Component {
   render() {
     const rows = this.state.fixtures.map((fixture) => {
       return (
-        <div className="visualTestingContainer" key={fixture.name}>
+        <div key={fixture.name}>
           <div className="column">
             <pre>
               {fixture.mson}
@@ -49,7 +49,7 @@ class VisualTesting extends React.Component {
     });
 
     return (
-      <div className="playgrund-app">
+      <div className="examplesContainer">
         {rows}
       </div>
     );
