@@ -36,7 +36,7 @@ class ArrayComponent extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
     const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;

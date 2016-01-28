@@ -8,11 +8,11 @@ import SampleToggle from 'SampleToggle/SampleToggle';
 class ArrayDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class ArrayDefaults extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
     const { BORDER_COLOR } = this.context.theme;

@@ -18,7 +18,7 @@ import { getType, isNestedObject, isObject } from 'elements/element';
 class EnumMember extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -39,7 +39,7 @@ class EnumMember extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderType() {
     const type = getType(this.props.element);

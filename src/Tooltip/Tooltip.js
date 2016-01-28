@@ -5,7 +5,7 @@ import './tooltip.styl';
 class Tooltip extends React.Component {
   static propTypes = {
     text: React.PropTypes.string,
-  }
+  };
 
   render() {
     return (

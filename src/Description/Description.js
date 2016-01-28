@@ -9,7 +9,7 @@ class Description extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     const styles = {

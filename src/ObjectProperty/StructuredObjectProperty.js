@@ -29,11 +29,11 @@ class StructuredObjectProperty extends React.Component {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     index: React.PropTypes.number,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ class StructuredObjectProperty extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
     const { BORDER_COLOR } = this.context.theme;

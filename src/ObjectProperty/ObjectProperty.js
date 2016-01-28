@@ -23,11 +23,11 @@ class ObjectProperty extends React.Component {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);

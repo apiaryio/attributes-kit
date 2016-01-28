@@ -15,11 +15,11 @@ class Value extends React.Component {
     ]),
     element: React.PropTypes.object,
     style: React.PropTypes.object,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     const {

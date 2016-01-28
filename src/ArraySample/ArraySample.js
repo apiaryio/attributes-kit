@@ -9,11 +9,11 @@ class ArraySample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     samples: React.PropTypes.array,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class ArraySample extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
     const { BORDER_COLOR } = this.context.theme;
