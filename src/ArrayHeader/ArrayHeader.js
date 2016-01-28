@@ -14,11 +14,11 @@ class ArrayHeader extends React.Component {
     element: React.PropTypes.object,
     onSampleToggleClick: React.PropTypes.func,
     sampleTitle: React.PropTypes.string,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     const {

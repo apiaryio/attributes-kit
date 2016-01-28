@@ -12,7 +12,7 @@ class EditorComponent extends React.Component {
 
   static propTypes = {
     errors: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-  }
+  };
 
 
   constructor() {

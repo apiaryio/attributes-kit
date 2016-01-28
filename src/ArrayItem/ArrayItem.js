@@ -23,11 +23,11 @@ class ArrayItem extends React.Component {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     const { BORDER_COLOR } = this.context.theme;

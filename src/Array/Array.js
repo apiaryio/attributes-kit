@@ -18,11 +18,11 @@ import {
 class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);

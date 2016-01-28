@@ -6,14 +6,14 @@ import AttributesComponent from 'Attributes/Attributes';
 import AttributeComponent from 'Attribute/Attribute';
 
 class AttributesKit extends EventEmitter {
-  static Attributes = AttributesComponent
-  static Attribute = AttributeComponent
+  static Attributes = AttributesComponent;
+  static Attribute = AttributeComponent;
 
   static render(refractElement, element, options) {
     let elementSelector = null;
     if (typeof element === 'string') {
       elementSelector = element;
-    }
+    };
 
     const attributesKit = new AttributesKit({
       element,

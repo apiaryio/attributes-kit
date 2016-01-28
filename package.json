@@ -31,7 +31,7 @@
   "main": "dist/attributes-kit",
   "scripts": {
     "build": "npm run build:server && npm run build:client",
-    "build:server": "babel-node ./scripts/serverBuild",
+    "build:server": "webpack --config webpack/server.config.babel.js",
     "build:client": "npm run build:client:full && npm run build:client:noDep && npm run build:client:react && NODE_ENV=production npm run build:client:full",
     "build:client:react": "babel-node ./scripts/clientBuild",
     "build:client:full": "babel-node ./scripts/clientBuild full",
