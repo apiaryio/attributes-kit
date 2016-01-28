@@ -13,7 +13,7 @@ class AttributesKit extends EventEmitter {
     let elementSelector = null;
     if (typeof element === 'string') {
       elementSelector = element;
-    };
+    }
 
     const attributesKit = new AttributesKit({
       element,
