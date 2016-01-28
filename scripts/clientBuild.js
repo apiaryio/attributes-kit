@@ -41,4 +41,7 @@ if (process.argv.length > 3 ) {
   }
 }
 
-const compiler = Webpack(clientConfig, (err, stat) => {});
+const compiler = Webpack(clientConfig, (err, stat) => {
+  if (err)
+    console.log(err);
+});
