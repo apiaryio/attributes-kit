@@ -8,7 +8,7 @@ function isMember(element) {
   return element === TYPES.MEMBER;
 }
 
-function getValueType({ element, content }) {
+function getValueType({element, content}) {
   if (isMember(element)) {
     return content.value.element;
   }

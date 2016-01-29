@@ -10,18 +10,18 @@ class SampleArray extends React.Component {
     samples: React.PropTypes.array,
     element: React.PropTypes.object,
     showArrayHeader: React.PropTypes.bool,
-  };
+  }
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  };
+  }
 
   getSamples() {
     return (this.props.samples || this.props.element.content);
   }
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const {BORDER_COLOR} = this.context.theme;
 
     const styles = {
       sampleArrayItems: {

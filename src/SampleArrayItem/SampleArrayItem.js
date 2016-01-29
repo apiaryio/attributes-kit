@@ -17,14 +17,14 @@ class SampleArrayItem extends React.Component {
     sample: React.PropTypes.object,
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
-  };
+  }
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  };
+  }
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const {BORDER_COLOR} = this.context.theme;
 
     const styles = {
       root: {

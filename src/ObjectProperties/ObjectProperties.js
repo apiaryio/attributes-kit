@@ -16,7 +16,7 @@ import {
 class ObjectProperties extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   constructor(props) {
     super(props);

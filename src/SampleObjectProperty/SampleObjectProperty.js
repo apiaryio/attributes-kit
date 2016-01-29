@@ -23,11 +23,11 @@ class SampleArray extends React.Component {
     parentElement: React.PropTypes.object,
     element: React.PropTypes.object,
     index: React.PropTypes.number,
-  };
+  }
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -41,10 +41,10 @@ class SampleArray extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  };
+  }
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const {BORDER_COLOR} = this.context.theme;
 
     const styles = {
       root: {

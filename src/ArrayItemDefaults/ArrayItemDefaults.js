@@ -10,7 +10,7 @@ import {
 class ArrayItemDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   renderStyles() {
     return {};

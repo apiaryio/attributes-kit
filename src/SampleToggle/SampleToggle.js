@@ -11,14 +11,14 @@ class SampleToggle extends React.Component {
     isExpanded: React.PropTypes.bool,
     style: React.PropTypes.object,
     sampleTitle: React.PropTypes.string,
-  };
+  }
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  };
+  }
 
   renderStyles() {
-    const { SAMPLE_TOGGLE_TITLE_COLOR } = this.context.theme;
+    const {SAMPLE_TOGGLE_TITLE_COLOR} = this.context.theme;
 
     const styles = {
       root: {

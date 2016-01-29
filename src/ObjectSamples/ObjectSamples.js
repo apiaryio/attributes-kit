@@ -8,7 +8,7 @@ import Row from 'Row/Row';
 class ObjectSamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   constructor(props) {
     super(props);

@@ -7,7 +7,7 @@ import Defaults from 'Defaults/Defaults';
 class EnumComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   constructor(props) {
     super(props);

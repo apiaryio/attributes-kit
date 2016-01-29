@@ -9,7 +9,7 @@ class Column extends React.Component {
       React.PropTypes.object,
       React.PropTypes.array,
     ]),
-  };
+  }
 
   getStyles() {
     const styles = {

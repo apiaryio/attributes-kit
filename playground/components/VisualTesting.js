@@ -25,7 +25,7 @@ class VisualTesting extends React.Component {
           return console.error(res.text);
         }
 
-        this.setState({ fixtures: res.body });
+        this.setState({fixtures: res.body});
       });
   }
 
