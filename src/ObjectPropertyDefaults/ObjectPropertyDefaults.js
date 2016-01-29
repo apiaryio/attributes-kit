@@ -8,7 +8,7 @@ import {
 class ObjectPropertySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     return {};

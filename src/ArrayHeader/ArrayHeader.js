@@ -14,11 +14,11 @@ class ArrayHeader extends React.Component {
     element: React.PropTypes.object,
     onSampleToggleClick: React.PropTypes.func,
     sampleTitle: React.PropTypes.string,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     const {
@@ -76,8 +76,8 @@ class ArrayHeader extends React.Component {
       <div style={styles.root}>
         <Type
           type="array"
-          style={styles.type} />
-
+          style={styles.type}
+        />
         {this.renderSampleToggle(styles)}
       </div>
     );

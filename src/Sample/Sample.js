@@ -28,7 +28,7 @@ class Sample extends React.Component {
       React.PropTypes.number,
     ]),
     samples: React.PropTypes.array,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -42,7 +42,7 @@ class Sample extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
     const styles = {

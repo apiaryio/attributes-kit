@@ -29,26 +29,27 @@ class StructuredObjectProperty extends React.Component {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     index: React.PropTypes.number,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      'isExpandableCollapsible': isExpandableCollapsible(this.props.element),
-      'isObject': isObject(this.props.element),
-      'isArray': isArray(this.props.element),
+      isExpandableCollapsible: isExpandableCollapsible(this.props.element),
+      isObject: isObject(this.props.element),
+      isArray: isArray(this.props.element),
     };
 
     // State hasn't been set; tree is expanded by default,
     // after a click, it collapses.
     if (this.state.isExpandableCollapsible) {
       this.state.isExpanded = true;
-      this.state.containsExpandableCollapsibleElement = containsExpandableCollapsibleElement(this.props.parentElement.content);
+      this.state.containsExpandableCollapsibleElement =
+        containsExpandableCollapsibleElement(this.props.parentElement.content);
     }
   }
 
@@ -56,10 +57,10 @@ class StructuredObjectProperty extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
-    const {BORDER_COLOR} = this.context.theme;
+    const { BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {

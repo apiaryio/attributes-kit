@@ -14,7 +14,7 @@ app.use(bodyparser.json());
 
 app.post('/parse', (req, res) => {
   parseMson(req.body.source, (err, attributes) => {
-    return res.json({errors: err, attributes: attributes});
+    return res.json({ errors: err, attributes });
   });
 });
 
@@ -31,11 +31,11 @@ app.get('/fixtures', (req, res) => {
         return callback(err);
       }
 
-      return callback(null, {mson: sample.code, parsed: result, name: sample.name});
+      return callback(null, { mson: sample.code, parsed: result, name: sample.name });
     });
   }, (err, result) => {
     if (err) {
-      return res.status(400).json({error: err});
+      return res.status(400).json({ error: err });
     }
 
     return res.json(result);

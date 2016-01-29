@@ -6,7 +6,7 @@ class Attributes extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);

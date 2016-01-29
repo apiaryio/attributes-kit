@@ -9,7 +9,7 @@ class Description extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
     const styles = {
@@ -39,13 +39,14 @@ class Description extends React.Component {
       return false;
     }
 
-    const markdownMarkup = {__html: marked(description)};
+    const markdownMarkup = { __html: marked(description) };
 
     return (
       <div
         style={styles.root}
         className="attributeDescription"
-        dangerouslySetInnerHTML={markdownMarkup} />
+        dangerouslySetInnerHTML={markdownMarkup}
+      />
     );
   }
 }

@@ -21,14 +21,14 @@ class ObjectHeader extends React.Component {
     onTypeClick: React.PropTypes.func,
     onToggleClick: React.PropTypes.func,
     onSampleToggleClick: React.PropTypes.func,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   renderStyles() {
-    const {BORDER_COLOR} = this.context.theme;
+    const { BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {

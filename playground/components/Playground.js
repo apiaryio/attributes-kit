@@ -31,7 +31,7 @@ class Playground extends React.Component {
 
   _onChange(payload) {
     if (payload.type === actionTypes.MSON_PARSED) {
-      this.setState({parseResult: payload});
+      this.setState({ parseResult: payload });
     }
   }
 
@@ -39,17 +39,21 @@ class Playground extends React.Component {
     return (
       <div className="playgrund-app">
         <div className="column">
-          <EditorComponent errors={this.state.parseResult.errors} />
+          <EditorComponent
+            errors={this.state.parseResult.errors}
+          />
         </div>
 
         <div className="column">
           <JsonFormatterComponent
-            element={this.state.parseResult.attributes} />
+            element={this.state.parseResult.attributes}
+          />
         </div>
 
         <div className="column">
           <AttributesKit.Attributes
-            element={this.state.parseResult.attributes} />
+            element={this.state.parseResult.attributes}
+          />
         </div>
       </div>
     );

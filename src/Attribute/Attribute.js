@@ -11,11 +11,11 @@ class Attribute extends React.Component {
     element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
-  }
+  };
 
   static childContextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);

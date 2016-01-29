@@ -8,18 +8,18 @@ class Ruler extends React.Component {
       React.PropTypes.array,
     ]),
     style: React.PropTypes.object,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
   }
 
   renderStyles() {
-    const {BORDER_COLOR} = this.context.theme;
+    const { BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {

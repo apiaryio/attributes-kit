@@ -5,14 +5,14 @@ class Key extends React.Component {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
     onClick: React.PropTypes.func,
-  }
+  };
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  }
+  };
 
   getStyles() {
-    const {KEY_COLOR} = this.context.theme;
+    const { KEY_COLOR } = this.context.theme;
 
     this.styles = {
       key: {

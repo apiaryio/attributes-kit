@@ -10,7 +10,6 @@ dependencies:
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.6 10
     - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
     - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
-    - npm install npm@latest -g
     - case $CIRCLE_NODE_INDEX in 0) nvm install 0.10.40 ;; esac
     - case $CIRCLE_NODE_INDEX in 0) nvm install 0.12.7 ;; esac
     - case $CIRCLE_NODE_INDEX in 1) nvm install 4.2.2 ;; esac

@@ -13,12 +13,12 @@ import {
   getValue,
 } from 'elements/expandableCollapsibleElement';
 
-import {getType, isNestedObject, isObject} from 'elements/element';
+import { getType, isNestedObject, isObject } from 'elements/element';
 
 class EnumMember extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -31,14 +31,15 @@ class EnumMember extends React.Component {
   }
 
   getClassNames() {
-    return classNames('attributeEnumMember', getExpandCollapseClassNames(this.props.element, this.state));
+    return classNames('attributeEnumMember',
+      getExpandCollapseClassNames(this.props.element, this.state));
   }
 
   handleExpandCollapseEvent = () => {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderType() {
     const type = getType(this.props.element);

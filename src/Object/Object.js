@@ -14,7 +14,7 @@ class ObjectComponent extends React.Component {
     element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -30,7 +30,7 @@ class ObjectComponent extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  }
+  };
 
   renderStyles() {
     const styles = {

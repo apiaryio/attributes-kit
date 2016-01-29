@@ -12,7 +12,7 @@ class EditorComponent extends React.Component {
 
   static propTypes = {
     errors: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
-  }
+  };
 
 
   constructor() {
@@ -93,7 +93,7 @@ class EditorComponent extends React.Component {
   }
 
   handleChange = (msonCode) => {
-    this.setState({msonCode});
+    this.setState({ msonCode });
     EditorActions.parse(msonCode);
   };
 
@@ -109,7 +109,7 @@ class EditorComponent extends React.Component {
         name="msonEditor"
         value={this.state.msonCode}
         tabSize={2}
-        editorProps={{$blockScrolling: true}}
+        editorProps={{ $blockScrolling: true }}
       />
     );
   }
