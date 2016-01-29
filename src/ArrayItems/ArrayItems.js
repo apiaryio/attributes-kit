@@ -9,7 +9,7 @@ class ArrayItems extends React.Component {
       React.PropTypes.object,
       React.PropTypes.array,
     ]),
-  };
+  }
 
   constructor(props) {
     super(props);

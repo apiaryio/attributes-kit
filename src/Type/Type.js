@@ -11,14 +11,14 @@ class Type extends React.Component {
     element: React.PropTypes.object,
     onClick: React.PropTypes.func,
     style: React.PropTypes.object,
-  };
+  }
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  };
+  }
 
   getStyles() {
-    const { TYPE_COLOR } = this.context.theme;
+    const {TYPE_COLOR} = this.context.theme;
 
     const styles = {
       root: {

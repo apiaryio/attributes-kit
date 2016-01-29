@@ -4,7 +4,7 @@ import React from 'react';
 class ArrayItemIndex extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
-  };
+  }
 
   renderStyles() {
     const styles = {

@@ -7,7 +7,7 @@ export default {
   parse(source) {
     request
       .post('/parse')
-      .send({ source })
+      .send({source})
       .set('Accept', 'application/json')
       .end((err, res) => {
         dispatcher.dispatch({

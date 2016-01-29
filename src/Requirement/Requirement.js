@@ -6,7 +6,7 @@ import Tooltip from 'Tooltip/Tooltip';
 class Requirement extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   getRequirement() {
     let requirement = ['optional'];

@@ -8,7 +8,7 @@ import Column from 'Column/Column';
 class ArrayItemSamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   renderStyles() {
     return {

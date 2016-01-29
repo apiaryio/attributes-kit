@@ -18,11 +18,11 @@ import {
 class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-  };
+  }
 
   static contextTypes = {
     theme: React.PropTypes.object,
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -36,10 +36,10 @@ class ArrayComponent extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  };
+  }
 
   renderStyles() {
-    const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
+    const {ARRAY_ITEMS_BORDER_COLOR} = this.context.theme;
 
     const styles = {
       arrayItems: {
@@ -67,8 +67,7 @@ class ArrayComponent extends React.Component {
                   key={index}
                   index={index}
                   element={element}
-                  parentElement={this.props.element}
-                />
+                  parentElement={this.props.element} />
               );
             }
 
@@ -77,8 +76,7 @@ class ArrayComponent extends React.Component {
                 key={index}
                 index={index}
                 element={element}
-                parentElement={this.props.element}
-              />
+                parentElement={this.props.element} />
             );
           })
         }

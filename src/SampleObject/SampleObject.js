@@ -14,7 +14,7 @@ class SampleObject extends React.Component {
     parentElement: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     showObjectHeader: React.PropTypes.bool,
-  };
+  }
 
   constructor(props) {
     super(props);
@@ -28,7 +28,7 @@ class SampleObject extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
-  };
+  }
 
   renderStyles() {
     const styles = {
