@@ -4,7 +4,7 @@ import DefinePlugin from 'webpack/lib/DefinePlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 import DeduplePlugin from 'webpack/lib/optimize/DedupePlugin';
 
-import baseConfig from './base.config';
+import baseConfig from './base.config.babel';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const plugins = [];
