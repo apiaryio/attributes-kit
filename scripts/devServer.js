@@ -2,7 +2,7 @@ import WebpackDevServer from 'webpack-dev-server';
 import Webpack from 'webpack';
 import path from 'path';
 
-import webpackConfig from '../webpack/playground.config';
+import webpackConfig from '../webpack/playground.config.babel';
 import '../playground/server';
 
 const compiler = Webpack(webpackConfig);
