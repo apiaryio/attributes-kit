@@ -1,3 +1,4 @@
+import eidolon from 'eidolon';
 import React from 'react';
 import ReactDom from 'react-dom';
 import JSONFormatter from 'json-formatter-js/src/index';
@@ -7,6 +8,7 @@ import 'json-formatter-js/dist/style.css';
 class JsonFormatter extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    dataStructures: React.PropTypes.array,
   };
 
   constructor(props) {
@@ -20,7 +22,23 @@ class JsonFormatter extends React.Component {
 
   attachJsonFormatter() {
     if (this.nodeComponent !== undefined) {
-      const formatter = new JSONFormatter(this.props.element, 3, { hoverPreviewEnabled: false });
+      let element = this.props.element;
+
+      if (element && this.props.dataStructures) {
+        // Convert the list into a map of id -> structure.
+        const structures = {};
+        for (const item of this.props.dataStructures) {
+          structures[item.meta.id] = item;
+        }
+
+        // Dereference the element. This overwrites the original
+        // value with the normalized result. Reference information
+        // is still available in the `meta.ref` properties.
+        element = JSON.parse(JSON.stringify(element));
+        element = eidolon.dereference(element, structures);
+      }
+
+      const formatter = new JSONFormatter(element, 3, { hoverPreviewEnabled: false });
       if (this.nodeComponent.hasChildNodes()) {
         this.nodeComponent.removeChild(this.nodeComponent.firstChild);
       }

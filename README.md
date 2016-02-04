@@ -244,6 +244,7 @@ Attributes Kit always takes the same parameters.
 | `refractElement` | [Refract](https://github.com/refractproject/refract-spec) element to be rendered. |
 | `element` | A DOM node or a CSS selector; Attributes Kit will be rendered inside the element. |
 | `options` | An options object to customize the rendering. |
+| `options.dataStructures` | If set, these data structures will be used to dereference the `refractElement` being rendered. It should be a js array of refract elements. |
 
 ---
 

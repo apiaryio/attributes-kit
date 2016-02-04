@@ -54,7 +54,7 @@ class AttributesKit extends EventEmitter {
   }
 
   render(refractElement) {
-    ReactDom.render(<AttributesComponent element={refractElement} />, this.element);
+    ReactDom.render(<AttributesComponent element={refractElement} dataStructures={this.options.dataStructures} />, this.element);
   }
 }
 

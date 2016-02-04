@@ -32,16 +32,23 @@ class EditorComponent extends React.Component {
 
             [1]: https://github.com/apiaryio/api-blueprint/issues/191
 
-        - author
-            - name: Z
-            - twitter: @zdne
-            - address
-                - company: \`Apiary, INC\`
-                - street: 325 Ninth Street (required)
-                - city: San Francisco
-                - state: CA
-                - zip (number, required)
-                - tags: red, green, blue
+        - author (Author)
+
+        ## Author
+        - name: Z
+        - twitter: @zdne
+        - address
+            - company: \`Apiary, INC\`
+            - street: 325 Ninth Street (required)
+            - city: San Francisco
+            - state: CA
+            - zip (number, required)
+            - tags (TagsArray)
+
+        ## TagsArray (array)
+        - red
+        - green
+        - blue
       `,
     };
   }

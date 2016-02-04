@@ -13,8 +13,8 @@ const app = express();
 app.use(bodyparser.json());
 
 app.post('/parse', (req, res) => {
-  parseMson(req.body.source, (err, attributes) => {
-    return res.json({ errors: err, attributes });
+  parseMson(req.body.source, (err, dataStructures) => {
+    return res.json({ errors: err, dataStructures });
   });
 });
 
