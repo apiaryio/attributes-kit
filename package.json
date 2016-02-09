@@ -62,18 +62,8 @@
   "bugs": {
     "url": "https://github.com/apiaryio/attributes-kit/issues"
   },
-  "babel": {
-    "presets": [
-      "stage-0",
-      "es2015",
-      "react"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "add-module-exports"
-    ]
-  },
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
+  "dependencies": {},
   "devDependencies": {
     "async": "^1.4.2",
     "babel-cli": "6.4.5",
@@ -121,5 +111,25 @@
     "svgo": "0.6.1",
     "webpack": "1.12.12",
     "webpack-dev-server": "1.14.1"
+  },
+  "babel": {
+    "presets": [
+      "stage-0",
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "add-module-exports"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+      "node": true,
+      "browser": true,
+      "mocha": true
+    }
   }
 }
