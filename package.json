@@ -1,6 +1,6 @@
 {
   "name": "attributes-kit",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "React component for MSON rendering",
   "engines": {
     "node": "0.12"
@@ -26,6 +26,11 @@
       "name": "Vincenzo Chianese",
       "email": "vincenzo@apiary.io",
       "url": "http://vncz.js.org/"
+    },
+    {
+      "name": "Daniel G. Taylor",
+      "email": "daniel@apiary.io",
+      "url": "http://programmer-art.org/"
     }
   ],
   "main": "dist/attributes-kit",
@@ -57,18 +62,8 @@
   "bugs": {
     "url": "https://github.com/apiaryio/attributes-kit/issues"
   },
-  "babel": {
-    "presets": [
-      "stage-0",
-      "es2015",
-      "react"
-    ],
-    "plugins": [
-      "transform-class-properties",
-      "add-module-exports"
-    ]
-  },
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
+  "dependencies": {},
   "devDependencies": {
     "async": "^1.4.2",
     "babel-cli": "6.4.5",
@@ -86,6 +81,7 @@
     "clipboard": "1.5.5",
     "css-loader": "^0.21.0",
     "dedent": "^0.6.0",
+    "eidolon": "^1.2.0",
     "eslint": "1.10.3",
     "eslint-config-airbnb": "3.1.0",
     "eslint-plugin-react": "3.14.0",
@@ -115,5 +111,28 @@
     "svgo": "0.6.1",
     "webpack": "1.12.12",
     "webpack-dev-server": "1.14.1"
+  },
+  "babel": {
+    "presets": [
+      "stage-0",
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "add-module-exports"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "rules": {
+      "no-extra-semi": 0
+    },
+    "env": {
+      "node": true,
+      "browser": true,
+      "mocha": true
+    }
   }
 }

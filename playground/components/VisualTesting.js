@@ -39,10 +39,10 @@ class VisualTesting extends React.Component {
             </pre>
           </div>
           <div className="column">
-            <JsonFormatter element={fixture.parsed} />
+            <JsonFormatter element={fixture.parsed[0]} />
           </div>
           <div className="column">
-            <AttributesKit.Attributes element={fixture.parsed} />
+            <AttributesKit.Attributes element={fixture.parsed[0]} />
           </div>
         </div>
       );

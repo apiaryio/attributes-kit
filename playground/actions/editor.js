@@ -12,7 +12,7 @@ export default {
       .end((err, res) => {
         dispatcher.dispatch({
           type: types.MSON_PARSED,
-          attributes: res.body.attributes,
+          dataStructures: res.body.dataStructures,
           errors: res.body.errors,
         });
       });
