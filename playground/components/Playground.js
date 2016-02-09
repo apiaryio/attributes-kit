@@ -29,27 +29,27 @@ class Playground extends React.Component {
     };
 
     this.dispatcherIds = [];
-  }
+  };
 
   componentDidMount() {
     this.dispatcherIds.push(dispatcher.register(this._onChange));
-  }
+  };
 
   componentWillUnmount() {
     this.dispatcherIds.forEach((id) => dispatcher.unregister(id));
-  }
+  };
 
   _onChange(payload) {
     if (payload.type === actionTypes.MSON_PARSED) {
       this.setState({ parseResult: payload });
     }
-  }
+  };
 
   handleDereferenceToggle = (event) => {
     this.setState({
       dereference: event.target.checked,
     });
-  }
+  };
 
   render() {
     let dataStructures;
@@ -86,7 +86,7 @@ class Playground extends React.Component {
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default Playground;
