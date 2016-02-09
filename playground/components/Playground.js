@@ -24,7 +24,7 @@ class Playground extends React.Component {
       renderOptions: {
         paddingBottom: '4px',
         marginBottom: '4px',
-        borderBottom: '1px solid #ddd'
+        borderBottom: '1px solid #ddd',
       },
     };
 
@@ -45,8 +45,10 @@ class Playground extends React.Component {
     }
   }
 
-  handleDereferenceToggle(event) {
-    this.setState({dereference: event.target.checked});
+  handleDereferenceToggle = (event) => {
+    this.setState({
+      dereference: event.target.checked,
+    });
   }
 
   render() {
@@ -73,7 +75,9 @@ class Playground extends React.Component {
 
         <div className="column">
           <div style={this.style.renderOptions}>
-            <label><input type="checkbox" onChange={this.handleDereferenceToggle.bind(this)}/> Dereference</label>
+            <label>
+              <input type="checkbox" onChange={this.handleDereferenceToggle}/> Dereference
+            </label>
           </div>
           <AttributesKit.Attributes
             element={this.state.parseResult.dataStructures[0]}
