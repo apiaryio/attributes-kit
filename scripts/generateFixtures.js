@@ -30,7 +30,7 @@ msonZoo.samples.forEach((sample) => {
     }
 
     const renderedElement = React.createElement(AttributesKit.Attributes, {
-      element: result
+      element: result[0]
     });
 
     let htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
