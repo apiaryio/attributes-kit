@@ -26,6 +26,11 @@
       "name": "Vincenzo Chianese",
       "email": "vincenzo@apiary.io",
       "url": "http://vncz.js.org/"
+    },
+    {
+      "name": "Daniel G. Taylor",
+      "email": "daniel@apiary.io",
+      "url": "http://programmer-art.org/"
     }
   ],
   "main": "dist/attributes-kit",
