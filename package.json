@@ -126,6 +126,9 @@
   "eslintConfig": {
     "extends": "airbnb",
     "parser": "babel-eslint",
+    "rules": {
+      "no-extra-semi": 0
+    },
     "env": {
       "node": true,
       "browser": true,
