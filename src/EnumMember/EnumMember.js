@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import Row from 'Row/Row';
+import Column from 'Column/Column';
 import Key from 'Key/Key';
 import Requirement from 'Requirement/Requirement';
 import Description from 'Description/Description';
@@ -13,7 +15,7 @@ import {
   getValue,
 } from 'elements/expandableCollapsibleElement';
 
-import { getType, isNestedObject, isObject } from 'elements/element';
+import { getType, isObject } from 'elements/element';
 
 class EnumMember extends React.Component {
   static propTypes = {
@@ -62,7 +64,7 @@ class EnumMember extends React.Component {
       return false;
     }
 
-    if (isNestedObject(value.element)) {
+    if (isObject(value.element)) {
       return false;
     }
 
@@ -131,36 +133,38 @@ class EnumMember extends React.Component {
     }
 
     return (
-      <div className={this.getClassNames()}>
-
-        <div className="attributeEnumMemberToggle">
+      <Row>
+      <Row>
+        <Column>
           <Toggle
-            expandCollapseEventHandler={this.handleExpandCollapseEvent}
+            onClick={this.handleExpandCollapseEvent}
             isExpanded={this.state.isExpanded}
           />
-        </div>
+        </Column>
 
-        <div className="attributeEnumMemberKey">
+        <Column>
           <Key element={this.props.element} />
           {this.renderType()}
-        </div>
+        </Column>
 
-        <div className="attributeEnumMemberRequirement">
+        <Column>
           <Requirement element={this.props.element} />
-        </div>
+        </Column>
 
-        <div className="attributeEnumMemberDescription">
+        <Column>
           <Description element={this.props.element} />
-        </div>
+        </Column>
 
+      </Row>
+      <Row>
         <div className="attributeEnumMemberValueRow">
           {this.renderValue()}
           {this.renderDefaults()}
         </div>
 
         {this.renderSamples()}
-
-      </div>
+      </Row>
+      </Row>
     );
   }
 }

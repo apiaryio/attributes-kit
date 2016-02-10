@@ -5,5 +5,5 @@ import EnumComponent from 'Enum/Enum';
 export default {
   object: ObjectComponent,
   array: ArrayComponent,
-  enum: EnumComponent,
+  enum: ArrayComponent,
 };

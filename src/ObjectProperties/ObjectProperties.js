@@ -44,7 +44,7 @@ class ObjectProperties extends React.Component {
       <div style={this.getStyles().root}>
         {
           this.props.element.content.map((element, index) => {
-            if (getType(element) === 'enum' || getType(element) === 'select') {
+            if (getType(element) === 'select') {
               return false;
             }
 
