@@ -7,7 +7,7 @@ import JsonFormatter from './JsonFormatter';
 import AttributesKit from '../../src';
 
 
-class VisualTesting extends React.Component {
+class Examples extends React.Component {
   constructor(props) {
     super(props);
 
@@ -56,4 +56,4 @@ class VisualTesting extends React.Component {
   }
 }
 
-export default VisualTesting;
+export default Examples;
