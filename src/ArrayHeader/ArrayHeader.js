@@ -2,6 +2,10 @@ import React from 'react';
 
 import Type from 'Type/Type';
 import SampleToggle from 'SampleToggle/SampleToggle';
+import Toggle from 'Toggle/Toggle';
+
+import Row from 'Row/Row';
+import Column from 'Column/Column';
 
 import {
   hasSamples,
@@ -47,6 +51,14 @@ class ArrayHeader extends React.Component {
           fontSize: '12px',
         },
       },
+      toggleColumn: {
+        minWidth: '20px',
+        maxWidth: '20px',
+        width: '20px',
+      },
+      column: {
+        justifyContent: 'center',
+      },
     };
 
     if (this.props.isExpanded) {
@@ -57,7 +69,7 @@ class ArrayHeader extends React.Component {
   }
 
   renderSampleToggle(styles) {
-    if (this.props.element && hasSamples(this.props.element)) {
+    if (this.props.parentElement && this.props.parentElement.element === 'enum') {
       return (
         <SampleToggle
           onClick={this.props.onSampleToggleClick}
@@ -67,21 +79,48 @@ class ArrayHeader extends React.Component {
         />
       );
     }
-  }
+  };
+
+  renderToggleColumn(styles) {
+    if (this.props.parentElement && this.props.parentElement.element === 'enum') {
+      return (
+        <Column style={styles.toggleColumn}>
+          <Toggle
+            onClick={this.props.onToggleClick}
+            isExpanded={this.props.isExpanded}
+          />
+        </Column>
+      );
+    }
+  };
 
   render() {
     const styles = this.renderStyles();
 
+    let type;
+
+    switch(this.props.element.element) {
+      case 'enum':
+        type = 'enum';
+        break;
+      case 'array':
+        type = 'array';
+        break;
+    }
+
     return (
-      <div style={styles.root}>
-        <Type
-          type="array"
-          style={styles.type}
-        />
-        {this.renderSampleToggle(styles)}
-      </div>
+      <Row style={styles.root}>
+        <Column style={styles.column}>
+          <Type
+            type={type}
+            style={styles.type}
+          />
+
+          {this.renderSampleToggle(styles)}
+        </Column>
+      </Row>
     );
-  }
+  };
 }
 
 export default ArrayHeader;

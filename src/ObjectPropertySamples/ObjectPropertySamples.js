@@ -6,6 +6,9 @@ import Sample from 'Sample/Sample';
 
 import {
   isObjectOrArray,
+  isObject,
+  isArray,
+  isEnum,
 } from 'elements/element';
 
 
@@ -51,7 +54,7 @@ class ObjectPropertySamples extends React.Component {
       return false;
     }
 
-    if (isObjectOrArray(value.element)) {
+    if (isObject(value.element) || isArray(value.element) || isEnum(value.element)) {
       return false;
     }
 

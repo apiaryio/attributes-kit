@@ -11,6 +11,7 @@ import {
   isLastArrayItem,
   isObject,
   isArray,
+  hasDescription,
 } from 'elements/element';
 
 import {
@@ -72,6 +73,19 @@ class StructuredArrayItem extends React.Component {
         maxWidth: '30px',
         minWidth: '30px',
       },
+      bulletColumn: {
+        width: '8px',
+        minWidth: '8px',
+        maxWidth: '8px',
+        height: 'auto',
+        alignSelf: 'stretch',
+        backgroundImage: `url(${require('./bullet.svg')})`,
+        backgroundSize: '8px 8px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        marginLeft: '16px',
+        marginRight: '8px',
+      },
     };
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
@@ -79,8 +93,9 @@ class StructuredArrayItem extends React.Component {
     // Last array item doesn't have a border.
     if (isLast) {
       styles.root.borderBottom = 'none';
-      styles.root.paddingBottom = '0px';
-    } else {
+    }
+
+    if (isObject(this.props.element)) {
       styles.root.paddingBottom = '0px';
     }
 
@@ -92,15 +107,24 @@ class StructuredArrayItem extends React.Component {
 
     return (
       <Row style={styles.root}>
-        <ArrayItemIndex index={this.props.index} />
+        {
+          this.props.showArrayItemIndex &&
+            <ArrayItemIndex index={this.props.index} />
+        }
 
-        <Column>
-          <Row>
-            <Description element={this.props.element} />
-          </Row>
-        </Column>
+        {
+          this.props.showBullet &&
+            <Column style={styles.bulletColumn} />
+        }
 
         <Column style={styles.column}>
+          {
+            hasDescription(this.props.element) &&
+              <Row>
+                <Description element={this.props.element} />
+              </Row>
+          }
+
           <Row>
             {
               renderValue(this.props.element, {

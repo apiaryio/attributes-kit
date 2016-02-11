@@ -10,21 +10,10 @@ class Playground extends React.Component {
   constructor(props) {
     super(props);
 
-    this._onChange = this._onChange.bind(this);
-
     this.state = {
-      dereference: false,
       parseResult: {
         dataStructures: [],
         errors: [],
-      },
-    };
-
-    this.style = {
-      renderOptions: {
-        paddingBottom: '4px',
-        marginBottom: '4px',
-        borderBottom: '1px solid #ddd',
       },
     };
 
@@ -32,31 +21,23 @@ class Playground extends React.Component {
   };
 
   componentDidMount() {
-    this.dispatcherIds.push(dispatcher.register(this._onChange));
+    this.dispatcherIds.push(dispatcher.register(this.onChange));
   };
 
   componentWillUnmount() {
     this.dispatcherIds.forEach((id) => dispatcher.unregister(id));
   };
 
-  _onChange(payload) {
+  onChange = (payload) => {
     if (payload.type === actionTypes.MSON_PARSED) {
       this.setState({ parseResult: payload });
     }
   };
 
-  handleDereferenceToggle = (event) => {
-    this.setState({
-      dereference: event.target.checked,
-    });
-  };
-
   render() {
     let dataStructures;
 
-    if (this.state.dereference) {
-      dataStructures = this.state.parseResult.dataStructures;
-    }
+    dataStructures = this.state.parseResult.dataStructures || [];
 
     return (
       <div className="playgrund-app">
@@ -67,22 +48,23 @@ class Playground extends React.Component {
         </div>
 
         <div className="column">
-          <JsonFormatterComponent
-            element={this.state.parseResult.dataStructures[0]}
-            dataStructures={dataStructures}
-          />
+          {
+            dataStructures.length > 0 &&
+              <JsonFormatterComponent
+                element={this.state.parseResult.dataStructures[0]}
+                dataStructures={dataStructures}
+              />
+          }
         </div>
 
         <div className="column">
-          <div style={this.style.renderOptions}>
-            <label>
-              <input type="checkbox" onChange={this.handleDereferenceToggle}/> Dereference
-            </label>
-          </div>
-          <AttributesKit.Attributes
-            element={this.state.parseResult.dataStructures[0]}
-            dataStructures={dataStructures}
-          />
+          {
+            dataStructures.length > 0 &&
+              <AttributesKit.Attributes
+                element={this.state.parseResult.dataStructures[0]}
+                dataStructures={dataStructures}
+              />
+          }
         </div>
       </div>
     );

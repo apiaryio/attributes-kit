@@ -88,7 +88,7 @@ class StructuredObjectProperty extends React.Component {
       },
       ruler: {
         root: {
-          width: 'auto',
+          width: '100%',
           marginLeft: '6px',
           paddingBottom: '8px',
         },

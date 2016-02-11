@@ -24,7 +24,7 @@ class Row extends React.Component {
       flexDirection: 'row',
       flexWrap: 'no-wrap',
       justifyContent: 'flex-start',
-      alignItems: 'flex-start',
+      alignItems: 'stretch',
       position: 'relative',
     };
 

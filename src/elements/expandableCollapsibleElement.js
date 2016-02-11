@@ -9,12 +9,13 @@ import {
   isObjectOrArray,
   isObject,
   isArray,
+  isEnum,
   isMember,
 } from 'elements/element';
 
 function isExpandableCollapsible(element) {
   const valueType = getValueType(element);
-  return isObject(valueType) || isArray(valueType);
+  return isObject(valueType) || isArray(valueType) || isEnum(valueType);
 }
 
 // Alias
@@ -60,6 +61,7 @@ function getExpandCollapseClassNames(element, state) {
 
 function getValue(element, props = {}) {
   let value;
+
   if (isObjectOrArray(element.element)) {
     value = (
       <Attribute
@@ -68,8 +70,15 @@ function getValue(element, props = {}) {
         parentElement={props.parentElement}
       />
     );
+
+  /**
+   * Type of the element is one of the following.
+   *
+   * * Object Property
+   * * Array Item
+   */
   } else if (isMember(element.element)) {
-    if (isObjectOrArray(element.content.value.element)) {
+    if (isStructured(element)) {
       value = (
         <Attribute
           element={element.content.value}
@@ -84,10 +93,12 @@ function getValue(element, props = {}) {
     } else {
       value = false;
     }
+
   } else if (element.content) {
     value = (
       <Value value={element.content} />
     );
+
   } else {
     value = false;
   }
