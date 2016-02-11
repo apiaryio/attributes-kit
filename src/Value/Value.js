@@ -54,7 +54,7 @@ class Value extends React.Component {
     if (this.props.value) {
       return (
         <div style={this.renderStyles()}>
-          {this.props.value}
+          {this.props.value.toString()}
         </div>
       );
     }
@@ -83,7 +83,7 @@ class Value extends React.Component {
 
       return (
         <div style={this.renderStyles()}>
-          {value}
+          {value.toString()}
         </div>
       );
     }

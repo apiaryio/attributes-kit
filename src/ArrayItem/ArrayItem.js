@@ -10,6 +10,7 @@ import Type from 'Type/Type';
 import Value from 'Value/Value';
 
 import {
+  isObjectOrArray,
   isLastArrayItem,
 } from 'elements/element';
 
@@ -23,6 +24,8 @@ class ArrayItem extends React.Component {
     index: React.PropTypes.number,
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
+    showArrayItemIndex: React.PropTypes.bool,
+    showBullet: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -46,6 +49,19 @@ class ArrayItem extends React.Component {
           marginBottom: '4px',
         },
       },
+      bulletColumn: {
+        width: '8px',
+        minWidth: '8px',
+        maxWidth: '8px',
+        height: 'auto',
+        alignSelf: 'stretch',
+        backgroundImage: `url(${require('./bullet.svg')})`,
+        backgroundSize: '8px 8px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center center',
+        marginLeft: '16px',
+        marginRight: '8px',
+      },
     };
 
     // Last array item doesn't have a border.
@@ -53,7 +69,12 @@ class ArrayItem extends React.Component {
       styles.root.borderBottom = 'none';
     }
 
-    if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {
+    // In case of objects and array we want to indent
+    // all properties (members) the same.
+    if (
+      isObjectOrArray(this.props.parentElement.element) &&
+      containsExpandableCollapsibleElement(this.props.parentElement.content)
+    ) {
       styles.column.paddingLeft = '28px';
     }
 
@@ -65,7 +86,15 @@ class ArrayItem extends React.Component {
 
     return (
       <Row style={styles.root}>
-        <ArrayItemIndex index={this.props.index} />
+        {
+          this.props.showArrayItemIndex &&
+            <ArrayItemIndex index={this.props.index} />
+        }
+
+        {
+          this.props.showBullet &&
+            <Column style={styles.bulletColumn} />
+        }
 
         <Column style={styles.column}>
           <Row>

@@ -2,16 +2,19 @@ import React from 'react';
 
 import Type from 'Type/Type';
 import SampleToggle from 'SampleToggle/SampleToggle';
+import Row from 'Row/Row';
+import Column from 'Column/Column';
 
 import {
   hasSamples,
+  isEnum,
 } from 'elements/element';
-
 
 class ArrayHeader extends React.Component {
   static propTypes = {
     isExpanded: React.PropTypes.bool,
     element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
     onSampleToggleClick: React.PropTypes.func,
     sampleTitle: React.PropTypes.string,
   };
@@ -47,6 +50,14 @@ class ArrayHeader extends React.Component {
           fontSize: '12px',
         },
       },
+      toggleColumn: {
+        minWidth: '20px',
+        maxWidth: '20px',
+        width: '20px',
+      },
+      column: {
+        justifyContent: 'center',
+      },
     };
 
     if (this.props.isExpanded) {
@@ -57,7 +68,12 @@ class ArrayHeader extends React.Component {
   }
 
   renderSampleToggle(styles) {
-    if (this.props.element && hasSamples(this.props.element)) {
+    if (
+      this.props.parentElement && (
+        isEnum(this.props.parentElement.element) ||
+        hasSamples(this.props.parentElement.element)
+      )
+    ) {
       return (
         <SampleToggle
           onClick={this.props.onSampleToggleClick}
@@ -67,21 +83,37 @@ class ArrayHeader extends React.Component {
         />
       );
     }
-  }
+  };
 
   render() {
     const styles = this.renderStyles();
 
+    let type;
+
+    switch (this.props.element.element) {
+      case 'enum':
+        type = 'enum';
+        break;
+      case 'array':
+        type = 'array';
+        break;
+      default:
+        type = 'array';
+    }
+
     return (
-      <div style={styles.root}>
-        <Type
-          type={this.props.element.element}
-          style={styles.type}
-        />
-        {this.renderSampleToggle(styles)}
-      </div>
+      <Row style={styles.root}>
+        <Column style={styles.column}>
+          <Type
+            type={type}
+            style={styles.type}
+          />
+
+          {this.renderSampleToggle(styles)}
+        </Column>
+      </Row>
     );
-  }
+  };
 }
 
 export default ArrayHeader;
