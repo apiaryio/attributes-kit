@@ -74,6 +74,16 @@ function hasSamples(element) {
   return false;
 }
 
+function hasDescription(element) {
+  if (element.meta) {
+    if (element.meta.description) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function isLastArrayItem(arrayElement, currentArrayItemIndex) {
   const numberOfArrayItems = arrayElement.content.length;
   return (numberOfArrayItems - 1) === currentArrayItemIndex;
@@ -90,4 +100,5 @@ export {
   isObjectArrayEnum,
   hasSamples,
   isLastArrayItem,
+  hasDescription,
 };

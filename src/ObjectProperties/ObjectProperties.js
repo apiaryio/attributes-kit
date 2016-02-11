@@ -44,10 +44,6 @@ class ObjectProperties extends React.Component {
       <div style={this.getStyles().root}>
         {
           this.props.element.content.map((element, index) => {
-            if (getType(element) === 'select') {
-              return false;
-            }
-
             if (isStructured(element)) {
               return (
                 <StructuredObjectProperty
