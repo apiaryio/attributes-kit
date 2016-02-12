@@ -6,7 +6,6 @@ import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isObjectOrArray,
   isObjectOrArrayOrEnum,
   isObject,
   isArray,
