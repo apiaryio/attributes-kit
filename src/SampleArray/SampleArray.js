@@ -25,6 +25,7 @@ class SampleArray extends React.Component {
 
     const styles = {
       sampleArrayItems: {
+        width: '100%',
         border: `1px solid ${BORDER_COLOR}`,
       },
     };

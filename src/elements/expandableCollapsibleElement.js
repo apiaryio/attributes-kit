@@ -7,6 +7,7 @@ import Attribute from 'Attribute/Attribute';
 import {
   getValueType,
   isObjectOrArray,
+  isObjectOrArrayOrEnum,
   isObject,
   isArray,
   isEnum,
@@ -62,7 +63,7 @@ function getExpandCollapseClassNames(element, state) {
 function getValue(element, props = {}) {
   let value;
 
-  if (isObjectOrArray(element.element)) {
+  if (isObjectOrArrayOrEnum(element.element)) {
     value = (
       <Attribute
         element={element}

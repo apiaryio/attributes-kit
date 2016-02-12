@@ -49,6 +49,10 @@ function isArray(element) {
 }
 
 function isEnum(element) {
+  if (!element) {
+    return false;
+  }
+
   if (element.element) {
     return getType(element) === TYPES.ENUM;
   }
@@ -60,7 +64,7 @@ function isObjectOrArray(element) {
   return isObject(element) || isArray(element);
 }
 
-function isObjectArrayEnum(element) {
+function isObjectOrArrayOrEnum(element) {
   return isObject(element) || isArray(element) || isEnum(element);
 }
 
@@ -97,7 +101,7 @@ export {
   isObject,
   isArray,
   isObjectOrArray,
-  isObjectArrayEnum,
+  isObjectOrArrayOrEnum,
   hasSamples,
   isLastArrayItem,
   hasDescription,
