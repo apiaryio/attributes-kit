@@ -99,7 +99,7 @@
                                                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                                             <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                                                 <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
-                                                                    <div style="border:1px solid #E8EBEE;">
+                                                                    <div style="width:100%;border:1px solid #E8EBEE;">
                                                                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:none;padding-top:8px;padding-bottom:8px;">
                                                                             <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;padding-left:8px;padding-right:8px;">
                                                                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
