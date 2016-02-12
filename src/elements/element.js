@@ -49,8 +49,12 @@ function isArray(element) {
 }
 
 function isEnum(element) {
+  if (!element) {
+    return false;
+  }
+
   if (element.element) {
-    return getType(element) === TYPES.ARRAY;
+    return getType(element) === TYPES.ENUM;
   }
 
   return element === TYPES.ENUM;
@@ -60,11 +64,25 @@ function isObjectOrArray(element) {
   return isObject(element) || isArray(element);
 }
 
+function isObjectOrArrayOrEnum(element) {
+  return isObject(element) || isArray(element) || isEnum(element);
+}
+
 function hasSamples(element) {
   const attributes = element.attributes;
 
   if (attributes) {
     return !!attributes.samples;
+  }
+
+  return false;
+}
+
+function hasDescription(element) {
+  if (element.meta) {
+    if (element.meta.description) {
+      return true;
+    }
   }
 
   return false;
@@ -83,6 +101,8 @@ export {
   isObject,
   isArray,
   isObjectOrArray,
+  isObjectOrArrayOrEnum,
   hasSamples,
   isLastArrayItem,
+  hasDescription,
 };

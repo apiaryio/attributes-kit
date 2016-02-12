@@ -8,11 +8,6 @@ import {
   isStructured,
 } from 'elements/expandableCollapsibleElement';
 
-import {
-  getType,
-} from 'elements/element';
-
-
 class ObjectProperties extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -44,10 +39,6 @@ class ObjectProperties extends React.Component {
       <div style={this.getStyles().root}>
         {
           this.props.element.content.map((element, index) => {
-            if (getType(element) === 'enum' || getType(element) === 'select') {
-              return false;
-            }
-
             if (isStructured(element)) {
               return (
                 <StructuredObjectProperty

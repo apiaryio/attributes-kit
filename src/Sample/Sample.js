@@ -11,6 +11,7 @@ import Value from 'Value/Value';
 import {
   isArray,
   isObject,
+  isEnum,
 } from 'elements/element';
 
 
@@ -47,7 +48,7 @@ class Sample extends React.Component {
   renderStyles() {
     const styles = {
       row: {
-
+        width: '100%',
       },
       value: {
         marginTop: '4px',
@@ -83,7 +84,7 @@ class Sample extends React.Component {
   }
 
   render() {
-    if (isArray(this.props.element)) {
+    if (isArray(this.props.element) || isEnum(this.props.element)) {
       return (
         <SampleArray
           element={this.props.element}

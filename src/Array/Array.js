@@ -18,6 +18,7 @@ import {
 class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -57,6 +58,23 @@ class ArrayComponent extends React.Component {
       return false;
     }
 
+    let showArrayItemIndex;
+    let showBullet;
+
+    switch (this.props.element.element) {
+      case 'enum':
+        showArrayItemIndex = false;
+        showBullet = true;
+        break;
+      case 'array':
+        showArrayItemIndex = true;
+        showBullet = false;
+        break;
+      default:
+        showArrayItemIndex = true;
+        showBullet = false;
+    }
+
     return (
       <ArrayItems style={styles.arrayItems}>
         {
@@ -68,6 +86,8 @@ class ArrayComponent extends React.Component {
                   index={index}
                   element={element}
                   parentElement={this.props.element}
+                  showArrayItemIndex={showArrayItemIndex}
+                  showBullet={showBullet}
                 />
               );
             }
@@ -78,6 +98,8 @@ class ArrayComponent extends React.Component {
                 index={index}
                 element={element}
                 parentElement={this.props.element}
+                showArrayItemIndex={showArrayItemIndex}
+                showBullet={showBullet}
               />
             );
           })
@@ -98,6 +120,7 @@ class ArrayComponent extends React.Component {
         <Column>
           <ArrayHeader
             element={this.props.element}
+            parentElement={this.props.parentElement}
             isExpanded={this.state.isExpanded}
             onSampleToggleClick={this.handleExpandCollapse}
             sampleTitle="Description"

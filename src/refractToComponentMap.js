@@ -1,9 +1,11 @@
 import ArrayComponent from 'Array/Array';
 import ObjectComponent from 'Object/Object';
-import EnumComponent from 'Enum/Enum';
 
 export default {
   object: ObjectComponent,
+
+  // Since Array and Enum elements have the same structure we'll
+  // share the same component for rendering.
   array: ArrayComponent,
-  enum: EnumComponent,
+  enum: ArrayComponent,
 };

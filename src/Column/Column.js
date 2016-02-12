@@ -13,9 +13,13 @@ class Column extends React.Component {
 
   getStyles() {
     const styles = {
-      flexGrow: 1,
       height: 'auto',
-      width: 'auto',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      flexWrap: 'no-wrap',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
     };
 
     return lodash.merge(styles, this.props.style);

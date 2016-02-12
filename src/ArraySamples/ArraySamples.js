@@ -14,7 +14,9 @@ class ArraySamples extends React.Component {
 
   renderStyles() {
     const styles = {
-      root: {},
+      root: {
+        width: '100%',
+      },
     };
 
     return styles;
