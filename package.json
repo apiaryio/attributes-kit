@@ -63,7 +63,6 @@
     "url": "https://github.com/apiaryio/attributes-kit/issues"
   },
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
-  "dependencies": {},
   "devDependencies": {
     "async": "^1.4.2",
     "babel-cli": "6.4.5",
@@ -76,15 +75,16 @@
     "babel-preset-react": "6.3.13",
     "babel-preset-stage-0": "6.3.13",
     "body-parser": "^1.14.1",
+    "brace": "^0.7.0",
     "browser-launcher2": "^0.4.6",
     "classnames": "^2.1.5",
     "clipboard": "1.5.5",
     "css-loader": "^0.21.0",
     "dedent": "^0.6.0",
     "eidolon": "^1.2.0",
-    "eslint": "1.10.3",
     "eslint-config-airbnb": "3.1.0",
     "eslint-plugin-react": "3.14.0",
+    "eslint": "1.10.3",
     "express": "^4.13.3",
     "file-loader": "^0.8.4",
     "flux": "^2.1.1",
@@ -99,18 +99,18 @@
     "nib": "^1.1.0",
     "node-noop": "^1.0.0",
     "protagonist": "1.2.5",
-    "react": "0.14.3",
     "react-ace": "^2.6.0",
     "react-dom": "0.14.3",
     "react-hot-loader": "^1.3.0",
     "react-router": "1.0.1",
+    "react": "0.14.3",
     "shell-executor": "^0.3.2",
     "style-loader": "^0.12.4",
     "stylus-loader": "1.2.x",
     "superagent": "^1.3.0",
     "svgo": "0.6.1",
-    "webpack": "1.12.12",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+    "webpack": "1.12.12"
   },
   "babel": {
     "presets": [
