@@ -11,22 +11,26 @@ class Description extends React.Component {
     style: React.PropTypes.object,
   };
 
-  renderStyles() {
-    const styles = {
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  };
+
+  get style() {
+    const { DESCRIPTION_COLOR } = this.context.theme;
+
+    const style = {
       root: {
         fontFamily: 'Source Sans Pro',
         fontSize: '16px',
-        color: '#8A93A3',
+        color: DESCRIPTION_COLOR,
         lineHeight: '150%',
       },
     };
 
-    return lodash.merge(styles, this.props.style || {});
-  }
+    return lodash.merge(style, this.props.style || {});
+  };
 
   render() {
-    const styles = this.renderStyles();
-
     let description = null;
 
     if (this.props.element.meta) {
@@ -43,7 +47,7 @@ class Description extends React.Component {
 
     return (
       <div
-        style={styles.root}
+        style={this.style.root}
         className="attributeDescription"
         dangerouslySetInnerHTML={markdownMarkup}
       />
