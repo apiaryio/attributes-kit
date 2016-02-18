@@ -9,6 +9,9 @@ const THEME = {
   VALUE_BACKGROUND_COLOR: '#f0f1f4',
   VALUE_BORDER_RADIUS: '4px',
 
+  /* Description */
+  DESCRIPTION_COLOR: '#8A93A3',
+
   /* ArrayHeader */
   ARRAY_HEADER_BACKGROUND_COLOR: '#F8F8F9',
 
