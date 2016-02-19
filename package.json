@@ -35,7 +35,7 @@
   ],
   "main": "dist/attributes-kit",
   "scripts": {
-    "build": "npm run build:server && npm run build:client && npm run build:playground",
+    "build": "npm run build:server && npm run build:client",
     "build:server": "babel-node ./scripts/runServerBuild.js",
     "build:client": "babel-node ./scripts/runClientBuild.js",
     "generate-fixtures": "npm run build:server && babel-node ./scripts/generateFixtures",
