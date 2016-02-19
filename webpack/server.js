@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import webpack from 'webpack';
 
-import webpackConfig from './base.config.babel';
+import webpackConfig from './base';
 
 let nodeModules = {};
 fs.readdirSync('node_modules')

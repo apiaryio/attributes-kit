@@ -70,10 +70,6 @@ export default {
     ]
   },
 
-  devtool: (function() {
-    return isProduction ? false : 'source-map';
-  })(),
-
   stylus: {
     use: [nib()],
     import: ['nib']
