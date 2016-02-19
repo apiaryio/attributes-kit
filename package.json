@@ -77,6 +77,7 @@
     "classnames": "^2.1.5",
     "cli-table": "^0.3.1",
     "clipboard": "1.5.5",
+    "colors": "^1.1.2",
     "css-loader": "^0.21.0",
     "dedent": "^0.6.0",
     "eidolon": "^1.2.1",
