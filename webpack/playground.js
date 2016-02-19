@@ -34,5 +34,5 @@ export default lodash.merge({}, baseConfig, {
     return pluginsArray;
   })(),
 
-  devtool: 'source-map'
+  devtool: 'source-map',
 });
