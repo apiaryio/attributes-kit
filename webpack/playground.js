@@ -1,7 +1,7 @@
 import lodash from 'lodash';
 import path from 'path';
 import webpack from 'webpack';
-import baseConfig from './base.config.babel';
+import baseConfig from './base';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
