@@ -21,7 +21,6 @@ export default {
       '',
       '.js',
       '.jsx',
-      '.styl',
       '.svg'
     ]
   },
@@ -52,10 +51,6 @@ export default {
         loader: 'babel-loader'
       },
       {
-        test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader'
-      },
-      {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
       },
@@ -69,9 +64,4 @@ export default {
       }
     ]
   },
-
-  stylus: {
-    use: [nib()],
-    import: ['nib']
-  }
 };

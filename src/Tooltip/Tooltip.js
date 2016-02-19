@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './tooltip.styl';
-
 class Tooltip extends React.Component {
   static propTypes = {
     text: React.PropTypes.string,
@@ -9,7 +7,7 @@ class Tooltip extends React.Component {
 
   render() {
     return (
-      <div className="attributeTooltip">
+      <div className="attributeTooltip" style={{display: 'none'}}>
         <span className="attributeTooltipText">
           {this.props.text}
         </span>
