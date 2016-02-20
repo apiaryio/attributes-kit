@@ -7,7 +7,7 @@ class Tooltip extends React.Component {
 
   render() {
     return (
-      <div className="attributeTooltip" style={{display: 'none'}}>
+      <div className="attributeTooltip" style={{ display: 'none' }}>
         <span className="attributeTooltipText">
           {this.props.text}
         </span>

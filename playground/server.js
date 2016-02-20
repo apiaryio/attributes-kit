@@ -13,9 +13,9 @@ const app = express();
 app.use(bodyparser.json());
 
 app.post('/parse', (req, res) => {
-  parseMson(req.body.source, (err, dataStructures) => {
-    return res.json({ errors: err, dataStructures });
-  });
+  parseMson(req.body.source, (err, dataStructures) =>
+    res.json({ errors: err, dataStructures })
+  );
 });
 
 app.get('/fixtures', (req, res) => {
@@ -46,4 +46,4 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'views', 'index.html'));
 });
 
-app.listen(9090, 'localhost', () => {});
+app.listen(9090, 'localhost');

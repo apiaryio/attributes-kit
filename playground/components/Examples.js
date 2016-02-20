@@ -30,23 +30,21 @@ class Examples extends React.Component {
   }
 
   render() {
-    const rows = this.state.fixtures.map((fixture) => {
-      return (
-        <div className="visualTestingContainer" key={fixture.name}>
-          <div className="column">
-            <pre>
-              {fixture.mson}
-            </pre>
-          </div>
-          <div className="column">
-            <JsonFormatter element={fixture.parsed[0]} />
-          </div>
-          <div className="column">
-            <AttributesKit.Attributes element={fixture.parsed[0]} />
-          </div>
+    const rows = this.state.fixtures.map((fixture) =>
+      <div className="visualTestingContainer" key={fixture.name}>
+        <div className="column">
+          <pre>
+            {fixture.mson}
+          </pre>
         </div>
-      );
-    });
+        <div className="column">
+          <JsonFormatter element={fixture.parsed[0]} />
+        </div>
+        <div className="column">
+          <AttributesKit.Attributes element={fixture.parsed[0]} />
+        </div>
+      </div>
+    );
 
     return (
       <div className="playgrund-app">

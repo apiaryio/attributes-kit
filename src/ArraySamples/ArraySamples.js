@@ -44,15 +44,13 @@ class ArraySamples extends React.Component {
     return (
       <div style={styles.root}>
         {
-          samples.map((sample, index) => {
-            return (
-              <ArraySample
-                element={this.props.element}
-                samples={sample}
-                key={index}
-              />
-            );
-          })
+          samples.map((sample, index) =>
+            <ArraySample
+              element={this.props.element}
+              samples={sample}
+              key={index}
+            />
+          )
         }
       </div>
     );

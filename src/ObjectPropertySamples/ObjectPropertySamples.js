@@ -31,11 +31,9 @@ class ObjectPropertySamples extends React.Component {
       },
     };
 
-    return samples.map((sample, index) => {
-      return (
-        <Sample sample={sample} key={index} style={style} />
-      );
-    });
+    return samples.map((sample, index) =>
+      <Sample sample={sample} key={index} style={style} />
+    );
   }
 
   render() {
