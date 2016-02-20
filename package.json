@@ -41,6 +41,7 @@
     "build:client": "babel-node ./scripts/runClientBuild.js",
     "generate-fixtures": "npm run build:server && babel-node ./scripts/generateFixtures",
     "lint": "eslint src playground",
+    "lint:fix": "eslint --fix src playground",
     "playground": "shell-exec 'npm run start' 'babel-node ./scripts/launchBrowser http://localhost:8080/'",
     "prepublish": "not-in-install && npm run build || :",
     "start": "babel-node ./scripts/devServer",
