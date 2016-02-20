@@ -26,7 +26,7 @@
                                     </div>
                                     <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                         <div style="float:left;width:100%;height:auto;">
-                                            <div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                                            <div class="attributeTooltip" style="display:none;"><span class="attributeTooltipText">optional</span></div>
                                         </div>
                                     </div>
                                     <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
@@ -60,7 +60,7 @@
                                                                     </div>
                                                                     <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                                                         <div style="float:left;width:100%;height:auto;">
-                                                                            <div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                                                                            <div class="attributeTooltip" style="display:none;"><span class="attributeTooltipText">optional</span></div>
                                                                         </div>
                                                                     </div>
                                                                     <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
@@ -87,7 +87,7 @@
                                                                                             </div>
                                                                                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                                                                                 <div style="float:left;width:100%;height:auto;">
-                                                                                                    <div class="attributeTooltip"><span class="attributeTooltipText">optional</span></div>
+                                                                                                    <div class="attributeTooltip" style="display:none;"><span class="attributeTooltipText">optional</span></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
