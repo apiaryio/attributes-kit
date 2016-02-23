@@ -9,7 +9,7 @@ import Examples from './components/Examples';
 
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 
-import './styles/layout.styl';
+import './styles/layout.css';
 
 render((
   <Router history={createBrowserHistory()}>

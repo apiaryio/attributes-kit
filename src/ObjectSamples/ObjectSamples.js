@@ -43,15 +43,13 @@ class ObjectSamples extends React.Component {
       <Row style={styles.root}>
         <Column>
           {
-            samples.map((sample, index) => {
-              return (
-                <ObjectSample
-                  element={this.props.element}
-                  samples={sample}
-                  key={index}
-                />
-              );
-            })
+            samples.map((sample, index) =>
+              <ObjectSample
+                element={this.props.element}
+                samples={sample}
+                key={index}
+              />
+            )
           }
         </Column>
       </Row>

@@ -20,12 +20,6 @@ export default lodash.merge({}, baseConfig, {
 
   })(),
 
-  resolve: {
-    alias: {
-      brace: 'react-ace/node_modules/brace',
-    },
-  },
-
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'playground.js'
@@ -40,5 +34,5 @@ export default lodash.merge({}, baseConfig, {
     return pluginsArray;
   })(),
 
-  devtool: 'source-map'
+  devtool: 'source-map',
 });

@@ -87,9 +87,9 @@ class EditorComponent extends React.Component {
         .split('\n')[0];
 
       const lines = this.state.msonCode.split('\n');
-      errorRow = lodash(lines).findIndex((line) => {
-        return (line.indexOf(errorLine) > -1);
-      });
+      errorRow = lodash(lines).findIndex((line) =>
+        line.indexOf(errorLine) > -1
+      );
     }
 
     return {

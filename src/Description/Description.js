@@ -2,8 +2,7 @@ import React from 'react';
 import lodash from 'lodash';
 import marked from 'marked';
 
-import './description.styl';
-
+import './description.css';
 
 class Description extends React.Component {
   static propTypes = {

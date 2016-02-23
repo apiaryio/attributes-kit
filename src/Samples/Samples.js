@@ -15,13 +15,11 @@ class Samples extends React.Component {
       <Row>
         Brrr...
         <Column>
-          {this.props.samples.map((sample, index) => {
-            return (
-              <Row>
-                <Sample key={index} sample={sample} />
-              </Row>
-            );
-          })}
+          {this.props.samples.map((sample, index) =>
+            <Row>
+              <Sample key={index} sample={sample} />
+            </Row>
+          )}
         </Column>
       </Row>
     );

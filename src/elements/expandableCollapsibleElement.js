@@ -22,21 +22,15 @@ function isExpandableCollapsible(element) {
 const isStructured = isExpandableCollapsible;
 
 function containsExpandableCollapsibleElement(elements) {
-  return elements.some((element) => {
-    return isExpandableCollapsible(element);
-  });
+  return elements.some((element) => isExpandableCollapsible(element));
 }
 
 function containsObject(elements) {
-  return elements.some((element) => {
-    return isObject(element);
-  });
+  return elements.some((element) => isObject(element));
 }
 
 function containsArray(elements) {
-  return elements.some((element) => {
-    return isArray(element);
-  });
+  return elements.some((element) => isArray(element));
 }
 
 // If the value is an object or an array, the component

@@ -1,0 +1,11 @@
+.attributeDescription p {
+  margin-bottom: 4px;
+}
+
+.attributeDescription p:last-child {
+  margin-bottom: 0px;
+}
+
+.attributeDescription ul {
+  margin-left: 20px;
+}

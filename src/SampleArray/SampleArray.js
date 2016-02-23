@@ -59,17 +59,15 @@ class SampleArray extends React.Component {
 
           <div style={styles.sampleArrayItems}>
             {
-              samples.map((sample, index) => {
-                return (
-                  <SampleArrayItem
-                    parentElement={this.props.element}
-                    samples={samples}
-                    sample={sample}
-                    index={index}
-                    key={index}
-                  />
-                );
-              })
+              samples.map((sample, index) =>
+                <SampleArrayItem
+                  parentElement={this.props.element}
+                  samples={samples}
+                  sample={sample}
+                  index={index}
+                  key={index}
+                />
+              )
             }
           </div>
         </Column>

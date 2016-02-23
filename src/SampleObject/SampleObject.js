@@ -66,16 +66,14 @@ class SampleObject extends React.Component {
 
 
   renderSampleObjectProperties() {
-    return (this.props.element.content).map((element, index) => {
-      return (
-        <SampleObjectProperty
-          element={element}
-          parentElement={this.props.element}
-          key={index}
-          index={index}
-        />
-      );
-    });
+    return (this.props.element.content).map((element, index) =>
+      <SampleObjectProperty
+        element={element}
+        parentElement={this.props.element}
+        key={index}
+        index={index}
+      />
+    );
   }
 
   renderSampleObject(styles) {
