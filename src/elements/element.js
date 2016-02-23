@@ -1,6 +1,11 @@
+import isString from 'lodash/isString';
 import TYPES from 'types';
 
 function isMember(element) {
+  if (!element) {
+    return false;
+  }
+
   if (element.element) {
     return element.element === TYPES.MEMBER;
   }
@@ -29,11 +34,15 @@ function isObject(element) {
     return false;
   }
 
+  if (isString(element)) {
+    return element === TYPES.OBJECT;
+  }
+
   if (element.element) {
     return getType(element) === TYPES.OBJECT;
   }
 
-  return element === TYPES.OBJECT;
+  return false;
 }
 
 function isArray(element) {
@@ -41,11 +50,15 @@ function isArray(element) {
     return false;
   }
 
+  if (isString(element)) {
+    return element === TYPES.ARRAY;
+  }
+
   if (element.element) {
     return getType(element) === TYPES.ARRAY;
   }
 
-  return element === TYPES.ARRAY;
+  return false;
 }
 
 function isEnum(element) {
@@ -53,11 +66,31 @@ function isEnum(element) {
     return false;
   }
 
+  if (isString(element)) {
+    return element === TYPES.ENUM;
+  }
+
   if (element.element) {
     return getType(element) === TYPES.ENUM;
   }
 
-  return element === TYPES.ENUM;
+  return false;
+}
+
+function isSelect(element) {
+  if (!element) {
+    return false;
+  }
+
+  if (isString(element)) {
+    return element === TYPES.SELECT;
+  }
+
+  if (element.element) {
+    return getType(element) === TYPES.SELECT;
+  }
+
+  return false;
 }
 
 function isObjectOrArray(element) {
@@ -94,15 +127,16 @@ function isLastArrayItem(arrayElement, currentArrayItemIndex) {
 }
 
 export {
-  getValueType,
   getType,
-  isMember,
-  isEnum,
-  isObject,
+  getValueType,
+  hasDescription,
+  hasSamples,
   isArray,
+  isEnum,
+  isLastArrayItem,
+  isMember,
+  isObject,
   isObjectOrArray,
   isObjectOrArrayOrEnum,
-  hasSamples,
-  isLastArrayItem,
-  hasDescription,
+  isSelect,
 };

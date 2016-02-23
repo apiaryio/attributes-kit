@@ -155,11 +155,14 @@ class StructuredObjectProperty extends React.Component {
               <Requirement element={this.props.element} />
             </Column>
 
-            <Column>
-              <Type
-                element={this.props.element}
-              />
-            </Column>
+            {
+              this.props.element.element !== 'select' &&
+                <Column>
+                  <Type
+                    element={this.props.element}
+                  />
+                </Column>
+            }
           </Row>
 
           <Ruler style={styles.ruler}>

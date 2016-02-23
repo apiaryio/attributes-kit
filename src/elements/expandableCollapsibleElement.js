@@ -6,16 +6,17 @@ import Attribute from 'Attribute/Attribute';
 
 import {
   getValueType,
-  isObjectOrArrayOrEnum,
-  isObject,
   isArray,
   isEnum,
   isMember,
+  isObject,
+  isSelect,
 } from 'elements/element';
 
 function isExpandableCollapsible(element) {
   const valueType = getValueType(element);
-  return isObject(valueType) || isArray(valueType) || isEnum(valueType);
+
+  return isObject(valueType) || isArray(valueType) || isEnum(valueType) || isSelect(valueType);
 }
 
 // Alias
@@ -56,7 +57,7 @@ function getExpandCollapseClassNames(element, state) {
 function getValue(element, props = {}) {
   let value;
 
-  if (isObjectOrArrayOrEnum(element.element)) {
+  if (isStructured(element.element)) {
     value = (
       <Attribute
         element={element}
@@ -80,6 +81,14 @@ function getValue(element, props = {}) {
     } else {
       value = false;
     }
+  } else if (isObject(element) || isArray(element) || isSelect(element) || isEnum(element)) {
+    value = (
+      <Attribute
+        element={element}
+        expandableCollapsible={props.expandableCollapsible}
+        parentElement={props.parentElement}
+      />
+    );
   } else if (element.content) {
     value = (
       <Value value={element.content} />
