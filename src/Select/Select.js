@@ -42,16 +42,14 @@ class Select extends React.Component {
   };
 
   renderOptions() {
-    return this.props.element.content.map((element, index) => {
-      return (
-        <SelectOption
-          key={index}
-          index={index}
-          element={element}
-          parentElement={this.props.element}
-        />
-      );
-    });
+    return this.props.element.content.map((element, index) =>
+      <SelectOption
+        key={index}
+        index={index}
+        element={element}
+        parentElement={this.props.element}
+      />
+    );
   };
 
   render() {
