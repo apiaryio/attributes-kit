@@ -5,6 +5,7 @@ const TYPES = {
   STRING: 'string',
   NUMBER: 'number',
   ENUM: 'enum',
+  SELECT: 'select',
 };
 
 export default TYPES;

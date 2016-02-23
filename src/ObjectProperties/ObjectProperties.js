@@ -1,12 +1,17 @@
 import React from 'react';
 import lodash from 'lodash';
 
+import Select from 'Select/Select';
 import ObjectProperty from 'ObjectProperty/ObjectProperty';
 import StructuredObjectProperty from 'ObjectProperty/StructuredObjectProperty';
 
 import {
   isStructured,
 } from 'elements/expandableCollapsibleElement';
+
+import {
+  isSelect,
+} from 'elements/element';
 
 class ObjectProperties extends React.Component {
   static propTypes = {
@@ -39,6 +44,17 @@ class ObjectProperties extends React.Component {
       <div style={this.getStyles().root}>
         {
           this.props.element.content.map((element, index) => {
+            if (isSelect(element)) {
+              return (
+                <Select
+                  key={index}
+                  index={index}
+                  element={element}
+                  parentElement={this.props.element}
+                />
+              );
+            }
+
             if (isStructured(element)) {
               return (
                 <StructuredObjectProperty
