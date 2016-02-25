@@ -1,8 +1,7 @@
 import React from 'react';
 import lodash from 'lodash';
 import marked from 'marked';
-
-import './description.css';
+import radium, { Style } from 'radium'
 
 class Description extends React.Component {
   static propTypes = {
@@ -45,13 +44,29 @@ class Description extends React.Component {
     const markdownMarkup = { __html: marked(description) };
 
     return (
-      <div
-        style={this.style.root}
-        className="attributeDescription"
-        dangerouslySetInnerHTML={markdownMarkup}
-      />
+      <div>
+        <Style
+          scopeSelector=".attributeDescription"
+          rules={{
+            p: {
+              marginBottom: '4px',
+            },
+            'p:last-child': {
+              marginBottom: '0px',
+            },
+            ul: {
+              marginLeft: '20px',
+            },
+          }}
+        />
+        <div
+          style={this.style.root}
+          className="attributeDescription"
+          dangerouslySetInnerHTML={markdownMarkup}
+        />
+      </div>
     );
   }
 }
 
-export default Description;
+export default radium(Description);

@@ -1,5 +1,4 @@
 import path from 'path';
-import nib from 'nib';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
