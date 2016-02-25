@@ -27,8 +27,23 @@
                                     <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:14px;color:#8A93A3;margin-bottom:4px;">number</div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;" class="attributeDescription">
-                                        <p>The unique identifier for a product</p>
+                                    <div>
+                                        <style>
+                                            .attributeDescription p {
+                                                margin-bottom: 4px;
+                                            }
+                                            
+                                            .attributeDescription p:last-child {
+                                                margin-bottom: 0px;
+                                            }
+                                            
+                                            .attributeDescription ul {
+                                                margin-left: 20px;
+                                            }
+                                        </style>
+                                        <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;" class="attributeDescription">
+                                            <p>The unique identifier for a product</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
@@ -54,8 +69,23 @@
                                     <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:14px;color:#8A93A3;margin-bottom:4px;">string</div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;" class="attributeDescription">
-                                        <p>Name of the product</p>
+                                    <div>
+                                        <style>
+                                            .attributeDescription p {
+                                                margin-bottom: 4px;
+                                            }
+                                            
+                                            .attributeDescription p:last-child {
+                                                margin-bottom: 0px;
+                                            }
+                                            
+                                            .attributeDescription ul {
+                                                margin-left: 20px;
+                                            }
+                                        </style>
+                                        <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;" class="attributeDescription">
+                                            <p>Name of the product</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
@@ -112,24 +142,39 @@
                                 </div>
                                 <div style="width:100%;height:auto;padding-left:13px;border-left:1px solid #E8EBEE;margin-left:6px;padding-bottom:0px;">
                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                        <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;margin-top:4px;" class="attributeDescription">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                            <p>Sed sed lacus a arcu vehicula ultricies sed vel nibh. Mauris id cursus felis.</p>
-                                            <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
-                                            <ul>
-                                                <li>
-                                                    <p>unus</p>
-                                                </li>
-                                                <li>
-                                                    <p>duo</p>
-                                                </li>
-                                                <li>
-                                                    <p>tres</p>
-                                                </li>
-                                                <li>
-                                                    <p>quattuor</p>
-                                                </li>
-                                            </ul>
+                                        <div>
+                                            <style>
+                                                .attributeDescription p {
+                                                    margin-bottom: 4px;
+                                                }
+                                                
+                                                .attributeDescription p:last-child {
+                                                    margin-bottom: 0px;
+                                                }
+                                                
+                                                .attributeDescription ul {
+                                                    margin-left: 20px;
+                                                }
+                                            </style>
+                                            <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;margin-top:4px;" class="attributeDescription">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                <p>Sed sed lacus a arcu vehicula ultricies sed vel nibh. Mauris id cursus felis.</p>
+                                                <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                                                <ul>
+                                                    <li>
+                                                        <p>unus</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>duo</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>tres</p>
+                                                    </li>
+                                                    <li>
+                                                        <p>quattuor</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;margin-top:8px;">
