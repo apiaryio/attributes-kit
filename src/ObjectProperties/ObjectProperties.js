@@ -7,11 +7,11 @@ import StructuredObjectProperty from 'ObjectProperty/StructuredObjectProperty';
 
 import {
   isStructured,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 import {
   isSelect,
-} from 'elements/element';
+} from '../elements/element';
 
 class ObjectProperties extends React.Component {
   static propTypes = {

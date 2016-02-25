@@ -1,7 +1,7 @@
 import eidolon from 'eidolon';
 import React from 'react';
 
-import Attribute from 'Attribute/Attribute';
+import Attribute from '../Attribute/Attribute';
 
 class Attributes extends React.Component {
   static propTypes = {

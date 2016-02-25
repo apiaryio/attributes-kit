@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ArraySample from 'ArraySample/ArraySample';
+import ArraySample from '../ArraySample/ArraySample';
 
 
 class ArraySamples extends React.Component {

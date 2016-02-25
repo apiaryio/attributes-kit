@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ArrayHeader from 'ArrayHeader/ArrayHeader';
-import Column from 'Column/Column';
-import Row from 'Row/Row';
-import SampleArrayItem from 'SampleArrayItem/SampleArrayItem';
+import ArrayHeader from '../ArrayHeader/ArrayHeader';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import SampleArrayItem from '../SampleArrayItem/SampleArrayItem';
 
 class SampleArray extends React.Component {
   static propTypes = {

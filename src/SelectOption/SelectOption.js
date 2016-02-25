@@ -1,7 +1,7 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import ObjectProperties from 'ObjectProperties/ObjectProperties';
+import ObjectProperties from '../ObjectProperties/ObjectProperties';
 
 class SelectOption extends React.Component {
   static propTypes = {

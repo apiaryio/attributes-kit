@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Column from 'Column/Column';
-import Row from 'Row/Row';
-import Sample from 'Sample/Sample';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import Sample from '../Sample/Sample';
 
 import {
   isObject,
   isArray,
   isEnum,
-} from 'elements/element';
+} from '../elements/element';
 
 
 class ObjectPropertySamples extends React.Component {

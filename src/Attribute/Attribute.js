@@ -2,9 +2,9 @@ import React from 'react';
 import cloneDeep from 'lodash/cloneDeep';
 import merge from 'lodash/merge';
 
-import refractToComponentsMap from 'refractToComponentMap';
+import refractToComponentsMap from '../refractToComponentMap';
 
-import defaultTheme from 'theme';
+import defaultTheme from '../theme';
 
 class Attribute extends React.Component {
   static propTypes = {

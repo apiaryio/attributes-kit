@@ -1,18 +1,18 @@
 import React from 'react';
 
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
-import ArrayItem from 'ArrayItem/ArrayItem';
-import StructuredArrayItem from 'ArrayItem/StructuredArrayItem';
-import ArrayItems from 'ArrayItems/ArrayItems';
-import ArrayHeader from 'ArrayHeader/ArrayHeader';
-import ArraySamples from 'ArraySamples/ArraySamples';
-import ArrayDefaults from 'ArrayDefaults/ArrayDefaults';
+import ArrayItem from '../ArrayItem/ArrayItem';
+import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
+import ArrayItems from '../ArrayItems/ArrayItems';
+import ArrayHeader from '../ArrayHeader/ArrayHeader';
+import ArraySamples from '../ArraySamples/ArraySamples';
+import ArrayDefaults from '../ArrayDefaults/ArrayDefaults';
 
 import {
   isStructured,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 
 class ArrayComponent extends React.Component {

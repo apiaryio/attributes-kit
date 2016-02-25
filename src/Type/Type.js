@@ -3,7 +3,7 @@ import lodash from 'lodash';
 
 import {
   getType,
-} from 'elements/element';
+} from '../elements/element';
 
 class Type extends React.Component {
   static propTypes = {

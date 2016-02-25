@@ -1,10 +1,10 @@
 import React from 'react';
 
-import ObjectHeader from 'ObjectHeader/ObjectHeader';
-import Row from 'Row/Row';
-import Column from 'Column/Column';
-import Ruler from 'Ruler/Ruler';
-import SampleObjectProperty from 'SampleObjectProperty/SampleObjectProperty';
+import ObjectHeader from '../ObjectHeader/ObjectHeader';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
+import Ruler from '../Ruler/Ruler';
+import SampleObjectProperty from '../SampleObjectProperty/SampleObjectProperty';
 
 
 class SampleObject extends React.Component {

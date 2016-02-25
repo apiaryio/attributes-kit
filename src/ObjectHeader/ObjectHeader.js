@@ -1,16 +1,16 @@
 import React from 'react';
 
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
-import Type from 'Type/Type';
-import Toggle from 'Toggle/Toggle';
-import SampleToggle from 'SampleToggle/SampleToggle';
+import Type from '../Type/Type';
+import Toggle from '../Toggle/Toggle';
+import SampleToggle from '../SampleToggle/SampleToggle';
 
 import {
   hasSamples,
   isArray,
-} from 'elements/element';
+} from '../elements/element';
 
 class ObjectHeader extends React.Component {
   static propTypes = {

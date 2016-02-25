@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Sample from 'Sample/Sample';
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import Sample from '../Sample/Sample';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
 
 class ArrayItemSamples extends React.Component {

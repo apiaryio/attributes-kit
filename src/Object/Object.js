@@ -1,12 +1,12 @@
 import React from 'react';
 
-import ObjectProperties from 'ObjectProperties/ObjectProperties';
-import ObjectHeader from 'ObjectHeader/ObjectHeader';
-import ObjectSamples from 'ObjectSamples/ObjectSamples';
-import ObjectDefaults from 'ObjectDefaults/ObjectDefaults';
-import Ruler from 'Ruler/Ruler';
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import ObjectProperties from '../ObjectProperties/ObjectProperties';
+import ObjectHeader from '../ObjectHeader/ObjectHeader';
+import ObjectSamples from '../ObjectSamples/ObjectSamples';
+import ObjectDefaults from '../ObjectDefaults/ObjectDefaults';
+import Ruler from '../Ruler/Ruler';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
 
 class ObjectComponent extends React.Component {

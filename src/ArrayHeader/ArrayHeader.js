@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Type from 'Type/Type';
-import SampleToggle from 'SampleToggle/SampleToggle';
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import Type from '../Type/Type';
+import SampleToggle from '../SampleToggle/SampleToggle';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
 import {
   hasSamples,
   isEnum,
-} from 'elements/element';
+} from '../elements/element';
 
 class ArrayHeader extends React.Component {
   static propTypes = {

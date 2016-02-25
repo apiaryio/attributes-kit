@@ -1,22 +1,22 @@
 import React from 'react';
 
-import ArrayItemDefaults from 'ArrayItemDefaults/ArrayItemDefaults';
-import ArrayItemIndex from 'ArrayItemIndex/ArrayItemIndex';
-import ArrayItemSamples from 'ArrayItemSamples/ArrayItemSamples';
-import Column from 'Column/Column';
-import Description from 'Description/Description';
-import Row from 'Row/Row';
-import Type from 'Type/Type';
-import Value from 'Value/Value';
+import ArrayItemDefaults from '../ArrayItemDefaults/ArrayItemDefaults';
+import ArrayItemIndex from '../ArrayItemIndex/ArrayItemIndex';
+import ArrayItemSamples from '../ArrayItemSamples/ArrayItemSamples';
+import Column from '../Column/Column';
+import Description from '../Description/Description';
+import Row from '../Row/Row';
+import Type from '../Type/Type';
+import Value from '../Value/Value';
 
 import {
   isObjectOrArray,
   isLastArrayItem,
-} from 'elements/element';
+} from '../elements/element';
 
 import {
   containsExpandableCollapsibleElement,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 
 class ArrayItem extends React.Component {
