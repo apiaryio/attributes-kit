@@ -76,6 +76,7 @@
     "body-parser": "^1.14.1",
     "brace": "^0.7.0",
     "browser-launcher2": "^0.4.6",
+    "chai": "^3.5.0",
     "classnames": "^2.1.5",
     "cli-table": "^0.3.1",
     "colors": "^1.1.2",

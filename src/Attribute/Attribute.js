@@ -1,9 +1,10 @@
 import React from 'react';
-import lodash from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import merge from 'lodash/merge';
 
 import refractToComponentsMap from 'refractToComponentMap';
 
-import theme from 'theme';
+import defaultTheme from 'theme';
 
 class Attribute extends React.Component {
   static propTypes = {
@@ -22,8 +23,15 @@ class Attribute extends React.Component {
   }
 
   getChildContext() {
+    let theme;
+
+    // First, make a deep clone of the default theme object
+    // to prevent future mutations; then we'll merge in custom theme.
+    theme = cloneDeep(defaultTheme);
+    theme = merge(theme, this.props.theme || {});
+
     return {
-      theme: lodash.merge(theme, this.props.theme || {}),
+      theme,
     };
   }
 
