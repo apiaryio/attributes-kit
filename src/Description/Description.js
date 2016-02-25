@@ -1,7 +1,7 @@
 import React from 'react';
 import lodash from 'lodash';
 import marked from 'marked';
-import radium, { Style } from 'radium'
+import radium, { Style } from 'radium';
 
 class Description extends React.Component {
   static propTypes = {

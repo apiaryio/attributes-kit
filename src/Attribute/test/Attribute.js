@@ -1,4 +1,4 @@
-import {assert} from 'chai';
+import { assert } from 'chai';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Attribute from '../Attribute';

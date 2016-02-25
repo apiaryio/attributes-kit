@@ -3,7 +3,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route } from 'react-router';
-import radium, { Style } from 'radium'
+import { Style } from 'radium';
 
 import Playground from './components/Playground';
 import Examples from './components/Examples';
@@ -38,7 +38,7 @@ render((
         '.column textarea': {
           width: '100%',
           minHeight: '200px',
-        }
+        },
       }}
     />
   </div>
