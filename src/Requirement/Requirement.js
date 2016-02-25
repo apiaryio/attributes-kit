@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Tooltip from 'Tooltip/Tooltip';
+import Tooltip from '../Tooltip/Tooltip';
 
 
 class Requirement extends React.Component {

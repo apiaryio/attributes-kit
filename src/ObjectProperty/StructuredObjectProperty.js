@@ -4,13 +4,13 @@ import Row from '../Row/Row';
 import Column from '../Column/Column';
 
 import Key from '../Key/Key';
-import Requirement from 'Requirement/Requirement';
+import Requirement from '../Requirement/Requirement';
 import Description from '../Description/Description';
 import Toggle from '../Toggle/Toggle';
 import Type from '../Type/Type';
 import Ruler from '../Ruler/Ruler';
-import ObjectPropertySamples from 'ObjectPropertySamples/ObjectPropertySamples';
-import ObjectPropertyDefaults from 'ObjectPropertyDefaults/ObjectPropertyDefaults';
+import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
+import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 
 import {
   isExpandableCollapsible,

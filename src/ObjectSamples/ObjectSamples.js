@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Column from '../Column/Column';
-import ObjectSample from 'ObjectSample/ObjectSample';
+import ObjectSample from '../ObjectSample/ObjectSample';
 import Row from '../Row/Row';
 
 
