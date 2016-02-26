@@ -4,6 +4,7 @@ import dedent from 'dedent';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import isEmpty from 'lodash/isEmpty';
+import findIndex from 'lodash/findIndex';
 
 import 'brace/theme/github';
 import 'brace/mode/markdown';
@@ -89,7 +90,7 @@ class EditorComponent extends React.Component {
         .split('\n')[0];
 
       const lines = this.state.msonCode.split('\n');
-      errorRow = lodash(lines).findIndex((line) =>
+      errorRow = findIndex(lines, (line) =>
         line.indexOf(errorLine) > -1
       );
     }
