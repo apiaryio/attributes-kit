@@ -12,7 +12,7 @@ import Attribute from '../Attribute/Attribute';
 import {
   isInherited,
   isIncluded,
-} from '../elements/element'
+} from '../elements/element';
 
 class Attributes extends React.Component {
   static propTypes = {
@@ -112,7 +112,7 @@ class Attributes extends React.Component {
   };
 
   removeInheritedOrIncludedMembers(element, options) {
-    const {removeInherited, removeIncluded} = options;
+    const { removeInherited, removeIncluded } = options;
 
     if (!isArray(element.content)) {
       return element;
@@ -140,9 +140,9 @@ class Attributes extends React.Component {
           return false;
         } else if (removeIncluded && isIncluded(nestedElement.content.value)) {
           return false;
-        } else {
-          return nestedElement;
         }
+
+        return nestedElement;
       }
 
       return this.removeInheritedOrIncludedMembers(nestedElement, options);

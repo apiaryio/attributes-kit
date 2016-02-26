@@ -3,7 +3,7 @@ import sift from 'sift';
 
 import TYPES from '../types';
 
-import {QUERIES} from '../queries'
+import { QUERIES } from '../queries';
 
 const inheritedMemberQuery = QUERIES.inheritedMember.query;
 
