@@ -10,10 +10,6 @@ class Attributes extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let element = this.props.element;
 

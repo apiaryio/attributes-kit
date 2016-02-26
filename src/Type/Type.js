@@ -59,6 +59,8 @@ class Type extends React.Component {
         );
       }
     }
+
+    return null;
   }
 }
 

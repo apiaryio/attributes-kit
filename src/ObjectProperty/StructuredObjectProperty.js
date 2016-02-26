@@ -126,6 +126,8 @@ class StructuredObjectProperty extends React.Component {
         </Row>
       );
     }
+
+    return null;
   }
 
   render() {

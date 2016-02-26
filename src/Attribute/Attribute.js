@@ -18,10 +18,6 @@ class Attribute extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   getChildContext() {
     let theme;
 

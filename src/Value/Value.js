@@ -87,6 +87,8 @@ class Value extends React.Component {
         </div>
       );
     }
+
+    return null;
   }
 }
 

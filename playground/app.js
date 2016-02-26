@@ -13,9 +13,9 @@ import createBrowserHistory from 'history/lib/createBrowserHistory';
 render((
   <div>
     <Router history={createBrowserHistory()}>
-      <Route path="/" component={Playground}/>
-      <Route path="/playground" component={Playground}/>
-      <Route path="/examples" component={Examples}/>
+      <Route path="/" component={Playground} />
+      <Route path="/playground" component={Playground} />
+      <Route path="/examples" component={Examples} />
     </Router>
 
     <Style

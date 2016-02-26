@@ -83,6 +83,8 @@ class ObjectHeader extends React.Component {
         />
       );
     }
+
+    return null;
   }
 
   renderToggleColumn(styles) {
@@ -96,6 +98,8 @@ class ObjectHeader extends React.Component {
         </Column>
       );
     }
+
+    return null;
   }
 
   render() {

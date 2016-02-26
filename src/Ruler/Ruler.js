@@ -14,10 +14,6 @@ class Ruler extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   renderStyles() {
     const { BORDER_COLOR } = this.context.theme;
 

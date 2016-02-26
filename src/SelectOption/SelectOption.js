@@ -15,10 +15,6 @@ class SelectOption extends React.Component {
     style: React.PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-  };
-
   get style() {
     const style = {
       base: {

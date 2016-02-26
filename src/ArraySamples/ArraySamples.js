@@ -8,10 +8,6 @@ class ArraySamples extends React.Component {
     element: React.PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   renderStyles() {
     const styles = {
       root: {

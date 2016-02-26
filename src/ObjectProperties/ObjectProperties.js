@@ -18,10 +18,6 @@ class ObjectProperties extends React.Component {
     element: React.PropTypes.object,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   getStyles() {
     return {
       root: {

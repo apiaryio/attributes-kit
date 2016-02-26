@@ -35,9 +35,7 @@ class Playground extends React.Component {
   };
 
   render() {
-    let dataStructures;
-
-    dataStructures = this.state.parseResult.dataStructures || [];
+    const dataStructures = this.state.parseResult.dataStructures || [];
 
     return (
       <div className="playgrund-app">

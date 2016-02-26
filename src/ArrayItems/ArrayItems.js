@@ -11,10 +11,6 @@ class ArrayItems extends React.Component {
     ]),
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   renderStyles() {
     const styles = {
       root: {
