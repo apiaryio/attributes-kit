@@ -1,6 +1,6 @@
 {
   "name": "attributes-kit",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "React component for MSON rendering",
   "engines": {
     "node": "5.6.x",
