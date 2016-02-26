@@ -13,7 +13,7 @@ describe('Attributes', () => {
         expectedDefaultTheme = cloneDeep(defaultTheme);
 
         Attributes.prototype.processProps.apply(
-          null,
+          Attributes.prototype,
           [
             {
               theme: {
