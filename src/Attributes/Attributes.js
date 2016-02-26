@@ -1,11 +1,11 @@
-import eidolon from 'eidolon';
-import React from 'react';
-import isUndefined from 'lodash/isUndefined';
-import isArray from 'lodash/isArray';
-import compact from 'lodash/compact';
-import cloneDeep from 'lodash/cloneDeep';
 import clone from 'lodash/clone';
+import cloneDeep from 'lodash/cloneDeep';
+import compact from 'lodash/compact';
+import eidolon from 'eidolon';
+import isArray from 'lodash/isArray';
+import isUndefined from 'lodash/isUndefined';
 import map from 'lodash/map';
+import React from 'react';
 
 import Attribute from '../Attribute/Attribute';
 
@@ -168,10 +168,16 @@ class Attributes extends React.Component {
 
     return (
       <div>
-        <Attribute
-          element={this.state.element}
-          theme={this.props.theme}
-        />
+        <div>
+          <h1>Attributes</h1>
+        </div>
+
+        <div>
+          <Attribute
+            element={this.state.element}
+            theme={this.props.theme}
+          />
+        </div>
       </div>
     );
   };
