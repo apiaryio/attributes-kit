@@ -5,9 +5,12 @@ import eidolon from 'eidolon';
 import isArray from 'lodash/isArray';
 import isUndefined from 'lodash/isUndefined';
 import map from 'lodash/map';
+import merge from 'lodash/merge';
 import React from 'react';
 
 import Attribute from '../Attribute/Attribute';
+
+import defaultTheme from '../theme';
 
 import {
   isInherited,
@@ -22,6 +25,10 @@ class Attributes extends React.Component {
     dereference: React.PropTypes.bool,
   };
 
+  static childContextTypes = {
+    theme: React.PropTypes.object,
+  };
+
   constructor(props) {
     super(props);
 
@@ -30,6 +37,7 @@ class Attributes extends React.Component {
       element,
       showInherited,
       showIncluded,
+      theme,
     } = this.processProps(props);
 
     this.state = {
@@ -37,6 +45,13 @@ class Attributes extends React.Component {
       element,
       showInherited,
       showIncluded,
+      theme,
+    };
+  };
+
+  getChildContext() {
+    return {
+      theme: this.state.theme,
     };
   };
 
@@ -46,6 +61,7 @@ class Attributes extends React.Component {
       element,
       showInherited,
       showIncluded,
+      theme,
     } = this.processProps(nextProps);
 
     this.setState({
@@ -53,10 +69,18 @@ class Attributes extends React.Component {
       element,
       showInherited,
       showIncluded,
+      theme,
     });
   };
 
   processProps(props) {
+    let theme;
+
+    // First, make a deep clone of the default theme object
+    // to prevent future mutations; then we'll merge in custom theme.
+    theme = cloneDeep(defaultTheme);
+    theme = merge(theme, props.theme || {});
+
     let element = props.element;
     let dereferencedElement = null;
 
@@ -108,6 +132,7 @@ class Attributes extends React.Component {
       element,
       showIncluded,
       showInherited,
+      theme,
     };
   };
 
@@ -175,7 +200,7 @@ class Attributes extends React.Component {
         <div>
           <Attribute
             element={this.state.element}
-            theme={this.props.theme}
+            theme={this.state.theme}
           />
         </div>
       </div>
