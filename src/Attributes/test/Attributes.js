@@ -1,25 +1,27 @@
 import { assert } from 'chai';
 import cloneDeep from 'lodash/cloneDeep';
 
-import Attribute from '../Attribute';
+import Attributes from '../Attributes';
 import defaultTheme from '../../theme';
 
-describe('Attribute', () => {
-  describe('#getChildContext', () => {
-    describe('When called it doesn\'t mutate the default theme', () => {
+describe('Attributes', () => {
+  describe('#processProps', () => {
+    describe('It doesn\'t mutate the default theme', () => {
       let expectedDefaultTheme;
 
       before(() => {
         expectedDefaultTheme = cloneDeep(defaultTheme);
 
-        Attribute.prototype.getChildContext.apply(
-          {
-            props: {
+        Attributes.prototype.processProps.apply(
+          Attributes.prototype,
+          [
+            {
               theme: {
                 KEY_COLOR: 'red',
               },
+              element: [],
             },
-          }
+          ]
         );
       });
 

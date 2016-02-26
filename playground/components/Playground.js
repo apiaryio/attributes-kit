@@ -11,6 +11,8 @@ class Playground extends React.Component {
     super(props);
 
     this.state = {
+      showIncluded: true,
+      showInherited: true,
       parseResult: {
         dataStructures: [],
         errors: [],
@@ -32,6 +34,18 @@ class Playground extends React.Component {
     if (payload.type === actionTypes.MSON_PARSED) {
       this.setState({ parseResult: payload });
     }
+  };
+
+  toggleInheritedMembers = () => {
+    this.setState({
+      showInherited: !this.state.showInherited,
+    });
+  };
+
+  toggleIncludedMembers = () => {
+    this.setState({
+      showIncluded: !this.state.showIncluded,
+    });
   };
 
   render() {
@@ -56,11 +70,38 @@ class Playground extends React.Component {
         </div>
 
         <div className="column">
+          <h3>Options</h3>
+          <div>
+            <input
+              type="checkbox"
+              defaultChecked
+              id="showInheritedMembersCheckbox"
+              onChange={this.toggleInheritedMembers}
+            />
+            <label htmlFor="showInheritedMembersCheckbox">
+              Show inherited members
+            </label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              defaultChecked
+              id="showIncludedMembersCheckbox"
+              onChange={this.toggleIncludedMembers}
+            />
+            <label htmlFor="showIncludedMembersCheckbox">
+              Show included members
+            </label>
+          </div>
+
           {
             dataStructures.length > 0 &&
               <AttributesKit.Attributes
                 element={this.state.parseResult.dataStructures[0]}
                 dataStructures={dataStructures}
+                showInherited={this.state.showInherited}
+                showIncluded={this.state.showIncluded}
               />
           }
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { EventEmitter } from 'events';
+import eidolon from 'eidolon';
 
 import AttributesComponent from './Attributes/Attributes';
 import AttributeComponent from './Attribute/Attribute';
@@ -8,6 +9,9 @@ import AttributeComponent from './Attribute/Attribute';
 class AttributesKit extends EventEmitter {
   static Attributes = AttributesComponent;
   static Attribute = AttributeComponent;
+
+  static generateExample = eidolon.example;
+  static generateJsonSchema = eidolon.schema;
 
   static render(refractElement, element, options) {
     let elementSelector = null;
