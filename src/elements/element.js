@@ -1,5 +1,23 @@
 import isString from 'lodash/isString';
+import sift from 'sift';
+
 import TYPES from '../types';
+
+import {QUERIES} from '../queries'
+
+const inheritedMemberQuery = QUERIES.inheritedMember.query;
+
+function isInherited(element) {
+  const results = sift(inheritedMemberQuery, [element]);
+  return results.length > 0;
+}
+
+const includedMemberQuery = QUERIES.includedMember.query;
+
+function isIncluded(element) {
+  const results = sift(includedMemberQuery, [element]);
+  return results.length > 0;
+}
 
 function isMember(element) {
   if (!element) {
@@ -133,6 +151,8 @@ export {
   hasSamples,
   isArray,
   isEnum,
+  isIncluded,
+  isInherited,
   isLastArrayItem,
   isMember,
   isObject,
