@@ -1,4 +1,3 @@
-import clone from 'lodash/clone';
 import cloneDeep from 'lodash/cloneDeep';
 import compact from 'lodash/compact';
 import eidolon from 'eidolon';
@@ -81,9 +80,6 @@ class Attributes extends React.Component {
     theme = cloneDeep(defaultTheme);
     theme = merge(theme, props.theme || {});
 
-    let element = props.element;
-    let dereferencedElement = null;
-
     const dataStructures = props.dataStructures || [];
 
     // Set default value of `showInherited` and `showIncluded` options.
@@ -113,19 +109,17 @@ class Attributes extends React.Component {
     // Dereference the element. This overwrites the original
     // value with the normalized result. Reference information
     // is still available in the `meta.ref` properties.
-    dereferencedElement = cloneDeep(element);
-    dereferencedElement = eidolon.dereference(element, structures);
+    const dereferencedElement = eidolon.dereference(
+      cloneDeep(props.element),
+      structures
+    );
 
     // If `showInherited`, or `showIncluded` is set to `false`,
     // we'll removed all inherited, or included members from the data strcuture.
-    if (showInherited && showIncluded) {
-      element = dereferencedElement;
-    } else {
-      element = this.removeInheritedOrIncludedMembers(dereferencedElement, {
-        removeInherited: !showInherited,
-        removeIncluded: !showIncluded,
-      });
-    }
+    const element = this.removeInheritedOrIncludedMembers(dereferencedElement, {
+      removeInherited: !showInherited,
+      removeIncluded: !showIncluded,
+    });
 
     return {
       dereferencedElement,
@@ -139,11 +133,15 @@ class Attributes extends React.Component {
   removeInheritedOrIncludedMembers(element, options) {
     const { removeInherited, removeIncluded } = options;
 
+    if (!removeInherited && !removeIncluded) {
+      return element;
+    }
+
     if (!isArray(element.content)) {
       return element;
     }
 
-    const modifiedElement = clone(element);
+    const modifiedElement = cloneDeep(element);
 
     // Initially I would use `Array.filter`, but since we
     // want to recursively remove inherited properties,
@@ -165,6 +163,12 @@ class Attributes extends React.Component {
           return false;
         } else if (removeIncluded && isIncluded(nestedElement.content.value)) {
           return false;
+        }
+
+        if (nestedElement.content.value && isArray(nestedElement.content.value.content)) {
+          nestedElement.content.value = this.removeInheritedOrIncludedMembers(
+            nestedElement.content.value, options
+          );
         }
 
         return nestedElement;
