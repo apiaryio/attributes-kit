@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 
 import ObjectProperties from '../ObjectProperties/ObjectProperties';
 
@@ -56,7 +56,7 @@ class SelectOption extends React.Component {
       style.separator.display = 'none';
     }
 
-    return lodash.merge(style, this.props.style);
+    return merge(style, this.props.style);
   };
 
   render() {

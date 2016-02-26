@@ -1,11 +1,11 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 import DeduplePlugin from 'webpack/lib/optimize/DedupePlugin';
 
 import clientNoDepsWebpackConfig from './clientNoDeps';
 
-export default lodash.merge({}, clientNoDepsWebpackConfig, {
+export default merge({}, clientNoDepsWebpackConfig, {
   output: {
     filename: 'attributes-kit-no-deps.min.js',
   },

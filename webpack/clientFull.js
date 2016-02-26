@@ -1,8 +1,8 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 
 import clientWebpackConfig from './client';
 
-export default lodash.merge({}, clientWebpackConfig, {
+export default merge({}, clientWebpackConfig, {
   output: {
     filename: 'attributes-kit.js',
   },

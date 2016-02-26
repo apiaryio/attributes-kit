@@ -1,9 +1,9 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import path from 'path';
 
 import baseWebpackConfig from './base';
 
-export default lodash.extend({}, baseWebpackConfig, {
+export default merge({}, baseWebpackConfig, {
   entry: './src/index',
 
   output: {

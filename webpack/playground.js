@@ -1,11 +1,11 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import path from 'path';
 import webpack from 'webpack';
 import baseConfig from './base';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-export default lodash.merge({}, baseConfig, {
+export default merge({}, baseConfig, {
   entry: (function() {
     let entryArray = [
       './playground/app'

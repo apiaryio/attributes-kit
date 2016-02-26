@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import isEmpty from 'lodash/isEmpty';
 
 import Select from '../Select/Select';
 import ObjectProperty from '../ObjectProperty/ObjectProperty';
@@ -32,7 +32,7 @@ class ObjectProperties extends React.Component {
       return false;
     }
 
-    if (lodash.isEmpty(this.props.element.content)) {
+    if (isEmpty(this.props.element.content)) {
       return false;
     }
 

@@ -1,4 +1,4 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import path from 'path';
 import fs from 'fs';
 import webpack from 'webpack';
@@ -14,7 +14,7 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
-export default lodash.extend({}, webpackConfig, {
+export default merge({}, webpackConfig, {
   target: 'node',
   output: {
     path: path.join(__dirname, '../dist'),

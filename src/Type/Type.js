@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 
 import {
   getType,
@@ -30,7 +30,7 @@ class Type extends React.Component {
       },
     };
 
-    return lodash.merge(styles, this.props.style || {});
+    return merge(styles, this.props.style || {});
   }
 
   render() {

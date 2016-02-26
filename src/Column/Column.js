@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 
 
 class Column extends React.Component {
@@ -22,7 +22,7 @@ class Column extends React.Component {
       alignItems: 'flex-start',
     };
 
-    return lodash.merge(styles, this.props.style);
+    return merge(styles, this.props.style);
   }
 
   render() {

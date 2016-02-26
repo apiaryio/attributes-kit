@@ -1,7 +1,10 @@
 import React from 'react';
 import AceEditor from 'react-ace';
 import dedent from 'dedent';
-import lodash from 'lodash';
+import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
+import isEmpty from 'lodash/isEmpty';
+import findIndex from 'lodash/findIndex';
 
 import 'brace/theme/github';
 import 'brace/mode/markdown';
@@ -65,13 +68,13 @@ class EditorComponent extends React.Component {
     const session = this.aceEditor.getSession();
 
 
-    if (lodash.isArray(this.props.errors)) {
+    if (isArray(this.props.errors)) {
       annotations = this.props.errors.map(this.generateAnnotation);
-    } else if (lodash.isObject(this.props.errors)) {
+    } else if (isObject(this.props.errors)) {
       annotations.push(this.generateAnnotation(this.props.errors));
     }
 
-    if (lodash.isEmpty(annotations)) {
+    if (isEmpty(annotations)) {
       session.clearAnnotations();
     } else {
       session.setAnnotations(annotations);
@@ -87,7 +90,7 @@ class EditorComponent extends React.Component {
         .split('\n')[0];
 
       const lines = this.state.msonCode.split('\n');
-      errorRow = lodash(lines).findIndex((line) =>
+      errorRow = findIndex(lines, (line) =>
         line.indexOf(errorLine) > -1
       );
     }

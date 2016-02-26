@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 
 import {
   isObjectOrArray,
@@ -47,7 +47,7 @@ class Value extends React.Component {
       lineHeight: '19px',
     };
 
-    return lodash.merge(styles, this.props.style || {});
+    return merge(styles, this.props.style || {});
   }
 
   render() {
