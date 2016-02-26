@@ -61,6 +61,8 @@ class Playground extends React.Component {
               <AttributesKit.Attributes
                 element={this.state.parseResult.dataStructures[0]}
                 dataStructures={dataStructures}
+                showInherited={false}
+                showIncluded={false}
               />
           }
         </div>
