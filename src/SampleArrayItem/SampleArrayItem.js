@@ -1,14 +1,14 @@
 import React from 'react';
 
-import Type from 'Type/Type';
-import Value from 'Value/Value';
-import Row from 'Row/Row';
-import Column from 'Column/Column';
-import Sample from 'Sample/Sample';
+import Type from '../Type/Type';
+import Value from '../Value/Value';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
+import Sample from '../Sample/Sample';
 
 import {
   isObjectOrArray,
-} from 'elements/element';
+} from '../elements/element';
 
 class SampleArrayItem extends React.Component {
   static propTypes = {

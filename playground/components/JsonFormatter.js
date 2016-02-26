@@ -11,10 +11,6 @@ class JsonFormatter extends React.Component {
     dataStructures: React.PropTypes.array,
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.nodeComponent = ReactDom.findDOMNode(this.refs.jsonFormatterContainer);
     this.attachJsonFormatter();

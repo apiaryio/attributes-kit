@@ -1,28 +1,28 @@
 import React from 'react';
 
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
-import Key from 'Key/Key';
-import Requirement from 'Requirement/Requirement';
-import Description from 'Description/Description';
-import Toggle from 'Toggle/Toggle';
-import Type from 'Type/Type';
-import Ruler from 'Ruler/Ruler';
-import ObjectPropertySamples from 'ObjectPropertySamples/ObjectPropertySamples';
-import ObjectPropertyDefaults from 'ObjectPropertyDefaults/ObjectPropertyDefaults';
+import Key from '../Key/Key';
+import Requirement from '../Requirement/Requirement';
+import Description from '../Description/Description';
+import Toggle from '../Toggle/Toggle';
+import Type from '../Type/Type';
+import Ruler from '../Ruler/Ruler';
+import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
+import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 
 import {
   isExpandableCollapsible,
   containsExpandableCollapsibleElement,
   renderValue,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 import {
   isObject,
   isArray,
   isLastArrayItem,
-} from 'elements/element';
+} from '../elements/element';
 
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
@@ -126,6 +126,8 @@ class StructuredObjectProperty extends React.Component {
         </Row>
       );
     }
+
+    return null;
   }
 
   render() {

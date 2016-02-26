@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Value from 'Value/Value';
-import Attribute from 'Attribute/Attribute';
+import Value from '../Value/Value';
+import Attribute from '../Attribute/Attribute';
 
 import {
   getValueType,
@@ -11,7 +11,7 @@ import {
   isMember,
   isObject,
   isSelect,
-} from 'elements/element';
+} from '../elements/element';
 
 function isExpandableCollapsible(element) {
   const valueType = getValueType(element);

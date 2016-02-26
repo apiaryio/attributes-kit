@@ -1,6 +1,6 @@
-import ArrayComponent from 'Array/Array';
-import SelectComponent from 'Select/Select';
-import ObjectComponent from 'Object/Object';
+import ArrayComponent from './Array/Array';
+import SelectComponent from './Select/Select';
+import ObjectComponent from './Object/Object';
 
 export default {
   object: ObjectComponent,

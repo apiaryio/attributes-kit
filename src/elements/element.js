@@ -1,5 +1,5 @@
 import isString from 'lodash/isString';
-import TYPES from 'types';
+import TYPES from '../types';
 
 function isMember(element) {
   if (!element) {

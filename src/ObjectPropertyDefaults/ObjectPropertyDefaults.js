@@ -4,7 +4,7 @@ import {
   isObject,
   isArray,
   isEnum,
-} from 'elements/element';
+} from '../elements/element';
 
 
 class ObjectPropertySamples extends React.Component {

@@ -1,22 +1,22 @@
 import React from 'react';
 
-import Row from 'Row/Row';
-import Column from 'Column/Column';
-import Sample from 'Sample/Sample';
-import Key from 'Key/Key';
-import Type from 'Type/Type';
-import Value from 'Value/Value';
-import Toggle from 'Toggle/Toggle';
-import Ruler from 'Ruler/Ruler';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
+import Sample from '../Sample/Sample';
+import Key from '../Key/Key';
+import Type from '../Type/Type';
+import Value from '../Value/Value';
+import Toggle from '../Toggle/Toggle';
+import Ruler from '../Ruler/Ruler';
 
 import {
   isObjectOrArray,
   isLastArrayItem,
-} from 'elements/element';
+} from '../elements/element';
 
 import {
   containsExpandableCollapsibleElement,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 class SampleArray extends React.Component {
   static propTypes = {

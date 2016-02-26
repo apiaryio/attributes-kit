@@ -1,8 +1,8 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import Column from 'Column/Column';
-import Row from 'Row/Row';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
 
 class SampleToggle extends React.Component {
   static propTypes = {

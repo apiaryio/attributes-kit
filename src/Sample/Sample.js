@@ -1,18 +1,18 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import Column from 'Column/Column';
-import Row from 'Row/Row';
-import SampleArray from 'SampleArray/SampleArray';
-import SampleObject from 'SampleObject/SampleObject';
-import SampleToggle from 'SampleToggle/SampleToggle';
-import Value from 'Value/Value';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import SampleArray from '../SampleArray/SampleArray';
+import SampleObject from '../SampleObject/SampleObject';
+import SampleToggle from '../SampleToggle/SampleToggle';
+import Value from '../Value/Value';
 
 import {
   isArray,
   isObject,
   isEnum,
-} from 'elements/element';
+} from '../elements/element';
 
 
 class Sample extends React.Component {

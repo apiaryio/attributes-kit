@@ -1,22 +1,22 @@
 import React from 'react';
 
-import Column from 'Column/Column';
-import Description from 'Description/Description';
-import Key from 'Key/Key';
-import ObjectPropertyDefaults from 'ObjectPropertyDefaults/ObjectPropertyDefaults';
-import ObjectPropertySamples from 'ObjectPropertySamples/ObjectPropertySamples';
-import Requirement from 'Requirement/Requirement';
-import Row from 'Row/Row';
-import Type from 'Type/Type';
-import Value from 'Value/Value';
+import Column from '../Column/Column';
+import Description from '../Description/Description';
+import Key from '../Key/Key';
+import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
+import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
+import Requirement from '../Requirement/Requirement';
+import Row from '../Row/Row';
+import Type from '../Type/Type';
+import Value from '../Value/Value';
 
 import {
   containsExpandableCollapsibleElement,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 import {
   isLastArrayItem,
-} from 'elements/element';
+} from '../elements/element';
 
 class ObjectProperty extends React.Component {
   static propTypes = {
@@ -28,10 +28,6 @@ class ObjectProperty extends React.Component {
   static contextTypes = {
     theme: React.PropTypes.object,
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   renderStyles() {
     const { BORDER_COLOR } = this.context.theme;

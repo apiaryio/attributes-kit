@@ -4,7 +4,7 @@ import lodash from 'lodash';
 import {
   isObjectOrArray,
   isMember,
-} from 'elements/element';
+} from '../elements/element';
 
 class Value extends React.Component {
   static propTypes = {
@@ -87,6 +87,8 @@ class Value extends React.Component {
         </div>
       );
     }
+
+    return null;
   }
 }
 

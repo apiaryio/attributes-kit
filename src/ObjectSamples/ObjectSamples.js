@@ -1,18 +1,14 @@
 import React from 'react';
 
-import Column from 'Column/Column';
-import ObjectSample from 'ObjectSample/ObjectSample';
-import Row from 'Row/Row';
+import Column from '../Column/Column';
+import ObjectSample from '../ObjectSample/ObjectSample';
+import Row from '../Row/Row';
 
 
 class ObjectSamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   renderStyles() {
     const styles = {};

@@ -1,24 +1,24 @@
 import React from 'react';
 
-import ArrayItemDefaults from 'ArrayItemDefaults/ArrayItemDefaults';
-import ArrayItemIndex from 'ArrayItemIndex/ArrayItemIndex';
-import ArrayItemSamples from 'ArrayItemSamples/ArrayItemSamples';
-import Column from 'Column/Column';
-import Description from 'Description/Description';
-import Row from 'Row/Row';
+import ArrayItemDefaults from '../ArrayItemDefaults/ArrayItemDefaults';
+import ArrayItemIndex from '../ArrayItemIndex/ArrayItemIndex';
+import ArrayItemSamples from '../ArrayItemSamples/ArrayItemSamples';
+import Column from '../Column/Column';
+import Description from '../Description/Description';
+import Row from '../Row/Row';
 
 import {
   isLastArrayItem,
   isObject,
   isArray,
   hasDescription,
-} from 'elements/element';
+} from '../elements/element';
 
 import {
   isExpandableCollapsible,
   containsExpandableCollapsibleElement,
   renderValue,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 class StructuredArrayItem extends React.Component {
   static propTypes = {

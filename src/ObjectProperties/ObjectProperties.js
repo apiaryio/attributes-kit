@@ -1,26 +1,22 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import Select from 'Select/Select';
-import ObjectProperty from 'ObjectProperty/ObjectProperty';
-import StructuredObjectProperty from 'ObjectProperty/StructuredObjectProperty';
+import Select from '../Select/Select';
+import ObjectProperty from '../ObjectProperty/ObjectProperty';
+import StructuredObjectProperty from '../ObjectProperty/StructuredObjectProperty';
 
 import {
   isStructured,
-} from 'elements/expandableCollapsibleElement';
+} from '../elements/expandableCollapsibleElement';
 
 import {
   isSelect,
-} from 'elements/element';
+} from '../elements/element';
 
 class ObjectProperties extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   getStyles() {
     return {

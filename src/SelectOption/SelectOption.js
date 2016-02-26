@@ -1,7 +1,7 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import ObjectProperties from 'ObjectProperties/ObjectProperties';
+import ObjectProperties from '../ObjectProperties/ObjectProperties';
 
 class SelectOption extends React.Component {
   static propTypes = {
@@ -13,10 +13,6 @@ class SelectOption extends React.Component {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
-  };
-
-  constructor(props) {
-    super(props);
   };
 
   get style() {

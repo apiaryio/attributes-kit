@@ -25,7 +25,7 @@ class Examples extends React.Component {
           return console.error(res.text);
         }
 
-        this.setState({ fixtures: res.body });
+        return this.setState({ fixtures: res.body });
       });
   }
 

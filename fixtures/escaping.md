@@ -35,16 +35,31 @@
                                 </div>
                                 <div style="width:100%;height:auto;padding-left:13px;border-left:1px solid #E8EBEE;margin-left:6px;padding-bottom:0px;">
                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                        <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;margin-top:4px;" class="attributeDescription">
-                                            <p>Our real estate listing has different properties available.</p>
-                                            <ul>
-                                                <li><code>Properties</code>
-                                                    <ul>
-                                                        <li>This one.</li>
-                                                        <li>That one. </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                        <div>
+                                            <style>
+                                                .attributeDescription p {
+                                                    margin-bottom: 4px;
+                                                }
+                                                
+                                                .attributeDescription p:last-child {
+                                                    margin-bottom: 0px;
+                                                }
+                                                
+                                                .attributeDescription ul {
+                                                    margin-left: 20px;
+                                                }
+                                            </style>
+                                            <div style="font-family:Source Sans Pro;font-size:16px;color:#8A93A3;line-height:150%;margin-top:4px;" class="attributeDescription">
+                                                <p>Our real estate listing has different properties available.</p>
+                                                <ul>
+                                                    <li><code>Properties</code>
+                                                        <ul>
+                                                            <li>This one.</li>
+                                                            <li>That one. </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;margin-top:8px;">

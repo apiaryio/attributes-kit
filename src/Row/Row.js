@@ -12,10 +12,6 @@ class Row extends React.Component {
     ]),
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   getStyles() {
     const styles = {
       width: '100%',

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Row from 'Row/Row';
-import Column from 'Column/Column';
-import Sample from 'Sample/Sample';
-import SampleToggle from 'SampleToggle/SampleToggle';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
+import Sample from '../Sample/Sample';
+import SampleToggle from '../SampleToggle/SampleToggle';
 
 class ArraySample extends React.Component {
   static propTypes = {

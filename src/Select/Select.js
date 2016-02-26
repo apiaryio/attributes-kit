@@ -1,10 +1,10 @@
 import React from 'react';
 import lodash from 'lodash';
 
-import Row from 'Row/Row';
-import Column from 'Column/Column';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
-import SelectOption from 'SelectOption/SelectOption';
+import SelectOption from '../SelectOption/SelectOption';
 
 class Select extends React.Component {
   static propTypes = {

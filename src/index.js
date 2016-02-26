@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { EventEmitter } from 'events';
 
-import AttributesComponent from 'Attributes/Attributes';
-import AttributeComponent from 'Attribute/Attribute';
+import AttributesComponent from './Attributes/Attributes';
+import AttributeComponent from './Attribute/Attribute';
 
 class AttributesKit extends EventEmitter {
   static Attributes = AttributesComponent;

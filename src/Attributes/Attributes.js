@@ -1,7 +1,7 @@
 import eidolon from 'eidolon';
 import React from 'react';
 
-import Attribute from 'Attribute/Attribute';
+import Attribute from '../Attribute/Attribute';
 
 class Attributes extends React.Component {
   static propTypes = {
@@ -9,10 +9,6 @@ class Attributes extends React.Component {
     element: React.PropTypes.object,
     theme: React.PropTypes.object,
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     let element = this.props.element;

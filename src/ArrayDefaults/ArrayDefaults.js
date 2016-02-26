@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Column from 'Column/Column';
-import Row from 'Row/Row';
-import Sample from 'Sample/Sample';
-import SampleToggle from 'SampleToggle/SampleToggle';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import Sample from '../Sample/Sample';
+import SampleToggle from '../SampleToggle/SampleToggle';
 
 class ArrayDefaults extends React.Component {
   static propTypes = {
