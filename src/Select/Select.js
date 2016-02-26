@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 
 import Row from '../Row/Row';
 import Column from '../Column/Column';
@@ -32,7 +32,7 @@ class Select extends React.Component {
       },
     };
 
-    return lodash.merge(style, {});
+    return merge(style, {});
   };
 
   handleExpandCollapse = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import marked from 'marked';
 import radium, { Style } from 'radium';
 
@@ -25,7 +25,7 @@ class Description extends React.Component {
       },
     };
 
-    return lodash.merge(style, this.props.style || {});
+    return merge(style, this.props.style || {});
   };
 
   render() {

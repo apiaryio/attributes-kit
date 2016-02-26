@@ -1,11 +1,11 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 import DeduplePlugin from 'webpack/lib/optimize/DedupePlugin';
 
 import clientWebpackConfig from './client';
 
-export default lodash.merge({}, clientWebpackConfig, {
+export default merge({}, clientWebpackConfig, {
   output: {
     filename: 'attributes-kit.min.js',
   },

@@ -1,11 +1,11 @@
-import lodash from 'lodash';
+import merge from 'lodash/merge';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
 import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
 import DeduplePlugin from 'webpack/lib/optimize/DedupePlugin';
 
 import webpackClientNoReactConfig from '../webpack/clientNoReact';
 
-export default lodash.merge({}, webpackClientNoReactConfig, {
+export default merge({}, webpackClientNoReactConfig, {
   output: {
     filename: 'attributes-kit-no-react.min.js',
   },
