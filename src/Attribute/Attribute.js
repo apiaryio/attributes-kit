@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Error from '../Error/Error';
 import refractToComponentsMap from '../refractToComponentMap';
 
 class Attribute extends React.Component {
@@ -18,7 +18,14 @@ class Attribute extends React.Component {
     const reactComponent = refractToComponentsMap[this.props.element.element];
 
     if (typeof reactComponent === 'undefined') {
-      return new Error(`Unable to find a rendering component for ${this.props.element.element}`);
+      const errorMessage = `
+        Attributes Kit is not able to render ‘${this.props.element.element}’
+        element.
+      `;
+
+      return (
+        <Error errorMessage={errorMessage} />
+      );
     }
 
     return React.createElement(reactComponent, {
