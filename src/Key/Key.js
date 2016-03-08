@@ -3,6 +3,10 @@ import merge from 'lodash/merge';
 import radium from 'radium';
 import React from 'react';
 
+import {
+  isExpandableCollapsible
+} from '../elements/expandableCollapsibleElement';
+
 class Key extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -17,7 +21,7 @@ class Key extends React.Component {
   get style() {
     const { KEY_COLOR } = this.context.theme;
 
-    const style = {
+    let style = {
       base: {
         width: '100%',
         height: 'auto',
@@ -26,14 +30,23 @@ class Key extends React.Component {
         fontSize: '16px',
         color: KEY_COLOR,
         lineHeight: '18px',
+        userSelect: 'none',
       },
     };
+
+    const isClickable = isUndefined(this.props.index)
+      && this.props.element
+      && isExpandableCollapsible(this.props.element);
+
+    if (isClickable) {
+      style.base.cursor = 'pointer';
+    }
 
     return merge(style, this.props.style || {});
   };
 
   get key() {
-    if (typeof this.props.index !== 'undefined') {
+    if (!isUndefined(this.props.index)) {
       return this.props.index;
     }
 
