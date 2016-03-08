@@ -58,6 +58,7 @@ class ObjectProperties extends React.Component {
                   index={index}
                   element={element}
                   parentElement={this.props.element}
+                  collapseByDefault={this.props.collapseByDefault}
                 />
               );
             }
@@ -68,6 +69,7 @@ class ObjectProperties extends React.Component {
                 index={index}
                 element={element}
                 parentElement={this.props.element}
+                collapseByDefault={this.props.collapseByDefault}
               />
             );
           })

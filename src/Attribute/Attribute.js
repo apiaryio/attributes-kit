@@ -29,6 +29,7 @@ class Attribute extends React.Component {
     }
 
     return React.createElement(reactComponent, {
+      collapseByDefault: this.props.collapseByDefault,
       element: this.props.element,
       expandableCollapsible: this.props.expandableCollapsible,
       parentElement: this.props.parentElement,

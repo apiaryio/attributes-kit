@@ -32,18 +32,20 @@ class Attributes extends React.Component {
     super(props);
 
     const {
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     } = this.processProps(props);
 
     this.state = {
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     };
   };
@@ -56,18 +58,20 @@ class Attributes extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     } = this.processProps(nextProps);
 
     this.setState({
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     });
   };
@@ -96,6 +100,15 @@ class Attributes extends React.Component {
       showIncluded = true;
     }
 
+    // Set default value of `collapseByDefault` option. If a user hasn't
+    // provided the value, we default to false (= render
+    // the whole data structure expanded).
+    let collapseByDefault = props.collapseByDefault;
+
+    if (isUndefined(collapseByDefault)) {
+      collapseByDefault = false;
+    }
+
     // Regardless of the options above, we have to resolve all references,
     // otherwise we wouldn't be able to render the element. Dereferencing turns
     // `{ element: 'MyObject', ... }` into `{ element: 'object', ... }`,
@@ -122,6 +135,7 @@ class Attributes extends React.Component {
     });
 
     return {
+      collapseByDefault,
       dereferencedElement,
       element,
       showIncluded,
@@ -205,6 +219,7 @@ class Attributes extends React.Component {
           <Attribute
             element={this.state.element}
             theme={this.state.theme}
+            collapseByDefault={this.state.collapseByDefault}
           />
         </div>
       </div>
