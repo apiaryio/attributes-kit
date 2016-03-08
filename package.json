@@ -3,7 +3,7 @@
   "version": "0.14.1",
   "description": "React component for MSON rendering",
   "engines": {
-    "node": "5.6.x",
+    "node": "5.7.x",
     "npm": "3.8.x"
   },
   "keywords": [
