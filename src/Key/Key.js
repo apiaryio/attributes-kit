@@ -1,3 +1,4 @@
+import isUndefined from 'lodash/isUndefined';
 import merge from 'lodash/merge';
 import radium from 'radium';
 import React from 'react';
@@ -46,7 +47,7 @@ class Key extends React.Component {
   render() {
     const key = this.getKey();
 
-    if (typeof key === 'undefined') {
+    if (isUndefined(key)) {
       return false;
     }
 
