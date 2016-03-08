@@ -32,7 +32,7 @@ class Key extends React.Component {
     return merge(style, this.props.style || {});
   };
 
-  getKey() {
+  get key() {
     if (typeof this.props.index !== 'undefined') {
       return this.props.index;
     }
@@ -45,9 +45,7 @@ class Key extends React.Component {
   };
 
   render() {
-    const key = this.getKey();
-
-    if (isUndefined(key)) {
+    if (isUndefined(this.key)) {
       return false;
     }
 
@@ -56,7 +54,7 @@ class Key extends React.Component {
         style={this.style.base}
         onClick={this.props.onClick}
       >
-        {key}
+        {this.key}
       </div>
     );
   };
