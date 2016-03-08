@@ -106,7 +106,7 @@
     "react-dom": "0.14.7",
     "react-hot-loader": "^2.0.0-alpha-4",
     "react-router": "1.0.1",
-    "react": "^0.14.7",
+    "react": "^15.0.0-rc.1",
     "shell-executor": "^0.3.2",
     "sift": "^3.2.1",
     "style-loader": "^0.13.0",
