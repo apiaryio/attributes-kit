@@ -158,7 +158,7 @@ class Attributes extends React.Component {
         return false;
       }
 
-      if (!isArray(nestedElement.content)) {
+      if (nestedElement.content && !isArray(nestedElement.content)) {
         if (removeInherited && isInherited(nestedElement.content.value)) {
           return false;
         } else if (removeIncluded && isIncluded(nestedElement.content.value)) {
