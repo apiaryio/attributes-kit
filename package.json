@@ -97,7 +97,7 @@
     "lodash": "4.6.1",
     "marked": "^0.3.5",
     "mocha": "^2.4.5",
-    "mson-zoo": "2.0.0",
+    "mson-zoo": "2.1.1",
     "node-noop": "^1.0.0",
     "protagonist": "^1.2.6",
     "radium": "^0.16.6",
