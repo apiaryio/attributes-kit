@@ -113,7 +113,7 @@ class ObjectHeader extends React.Component {
           <Type
             type="object"
             style={styles.type}
-            onClick={this.props.onTypeClick}
+            onClick={this.props.expandableCollapsible && this.props.onTypeClick}
           />
 
           {this.renderSampleToggle(styles)}
