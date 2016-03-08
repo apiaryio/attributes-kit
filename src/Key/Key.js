@@ -1,3 +1,5 @@
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
 
 class Key extends React.Component {
@@ -11,12 +13,11 @@ class Key extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  getStyles() {
+  get style() {
     const { KEY_COLOR } = this.context.theme;
 
-    this.styles = {
-      key: {
-        float: 'left',
+    const style = {
+      base: {
         width: '100%',
         height: 'auto',
         fontFamily: 'Source Code Pro',
@@ -27,8 +28,8 @@ class Key extends React.Component {
       },
     };
 
-    return this.styles;
-  }
+    return merge(style, this.props.style || {});
+  };
 
   getKey() {
     if (typeof this.props.index !== 'undefined') {
@@ -40,7 +41,7 @@ class Key extends React.Component {
     }
 
     return undefined;
-  }
+  };
 
   render() {
     const key = this.getKey();
@@ -51,13 +52,13 @@ class Key extends React.Component {
 
     return (
       <div
-        style={this.getStyles().key}
+        style={this.style.base}
         onClick={this.props.onClick}
       >
         {key}
       </div>
     );
-  }
+  };
 }
 
-export default Key;
+export default radium(Key);
