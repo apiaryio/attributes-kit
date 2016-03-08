@@ -34,7 +34,6 @@
                                     </div>
                                 </div>
                                 <div style="width:100%;height:auto;padding-left:13px;border-left:1px solid #E8EBEE;margin-left:6px;padding-bottom:0px;">
-                                    <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;"></div>
                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;margin-top:8px;">
                                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                             <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
