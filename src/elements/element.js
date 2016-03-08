@@ -139,6 +139,33 @@ function hasDescription(element) {
   return false;
 }
 
+function hasValue(element) {
+  if (!element) {
+    return false;
+  }
+
+  if (isObjectOrArray(element.element)) {
+    return false;
+  }
+
+  if (!element.content) {
+    return false;
+  }
+
+  if (isMember(element.element)) {
+    if (element.content.value && isObjectOrArray(element.content.value.element)) {
+      return false;
+    }
+
+    if (!element.content.value.content) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
 function isLastArrayItem(arrayElement, currentArrayItemIndex) {
   const numberOfArrayItems = arrayElement.content.length;
   return (numberOfArrayItems - 1) === currentArrayItemIndex;
@@ -149,6 +176,7 @@ export {
   getValueType,
   hasDescription,
   hasSamples,
+  hasValue,
   isArray,
   isEnum,
   isIncluded,

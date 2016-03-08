@@ -15,6 +15,9 @@ import {
 } from '../elements/expandableCollapsibleElement';
 
 import {
+  hasDescription,
+  hasSamples,
+  hasValue,
   isLastArrayItem,
 } from '../elements/element';
 
@@ -87,17 +90,26 @@ class ObjectProperty extends React.Component {
             />
           </Row>
 
-          <Row>
-            <Description element={this.props.element} />
-          </Row>
+          {
+            hasDescription(this.props.element) &&
+              <Row>
+                <Description element={this.props.element} />
+              </Row>
+          }
 
-          <Row>
-            <Value element={this.props.element} />
-          </Row>
+          {
+            hasValue(this.props.element) &&
+              <Row>
+                <Value element={this.props.element} />
+              </Row>
+          }
 
-          <Row>
-            <ObjectPropertySamples element={this.props.element} />
-          </Row>
+          {
+            hasSamples(this.props.element) &&
+              <Row>
+                <ObjectPropertySamples element={this.props.element} />
+              </Row>
+          }
 
           <Row>
             <ObjectPropertyDefaults element={this.props.element} />
