@@ -10,8 +10,10 @@ import Type from '../Type/Type';
 import Value from '../Value/Value';
 
 import {
+  hasDefaults,
   hasDescription,
   hasSamples,
+  hasType,
   hasValue,
   isLastArrayItem,
   isObjectOrArray,
@@ -100,12 +102,15 @@ class ArrayItem extends React.Component {
         }
 
         <Column style={styles.column}>
-          <Row>
-            <Type
-              element={this.props.element}
-              style={styles.type}
-            />
-          </Row>
+          {
+            hasType(this.props.element) &&
+              <Row>
+                <Type
+                  element={this.props.element}
+                  style={styles.type}
+                />
+              </Row>
+          }
 
           {
             hasDescription(this.props.element) &&
@@ -128,9 +133,12 @@ class ArrayItem extends React.Component {
               </Row>
           }
 
-          <Row>
-            <ArrayItemDefaults element={this.props.element} />
-          </Row>
+          {
+            hasDefaults(this.props.element) &&
+              <Row>
+                <ArrayItemDefaults element={this.props.element} />
+              </Row>
+          }
         </Column>
       </Row>
     );

@@ -1,14 +1,18 @@
 import React from 'react';
 
-import Row from '../Row/Row';
-import Column from '../Column/Column';
-
-import ArrayItem from '../ArrayItem/ArrayItem';
-import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
-import ArrayItems from '../ArrayItems/ArrayItems';
-import ArrayHeader from '../ArrayHeader/ArrayHeader';
-import ArraySamples from '../ArraySamples/ArraySamples';
 import ArrayDefaults from '../ArrayDefaults/ArrayDefaults';
+import ArrayHeader from '../ArrayHeader/ArrayHeader';
+import ArrayItem from '../ArrayItem/ArrayItem';
+import ArrayItems from '../ArrayItems/ArrayItems';
+import ArraySamples from '../ArraySamples/ArraySamples';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
+
+import {
+  hasDefaults,
+  hasSamples,
+} from '../elements/element';
 
 import {
   isStructured,
@@ -126,10 +130,19 @@ class ArrayComponent extends React.Component {
             sampleTitle="Description"
           />
 
-          {this.renderArrayItems(styles)}
+          {
+            this.renderArrayItems(styles)
+          }
 
-          <ArraySamples element={this.props.element} />
-          <ArrayDefaults element={this.props.element} />
+          {
+            hasSamples(this.props.element) &&
+              <ArraySamples element={this.props.element} />
+          }
+
+          {
+            hasDefaults(this.props.element) &&
+              <ArrayDefaults element={this.props.element} />
+          }
         </Column>
       </Row>
     );

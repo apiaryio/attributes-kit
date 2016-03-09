@@ -8,6 +8,7 @@ import Description from '../Description/Description';
 import Row from '../Row/Row';
 
 import {
+  hasDefaults,
   hasDescription,
   hasSamples,
   hasValue,
@@ -157,10 +158,12 @@ class StructuredArrayItem extends React.Component {
               </Row>
           }
 
-          <Row>
-            <ArrayItemDefaults element={this.props.element} />
-          </Row>
-
+          {
+            hasDefaults(this.props.element) &&
+              <Row>
+                <ArrayItemDefaults element={this.props.element} />
+              </Row>
+          }
         </Column>
       </Row>
     );

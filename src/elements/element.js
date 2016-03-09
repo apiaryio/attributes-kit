@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import sift from 'sift';
 
@@ -45,6 +46,14 @@ function getType(element) {
   }
 
   return element.element;
+}
+
+function hasType(element) {
+  if (!element) {
+    return false;
+  }
+
+  return !!getType(element);
 }
 
 function isObject(element) {
@@ -120,13 +129,27 @@ function isObjectOrArrayOrEnum(element) {
 }
 
 function hasSamples(element) {
-  const attributes = element.attributes;
-
-  if (attributes) {
-    return !!attributes.samples;
+  if (!element) {
+    return false;
   }
 
-  return false;
+  if (!element.attributes) {
+    return false;
+  }
+
+  return !isEmpty(element.attributes.samples);
+}
+
+function hasDefaults(element) {
+  if (!element) {
+    return false;
+  }
+
+  if (!element.attributes) {
+    return false;
+  }
+
+  return !!element.attributes.default;
 }
 
 function hasDescription(element) {
@@ -174,9 +197,11 @@ function isLastArrayItem(arrayElement, currentArrayItemIndex) {
 export {
   getType,
   getValueType,
+  hasDefaults,
   hasDescription,
   hasSamples,
   hasValue,
+  hasType,
   isArray,
   isEnum,
   isIncluded,
