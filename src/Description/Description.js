@@ -30,6 +30,8 @@ class Description extends React.Component {
   };
 
   render() {
+    const { DESCRIPTION_COLOR } = this.context.theme;
+
     let description = null;
 
     if (this.props.element.meta) {
