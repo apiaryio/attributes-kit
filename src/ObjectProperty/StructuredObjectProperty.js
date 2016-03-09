@@ -1,16 +1,18 @@
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
+import reactDom from 'react-dom';
 
-import Row from '../Row/Row';
 import Column from '../Column/Column';
-
-import Key from '../Key/Key';
-import Requirement from '../Requirement/Requirement';
 import Description from '../Description/Description';
+import Key from '../Key/Key';
+import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
+import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
+import Requirement from '../Requirement/Requirement';
+import Row from '../Row/Row';
+import Ruler from '../Ruler/Ruler';
 import Toggle from '../Toggle/Toggle';
 import Type from '../Type/Type';
-import Ruler from '../Ruler/Ruler';
-import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
-import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 
 import {
   isExpandableCollapsible,
@@ -61,16 +63,23 @@ class StructuredObjectProperty extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    const keyIdentifier = this.props.element.meta.id;
+    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+
+    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
+  }
+
   handleExpandCollapse = () => {
     this.setState({
       isExpanded: !this.state.isExpanded,
     });
   };
 
-  renderStyles() {
+  get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    let style = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
@@ -82,9 +91,6 @@ class StructuredObjectProperty extends React.Component {
         minWidth: '20px',
       },
       keyColumn: {
-        width: '100px',
-        maxWidth: '100px',
-        minWidth: '100px',
       },
       requirementColumn: {
         width: '25px',
@@ -112,24 +118,36 @@ class StructuredObjectProperty extends React.Component {
 
     // Last array item doesn't have a border.
     if (isLast) {
-      styles.ruler.root.paddingBottom = '0px';
-      styles.root.borderBottom = 'none';
-      styles.root.paddingBottom = '8px';
+      style.ruler.root.paddingBottom = '0px';
+      style.root.borderBottom = 'none';
+      style.root.paddingBottom = '8px';
     } else {
-      styles.root.paddingBottom = '8px';
+      style.root.paddingBottom = '8px';
     }
 
     if (!this.state.isExpanded) {
-      styles.ruler.root.borderLeft = '1px solid #ffffff';
+      style.ruler.root.borderLeft = '1px solid #ffffff';
     }
 
-    return styles;
+    let keyWidth;
+
+    if (this.props.keyWidth) {
+      keyWidth = `${this.props.keyWidth}px`;
+    } else {
+      keyWidth = 'auto';
+    }
+
+    style.keyColumn.width = keyWidth;
+    style.keyColumn.minWidth = keyWidth;
+    style.keyColumn.maxWidth = keyWidth;
+
+    return merge(style, this.props.style || {});
   }
 
-  renderValue(styles) {
+  renderValue() {
     if (this.state.isExpanded) {
       return (
-        <Row style={styles.valueRow}>
+        <Row style={this.style.valueRow}>
           {renderValue(this.props.element)}
         </Row>
       );
@@ -139,14 +157,12 @@ class StructuredObjectProperty extends React.Component {
   }
 
   render() {
-    const styles = this.renderStyles();
-
     return (
-      <Row style={styles.root}>
+      <Row style={this.style.root}>
         <Column>
           <Row>
             <Column
-              style={styles.toggleColumn}
+              style={this.style.toggleColumn}
             >
               <Toggle
                 isExpanded={this.state.isExpanded}
@@ -154,14 +170,15 @@ class StructuredObjectProperty extends React.Component {
               />
             </Column>
 
-            <Column style={styles.keyColumn} >
+            <Column style={this.style.keyColumn}>
               <Key
                 onClick={this.handleExpandCollapse}
                 element={this.props.element}
+                ref="key"
               />
             </Column>
 
-            <Column style={styles.requirementColumn}>
+            <Column style={this.style.requirementColumn}>
               <Requirement element={this.props.element} />
             </Column>
 
@@ -186,7 +203,7 @@ class StructuredObjectProperty extends React.Component {
                 </Row>
             }
 
-            {this.renderValue(styles)}
+            {this.renderValue()}
           </Ruler>
 
           <Row>
@@ -206,4 +223,4 @@ class StructuredObjectProperty extends React.Component {
   }
 }
 
-export default StructuredObjectProperty;
+export default radium(StructuredObjectProperty);
