@@ -22,6 +22,7 @@ import {
   hasDescription,
   hasSamples,
   isArray,
+  hasDefaults,
   isLastArrayItem,
   isObject,
 } from '../elements/element';
@@ -189,7 +190,10 @@ class StructuredObjectProperty extends React.Component {
                 <ObjectPropertySamples element={this.props.element} />
             }
 
-            <ObjectPropertyDefaults element={this.props.element} />
+            {
+              hasDefaults(this.props.element) &&
+                <ObjectPropertyDefaults element={this.props.element} />
+            }
           </Row>
         </Column>
       </Row>

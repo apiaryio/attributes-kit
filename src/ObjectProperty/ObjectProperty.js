@@ -15,8 +15,10 @@ import {
 } from '../elements/expandableCollapsibleElement';
 
 import {
+  hasDefaults,
   hasDescription,
   hasSamples,
+  hasType,
   hasValue,
   isLastArrayItem,
 } from '../elements/element';
@@ -83,12 +85,15 @@ class ObjectProperty extends React.Component {
         </Column>
 
         <Column>
-          <Row>
-            <Type
-              element={this.props.element}
-              style={styles.type}
-            />
-          </Row>
+          {
+            hasType(this.props.element) &&
+              <Row>
+                <Type
+                  element={this.props.element}
+                  style={styles.type}
+                />
+              </Row>
+          }
 
           {
             hasDescription(this.props.element) &&
@@ -111,9 +116,12 @@ class ObjectProperty extends React.Component {
               </Row>
           }
 
-          <Row>
-            <ObjectPropertyDefaults element={this.props.element} />
-          </Row>
+          {
+            hasDefaults(this.props.element) &&
+              <Row>
+                <ObjectPropertyDefaults element={this.props.element} />
+              </Row>
+          }
         </Column>
       </Row>
     );
