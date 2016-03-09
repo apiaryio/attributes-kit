@@ -1,3 +1,4 @@
+import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import compact from 'lodash/compact';
 import eidolon from 'eidolon';
@@ -129,10 +130,12 @@ class Attributes extends React.Component {
 
     // If `showInherited`, or `showIncluded` is set to `false`,
     // we'll removed all inherited, or included members from the data strcuture.
-    const element = this.removeInheritedOrIncludedMembers(dereferencedElement, {
+    const originElement = this.removeInheritedOrIncludedMembers(dereferencedElement, {
       removeInherited: !showInherited,
       removeIncluded: !showIncluded,
     });
+
+    const element = abagnale.forge([originElement], {separator: '.'})[0];
 
     return {
       collapseByDefault,
