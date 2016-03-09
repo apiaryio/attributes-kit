@@ -26,10 +26,10 @@ class Key extends React.Component {
         width: '100%',
         height: 'auto',
         fontFamily: 'Source Code Pro',
-        fontWeight: '500',
-        fontSize: '16px',
+        fontWeight: '700',
+        fontSize: '13px',
         color: KEY_COLOR,
-        lineHeight: '18px',
+        lineHeight: '17px',
         userSelect: 'none',
       },
     };

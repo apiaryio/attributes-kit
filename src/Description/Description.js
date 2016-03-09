@@ -19,9 +19,10 @@ class Description extends React.Component {
     const style = {
       root: {
         fontFamily: 'Source Sans Pro',
-        fontSize: '16px',
+        fontSize: '14px',
         color: DESCRIPTION_COLOR,
-        lineHeight: '150%',
+        lineHeight: '21px',
+        fontWeight: 'regular',
       },
     };
 
@@ -50,6 +51,11 @@ class Description extends React.Component {
           rules={{
             p: {
               marginBottom: '4px',
+              fontFamily: 'Source Sans Pro',
+              fontSize: '14px',
+              color: DESCRIPTION_COLOR,
+              lineHeight: '21px',
+              fontWeight: 'regular',
             },
             'p:last-child': {
               marginBottom: '0px',
