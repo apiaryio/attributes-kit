@@ -29,9 +29,6 @@
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                     <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">1</div>
                                 </div>
-                                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div></div>
-                                </div>
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
@@ -50,9 +47,6 @@
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                     <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">A green door</div>
                                 </div>
-                                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div></div>
-                                </div>
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
@@ -70,9 +64,6 @@
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                     <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">12.5</div>
-                                </div>
-                                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
@@ -214,9 +205,6 @@
                             <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                     <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:14px;color:#8A93A3;margin-bottom:4px;">boolean</div>
-                                </div>
-                                <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
