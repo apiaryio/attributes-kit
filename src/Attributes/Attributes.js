@@ -30,6 +30,8 @@ class Attributes extends React.Component {
 
   static childContextTypes = {
     theme: React.PropTypes.object,
+    showParentLinks: React.PropTypes.bool,
+    onElementLinkClick: React.PropTypes.func,
   };
 
   constructor(props) {
@@ -42,6 +44,8 @@ class Attributes extends React.Component {
       showIncluded,
       showInherited,
       theme,
+      showParentLinks,
+      onElementLinkClick,
     } = this.processProps(props);
 
     this.state = {
@@ -51,12 +55,16 @@ class Attributes extends React.Component {
       showIncluded,
       showInherited,
       theme,
+      showParentLinks,
+      onElementLinkClick,
     };
   };
 
   getChildContext() {
     return {
       theme: this.state.theme,
+      showParentLinks: this.state.showParentLinks,
+      onElementLinkClick: this.state.onElementLinkClick,
     };
   };
 
@@ -68,6 +76,8 @@ class Attributes extends React.Component {
       showIncluded,
       showInherited,
       theme,
+      showParentLinks,
+      onElementLinkClick,
     } = this.processProps(nextProps);
 
     this.setState({
@@ -77,6 +87,8 @@ class Attributes extends React.Component {
       showIncluded,
       showInherited,
       theme,
+      showParentLinks,
+      onElementLinkClick,
     });
   };
 
@@ -111,6 +123,21 @@ class Attributes extends React.Component {
 
     if (isUndefined(collapseByDefault)) {
       collapseByDefault = false;
+
+    // By default we won't show the parent links, but this can be enabled by
+    // the user. It will show the parent element as a link before any element
+    // properties/values/defaults/etc.
+    let showParentLinks = props.showParentLinks;
+
+    if (isUndefined(showParentLinks)) {
+      showParentLinks = false;
+    }
+
+    // Set up a dummy handler for element link clicks.
+    let onElementLinkClick = props.onElementLinkClick;
+
+    if (isUndefined(onElementLinkClick)) {
+      onElementLinkClick = function () {};
     }
 
     // Regardless of the options above, we have to resolve all references,
@@ -147,6 +174,8 @@ class Attributes extends React.Component {
       showIncluded,
       showInherited,
       theme,
+      showParentLinks,
+      onElementLinkClick,
     };
   };
 

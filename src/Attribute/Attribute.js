@@ -2,6 +2,8 @@ import React from 'react';
 import Error from '../Error/Error';
 import refractToComponentsMap from '../refractToComponentMap';
 
+import ParentInfo from '../ParentInfo/ParentInfo';
+
 class Attribute extends React.Component {
   static propTypes = {
     theme: React.PropTypes.object,
@@ -10,6 +12,10 @@ class Attribute extends React.Component {
     parentElement: React.PropTypes.object,
     collapseByDefault: React.PropTypes.bool,
   };
+
+  static contextTypes = {
+    showParentLinks: React.PropTypes.bool,
+  }
 
   render() {
     if (!this.props.element) {
@@ -29,12 +35,23 @@ class Attribute extends React.Component {
       );
     }
 
-    return React.createElement(reactComponent, {
+    const renderedComponent = React.createElement(reactComponent, {
       collapseByDefault: this.props.collapseByDefault,
       element: this.props.element,
       expandableCollapsible: this.props.expandableCollapsible,
       parentElement: this.props.parentElement,
     });
+
+    if (!(this.props.element.meta && this.props.element.meta.ref) || !this.context.showParentLinks) {
+      return renderedComponent;
+    }
+
+    return (
+      <div>
+        <ParentInfo element={this.props.element}/>
+        {renderedComponent}
+      </div>
+    );
   }
 }
 
