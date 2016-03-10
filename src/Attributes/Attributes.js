@@ -23,14 +23,18 @@ class Attributes extends React.Component {
     dataStructures: React.PropTypes.array,
     dereference: React.PropTypes.bool,
     element: React.PropTypes.object,
+    onElementLinkClick: React.PropTypes.func,
     showIncluded: React.PropTypes.bool,
     showInherited: React.PropTypes.bool,
+    showMemberParentLinks: React.PropTypes.bool,
+    showParentLinks: React.PropTypes.bool,
     theme: React.PropTypes.object,
   };
 
   static childContextTypes = {
     theme: React.PropTypes.object,
     showParentLinks: React.PropTypes.bool,
+    showMemberParentLinks: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
   };
 
@@ -45,6 +49,7 @@ class Attributes extends React.Component {
       showInherited,
       theme,
       showParentLinks,
+      showMemberParentLinks,
       onElementLinkClick,
     } = this.processProps(props);
 
@@ -56,6 +61,7 @@ class Attributes extends React.Component {
       showInherited,
       theme,
       showParentLinks,
+      showMemberParentLinks,
       onElementLinkClick,
     };
   };
@@ -64,6 +70,7 @@ class Attributes extends React.Component {
     return {
       theme: this.state.theme,
       showParentLinks: this.state.showParentLinks,
+      showMemberParentLinks: this.state.showMemberParentLinks,
       onElementLinkClick: this.state.onElementLinkClick,
     };
   };
@@ -77,6 +84,7 @@ class Attributes extends React.Component {
       showInherited,
       theme,
       showParentLinks,
+      showMemberParentLinks,
       onElementLinkClick,
     } = this.processProps(nextProps);
 
@@ -88,6 +96,7 @@ class Attributes extends React.Component {
       showInherited,
       theme,
       showParentLinks,
+      showMemberParentLinks,
       onElementLinkClick,
     });
   };
@@ -126,11 +135,17 @@ class Attributes extends React.Component {
 
     // By default we won't show the parent links, but this can be enabled by
     // the user. It will show the parent element as a link before any element
-    // properties/values/defaults/etc.
+    // properties/values/defaults/etc. The member items of objects will show
+    // parent links by default.
     let showParentLinks = props.showParentLinks;
+    let showMemberParentLinks = props.showMemberParentLinks;
 
     if (isUndefined(showParentLinks)) {
       showParentLinks = false;
+    }
+
+    if (isUndefined(showMemberParentLinks)) {
+      showMemberParentLinks = true;
     }
 
     // Set up a dummy handler for element link clicks.
@@ -175,6 +190,7 @@ class Attributes extends React.Component {
       showInherited,
       theme,
       showParentLinks,
+      showMemberParentLinks,
       onElementLinkClick,
     };
   };

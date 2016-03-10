@@ -8,6 +8,7 @@ import Description from '../Description/Description';
 import Key from '../Key/Key';
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
+import ParentInfoLink from '../ParentInfo/ParentInfoLink';
 import Requirement from '../Requirement/Requirement';
 import Row from '../Row/Row';
 import Ruler from '../Ruler/Ruler';
@@ -42,6 +43,8 @@ class StructuredObjectProperty extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    showMemberParentLinks: React.PropTypes.bool,
+    onElementLinkClick: React.PropTypes.func,
   };
 
   constructor(props) {
@@ -204,6 +207,10 @@ class StructuredObjectProperty extends React.Component {
                 <Column>
                   <Type
                     element={this.props.element}
+                  />
+                  <ParentInfoLink
+                    element={this.props.element}
+                    show={this.context.showMemberParentLinks}
                   />
                 </Column>
             }

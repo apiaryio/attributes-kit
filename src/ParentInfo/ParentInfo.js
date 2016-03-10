@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 
 import Row from '../Row/Row';
 import Column from '../Column/Column';
+import ParentInfoLink from './ParentInfoLink';
 
 
 class ParentInfo extends React.Component {
@@ -40,7 +41,7 @@ class ParentInfo extends React.Component {
             <span>▸ parent</span>
           </Column>
           <Column>
-            <a href="#" onclick={this.context.onElementLinkClick}>{this.ref}</a>
+            <ParentInfoLink element={this.props.element}/>
           </Column>
         </Row>
       </Column>
