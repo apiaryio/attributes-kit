@@ -125,6 +125,7 @@ class ObjectProperty extends React.Component {
                 <ParentInfoLink
                   element={this.props.element}
                   show={this.context.showMemberParentLinks}
+                  showBullet={true}
                 />
               </Row>
           }

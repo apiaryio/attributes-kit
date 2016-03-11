@@ -38,6 +38,10 @@ class Playground extends React.Component {
     }
   };
 
+  onElementLinkClick = (parentName, clickedElement, event) => {
+    alert('Element ' + parentName + ' clicked!');
+  };
+
   toggleInheritedMembers = () => {
     this.setState({
       showInherited: !this.state.showInherited,
