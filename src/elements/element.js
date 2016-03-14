@@ -140,6 +140,10 @@ function hasSamples(element) {
   return !isEmpty(element.attributes.samples);
 }
 
+function hasMembers(element) {
+  return !isEmpty(element.content);
+}
+
 function hasDefaults(element) {
   if (!element) {
     return false;
@@ -199,9 +203,10 @@ export {
   getValueType,
   hasDefaults,
   hasDescription,
+  hasMembers,
   hasSamples,
-  hasValue,
   hasType,
+  hasValue,
   isArray,
   isEnum,
   isIncluded,
