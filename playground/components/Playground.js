@@ -13,8 +13,9 @@ class Playground extends React.Component {
     this.state = {
       showIncluded: true,
       showInherited: true,
-      toggleCollapseByDefault: false,
+      collapseByDefault: false,
       showParentLinks: true,
+      showMemberParentLinks: true,
       parseResult: {
         dataStructures: [],
         errors: [],
