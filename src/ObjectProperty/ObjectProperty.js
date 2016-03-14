@@ -118,15 +118,19 @@ class ObjectProperty extends React.Component {
           {
             hasType(this.props.element) &&
               <Row>
-                <Type
-                  element={this.props.element}
-                  style={this.style.type}
-                />
-                <ParentInfoLink
-                  element={this.props.element}
-                  show={this.context.showMemberParentLinks}
-                  showBullet={true}
-                />
+                <Column>
+                  <Type
+                    element={this.props.element}
+                    style={styles.type}
+                  />
+                </Column>
+                <Column>
+                  <ParentInfoLink
+                    element={this.props.element}
+                    show={this.context.showMemberParentLinks}
+                    showBullet={true}
+                  />
+                </Column>
               </Row>
           }
 

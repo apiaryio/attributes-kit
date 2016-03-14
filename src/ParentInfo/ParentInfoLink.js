@@ -1,4 +1,5 @@
 import React from 'react';
+import radium from 'radium';
 import merge from 'lodash/merge';
 
 class ParentInfoLink extends React.Component {
@@ -20,15 +21,17 @@ class ParentInfoLink extends React.Component {
       base: {
         cursor: 'pointer',
         color: DESCRIPTION_COLOR,
-        fontStyle: 'italic',
-        fontSize: '90%',
-        textDecoration: 'underline',
+        fontFamily: 'Source Sans Pro',
+        fontWeight: '600',
+        fontSize: '14px',
+        color: '#4C5264',
+        borderBottom: '1px solid #EAEBEE',
       },
       bullet: {
         cursor: 'pointer',
         color: DESCRIPTION_COLOR,
         fontSize: '90%',
-        textDecoration: 'underline',
+        textDecoration: 'none',
       },
     };
 
@@ -57,10 +60,11 @@ class ParentInfoLink extends React.Component {
           this.props.showBullet === true && this.ref &&
           <span style={this.style.bullet}>▸&nbsp;</span>
         }
+
         <span style={this.style.base}>{this.ref}</span>
       </a>
     );
   };
 }
 
-export default ParentInfoLink;
+export default radium(ParentInfoLink);

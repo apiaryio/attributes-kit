@@ -24,6 +24,8 @@ class Attribute extends React.Component {
 
     const reactComponent = refractToComponentsMap[this.props.element.element];
 
+    // If we didn't find the component which is able to render the specific
+    // element, display an error message.
     if (typeof reactComponent === 'undefined') {
       const errorMessage = `
         Attributes Kit is not able to render ‘${this.props.element.element}’
@@ -42,13 +44,16 @@ class Attribute extends React.Component {
       parentElement: this.props.parentElement,
     });
 
+    // Component wasn't inherited, we can render the component directly, without
+    // any info about parent.
     if (!(this.props.element.meta && this.props.element.meta.ref) || !this.context.showParentLinks) {
       return renderedComponent;
     }
 
+    // Render the component with info about its parent.
     return (
       <div>
-        <ParentInfo element={this.props.element}/>
+        <ParentInfo element={this.props.element} />
         {renderedComponent}
       </div>
     );
