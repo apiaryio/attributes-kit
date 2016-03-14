@@ -44,10 +44,7 @@ class ParentInfo extends React.Component {
     return (
       <Row style={this.style.base}>
         <Column>
-          <span style={this.style.text}>▸&nbsp;parent</span>
-        </Column>
-        <Column>
-          <ParentInfoLink element={this.props.element}/>
+          <ParentInfoLink element={this.props.element} showBullet={this.props.showBullet} />
         </Column>
       </Row>
     );

@@ -53,7 +53,7 @@ class Attribute extends React.Component {
     // Render the component with info about its parent.
     return (
       <div>
-        <ParentInfo element={this.props.element} />
+        <ParentInfo element={this.props.element} showBullet={true} />
         {renderedComponent}
       </div>
     );
