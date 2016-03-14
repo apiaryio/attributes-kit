@@ -1,3 +1,6 @@
+import isEmpty from 'lodash/isEmpty';
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
 
 import ArrayDefaults from '../ArrayDefaults/ArrayDefaults';
@@ -11,13 +14,13 @@ import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
 
 import {
   hasDefaults,
+  hasMembers,
   hasSamples,
 } from '../elements/element';
 
 import {
   isStructured,
 } from '../elements/expandableCollapsibleElement';
-
 
 class ArrayComponent extends React.Component {
   static propTypes = {
@@ -37,16 +40,10 @@ class ArrayComponent extends React.Component {
     };
   }
 
-  handleExpandCollapse = () => {
-    this.setState({
-      isExpanded: !this.state.isExpanded,
-    });
-  };
-
-  renderStyles() {
+  get style() {
     const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       arrayItems: {
         root: {
           border: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
@@ -54,10 +51,16 @@ class ArrayComponent extends React.Component {
       },
     };
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
-  renderArrayItems(styles) {
+  handleExpandCollapse = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  };
+
+  renderArrayItems() {
     if (!this.state.isExpanded) {
       return false;
     }
@@ -80,7 +83,7 @@ class ArrayComponent extends React.Component {
     }
 
     return (
-      <ArrayItems style={styles.arrayItems}>
+      <ArrayItems style={this.style.arrayItems}>
         {
           this.props.element.content.map((element, index) => {
             if (isStructured(element)) {
@@ -113,8 +116,6 @@ class ArrayComponent extends React.Component {
   }
 
   render() {
-    const styles = this.renderStyles();
-
     if (!this.props.element.content) {
       return false;
     }
@@ -131,7 +132,8 @@ class ArrayComponent extends React.Component {
           />
 
           {
-            this.renderArrayItems(styles)
+            hasMembers(this.props.element) &&
+              this.renderArrayItems()
           }
 
           {
@@ -149,4 +151,4 @@ class ArrayComponent extends React.Component {
   }
 }
 
-export default ArrayComponent;
+export default radium(ArrayComponent);
