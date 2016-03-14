@@ -1,8 +1,5 @@
 import React from 'react';
 
-import Tooltip from '../Tooltip/Tooltip';
-
-
 class Requirement extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -57,7 +54,6 @@ class Requirement extends React.Component {
     return (
       <div style={styles.root}>
         {this.renderAsterisk(requirement, styles)}
-        <Tooltip text={requirement.join(' ')} />
       </div>
     );
   }
