@@ -1,4 +1,3 @@
-import isEmpty from 'lodash/isEmpty';
 import merge from 'lodash/merge';
 import radium from 'radium';
 import React from 'react';
@@ -26,6 +25,7 @@ class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
