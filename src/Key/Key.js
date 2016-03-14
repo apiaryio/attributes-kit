@@ -4,14 +4,15 @@ import radium from 'radium';
 import React from 'react';
 
 import {
-  isExpandableCollapsible
+  isExpandableCollapsible,
 } from '../elements/expandableCollapsibleElement';
 
 class Key extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
     element: React.PropTypes.object,
+    index: React.PropTypes.number,
     onClick: React.PropTypes.func,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -21,7 +22,7 @@ class Key extends React.Component {
   get style() {
     const { KEY_COLOR } = this.context.theme;
 
-    let style = {
+    const style = {
       base: {
         width: '100%',
         height: 'auto',

@@ -28,9 +28,12 @@ import {
 
 class ObjectProperty extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
     element: React.PropTypes.object,
+    index: React.PropTypes.number,
     parentElement: React.PropTypes.object,
+    reportKeyWidth: React.PropTypes.func,
+    style: React.PropTypes.object,
+    keyWidth: React.PropTypes.number,
   };
 
   static contextTypes = {
@@ -47,7 +50,7 @@ class ObjectProperty extends React.Component {
   get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    let style = {
+    const style = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',

@@ -135,7 +135,7 @@ class Attributes extends React.Component {
       removeIncluded: !showIncluded,
     });
 
-    const element = abagnale.forge([originElement], {separator: '.'})[0];
+    const element = abagnale.forge([originElement], { separator: '.' })[0];
 
     return {
       collapseByDefault,

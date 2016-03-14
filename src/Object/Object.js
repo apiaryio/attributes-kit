@@ -22,6 +22,7 @@ class ObjectComponent extends React.Component {
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   constructor(props) {

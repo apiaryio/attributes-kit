@@ -8,6 +8,7 @@ class Attribute extends React.Component {
     element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   render() {

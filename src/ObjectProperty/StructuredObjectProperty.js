@@ -31,9 +31,13 @@ import {
 
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
+    collapseByDefault: React.PropTypes.bool,
     element: React.PropTypes.object,
-    parentElement: React.PropTypes.object,
     index: React.PropTypes.number,
+    keyWidth: React.PropTypes.number,
+    parentElement: React.PropTypes.object,
+    reportKeyWidth: React.PropTypes.func,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -79,7 +83,7 @@ class StructuredObjectProperty extends React.Component {
   get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    let style = {
+    const style = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
