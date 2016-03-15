@@ -47,32 +47,45 @@ class StructuredObjectProperty extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isExpandableCollapsible: isExpandableCollapsible(this.props.element),
-      isObject: isObject(this.props.element),
-      isArray: isArray(this.props.element),
-    };
-
-    // State hasn't been set; tree is expanded by default,
-    // after a click, it collapses.
-    if (this.state.isExpandableCollapsible) {
-      if (this.props.collapseByDefault) {
-        this.state.isExpanded = false;
-      } else {
-        this.state.isExpanded = true;
-      }
-
-      this.state.containsExpandableCollapsibleElement =
-        containsExpandableCollapsibleElement(this.props.parentElement.content);
-    }
-  }
+    this.state = this.transformPropsIntoState(props);
+  };
 
   componentDidMount = () => {
     const keyIdentifier = this.props.element.meta.id;
     const keyDomNode = reactDom.findDOMNode(this.refs.key);
 
     this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
-  }
+  };
+
+  componentWillReceiveProps = (nextProps) => {
+    this.setState(
+      this.transformPropsIntoState(nextProps)
+    );
+  };
+
+  transformPropsIntoState(props) {
+    let isExpanded;
+
+    // State hasn't been set; tree is expanded by default,
+    // after a click, it collapses.
+    if (isExpandableCollapsible(props.element)) {
+      if (props.collapseByDefault) {
+        isExpanded = false;
+      } else {
+        isExpanded = true;
+      }
+    }
+
+    return {
+      containsExpandableCollapsibleElement:
+        containsExpandableCollapsibleElement(this.props.parentElement.content),
+
+      isArray: isArray(props.element),
+      isExpandableCollapsible: isExpandableCollapsible(props.element),
+      isExpanded,
+      isObject: isObject(props.element),
+    };
+  };
 
   handleExpandCollapse = () => {
     this.setState({
@@ -146,7 +159,7 @@ class StructuredObjectProperty extends React.Component {
     style.keyColumn.maxWidth = keyWidth;
 
     return merge(style, this.props.style || {});
-  }
+  };
 
   renderValue() {
     if (this.state.isExpanded) {
@@ -158,7 +171,7 @@ class StructuredObjectProperty extends React.Component {
     }
 
     return null;
-  }
+  };
 
   render() {
     return (
@@ -196,13 +209,13 @@ class StructuredObjectProperty extends React.Component {
             }
           </Row>
 
-          <Ruler style={styles.ruler}>
+          <Ruler style={this.style.ruler}>
             {
               hasDescription(this.props.element) &&
                 <Row>
                   <Description
                     element={this.props.element}
-                    style={styles.description}
+                    style={this.style.description}
                   />
                 </Row>
             }
@@ -224,7 +237,7 @@ class StructuredObjectProperty extends React.Component {
         </Column>
       </Row>
     );
-  }
+  };
 }
 
 export default radium(StructuredObjectProperty);

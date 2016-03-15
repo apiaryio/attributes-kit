@@ -19,10 +19,13 @@ import {
 
 class Attributes extends React.Component {
   static propTypes = {
+    collapseByDefault: React.PropTypes.bool,
     dataStructures: React.PropTypes.array,
-    element: React.PropTypes.object,
-    theme: React.PropTypes.object,
     dereference: React.PropTypes.bool,
+    element: React.PropTypes.object,
+    showIncluded: React.PropTypes.bool,
+    showInherited: React.PropTypes.bool,
+    theme: React.PropTypes.object,
   };
 
   static childContextTypes = {

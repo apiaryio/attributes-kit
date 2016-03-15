@@ -13,6 +13,7 @@ class Playground extends React.Component {
     this.state = {
       showIncluded: true,
       showInherited: true,
+      toggleCollapseByDefault: false,
       parseResult: {
         dataStructures: [],
         errors: [],
@@ -45,6 +46,12 @@ class Playground extends React.Component {
   toggleIncludedMembers = () => {
     this.setState({
       showIncluded: !this.state.showIncluded,
+    });
+  };
+
+  toggleCollapseByDefault = () => {
+    this.setState({
+      collapseByDefault: !this.state.collapseByDefault,
     });
   };
 
@@ -95,6 +102,17 @@ class Playground extends React.Component {
             </label>
           </div>
 
+          <div>
+            <input
+              type="checkbox"
+              id="collapseByDefaultCheckbox"
+              onChange={this.toggleCollapseByDefault}
+            />
+            <label htmlFor="collapseByDefaultCheckbox">
+              Collapse by default
+            </label>
+          </div>
+
           {
             dataStructures.length > 0 &&
               <AttributesKit.Attributes
@@ -102,6 +120,7 @@ class Playground extends React.Component {
                 dataStructures={dataStructures}
                 showInherited={this.state.showInherited}
                 showIncluded={this.state.showIncluded}
+                collapseByDefault={this.state.collapseByDefault}
               />
           }
         </div>

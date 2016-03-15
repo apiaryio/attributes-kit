@@ -117,7 +117,7 @@ class ObjectProperty extends React.Component {
               <Row>
                 <Type
                   element={this.props.element}
-                  style={styles.type}
+                  style={this.style.type}
                 />
               </Row>
           }
