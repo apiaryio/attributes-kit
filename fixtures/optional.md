@@ -15,7 +15,7 @@
                     <div style="width:100%;height:auto;">
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:0px;padding-top:8px;padding-bottom:8px;">
                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">street</div>
+                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">street</div>
                             </div>
                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                 <div style="float:left;width:100%;height:auto;"></div>

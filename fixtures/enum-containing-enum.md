@@ -22,7 +22,7 @@
                                         </div>
                                     </div>
                                     <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                        <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;cursor:pointer;">enum</div>
+                                        <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;cursor:pointer;">enum</div>
                                     </div>
                                     <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                         <div style="float:left;width:100%;height:auto;"></div>
@@ -68,7 +68,7 @@
                                                                                         <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">number</div>
                                                                                     </div>
                                                                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">1</div>
+                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">1</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -79,7 +79,7 @@
                                                                                         <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">number</div>
                                                                                     </div>
                                                                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">2</div>
+                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">2</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -90,7 +90,7 @@
                                                                                         <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">number</div>
                                                                                     </div>
                                                                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">3</div>
+                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">3</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -101,7 +101,7 @@
                                                                                         <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">number</div>
                                                                                     </div>
                                                                                     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">4</div>
+                                                                                        <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">4</div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -118,7 +118,7 @@
                                                                 <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">string</div>
                                                             </div>
                                                             <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">something</div>
+                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">something</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -129,7 +129,7 @@
                                                                 <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">string</div>
                                                             </div>
                                                             <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">anything</div>
+                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">anything</div>
                                                             </div>
                                                         </div>
                                                     </div>

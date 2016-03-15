@@ -15,7 +15,7 @@
                     <div style="width:100%;height:auto;">
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;padding-left:20px;min-width:auto;max-width:auto;">
-                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">id</div>
+                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">id</div>
                             </div>
                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                 <div style="float:left;width:100%;height:auto;"><span style="float:left;width:10px;height:11px;background-image:url([object Object]);background-size:10px 11px;background-repeat:no-repeat;"></span></div>
@@ -44,19 +44,19 @@
                                                 margin-left: 20px;
                                             }
                                         </style>
-                                        <div style="font-family:Source Sans Pro;font-size:14px;color:#8A93A3;line-height:21px;font-weight:regular;" class="attributeDescription">
+                                        <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;" class="attributeDescription">
                                             <p>The unique identifier for a product</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">1</div>
+                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">1</div>
                                 </div>
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;padding-left:20px;min-width:auto;max-width:auto;">
-                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">name</div>
+                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">name</div>
                             </div>
                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                 <div style="float:left;width:100%;height:auto;"><span style="float:left;width:10px;height:11px;background-image:url([object Object]);background-size:10px 11px;background-repeat:no-repeat;"></span></div>
@@ -85,19 +85,19 @@
                                                 margin-left: 20px;
                                             }
                                         </style>
-                                        <div style="font-family:Source Sans Pro;font-size:14px;color:#8A93A3;line-height:21px;font-weight:regular;" class="attributeDescription">
+                                        <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;" class="attributeDescription">
                                             <p>Name of the product</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">A green door</div>
+                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">A green door</div>
                                 </div>
                             </div>
                         </div>
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;padding-left:20px;min-width:auto;max-width:auto;">
-                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">price</div>
+                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">price</div>
                             </div>
                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                 <div style="float:left;width:100%;height:auto;"><span style="float:left;width:10px;height:11px;background-image:url([object Object]);background-size:10px 11px;background-repeat:no-repeat;"></span></div>
@@ -107,7 +107,7 @@
                                     <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">number</div>
                                 </div>
                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">12.5</div>
+                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">12.5</div>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                     <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                        <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;cursor:pointer;">tags</div>
+                                        <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;cursor:pointer;">tags</div>
                                     </div>
                                     <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                         <div style="float:left;width:100%;height:auto;"></div>
@@ -150,7 +150,7 @@
                                                     margin-left: 20px;
                                                 }
                                             </style>
-                                            <div style="font-family:Source Sans Pro;font-size:14px;color:#8A93A3;line-height:21px;font-weight:regular;margin-top:4px;" class="attributeDescription">
+                                            <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;margin-top:4px;" class="attributeDescription">
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                                 <p>Sed sed lacus a arcu vehicula ultricies sed vel nibh. Mauris id cursus felis.</p>
                                                 <p>Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
@@ -186,7 +186,7 @@
                                                                 <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">string</div>
                                                             </div>
                                                             <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">home</div>
+                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">home</div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -196,7 +196,7 @@
                                                                 <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">string</div>
                                                             </div>
                                                             <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">green</div>
+                                                                <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">green</div>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -22,7 +22,7 @@
                                         </div>
                                     </div>
                                     <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                        <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;cursor:pointer;">listing</div>
+                                        <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;cursor:pointer;">listing</div>
                                     </div>
                                     <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                         <div style="float:left;width:100%;height:auto;"></div>
@@ -52,7 +52,7 @@
                                                     margin-left: 20px;
                                                 }
                                             </style>
-                                            <div style="font-family:Source Sans Pro;font-size:14px;color:#8A93A3;line-height:21px;font-weight:regular;margin-top:4px;" class="attributeDescription">
+                                            <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;margin-top:4px;" class="attributeDescription">
                                                 <p>Our real estate listing has different properties available.</p>
                                                 <ul>
                                                     <li><code>Properties</code>
@@ -79,7 +79,7 @@
                                                     <div style="width:100%;height:auto;">
                                                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
                                                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">description</div>
+                                                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">description</div>
                                                             </div>
                                                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                                                 <div style="float:left;width:100%;height:auto;"></div>
@@ -92,7 +92,7 @@
                                                         </div>
                                                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-top:8px;padding-bottom:8px;">
                                                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">date_listed</div>
+                                                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">date_listed</div>
                                                             </div>
                                                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                                                 <div style="float:left;width:100%;height:auto;"></div>
@@ -105,7 +105,7 @@
                                                         </div>
                                                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:0px;padding-top:8px;padding-bottom:8px;">
                                                             <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:auto;max-width:auto;">
-                                                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:700;font-size:13px;color:#4C5264;line-height:17px;user-select:none;">some:location</div>
+                                                                <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;color:rgb(48, 52, 63);line-height:17px;user-select:none;">some:location</div>
                                                             </div>
                                                             <div style="height:auto;width:25px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;max-width:25px;min-width:25px;">
                                                                 <div style="float:left;width:100%;height:auto;"></div>
@@ -115,7 +115,7 @@
                                                                     <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;margin-bottom:4px;">string</div>
                                                                 </div>
                                                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:15px;color:#4C5264;line-height:19px;">local</div>
+                                                                    <div style="float:left;width:auto;height:auto;margin:0px;padding:0px;font-weight:600;background-color:#f0f1f4;border-radius:4px;padding-top:2px;padding-bottom:2px;padding-left:4px;padding-right:4px;font-family:Source Sans Pro;font-size:13px;color:#4C5264;line-height:17px;">local</div>
                                                                 </div>
                                                             </div>
                                                         </div>
