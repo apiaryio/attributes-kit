@@ -19,9 +19,9 @@ class Description extends React.Component {
     const style = {
       root: {
         fontFamily: 'Source Sans Pro',
-        fontSize: '14px',
+        fontSize: '13px',
         color: DESCRIPTION_COLOR,
-        lineHeight: '21px',
+        lineHeight: '150%',
         fontWeight: 'regular',
       },
     };
