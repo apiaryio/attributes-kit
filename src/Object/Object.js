@@ -40,6 +40,8 @@ class ObjectComponent extends React.Component {
   }
 
   get style() {
+    const { BORDER_COLOR } = this.context.theme;
+
     const style = {
       ruler: {
         root: {
@@ -125,7 +127,7 @@ class ObjectComponent extends React.Component {
     return (
       <Row>
         <Column>
-          <Row style={styles.objectHeaderRow}>
+          <Row style={this.style.objectHeaderRow}>
             {
               this.props.parentElement &&
                 <ObjectHeader
