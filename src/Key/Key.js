@@ -27,7 +27,7 @@ class Key extends React.Component {
         width: '100%',
         height: 'auto',
         fontFamily: 'Source Code Pro',
-        fontWeight: '700',
+        fontWeight: '500',
         fontSize: '13px',
         color: KEY_COLOR,
         lineHeight: '17px',
