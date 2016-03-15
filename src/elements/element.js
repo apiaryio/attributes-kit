@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import sift from 'sift';
 
@@ -45,6 +46,14 @@ function getType(element) {
   }
 
   return element.element;
+}
+
+function hasType(element) {
+  if (!element) {
+    return false;
+  }
+
+  return !!getType(element);
 }
 
 function isObject(element) {
@@ -120,13 +129,31 @@ function isObjectOrArrayOrEnum(element) {
 }
 
 function hasSamples(element) {
-  const attributes = element.attributes;
-
-  if (attributes) {
-    return !!attributes.samples;
+  if (!element) {
+    return false;
   }
 
-  return false;
+  if (!element.attributes) {
+    return false;
+  }
+
+  return !isEmpty(element.attributes.samples);
+}
+
+function hasMembers(element) {
+  return !isEmpty(element.content);
+}
+
+function hasDefaults(element) {
+  if (!element) {
+    return false;
+  }
+
+  if (!element.attributes) {
+    return false;
+  }
+
+  return !!element.attributes.default;
 }
 
 function hasDescription(element) {
@@ -139,6 +166,33 @@ function hasDescription(element) {
   return false;
 }
 
+function hasValue(element) {
+  if (!element) {
+    return false;
+  }
+
+  if (isObjectOrArray(element.element)) {
+    return false;
+  }
+
+  if (!element.content) {
+    return false;
+  }
+
+  if (isMember(element.element)) {
+    if (element.content.value && isObjectOrArray(element.content.value.element)) {
+      return false;
+    }
+
+    if (!element.content.value.content) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+
 function isLastArrayItem(arrayElement, currentArrayItemIndex) {
   const numberOfArrayItems = arrayElement.content.length;
   return (numberOfArrayItems - 1) === currentArrayItemIndex;
@@ -147,8 +201,12 @@ function isLastArrayItem(arrayElement, currentArrayItemIndex) {
 export {
   getType,
   getValueType,
+  hasDefaults,
   hasDescription,
+  hasMembers,
   hasSamples,
+  hasType,
+  hasValue,
   isArray,
   isEnum,
   isIncluded,

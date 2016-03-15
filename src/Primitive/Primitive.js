@@ -7,6 +7,10 @@ import Column from '../Column/Column';
 import Value from '../Value/Value';
 import Description from '../Description/Description';
 
+import {
+  hasDescription,
+  hasValue,
+} from '../elements/element';
 
 class Primitive extends React.Component {
   static propTypes = {
@@ -61,13 +65,19 @@ class Primitive extends React.Component {
           />
         </Row>
 
-        <Row>
-          <Description element={this.props.element} />
-        </Row>
+        {
+          hasDescription(this.props.element) &&
+            <Row>
+              <Description element={this.props.element} />
+            </Row>
+        }
 
-        <Row>
-          <Value element={this.props.element} />
-        </Row>
+        {
+          hasValue(this.props.element) &&
+            <Row>
+              <Value element={this.props.element} />
+            </Row>
+        }
       </Column>
     );
   };

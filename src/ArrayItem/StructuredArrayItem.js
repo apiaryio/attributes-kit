@@ -8,10 +8,13 @@ import Description from '../Description/Description';
 import Row from '../Row/Row';
 
 import {
+  hasDefaults,
+  hasDescription,
+  hasSamples,
+  hasValue,
+  isArray,
   isLastArrayItem,
   isObject,
-  isArray,
-  hasDescription,
 } from '../elements/element';
 
 import {
@@ -104,6 +107,23 @@ class StructuredArrayItem extends React.Component {
     return styles;
   }
 
+  renderValue() {
+    if (!hasValue(this.props.element)) {
+      return null;
+    }
+
+    return (
+      <Row>
+        {
+          renderValue(this.props.element, {
+            expandableCollapsible: true,
+            parentElement: this.props.parentElement,
+          })
+        }
+      </Row>
+    );
+  }
+
   render() {
     const styles = this.renderStyles();
 
@@ -127,23 +147,23 @@ class StructuredArrayItem extends React.Component {
               </Row>
           }
 
-          <Row>
-            {
-              renderValue(this.props.element, {
-                expandableCollapsible: true,
-                parentElement: this.props.parentElement,
-              })
-            }
-          </Row>
+          {
+            this.renderValue()
+          }
 
-          <Row>
-            <ArrayItemSamples element={this.props.element} />
-          </Row>
+          {
+            hasSamples(this.props.element) &&
+              <Row>
+                <ArrayItemSamples element={this.props.element} />
+              </Row>
+          }
 
-          <Row>
-            <ArrayItemDefaults element={this.props.element} />
-          </Row>
-
+          {
+            hasDefaults(this.props.element) &&
+              <Row>
+                <ArrayItemDefaults element={this.props.element} />
+              </Row>
+          }
         </Column>
       </Row>
     );

@@ -1,3 +1,5 @@
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
 
 import ObjectProperties from '../ObjectProperties/ObjectProperties';
@@ -8,12 +10,18 @@ import Ruler from '../Ruler/Ruler';
 import Row from '../Row/Row';
 import Column from '../Column/Column';
 
+import {
+  hasDefaults,
+  hasSamples,
+  hasMembers,
+} from '../elements/element';
 
 class ObjectComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   constructor(props) {
@@ -26,14 +34,8 @@ class ObjectComponent extends React.Component {
     };
   }
 
-  handleExpandCollapse = () => {
-    this.setState({
-      isExpanded: !this.state.isExpanded,
-    });
-  };
-
-  renderStyles() {
-    const styles = {
+  get style() {
+    const style = {
       ruler: {
         root: {
           paddingBottom: '0px',
@@ -44,33 +46,68 @@ class ObjectComponent extends React.Component {
     };
 
     if (this.props.expandableCollapsible) {
-      styles.objectPropertiesRow.paddingLeft = '6px';
+      style.objectPropertiesRow.paddingLeft = '6px';
     }
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
-  renderObjectProperties(styles) {
+  handleExpandCollapse = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  };
+
+  renderObjectProperties() {
+    if (!hasMembers(this.props.element)) {
+      return null;
+    }
+
     if (!this.state.isExpanded) {
-      return false;
+      return null;
     }
 
     if (this.props.expandableCollapsible) {
       return (
-        <Ruler style={styles.ruler}>
-          <ObjectProperties element={this.props.element} />
-        </Ruler>
+        <Row style={this.style.objectPropertiesRow}>
+          <Ruler style={this.style.ruler}>
+            <ObjectProperties element={this.props.element} />
+          </Ruler>
+        </Row>
       );
     }
 
     return (
-      <ObjectProperties element={this.props.element} />
+      <Row style={this.style.objectPropertiesRow}>
+        <ObjectProperties element={this.props.element} />
+      </Row>
+    );
+  }
+
+  renderObjectSamplesAndDefaults() {
+    const doesHaveSamples = hasSamples(this.props.element);
+    const doesHaveDefaults = hasDefaults(this.props.element);
+
+    if (!doesHaveSamples && !doesHaveDefaults) {
+      return null;
+    }
+
+    return (
+      <Row>
+        {
+          doesHaveSamples &&
+            <ObjectSamples element={this.props.element} />
+        }
+
+        {
+          doesHaveDefaults &&
+            <ObjectDefaults element={this.props.element} />
+        }
+      </Row>
     );
   }
 
   render() {
-    const styles = this.renderStyles();
-
     return (
       <Row>
         <Column>
@@ -86,18 +123,17 @@ class ObjectComponent extends React.Component {
             />
           </Row>
 
-          <Row style={styles.objectPropertiesRow}>
-            {this.renderObjectProperties(styles)}
-          </Row>
+          {
+            this.renderObjectProperties()
+          }
 
-          <Row>
-            <ObjectSamples element={this.props.element} />
-            <ObjectDefaults element={this.props.element} />
-          </Row>
+          {
+            this.renderObjectSamplesAndDefaults()
+          }
         </Column>
       </Row>
     );
   }
 }
 
-export default ObjectComponent;
+export default radium(ObjectComponent);

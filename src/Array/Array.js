@@ -1,24 +1,31 @@
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
 
-import Row from '../Row/Row';
-import Column from '../Column/Column';
-
-import ArrayItem from '../ArrayItem/ArrayItem';
-import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
-import ArrayItems from '../ArrayItems/ArrayItems';
-import ArrayHeader from '../ArrayHeader/ArrayHeader';
-import ArraySamples from '../ArraySamples/ArraySamples';
 import ArrayDefaults from '../ArrayDefaults/ArrayDefaults';
+import ArrayHeader from '../ArrayHeader/ArrayHeader';
+import ArrayItem from '../ArrayItem/ArrayItem';
+import ArrayItems from '../ArrayItems/ArrayItems';
+import ArraySamples from '../ArraySamples/ArraySamples';
+import Column from '../Column/Column';
+import Row from '../Row/Row';
+import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
+
+import {
+  hasDefaults,
+  hasMembers,
+  hasSamples,
+} from '../elements/element';
 
 import {
   isStructured,
 } from '../elements/expandableCollapsibleElement';
 
-
 class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -33,16 +40,10 @@ class ArrayComponent extends React.Component {
     };
   }
 
-  handleExpandCollapse = () => {
-    this.setState({
-      isExpanded: !this.state.isExpanded,
-    });
-  };
-
-  renderStyles() {
+  get style() {
     const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       arrayItems: {
         root: {
           border: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
@@ -50,10 +51,16 @@ class ArrayComponent extends React.Component {
       },
     };
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
-  renderArrayItems(styles) {
+  handleExpandCollapse = () => {
+    this.setState({
+      isExpanded: !this.state.isExpanded,
+    });
+  };
+
+  renderArrayItems() {
     if (!this.state.isExpanded) {
       return false;
     }
@@ -76,7 +83,7 @@ class ArrayComponent extends React.Component {
     }
 
     return (
-      <ArrayItems style={styles.arrayItems}>
+      <ArrayItems style={this.style.arrayItems}>
         {
           this.props.element.content.map((element, index) => {
             if (isStructured(element)) {
@@ -109,8 +116,6 @@ class ArrayComponent extends React.Component {
   }
 
   render() {
-    const styles = this.renderStyles();
-
     if (!this.props.element.content) {
       return false;
     }
@@ -126,14 +131,24 @@ class ArrayComponent extends React.Component {
             sampleTitle="Description"
           />
 
-          {this.renderArrayItems(styles)}
+          {
+            hasMembers(this.props.element) &&
+              this.renderArrayItems()
+          }
 
-          <ArraySamples element={this.props.element} />
-          <ArrayDefaults element={this.props.element} />
+          {
+            hasSamples(this.props.element) &&
+              <ArraySamples element={this.props.element} />
+          }
+
+          {
+            hasDefaults(this.props.element) &&
+              <ArrayDefaults element={this.props.element} />
+          }
         </Column>
       </Row>
     );
   }
 }
 
-export default ArrayComponent;
+export default radium(ArrayComponent);

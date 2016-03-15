@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import isEmpty from 'lodash/isEmpty';
 
 import Row from '../Row/Row';
 import Column from '../Column/Column';
@@ -53,13 +54,14 @@ class Select extends React.Component {
   };
 
   render() {
-    if (!this.props.element.content) {
-      return false;
+    if (isEmpty(this.props.element.content)) {
+      return null;
     }
 
     return (
       <Row>
         <Column style={this.style.column} />
+
         <Column>
           {this.renderOptions()}
         </Column>

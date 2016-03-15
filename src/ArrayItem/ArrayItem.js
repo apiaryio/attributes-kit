@@ -10,8 +10,13 @@ import Type from '../Type/Type';
 import Value from '../Value/Value';
 
 import {
-  isObjectOrArray,
+  hasDefaults,
+  hasDescription,
+  hasSamples,
+  hasType,
+  hasValue,
   isLastArrayItem,
+  isObjectOrArray,
 } from '../elements/element';
 
 import {
@@ -97,28 +102,43 @@ class ArrayItem extends React.Component {
         }
 
         <Column style={styles.column}>
-          <Row>
-            <Type
-              element={this.props.element}
-              style={styles.type}
-            />
-          </Row>
+          {
+            hasType(this.props.element) &&
+              <Row>
+                <Type
+                  element={this.props.element}
+                  style={styles.type}
+                />
+              </Row>
+          }
 
-          <Row>
-            <Description element={this.props.element} />
-          </Row>
+          {
+            hasDescription(this.props.element) &&
+              <Row>
+                <Description element={this.props.element} />
+              </Row>
+          }
 
-          <Row>
-            <Value element={this.props.element} />
-          </Row>
+          {
+            hasValue(this.props.element) &&
+              <Row>
+                <Value element={this.props.element} />
+              </Row>
+          }
 
-          <Row>
-            <ArrayItemSamples element={this.props.element} />
-          </Row>
+          {
+            hasSamples(this.props.element) &&
+              <Row>
+                <ArrayItemSamples element={this.props.element} />
+              </Row>
+          }
 
-          <Row>
-            <ArrayItemDefaults element={this.props.element} />
-          </Row>
+          {
+            hasDefaults(this.props.element) &&
+              <Row>
+                <ArrayItemDefaults element={this.props.element} />
+              </Row>
+          }
         </Column>
       </Row>
     );

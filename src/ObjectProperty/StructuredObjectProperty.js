@@ -19,9 +19,12 @@ import {
 } from '../elements/expandableCollapsibleElement';
 
 import {
-  isObject,
+  hasDescription,
+  hasSamples,
   isArray,
+  hasDefaults,
   isLastArrayItem,
+  isObject,
 } from '../elements/element';
 
 class StructuredObjectProperty extends React.Component {
@@ -168,19 +171,29 @@ class StructuredObjectProperty extends React.Component {
           </Row>
 
           <Ruler style={styles.ruler}>
-            <Row>
-              <Description
-                element={this.props.element}
-                style={styles.description}
-              />
-            </Row>
+            {
+              hasDescription(this.props.element) &&
+                <Row>
+                  <Description
+                    element={this.props.element}
+                    style={styles.description}
+                  />
+                </Row>
+            }
 
             {this.renderValue(styles)}
           </Ruler>
 
           <Row>
-            <ObjectPropertySamples element={this.props.element} />
-            <ObjectPropertyDefaults element={this.props.element} />
+            {
+              hasSamples(this.props.element) &&
+                <ObjectPropertySamples element={this.props.element} />
+            }
+
+            {
+              hasDefaults(this.props.element) &&
+                <ObjectPropertyDefaults element={this.props.element} />
+            }
           </Row>
         </Column>
       </Row>
