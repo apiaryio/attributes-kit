@@ -2,8 +2,8 @@
 
 |       | Version |
 |:------|:--------|
-| NPM   | `0.14`  |
-| [Apiary](https://apiary.io) | `0.14` |
+| NPM   | `0.15.1`  |
+| [Apiary](https://apiary.io) | `0.15.1` |
 
 This table indicates what's the _latest version of the Attributes Kit available in the NPM Registry_ and what's the _latest version that has been deployed_ to [Apiary](https://apiary.io).
 
