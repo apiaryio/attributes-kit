@@ -63,7 +63,7 @@
   },
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
   "devDependencies": {
-    "abagnale": "^1.0.0",
+    "abagnale": "^1.1.0",
     "async": "^1.4.2",
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.2",

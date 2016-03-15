@@ -19,7 +19,11 @@ describe('Attributes', () => {
               theme: {
                 KEY_COLOR: 'red',
               },
-              element: [],
+              element: {
+                element: 'object',
+                meta: {},
+                content: [],
+              },
             },
           ]
         );
