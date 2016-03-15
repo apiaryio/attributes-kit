@@ -42,9 +42,9 @@ class Value extends React.Component {
       paddingLeft: '4px',
       paddingRight: '4px',
       fontFamily: 'Source Sans Pro',
-      fontSize: '15px',
+      fontSize: '13px',
       color: VALUE_COLOR,
-      lineHeight: '19px',
+      lineHeight: '17px',
     };
 
     return merge(styles, this.props.style || {});
