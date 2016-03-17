@@ -67,6 +67,12 @@ class Playground extends React.Component {
     });
   };
 
+  toggleMemberParentLinks = () => {
+    this.setState({
+      showMemberParentLinks: !this.state.showMemberParentLinks,
+    });
+  };
+
   render() {
     const dataStructures = this.state.parseResult.dataStructures || [];
 
@@ -116,23 +122,36 @@ class Playground extends React.Component {
 
           <div>
             <input
+              defaultChecked
               type="checkbox"
-              id="collapseByDefaultCheckbox"
-              onChange={this.toggleCollapseByDefault}
+              id="showParentLinksCheckbox"
+              onChange={this.toggleParentLinks}
             />
-            <label htmlFor="collapseByDefaultCheckbox">
-              Collapse by default
+            <label htmlFor="showParentLinksCheckbox">
+              Show parent links
             </label>
           </div>
 
           <div>
             <input
               defaultChecked
-              id="showParentLinksCheckbox"
-              onChange={this.toggleParentLinks}
+              type="checkbox"
+              id="showMemberParentLinksCheckbox"
+              onChange={this.toggleMemberParentLinks}
             />
-            <label htmlFor="showParentLinksCheckbox">
-              Show parent links
+            <label htmlFor="showMemberParentLinksCheckbox">
+              Show member links
+            </label>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              id="collapseByDefaultCheckbox"
+              onChange={this.toggleCollapseByDefault}
+            />
+            <label htmlFor="collapseByDefaultCheckbox">
+              Collapse
             </label>
           </div>
 
@@ -145,6 +164,8 @@ class Playground extends React.Component {
                 showIncluded={this.state.showIncluded}
                 collapseByDefault={this.state.collapseByDefault}
                 showParentLinks={this.state.showParentLinks}
+                showMemberParentLinks={this.state.showMemberParentLinks}
+                onElementLinkClick={this.onElementLinkClick}
               />
           }
         </div>

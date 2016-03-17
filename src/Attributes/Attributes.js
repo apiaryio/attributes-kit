@@ -132,6 +132,7 @@ class Attributes extends React.Component {
 
     if (isUndefined(collapseByDefault)) {
       collapseByDefault = false;
+    }
 
     // By default we won't show the parent links, but this can be enabled by
     // the user. It will show the parent element as a link before any element
