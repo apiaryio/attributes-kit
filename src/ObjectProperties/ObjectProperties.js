@@ -1,5 +1,7 @@
-import React from 'react';
 import isEmpty from 'lodash/isEmpty';
+import values from 'lodash/values';
+import max from 'lodash/max';
+import React from 'react';
 
 import Select from '../Select/Select';
 import ObjectProperty from '../ObjectProperty/ObjectProperty';
@@ -16,7 +18,18 @@ import {
 class ObjectProperties extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      keyWidth: null,
+    };
+
+    this.keyWidthsIndex = {};
+  }
 
   getStyles() {
     return {
@@ -25,6 +38,18 @@ class ObjectProperties extends React.Component {
         height: 'auto',
       },
     };
+  }
+
+  reportKeyWidth = (keyIdentifier, keyWidth) => {
+    this.keyWidthsIndex[keyIdentifier] = keyWidth;
+
+    const keyWidths = values(this.keyWidthsIndex);
+
+    if (keyWidths.length === this.props.element.content.length) {
+      this.setState({
+        keyWidth: max(keyWidths),
+      });
+    }
   }
 
   render() {
@@ -58,6 +83,9 @@ class ObjectProperties extends React.Component {
                   index={index}
                   element={element}
                   parentElement={this.props.element}
+                  collapseByDefault={this.props.collapseByDefault}
+                  reportKeyWidth={this.reportKeyWidth}
+                  keyWidth={this.state.keyWidth}
                 />
               );
             }
@@ -68,6 +96,9 @@ class ObjectProperties extends React.Component {
                 index={index}
                 element={element}
                 parentElement={this.props.element}
+                collapseByDefault={this.props.collapseByDefault}
+                reportKeyWidth={this.reportKeyWidth}
+                keyWidth={this.state.keyWidth}
               />
             );
           })

@@ -1,5 +1,6 @@
-import React from 'react';
 import classNames from 'classnames';
+import isEmpty from 'lodash/isEmpty';
+import React from 'react';
 
 import Value from '../Value/Value';
 import Attribute from '../Attribute/Attribute';
@@ -23,6 +24,10 @@ function isExpandableCollapsible(element) {
 const isStructured = isExpandableCollapsible;
 
 function containsExpandableCollapsibleElement(elements) {
+  if (isEmpty(elements)) {
+    return false;
+  }
+
   return elements.some((element) => isExpandableCollapsible(element));
 }
 

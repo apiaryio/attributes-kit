@@ -1,3 +1,4 @@
+import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import compact from 'lodash/compact';
 import eidolon from 'eidolon';
@@ -18,10 +19,13 @@ import {
 
 class Attributes extends React.Component {
   static propTypes = {
+    collapseByDefault: React.PropTypes.bool,
     dataStructures: React.PropTypes.array,
-    element: React.PropTypes.object,
-    theme: React.PropTypes.object,
     dereference: React.PropTypes.bool,
+    element: React.PropTypes.object,
+    showIncluded: React.PropTypes.bool,
+    showInherited: React.PropTypes.bool,
+    theme: React.PropTypes.object,
   };
 
   static childContextTypes = {
@@ -32,18 +36,20 @@ class Attributes extends React.Component {
     super(props);
 
     const {
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     } = this.processProps(props);
 
     this.state = {
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     };
   };
@@ -56,18 +62,20 @@ class Attributes extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const {
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     } = this.processProps(nextProps);
 
     this.setState({
+      collapseByDefault,
       dereferencedElement,
       element,
-      showInherited,
       showIncluded,
+      showInherited,
       theme,
     });
   };
@@ -96,6 +104,15 @@ class Attributes extends React.Component {
       showIncluded = true;
     }
 
+    // Set default value of `collapseByDefault` option. If a user hasn't
+    // provided the value, we default to false (= render
+    // the whole data structure expanded).
+    let collapseByDefault = props.collapseByDefault;
+
+    if (isUndefined(collapseByDefault)) {
+      collapseByDefault = false;
+    }
+
     // Regardless of the options above, we have to resolve all references,
     // otherwise we wouldn't be able to render the element. Dereferencing turns
     // `{ element: 'MyObject', ... }` into `{ element: 'object', ... }`,
@@ -116,12 +133,15 @@ class Attributes extends React.Component {
 
     // If `showInherited`, or `showIncluded` is set to `false`,
     // we'll removed all inherited, or included members from the data strcuture.
-    const element = this.removeInheritedOrIncludedMembers(dereferencedElement, {
+    const originElement = this.removeInheritedOrIncludedMembers(dereferencedElement, {
       removeInherited: !showInherited,
       removeIncluded: !showIncluded,
     });
 
+    const element = abagnale.forge([originElement], { separator: '.' })[0];
+
     return {
+      collapseByDefault,
       dereferencedElement,
       element,
       showIncluded,
@@ -205,6 +225,7 @@ class Attributes extends React.Component {
           <Attribute
             element={this.state.element}
             theme={this.state.theme}
+            collapseByDefault={this.state.collapseByDefault}
           />
         </div>
       </div>

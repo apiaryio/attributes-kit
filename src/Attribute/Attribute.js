@@ -8,6 +8,7 @@ class Attribute extends React.Component {
     element: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   render() {
@@ -29,6 +30,7 @@ class Attribute extends React.Component {
     }
 
     return React.createElement(reactComponent, {
+      collapseByDefault: this.props.collapseByDefault,
       element: this.props.element,
       expandableCollapsible: this.props.expandableCollapsible,
       parentElement: this.props.parentElement,

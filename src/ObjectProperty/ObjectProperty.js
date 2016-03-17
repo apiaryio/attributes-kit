@@ -1,4 +1,7 @@
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
+import reactDom from 'react-dom';
 
 import Column from '../Column/Column';
 import Description from '../Description/Description';
@@ -25,28 +28,35 @@ import {
 
 class ObjectProperty extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
     element: React.PropTypes.object,
+    index: React.PropTypes.number,
     parentElement: React.PropTypes.object,
+    reportKeyWidth: React.PropTypes.func,
+    style: React.PropTypes.object,
+    keyWidth: React.PropTypes.number,
   };
 
   static contextTypes = {
     theme: React.PropTypes.object,
   };
 
-  renderStyles() {
+  componentDidMount = () => {
+    const keyIdentifier = this.props.element.meta.id;
+    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+
+    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
+  }
+
+  get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
       },
       keyColumn: {
-        width: '120px',
-        maxWidth: '120px',
-        minWidth: '120px',
       },
       requirementColumn: {
         width: '25px',
@@ -61,26 +71,43 @@ class ObjectProperty extends React.Component {
     };
 
     if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {
-      styles.keyColumn.paddingLeft = '20px';
+      style.keyColumn.paddingLeft = '20px';
     }
+
+    let keyWidth;
+
+    if (this.props.keyWidth) {
+      if (style.keyColumn.paddingLeft) {
+        keyWidth = `${this.props.keyWidth + 20}px`;
+      } else {
+        keyWidth = `${this.props.keyWidth}px`;
+      }
+    } else {
+      keyWidth = 'auto';
+    }
+
+    style.keyColumn.width = keyWidth;
+    style.keyColumn.minWidth = keyWidth;
+    style.keyColumn.maxWidth = keyWidth;
 
     if (isLastArrayItem(this.props.parentElement, this.props.index)) {
-      styles.root.borderBottom = '0px';
+      style.root.borderBottom = '0px';
     }
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
-
     return (
-      <Row style={styles.root}>
-        <Column style={styles.keyColumn}>
-          <Key element={this.props.element} />
+      <Row style={this.style.root}>
+        <Column style={this.style.keyColumn}>
+          <Key
+            element={this.props.element}
+            ref="key"
+          />
         </Column>
 
-        <Column style={styles.requirementColumn}>
+        <Column style={this.style.requirementColumn}>
           <Requirement element={this.props.element} />
         </Column>
 
@@ -90,7 +117,7 @@ class ObjectProperty extends React.Component {
               <Row>
                 <Type
                   element={this.props.element}
-                  style={styles.type}
+                  style={this.style.type}
                 />
               </Row>
           }
@@ -128,4 +155,4 @@ class ObjectProperty extends React.Component {
   }
 }
 
-export default ObjectProperty;
+export default radium(ObjectProperty);

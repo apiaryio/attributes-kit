@@ -22,6 +22,7 @@ class ObjectComponent extends React.Component {
     expandableCollapsible: React.PropTypes.bool,
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   constructor(props) {
@@ -71,7 +72,10 @@ class ObjectComponent extends React.Component {
       return (
         <Row style={this.style.objectPropertiesRow}>
           <Ruler style={this.style.ruler}>
-            <ObjectProperties element={this.props.element} />
+            <ObjectProperties
+              element={this.props.element}
+              collapseByDefault={this.props.collapseByDefault}
+            />
           </Ruler>
         </Row>
       );
@@ -79,7 +83,10 @@ class ObjectComponent extends React.Component {
 
     return (
       <Row style={this.style.objectPropertiesRow}>
-        <ObjectProperties element={this.props.element} />
+        <ObjectProperties
+          element={this.props.element}
+          collapseByDefault={this.props.collapseByDefault}
+        />
       </Row>
     );
   }

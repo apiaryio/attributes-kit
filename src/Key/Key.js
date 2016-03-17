@@ -1,37 +1,53 @@
+import isUndefined from 'lodash/isUndefined';
+import merge from 'lodash/merge';
+import radium from 'radium';
 import React from 'react';
+
+import {
+  isExpandableCollapsible,
+} from '../elements/expandableCollapsibleElement';
 
 class Key extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
     element: React.PropTypes.object,
+    index: React.PropTypes.number,
     onClick: React.PropTypes.func,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
     theme: React.PropTypes.object,
   };
 
-  getStyles() {
+  get style() {
     const { KEY_COLOR } = this.context.theme;
 
-    this.styles = {
-      key: {
-        float: 'left',
+    const style = {
+      base: {
         width: '100%',
         height: 'auto',
         fontFamily: 'Source Code Pro',
         fontWeight: '500',
-        fontSize: '16px',
+        fontSize: '13px',
         color: KEY_COLOR,
-        lineHeight: '18px',
+        lineHeight: '17px',
+        userSelect: 'none',
       },
     };
 
-    return this.styles;
-  }
+    const isClickable = isUndefined(this.props.index)
+      && this.props.element
+      && isExpandableCollapsible(this.props.element);
 
-  getKey() {
-    if (typeof this.props.index !== 'undefined') {
+    if (isClickable) {
+      style.base.cursor = 'pointer';
+    }
+
+    return merge(style, this.props.style || {});
+  };
+
+  get key() {
+    if (!isUndefined(this.props.index)) {
       return this.props.index;
     }
 
@@ -40,24 +56,22 @@ class Key extends React.Component {
     }
 
     return undefined;
-  }
+  };
 
   render() {
-    const key = this.getKey();
-
-    if (typeof key === 'undefined') {
+    if (isUndefined(this.key)) {
       return false;
     }
 
     return (
       <div
-        style={this.getStyles().key}
+        style={this.style.base}
         onClick={this.props.onClick}
       >
-        {key}
+        {this.key}
       </div>
     );
-  }
+  };
 }
 
-export default Key;
+export default radium(Key);

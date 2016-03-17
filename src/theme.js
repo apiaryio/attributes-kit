@@ -1,7 +1,7 @@
 const THEME = {
   BORDER_COLOR: '#E8EBEE',
   ARRAY_ITEMS_BORDER_COLOR: '#E8EBEE',
-  KEY_COLOR: '#4C5264',
+  KEY_COLOR: 'rgb(48, 52, 63)',
   TYPE_COLOR: '#8A93A3',
 
   /* Value */

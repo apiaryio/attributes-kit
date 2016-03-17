@@ -25,7 +25,7 @@ class Type extends React.Component {
         width: '100%',
         fontFamily: 'Source Code Pro',
         fontWeight: 'regular',
-        fontSize: '14px',
+        fontSize: '13px',
         color: TYPE_COLOR,
       },
     };
