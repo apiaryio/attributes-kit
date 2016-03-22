@@ -9,12 +9,13 @@ import {
 
 class InheritanceTree extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
     dataStructures: React.PropTypes.array,
     dereferencedDataStructures: React.PropTypes.array,
+    element: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
-  static buildInheritanceTree = function({element, dataStructures, dereferencedDataStructures}) {
+  static buildInheritanceTree = function ({ element, dereferencedDataStructures }) {
     const tree = [];
 
     // First, push the name of the current data structure.
@@ -24,14 +25,13 @@ class InheritanceTree extends React.Component {
     tree.unshift(element.meta.ref);
 
     // Lastly, find the grandparent and push it to the tree.
-    const parentElement = findParent(element.meta.ref, dereferencedDataStructures)
+    const parentElement = findParent(element.meta.ref, dereferencedDataStructures);
 
     if (parentElement && parentElement.meta && parentElement.meta.id) {
       tree.unshift(parentElement.meta.id);
     }
 
     return tree;
-
   };
 
   get style() {
@@ -85,8 +85,8 @@ class InheritanceTree extends React.Component {
 
   renderNodes(inheritanceTree) {
     return inheritanceTree.map((node, index) => {
-      let nodeStyle = [this.style.node];
-      let nodeTextStyle = [this.style.nodeText];
+      const nodeStyle = [this.style.node];
+      const nodeTextStyle = [this.style.nodeText];
 
       if (index === 0) {
         nodeStyle.push(this.style.rootNode);

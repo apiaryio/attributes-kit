@@ -1,8 +1,6 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
-import compact from 'lodash/compact';
 import eidolon from 'eidolon';
-import isArray from 'lodash/isArray';
 import isUndefined from 'lodash/isUndefined';
 import map from 'lodash/map';
 import reduce from 'lodash/reduce';
@@ -14,11 +12,6 @@ import Title from '../Title/Title';
 import InheritanceTree from '../InheritanceTree/InheritanceTree';
 
 import defaultTheme from '../theme';
-
-import {
-  isInherited,
-  isIncluded,
-} from '../elements/element';
 
 class Attributes extends React.Component {
   static propTypes = {
@@ -107,11 +100,11 @@ class Attributes extends React.Component {
       return result;
     }, {});
 
-    const dereferencedDataStructures = map(dataStructures, (dataStructure) => {
-      return eidolon.dereference(
+    const dereferencedDataStructures = map(dataStructures, (dataStructure) =>
+      eidolon.dereference(
         cloneDeep(dataStructure), dataStructuresIndex
-      );
-    });
+      )
+    );
 
     // Set default value of `inheritedProperties` and `includedProperties` options.
     // If a user hasn't provided the values, we default to true (= we'll render
@@ -150,7 +143,7 @@ class Attributes extends React.Component {
       inheritanceTree = true;
     }
 
-    let maxInheritanceDepth = props.maxInheritanceDepth || undefined;
+    const maxInheritanceDepth = props.maxInheritanceDepth || undefined;
 
     // Set default value of `collapseByDefault` option. If a user hasn't
     // provided the value, we default to false (= render
@@ -165,7 +158,7 @@ class Attributes extends React.Component {
     let onElementLinkClick = props.onElementLinkClick;
 
     if (isUndefined(onElementLinkClick)) {
-      onElementLinkClick = function () {};
+      onElementLinkClick = function defaultOnElementLinkClickHandler() {};
     }
 
     // Dereference the element. This overwrites the original

@@ -1,5 +1,4 @@
 import merge from 'lodash/merge';
-import every from 'lodash/every';
 import radium from 'radium';
 import React from 'react';
 import reactDom from 'react-dom';
@@ -23,14 +22,12 @@ import {
 
 import {
   getReference,
-  getType,
   hasDefaults,
   hasDescription,
   hasSamples,
   isArray,
   isLastArrayItem,
   isObject,
-  isReferenced,
 } from '../elements/element';
 
 class StructuredObjectProperty extends React.Component {
@@ -199,7 +196,7 @@ class StructuredObjectProperty extends React.Component {
           <Type
             element={this.props.element}
             type={reference}
-            reference={true}
+            reference
           />
         </Column>
       );

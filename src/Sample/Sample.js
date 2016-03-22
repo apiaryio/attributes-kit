@@ -29,6 +29,7 @@ class Sample extends React.Component {
       React.PropTypes.number,
     ]),
     samples: React.PropTypes.array,
+    title: React.PropTypes.string,
   };
 
   constructor(props) {
@@ -64,7 +65,7 @@ class Sample extends React.Component {
       return (
         <Column>
           <SampleToggle
-            sampleTitle={this.props.title || "Sample"}
+            sampleTitle={this.props.title || 'Sample'}
             onClick={this.handleExpandCollapse}
             isExpanded={this.state.isExpanded}
           />
@@ -76,7 +77,7 @@ class Sample extends React.Component {
     return (
       <Column>
         <SampleToggle
-          sampleTitle={this.props.title || "Sample"}
+          sampleTitle={this.props.title || 'Sample'}
           onClick={this.handleExpandCollapse}
         />
       </Column>

@@ -10,6 +10,9 @@ import {
 class ObjectPropertiesGroup extends React.Component {
   static propTypes = {
     children: React.PropTypes.any,
+    name: React.PropTypes.string,
+    style: React.PropTypes.object,
+    type: React.PropTypes.string,
   };
 
   static contextTypes = {
@@ -83,6 +86,8 @@ class ObjectPropertiesGroup extends React.Component {
         element.meta.id, element, event
       );
     }
+
+    return null;
   }
 
   renderHeader() {
@@ -93,11 +98,11 @@ class ObjectPropertiesGroup extends React.Component {
     let text;
 
     if (this.props.type === 'inherited') {
-      text = 'Inherited from'
+      text = 'Inherited from';
     }
 
     if (this.props.type === 'included') {
-      text = 'Included from'
+      text = 'Included from';
     }
 
     return (

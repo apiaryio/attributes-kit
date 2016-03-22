@@ -137,22 +137,22 @@ class ObjectProperty extends React.Component {
 
                 {
                   (isIncluded(this.props.element) && this.context.includedProperties === 'tag') &&
-                    <Column style={{alignItems: 'flex-end'}}>
+                    <Column style={{ alignItems: 'flex-end' }}>
                       <ParentInfoLink
                         element={this.props.element}
                         show={this.context.showMemberParentLinks}
-                        showBullet={true}
+                        showBullet
                       />
                     </Column>
                 }
 
                 {
                   (isInherited(this.props.element) && this.context.inheritedProperties === 'tag') &&
-                    <Column style={{alignItems: 'flex-end'}}>
+                    <Column style={{ alignItems: 'flex-end' }}>
                       <ParentInfoLink
                         element={this.props.element}
                         show={this.context.showMemberParentLinks}
-                        showBullet={true}
+                        showBullet
                       />
                     </Column>
                 }

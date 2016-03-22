@@ -10,6 +10,7 @@ import {
 class ParentInfoLink extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -25,7 +26,7 @@ class ParentInfoLink extends React.Component {
         fontFamily: 'Source Sans Pro',
         fontStyle: 'italic',
         fontSize: '12px',
-        color: '#8A93A3',
+        color: DESCRIPTION_COLOR,
       },
       link: {
         cursor: 'pointer',
@@ -48,6 +49,8 @@ class ParentInfoLink extends React.Component {
       return this.context.onElementLinkClick(
         this.props.element.meta.ref, this.props.element, event);
     }
+
+    return null;
   }
 
   render() {

@@ -27,7 +27,6 @@ function findParent(elementId, dataStructures) {
   const element = findElement(elementId, dataStructures);
 
   return findElement(element.meta.ref, dataStructures);
-
 }
 
 function isInherited(element) {
@@ -59,20 +58,20 @@ function getReference(element) {
 
   let ref;
 
-  const isReferenced = every(nestedElement.content, (element) => {
-    if (!element.meta || !element.meta.ref) {
+  const isElementReferenced = every(nestedElement.content, (childElement) => {
+    if (!childElement.meta || !childElement.meta.ref) {
       return false;
     }
 
     if (!ref) {
-      ref = element.meta.ref;
+      ref = childElement.meta.ref;
       return true;
     }
 
-    return element.meta.ref === ref;
+    return childElement.meta.ref === ref;
   });
 
-  if (isReferenced && ref) {
+  if (isElementReferenced && ref) {
     return ref;
   }
 

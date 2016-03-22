@@ -1,11 +1,9 @@
 import sift from 'sift';
 import each from 'lodash/each';
-import indexOf from 'lodash/indexOf';
 import isEmpty from 'lodash/isEmpty';
 import last from 'lodash/last';
 import map from 'lodash/map';
 import max from 'lodash/max';
-import filter from 'lodash/filter';
 import React from 'react';
 import values from 'lodash/values';
 
@@ -52,6 +50,47 @@ class ObjectProperties extends React.Component {
     this.keyWidthsIndex = {};
   }
 
+  getComponent(element, { key, index }) {
+    if (!key) {
+      key = index;
+    }
+
+    if (isSelect(element)) {
+      return (
+        <Select
+          key={key}
+          index={index}
+          element={element}
+          parentElement={this.props.element}
+        />
+      );
+    } else if (isStructured(element)) {
+      return (
+        <StructuredObjectProperty
+          key={key}
+          index={index}
+          element={element}
+          parentElement={this.props.element}
+          collapseByDefault={this.props.collapseByDefault}
+          reportKeyWidth={this.reportKeyWidth}
+          keyWidth={this.state.keyWidth}
+        />
+      );
+    }
+
+    return (
+      <ObjectProperty
+        key={key}
+        index={index}
+        element={element}
+        parentElement={this.props.element}
+        collapseByDefault={this.props.collapseByDefault}
+        reportKeyWidth={this.reportKeyWidth}
+        keyWidth={this.state.keyWidth}
+      />
+    );
+  }
+
   get style() {
     const style = {
       root: {
@@ -80,47 +119,6 @@ class ObjectProperties extends React.Component {
     }
   }
 
-  getComponent(element, {key, index}) {
-    if (!key) {
-      key = index;
-    }
-
-    if (isSelect(element)) {
-      return (
-        <Select
-          key={key}
-          index={index}
-          element={element}
-          parentElement={this.props.element}
-        />
-      );
-    } else if (isStructured(element)) {
-      return (
-        <StructuredObjectProperty
-          key={key}
-          index={index}
-          element={element}
-          parentElement={this.props.element}
-          collapseByDefault={this.props.collapseByDefault}
-          reportKeyWidth={this.reportKeyWidth}
-          keyWidth={this.state.keyWidth}
-        />
-      );
-    } else {
-      return (
-        <ObjectProperty
-          key={key}
-          index={index}
-          element={element}
-          parentElement={this.props.element}
-          collapseByDefault={this.props.collapseByDefault}
-          reportKeyWidth={this.reportKeyWidth}
-          keyWidth={this.state.keyWidth}
-        />
-      );
-    }
-  }
-
   groupElements() {
     const elements = this.props.element.content;
 
@@ -134,7 +132,7 @@ class ObjectProperties extends React.Component {
     //
     // * components (array, required)
     // * element (object, required)
-    let groups = [];
+    const groups = [];
 
     each(elements, (element, index) => {
       // Element hasn't been inherited, nor included.
@@ -143,7 +141,7 @@ class ObjectProperties extends React.Component {
         // element to that group.
         if (groups.length && last(groups).type === 'own') {
           return last(groups).components.push(
-            this.getComponent(element, {index})
+            this.getComponent(element, { index })
           );
         }
 
@@ -152,7 +150,7 @@ class ObjectProperties extends React.Component {
         return groups.push({
           type: 'own',
           components: [
-            this.getComponent(element, {index}),
+            this.getComponent(element, { index }),
           ],
         });
       }
@@ -169,15 +167,15 @@ class ObjectProperties extends React.Component {
         };
 
         if (isInherited(element)) {
-          group.type = 'inherited'
+          group.type = 'inherited';
         } else if (isIncluded(element)) {
-          group.type = 'included'
+          group.type = 'included';
         }
 
         groups.push(group);
       }
 
-      group.components.push(
+      return group.components.push(
         this.getComponent(element, {
           key: `${group.name}+${index}`,
           index,
@@ -225,45 +223,39 @@ class ObjectProperties extends React.Component {
     const ownOrIncludedProperties = sift(ownOrIncludedGroupsQuery, elementGroups);
 
     if (this.context.inheritedProperties === 'placeholder' &&
-      this.context.includedProperties === 'placeholder')  {
+      this.context.includedProperties === 'placeholder') {
       return (
         <div style={this.style.root}>
           {
-            map(inheritedProperties, (group, groupIndex) => {
-              return (
-                <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
-                  {
-                    group.components
-                  }
-                </ObjectPropertiesGroup>
-              );
-            })
+            map(inheritedProperties, (group, groupIndex) => (
+              <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
+                {
+                  group.components
+                }
+              </ObjectPropertiesGroup>
+            ))
           }
 
           {
-            map(includedProperties, (group, groupIndex) => {
-              return (
-                <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
-                  {
-                    group.components
-                  }
-                </ObjectPropertiesGroup>
-              );
-            })
+            map(includedProperties, (group, groupIndex) => (
+              <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
+                {
+                  group.components
+                }
+              </ObjectPropertiesGroup>
+            ))
           }
 
           <div style={this.style.separator} />
 
           {
-            map(ownProperties, (group, groupIndex) => {
-              return (
-                <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
-                  {
-                    group.components
-                  }
-                </ObjectPropertiesGroup>
-              );
-            })
+            map(ownProperties, (group, groupIndex) => (
+              <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
+                {
+                  group.components
+                }
+              </ObjectPropertiesGroup>
+            ))
           }
         </div>
       );
@@ -272,27 +264,23 @@ class ObjectProperties extends React.Component {
     return (
       <div style={this.style.root}>
         {
-          map(ownOrIncludedProperties, (group, groupIndex) => {
-            return (
-              <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
-                {
-                  group.components
-                }
-              </ObjectPropertiesGroup>
-            );
-          })
+          map(ownOrIncludedProperties, (group, groupIndex) => (
+            <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
+              {
+                group.components
+              }
+            </ObjectPropertiesGroup>
+          ))
         }
 
         {
-          map(inheritedProperties, (group, groupIndex) => {
-            return (
-              <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
-                {
-                  group.components
-                }
-              </ObjectPropertiesGroup>
-            );
-          })
+          map(inheritedProperties, (group, groupIndex) => (
+            <ObjectPropertiesGroup type={group.type} name={group.name} key={groupIndex}>
+              {
+                group.components
+              }
+            </ObjectPropertiesGroup>
+          ))
         }
       </div>
     );

@@ -40,8 +40,8 @@ class Playground extends React.Component {
     }
   };
 
-  onElementLinkClick = (parentName, clickedElement, event) => {
-    alert('Element ' + parentName + ' clicked!');
+  onElementLinkClick = (parentName) => {
+    alert(`Element ‘${parentName}’ clicked!`);
   };
 
   toggleTitle = (eventObject) => {
