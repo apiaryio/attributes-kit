@@ -41,7 +41,14 @@ class Examples extends React.Component {
           <JsonFormatter element={fixture.parsed[0]} />
         </div>
         <div className="column">
-          <AttributesKit.Attributes element={fixture.parsed[0]} />
+          <AttributesKit.Attributes
+            element={fixture.parsed[0]}
+            collapseByDefault={false}
+            maxInheritanceDepth={undefined}
+            inheritanceTree={false}
+            includedProperties="show"
+            inheritedProperties="show"
+          />
         </div>
       </div>
     );
