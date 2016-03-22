@@ -32,6 +32,11 @@ describe('Comparision with reference fixtures', () => {
 
         renderedElement = React.createElement(Attributes, {
           element: result[0],
+          collapseByDefault: false,
+          maxInheritanceDepth: undefined,
+          inheritanceTree: false,
+          includedProperties: 'show',
+          inheritedProperties: 'show',
         });
 
         htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
