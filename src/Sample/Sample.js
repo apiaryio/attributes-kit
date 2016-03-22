@@ -64,7 +64,7 @@ class Sample extends React.Component {
       return (
         <Column>
           <SampleToggle
-            sampleTitle="Sample"
+            sampleTitle={this.props.title || "Sample"}
             onClick={this.handleExpandCollapse}
             isExpanded={this.state.isExpanded}
           />
@@ -76,7 +76,7 @@ class Sample extends React.Component {
     return (
       <Column>
         <SampleToggle
-          sampleTitle="Sample"
+          sampleTitle={this.props.title || "Sample"}
           onClick={this.handleExpandCollapse}
         />
       </Column>

@@ -1,4 +1,5 @@
 import React from 'react';
+import radium from 'radium';
 import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
@@ -36,6 +37,7 @@ class SampleToggle extends React.Component {
         backgroundPosition: 'left center',
       },
       title: {
+        userSelect: 'none',
         lineHeight: '12px',
         letterSpacing: '0.85px',
         fontFamily: 'Source Sans Pro',
@@ -72,4 +74,4 @@ class SampleToggle extends React.Component {
   }
 }
 
-export default SampleToggle;
+export default radium(SampleToggle);
