@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+import every from 'lodash/every';
 import radium from 'radium';
 import React from 'react';
 import reactDom from 'react-dom';
@@ -8,7 +9,6 @@ import Description from '../Description/Description';
 import Key from '../Key/Key';
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
-import ParentInfoLink from '../ParentInfo/ParentInfoLink';
 import Requirement from '../Requirement/Requirement';
 import Row from '../Row/Row';
 import Ruler from '../Ruler/Ruler';
@@ -22,12 +22,15 @@ import {
 } from '../elements/expandableCollapsibleElement';
 
 import {
+  getReference,
+  getType,
+  hasDefaults,
   hasDescription,
   hasSamples,
   isArray,
-  hasDefaults,
   isLastArrayItem,
   isObject,
+  isReferenced,
 } from '../elements/element';
 
 class StructuredObjectProperty extends React.Component {
@@ -45,7 +48,16 @@ class StructuredObjectProperty extends React.Component {
     theme: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
+    includedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    inheritedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
   };
+
 
   constructor(props) {
     super(props);
@@ -149,9 +161,23 @@ class StructuredObjectProperty extends React.Component {
       style.ruler.root.borderLeft = '1px solid #ffffff';
     }
 
+    const isPropertyReferenced = (
+      (
+        this.context.includedProperties !== 'show' && this.context.inheritedProperties !== 'show'
+      ) || (
+        this.context.includedProperties !== 'tag' && this.context.inheritedProperties !== 'tag'
+      )
+    );
+
+    if (isPropertyReferenced) {
+      style.keyColumn.paddingLeft = '20px';
+    }
+
     let keyWidth;
 
-    if (this.props.keyWidth) {
+    if (isPropertyReferenced && this.props.keyWidth) {
+      keyWidth = `${this.props.keyWidth + 20}px`;
+    } else if (this.props.keyWidth) {
       keyWidth = `${this.props.keyWidth}px`;
     } else {
       keyWidth = 'auto';
@@ -162,6 +188,31 @@ class StructuredObjectProperty extends React.Component {
     style.keyColumn.maxWidth = keyWidth;
 
     return merge(style, this.props.style || {});
+  };
+
+  renderType() {
+    const reference = getReference(this.props.element);
+
+    if (reference) {
+      return (
+        <Column>
+          <Type
+            element={this.props.element}
+            type={reference}
+            reference={true}
+          />
+        </Column>
+      );
+    }
+
+    return (
+      <Column>
+        <Type
+          element={this.props.element}
+          style={this.style.type}
+        />
+      </Column>
+    );
   };
 
   renderValue() {
@@ -181,14 +232,21 @@ class StructuredObjectProperty extends React.Component {
       <Row style={this.style.root}>
         <Column>
           <Row>
-            <Column
-              style={this.style.toggleColumn}
-            >
-              <Toggle
-                isExpanded={this.state.isExpanded}
-                onClick={this.handleExpandCollapse}
-              />
-            </Column>
+            {
+              (
+                this.context.includedProperties === 'show' &&
+                this.context.inheritedProperties === 'show'
+              ) || (
+                this.context.includedProperties === 'tag' &&
+                this.context.inheritedProperties === 'tag'
+              ) &&
+                <Column style={this.style.toggleColumn}>
+                  <Toggle
+                    isExpanded={this.state.isExpanded}
+                    onClick={this.handleExpandCollapse}
+                  />
+                </Column>
+            }
 
             <Column style={this.style.keyColumn}>
               <Key
@@ -203,17 +261,7 @@ class StructuredObjectProperty extends React.Component {
             </Column>
 
             {
-              this.props.element.element !== 'select' &&
-                <Column>
-                  <Type
-                    element={this.props.element}
-                  />
-                  <ParentInfoLink
-                    element={this.props.element}
-                    show={this.context.showMemberParentLinks}
-                    showBullet={true}
-                  />
-                </Column>
+              this.renderType()
             }
           </Row>
 
