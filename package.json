@@ -99,6 +99,7 @@
     "mocha": "^2.4.5",
     "mson-zoo": "2.1.1",
     "node-noop": "^1.0.0",
+    "pluralize": "1.2.1",
     "protagonist": "^1.2.6",
     "radium": "^0.16.6",
     "react": "^15.0.0-rc.1",
