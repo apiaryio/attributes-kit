@@ -25,6 +25,8 @@ import {
   hasType,
   hasValue,
   isLastArrayItem,
+  isIncluded,
+  isInherited,
 } from '../elements/element';
 
 class ObjectProperty extends React.Component {
@@ -41,6 +43,14 @@ class ObjectProperty extends React.Component {
     theme: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
+    includedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    inheritedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
   };
 
   componentDidMount = () => {
@@ -124,13 +134,28 @@ class ObjectProperty extends React.Component {
                     style={this.style.type}
                   />
                 </Column>
-                <Column>
-                  <ParentInfoLink
-                    element={this.props.element}
-                    show={this.context.showMemberParentLinks}
-                    showBullet={true}
-                  />
-                </Column>
+
+                {
+                  (isIncluded(this.props.element) && this.context.includedProperties === 'tag') &&
+                    <Column style={{alignItems: 'flex-end'}}>
+                      <ParentInfoLink
+                        element={this.props.element}
+                        show={this.context.showMemberParentLinks}
+                        showBullet={true}
+                      />
+                    </Column>
+                }
+
+                {
+                  (isInherited(this.props.element) && this.context.inheritedProperties === 'tag') &&
+                    <Column style={{alignItems: 'flex-end'}}>
+                      <ParentInfoLink
+                        element={this.props.element}
+                        show={this.context.showMemberParentLinks}
+                        showBullet={true}
+                      />
+                    </Column>
+                }
               </Row>
           }
 
