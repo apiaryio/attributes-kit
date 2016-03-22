@@ -2,8 +2,6 @@ import React from 'react';
 import Error from '../Error/Error';
 import refractToComponentsMap from '../refractToComponentMap';
 
-import ParentInfo from '../ParentInfo/ParentInfo';
-
 class Attribute extends React.Component {
   static propTypes = {
     theme: React.PropTypes.object,
@@ -12,10 +10,6 @@ class Attribute extends React.Component {
     parentElement: React.PropTypes.object,
     collapseByDefault: React.PropTypes.bool,
   };
-
-  static contextTypes = {
-    showParentLinks: React.PropTypes.bool,
-  }
 
   render() {
     if (!this.props.element) {
@@ -28,7 +22,7 @@ class Attribute extends React.Component {
     // element, display an error message.
     if (typeof reactComponent === 'undefined') {
       const errorMessage = `
-        Attributes Kit is not able to render ‘${this.props.element.element}’
+        Attributes Kit is not able to render the ‘${this.props.element.element}’
         element.
       `;
 
@@ -37,26 +31,14 @@ class Attribute extends React.Component {
       );
     }
 
-    const renderedComponent = React.createElement(reactComponent, {
+    const reactElement = React.createElement(reactComponent, {
       collapseByDefault: this.props.collapseByDefault,
       element: this.props.element,
       expandableCollapsible: this.props.expandableCollapsible,
       parentElement: this.props.parentElement,
     });
 
-    // Component wasn't inherited, we can render the component directly, without
-    // any info about parent.
-    if (!(this.props.element.meta && this.props.element.meta.ref) || !this.context.showParentLinks) {
-      return renderedComponent;
-    }
-
-    // Render the component with info about its parent.
-    return (
-      <div>
-        <ParentInfo element={this.props.element} showBullet={true} />
-        {renderedComponent}
-      </div>
-    );
+    return reactElement;
   }
 }
 
