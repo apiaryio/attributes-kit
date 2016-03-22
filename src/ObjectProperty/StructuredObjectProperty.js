@@ -164,7 +164,7 @@ class StructuredObjectProperty extends React.Component {
     const isPropertyReferenced = (
       (
         this.context.includedProperties !== 'show' && this.context.inheritedProperties !== 'show'
-      ) || (
+      ) && (
         this.context.includedProperties !== 'tag' && this.context.inheritedProperties !== 'tag'
       )
     );
@@ -233,13 +233,13 @@ class StructuredObjectProperty extends React.Component {
         <Column>
           <Row>
             {
-              (
+              ((
                 this.context.includedProperties === 'show' &&
                 this.context.inheritedProperties === 'show'
               ) || (
                 this.context.includedProperties === 'tag' &&
                 this.context.inheritedProperties === 'tag'
-              ) &&
+              )) &&
                 <Column style={this.style.toggleColumn}>
                   <Toggle
                     isExpanded={this.state.isExpanded}
