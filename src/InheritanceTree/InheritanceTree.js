@@ -69,7 +69,7 @@ class InheritanceTree extends React.Component {
         backgroundPosition: 'left top',
       },
       rootNode: {
-        color: INHERITANCE_TREE_NODE_COLOR,
+        color: INHERITANCE_TREE_ROOT_NODE_COLOR,
         backgroundImage: `url(${require('./rootNode.svg')})`,
         backgroundSize: '10px 2px',
         backgroundPosition: '6px bottom',
