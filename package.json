@@ -132,7 +132,8 @@
     "parser": "babel-eslint",
     "rules": {
       "no-extra-semi": 0,
-      "no-param-reassign": 0
+      "no-param-reassign": 0,
+      "react/jsx-no-bind": 0
     },
     "env": {
       "node": true,
