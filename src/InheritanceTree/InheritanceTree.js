@@ -5,6 +5,7 @@ import React from 'react';
 
 import {
   findParent,
+  findElement,
 } from '../elements/element';
 
 class InheritanceTree extends React.Component {
@@ -13,6 +14,11 @@ class InheritanceTree extends React.Component {
     dereferencedDataStructures: React.PropTypes.array,
     element: React.PropTypes.object,
     style: React.PropTypes.object,
+  };
+
+  static contextTypes = {
+    onElementLinkClick: React.PropTypes.func,
+    theme: React.PropTypes.object,
   };
 
   static buildInheritanceTree = function ({ element, dereferencedDataStructures }) {
@@ -35,10 +41,17 @@ class InheritanceTree extends React.Component {
   };
 
   get style() {
+    const {
+      BORDER_COLOR,
+      INHERITANCE_TREE_NODE_COLOR,
+      INHERITANCE_TREE_ROOT_NODE_COLOR,
+      INHERITANCE_TREE_CURRENT_NODE_COLOR,
+    } = this.context.theme;
+
     const style = {
       base: {
         width: '100%',
-        borderTop: '1px solid #E8EBEE',
+        borderTop: `1px solid ${BORDER_COLOR}`,
         paddingBottom: '16px',
       },
       node: {
@@ -47,7 +60,7 @@ class InheritanceTree extends React.Component {
         fontFamily: 'Source Sans Pro',
         fontWeight: '600',
         fontSize: '12px',
-        color: '#30343F',
+        color: INHERITANCE_TREE_NODE_COLOR,
         backgroundImage: `url(${require('./node.svg')})`,
         backgroundSize: '20px 19px',
         backgroundRepeat: 'no-repeat',
@@ -56,6 +69,7 @@ class InheritanceTree extends React.Component {
         backgroundPosition: 'left top',
       },
       rootNode: {
+        color: INHERITANCE_TREE_NODE_COLOR,
         backgroundImage: `url(${require('./rootNode.svg')})`,
         backgroundSize: '10px 2px',
         backgroundPosition: '6px bottom',
@@ -65,7 +79,7 @@ class InheritanceTree extends React.Component {
         fontFamily: 'Source Sans Pro',
         fontWeight: 'regular',
         fontSize: '12px',
-        color: '#8A93A3',
+        color: INHERITANCE_TREE_CURRENT_NODE_COLOR,
       },
       nodeText: {
         cursor: 'pointer',
@@ -81,6 +95,18 @@ class InheritanceTree extends React.Component {
     };
 
     return merge(style, this.props.style || {});
+  }
+
+  handleClick = (elementId, event) => {
+    const element = findElement(elementId, this.props.dereferencedDataStructures);
+
+    if (this.context.onElementLinkClick) {
+      return this.context.onElementLinkClick(
+        element.meta.id, element, event
+      );
+    }
+
+    return null;
   }
 
   renderNodes(inheritanceTree) {
@@ -110,6 +136,7 @@ class InheritanceTree extends React.Component {
           <span
             style={nodeTextStyle}
             key={index}
+            onClick={this.handleClick.bind(this, node)}
           >
             {node}
           </span>
