@@ -148,7 +148,7 @@ class StructuredObjectProperty extends React.Component {
     // Last array item doesn't have a border.
     if (isLast) {
       style.ruler.root.paddingBottom = '0px';
-      style.root.borderBottom = 'none';
+      // style.root.borderBottom = 'none';
       style.root.paddingBottom = '8px';
     } else {
       style.root.paddingBottom = '8px';
