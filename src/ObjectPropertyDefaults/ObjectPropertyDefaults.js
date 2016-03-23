@@ -1,4 +1,6 @@
 import React from 'react';
+import Column from '../Column/Column';
+import Sample from '../Sample/Sample';
 
 import {
   isObject,
@@ -12,8 +14,14 @@ class ObjectPropertySamples extends React.Component {
     element: React.PropTypes.object,
   };
 
-  renderStyles() {
-    return {};
+  get style() {
+    return {
+      sample: {
+        row: {
+          marginTop: '6px',
+        },
+      },
+    };
   }
 
   render() {
@@ -27,7 +35,7 @@ class ObjectPropertySamples extends React.Component {
 
     const value = this.props.element.content.value;
 
-    if (!value) {
+    if (!value || !value.attributes || !value.attributes.default) {
       return false;
     }
 
@@ -36,7 +44,13 @@ class ObjectPropertySamples extends React.Component {
     }
 
     return (
-      <div style={this.renderStyles()}></div>
+      <Column>
+        <Sample
+          sample={value.attributes.default}
+          style={this.style.sample}
+          title="Default"
+        />
+      </Column>
     );
   }
 }

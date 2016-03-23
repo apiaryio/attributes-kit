@@ -11,9 +11,12 @@ class Playground extends React.Component {
     super(props);
 
     this.state = {
-      showIncluded: true,
-      showInherited: true,
-      toggleCollapseByDefault: false,
+      title: true,
+      collapseByDefault: true,
+      maxInheritanceDepth: undefined,
+      inheritanceTree: true,
+      includedProperties: 'show',
+      inheritedProperties: 'show',
       parseResult: {
         dataStructures: [],
         errors: [],
@@ -37,15 +40,55 @@ class Playground extends React.Component {
     }
   };
 
-  toggleInheritedMembers = () => {
+  onElementLinkClick = (parentName) => {
+    alert(`Element ‘${parentName}’ clicked!`);
+  };
+
+  toggleTitle = (eventObject) => {
+    const value = eventObject.currentTarget.value;
+    console.debug(`Setting the ‘title’ option to ‘${value}’...`);
     this.setState({
-      showInherited: !this.state.showInherited,
+      title: value,
     });
   };
 
-  toggleIncludedMembers = () => {
+  toggleInheritedProperties = (eventObject) => {
+    const value = eventObject.currentTarget.value;
+    console.debug(`Setting the ‘inheritedProperties’ option to ‘${value}’...`);
     this.setState({
-      showIncluded: !this.state.showIncluded,
+      inheritedProperties: value,
+    });
+  };
+
+  toggleIncludedProperties = (eventObject) => {
+    const value = eventObject.currentTarget.value;
+    console.debug(`Setting the ‘includedProperties’ option to ‘${value}’...`);
+    this.setState({
+      includedProperties: value,
+    });
+  };
+
+  toggleIncludedProperties = (eventObject) => {
+    const value = eventObject.currentTarget.value;
+    console.debug(`Setting the ‘includedProperties’ option to ‘${value}’...`);
+    this.setState({
+      includedProperties: value,
+    });
+  };
+
+  toggleInheritanceTree = (eventObject) => {
+    const value = eventObject.currentTarget.value;
+    console.debug(`Setting the ‘inheritanceTree’ option to ‘${value}’...`);
+    this.setState({
+      inheritanceTree: value,
+    });
+  };
+
+  toggleInheritanceDepth = (eventObject) => {
+    const value = parseInt(eventObject.currentTarget.value, 10);
+    console.debug(`Setting the ‘maxInheritanceDepth’ option to ‘${value}’...`);
+    this.setState({
+      maxInheritanceDepth: value,
     });
   };
 
@@ -77,50 +120,110 @@ class Playground extends React.Component {
         </div>
 
         <div className="column">
-          <h3>Options</h3>
-          <div>
-            <input
-              type="checkbox"
-              defaultChecked
-              id="showInheritedMembersCheckbox"
-              onChange={this.toggleInheritedMembers}
-            />
-            <label htmlFor="showInheritedMembersCheckbox">
-              Show inherited members
-            </label>
-          </div>
+          <div className="options">
+            <h3>Options</h3>
+            <div>
+              <label htmlFor="titleSelect">
+                Title
+              </label>
+              <br />
+              <select
+                id="titleSelect"
+                onChange={this.toggleTitle}
+              >
+                <option value="show">Show</option>
+                <option value="hide">Hide</option>
+              </select>
+            </div>
 
-          <div>
-            <input
-              type="checkbox"
-              defaultChecked
-              id="showIncludedMembersCheckbox"
-              onChange={this.toggleIncludedMembers}
-            />
-            <label htmlFor="showIncludedMembersCheckbox">
-              Show included members
-            </label>
-          </div>
+            <div>
+              <label htmlFor="inheritedPropertiesSelect">
+                Inherited Properties
+              </label>
+              <br />
+              <select
+                id="inheritedPropertiesSelect"
+                onChange={this.toggleInheritedProperties}
+              >
+                <option value="show">Show</option>
+                <option value="hide">Hide</option>
+                <option value="group">Group</option>
+                <option value="tag">Tag</option>
+                <option value="placeholder">Placeholder</option>
+              </select>
+            </div>
 
-          <div>
-            <input
-              type="checkbox"
-              id="collapseByDefaultCheckbox"
-              onChange={this.toggleCollapseByDefault}
-            />
-            <label htmlFor="collapseByDefaultCheckbox">
-              Collapse by default
-            </label>
+            <div>
+              <label htmlFor="includedPropertiesSelect">
+                Included Properties
+              </label>
+              <br />
+              <select
+                id="includedPropertiesSelect"
+                onChange={this.toggleIncludedProperties}
+              >
+                <option value="show">Show</option>
+                <option value="hide">Hide</option>
+                <option value="group">Group</option>
+                <option value="tag">Tag</option>
+                <option value="placeholder">Placeholder</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="inheritanceTreeSelect">
+                Inheritance Tree
+              </label>
+              <br />
+              <select
+                id="inheritanceTreeSelect"
+                onChange={this.toggleInheritanceTree}
+              >
+                <option value="show">Show</option>
+                <option value="hide">Hide</option>
+                <option value="compact">Compact</option>
+              </select>
+            </div>
+
+            <div>
+              <label htmlFor="inheritanceDepthInput">
+                Inheritance Depth
+              </label>
+              <br />
+              <input
+                type="text"
+                id="inheritanceDepthInput"
+                onChange={this.toggleInheritanceDepth}
+                placeholder="Infinity"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="collapseByDefaultCheckbox">
+                Collapse by default
+              </label>
+              <br />
+              <input
+                defaultChecked
+                type="checkbox"
+                id="collapseByDefaultCheckbox"
+                onChange={this.toggleCollapseByDefault}
+              />
+            </div>
           </div>
 
           {
             dataStructures.length > 0 &&
               <AttributesKit.Attributes
-                element={this.state.parseResult.dataStructures[0]}
-                dataStructures={dataStructures}
-                showInherited={this.state.showInherited}
-                showIncluded={this.state.showIncluded}
                 collapseByDefault={this.state.collapseByDefault}
+                dataStructures={dataStructures}
+                element={this.state.parseResult.dataStructures[0]}
+                includedProperties={this.state.includedProperties}
+                inheritanceTree={this.state.inheritanceTree}
+                inheritedProperties={this.state.inheritedProperties}
+                maxInheritanceDepth={this.state.maxInheritanceDepth}
+                onElementLinkClick={this.onElementLinkClick}
+                title={this.state.title}
               />
           }
         </div>

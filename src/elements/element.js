@@ -1,12 +1,33 @@
 import isEmpty from 'lodash/isEmpty';
 import isString from 'lodash/isString';
 import sift from 'sift';
+import every from 'lodash/every';
 
 import TYPES from '../types';
 
 import { QUERIES } from '../queries';
 
 const inheritedMemberQuery = QUERIES.inheritedMember.query;
+
+function findElement(elementId, dataStructures) {
+  const query = {
+    'meta.id': elementId,
+  };
+
+  const results = sift(query, dataStructures);
+
+  if (isEmpty(results)) {
+    return null;
+  }
+
+  return results[0];
+}
+
+function findParent(elementId, dataStructures) {
+  const element = findElement(elementId, dataStructures);
+
+  return findElement(element.meta.ref, dataStructures);
+}
 
 function isInherited(element) {
   const results = sift(inheritedMemberQuery, [element]);
@@ -18,6 +39,47 @@ const includedMemberQuery = QUERIES.includedMember.query;
 function isIncluded(element) {
   const results = sift(includedMemberQuery, [element]);
   return results.length > 0;
+}
+
+function getReference(element) {
+  if (!element || !element.content || !element.content.value) {
+    return null;
+  }
+
+  const nestedElement = element.content.value;
+
+  if (!nestedElement) {
+    return null;
+  }
+
+  if (isEmpty(nestedElement.content)) {
+    return null;
+  }
+
+  let ref;
+
+  const isElementReferenced = every(nestedElement.content, (childElement) => {
+    if (!childElement.meta || !childElement.meta.ref) {
+      return false;
+    }
+
+    if (!ref) {
+      ref = childElement.meta.ref;
+      return true;
+    }
+
+    return childElement.meta.ref === ref;
+  });
+
+  if (isElementReferenced && ref) {
+    return ref;
+  }
+
+  return null;
+}
+
+function isReferenced(element) {
+  return !!getReference(element);
 }
 
 function isMember(element) {
@@ -199,6 +261,9 @@ function isLastArrayItem(arrayElement, currentArrayItemIndex) {
 }
 
 export {
+  findElement,
+  findParent,
+  getReference,
   getType,
   getValueType,
   hasDefaults,
@@ -216,5 +281,6 @@ export {
   isObject,
   isObjectOrArray,
   isObjectOrArrayOrEnum,
+  isReferenced,
   isSelect,
 };

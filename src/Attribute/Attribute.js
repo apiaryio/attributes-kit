@@ -18,9 +18,11 @@ class Attribute extends React.Component {
 
     const reactComponent = refractToComponentsMap[this.props.element.element];
 
+    // If we didn't find the component which is able to render the specific
+    // element, display an error message.
     if (typeof reactComponent === 'undefined') {
       const errorMessage = `
-        Attributes Kit is not able to render ‘${this.props.element.element}’
+        Attributes Kit is not able to render the ‘${this.props.element.element}’
         element.
       `;
 
@@ -29,12 +31,14 @@ class Attribute extends React.Component {
       );
     }
 
-    return React.createElement(reactComponent, {
+    const reactElement = React.createElement(reactComponent, {
       collapseByDefault: this.props.collapseByDefault,
       element: this.props.element,
       expandableCollapsible: this.props.expandableCollapsible,
       parentElement: this.props.parentElement,
     });
+
+    return reactElement;
   }
 }
 

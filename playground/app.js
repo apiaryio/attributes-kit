@@ -39,6 +39,13 @@ render((
           width: '100%',
           minHeight: '200px',
         },
+        '.options': {
+          float: 'left',
+          width: '100%',
+          border: '1px solid #ccc',
+          marginBottom: '40px',
+          padding: '10px',
+        },
       }}
     />
   </div>

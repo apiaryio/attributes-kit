@@ -1,13 +1,16 @@
 import React from 'react';
+import radium from 'radium';
 import merge from 'lodash/merge';
 
 import {
   getType,
+  findElement,
 } from '../elements/element';
 
 class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
+    reference: React.PropTypes.bool,
     element: React.PropTypes.object,
     onClick: React.PropTypes.func,
     style: React.PropTypes.object,
@@ -15,31 +18,66 @@ class Type extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    onElementLinkClick: React.PropTypes.func,
+    dereferencedDataStructures: React.PropTypes.array,
   };
 
-  getStyles() {
+  get style() {
     const { TYPE_COLOR } = this.context.theme;
 
-    const styles = {
-      root: {
+    const style = {
+      type: {
         width: '100%',
         fontFamily: 'Source Code Pro',
         fontWeight: 'regular',
         fontSize: '13px',
         color: TYPE_COLOR,
       },
+      reference: {
+        width: '100%',
+        fontFamily: 'Source Code Pro',
+        fontWeight: 'regular',
+        fontSize: '13px',
+        color: TYPE_COLOR,
+        textDecoration: 'underline',
+        cursor: 'pointer',
+
+        ':hover': {
+          textDecoration: 'none',
+        },
+      },
     };
 
-    return merge(styles, this.props.style || {});
+    return merge(style, this.props.style || {});
+  }
+
+  handleClick = (event) => {
+    const element = findElement(this.props.type, this.context.dereferencedDataStructures);
+
+    if (this.context.onElementLinkClick) {
+      return this.context.onElementLinkClick(
+        element.meta.id, element, event
+      );
+    }
+
+    return null;
   }
 
   render() {
-    if (this.props.type) {
+    if (this.props.reference) {
       return (
         <div
-          style={this.getStyles().root}
-          onClick={this.props.onClick}
+          style={this.style.reference}
+          onClick={this.handleClick}
         >
+          {this.props.type}
+        </div>
+      );
+    }
+
+    if (this.props.type) {
+      return (
+        <div style={this.style.type}>
           {this.props.type}
         </div>
       );
@@ -50,10 +88,7 @@ class Type extends React.Component {
 
       if (type) {
         return (
-          <div
-            style={this.getStyles().root}
-            onClick={this.props.onClick}
-          >
+          <div style={this.style.type}>
             {type}
           </div>
         );
@@ -64,4 +99,4 @@ class Type extends React.Component {
   }
 }
 
-export default Type;
+export default radium(Type);

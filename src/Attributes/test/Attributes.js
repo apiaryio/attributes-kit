@@ -12,7 +12,7 @@ describe('Attributes', () => {
       before(() => {
         expectedDefaultTheme = cloneDeep(defaultTheme);
 
-        Attributes.prototype.processProps.apply(
+        Attributes.prototype.transformPropsIntoState.apply(
           Attributes.prototype,
           [
             {

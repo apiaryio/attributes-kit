@@ -25,6 +25,10 @@ class ObjectComponent extends React.Component {
     collapseByDefault: React.PropTypes.bool,
   };
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  };
+
   constructor(props) {
     super(props);
 
@@ -36,11 +40,16 @@ class ObjectComponent extends React.Component {
   }
 
   get style() {
+    const { BORDER_COLOR } = this.context.theme;
+
     const style = {
       ruler: {
         root: {
           paddingBottom: '0px',
         },
+      },
+      objectHeaderRow: {
+        borderBottom: `1px solid ${BORDER_COLOR}`,
       },
       objectPropertiesRow: {
       },
@@ -118,16 +127,19 @@ class ObjectComponent extends React.Component {
     return (
       <Row>
         <Column>
-          <Row>
-            <ObjectHeader
-              onToggleClick={this.handleExpandCollapse}
-              onSampleToggleClick={this.handleExpandCollapse}
-              onTypeClick={this.handleExpandCollapse}
-              isExpanded={this.state.isExpanded}
-              element={this.props.element}
-              parentElement={this.props.parentElement}
-              expandableCollapsible={this.props.expandableCollapsible}
-            />
+          <Row style={this.style.objectHeaderRow}>
+            {
+              this.props.parentElement &&
+                <ObjectHeader
+                  onToggleClick={this.handleExpandCollapse}
+                  onSampleToggleClick={this.handleExpandCollapse}
+                  onTypeClick={this.handleExpandCollapse}
+                  isExpanded={this.state.isExpanded}
+                  element={this.props.element}
+                  parentElement={this.props.parentElement}
+                  expandableCollapsible={this.props.expandableCollapsible}
+                />
+            }
           </Row>
 
           {

@@ -1,108 +1,149 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
-import compact from 'lodash/compact';
 import eidolon from 'eidolon';
-import isArray from 'lodash/isArray';
 import isUndefined from 'lodash/isUndefined';
 import map from 'lodash/map';
+import reduce from 'lodash/reduce';
 import merge from 'lodash/merge';
 import React from 'react';
 
 import Attribute from '../Attribute/Attribute';
+import Title from '../Title/Title';
+import InheritanceTree from '../InheritanceTree/InheritanceTree';
 
 import defaultTheme from '../theme';
-
-import {
-  isInherited,
-  isIncluded,
-} from '../elements/element';
 
 class Attributes extends React.Component {
   static propTypes = {
     collapseByDefault: React.PropTypes.bool,
     dataStructures: React.PropTypes.array,
-    dereference: React.PropTypes.bool,
     element: React.PropTypes.object,
-    showIncluded: React.PropTypes.bool,
-    showInherited: React.PropTypes.bool,
+    includedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    inheritanceTree: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    inheritedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    maxInheritanceDepth: React.PropTypes.any,
+    onElementLinkClick: React.PropTypes.func,
+    title: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
     theme: React.PropTypes.object,
   };
 
   static childContextTypes = {
+    dereferencedDataStructures: React.PropTypes.array,
     theme: React.PropTypes.object,
+    onElementLinkClick: React.PropTypes.func,
+    includedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    inheritedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
   };
 
   constructor(props) {
     super(props);
-
-    const {
-      collapseByDefault,
-      dereferencedElement,
-      element,
-      showIncluded,
-      showInherited,
-      theme,
-    } = this.processProps(props);
-
-    this.state = {
-      collapseByDefault,
-      dereferencedElement,
-      element,
-      showIncluded,
-      showInherited,
-      theme,
-    };
+    this.state = this.transformPropsIntoState(this.props);
   };
 
   getChildContext() {
     return {
+      dereferencedDataStructures: this.state.dereferencedDataStructures,
+      includedProperties: this.state.includedProperties,
+      inheritedProperties: this.state.inheritedProperties,
+      onElementLinkClick: this.state.onElementLinkClick,
       theme: this.state.theme,
     };
   };
 
   componentWillReceiveProps(nextProps) {
-    const {
-      collapseByDefault,
-      dereferencedElement,
-      element,
-      showIncluded,
-      showInherited,
-      theme,
-    } = this.processProps(nextProps);
-
-    this.setState({
-      collapseByDefault,
-      dereferencedElement,
-      element,
-      showIncluded,
-      showInherited,
-      theme,
-    });
+    this.setState(
+      this.transformPropsIntoState(nextProps)
+    );
   };
 
-  processProps(props) {
+  transformPropsIntoState(props) {
     let theme;
 
-    // First, make a deep clone of the default theme object
+    // Make a deep clone of the default theme object
     // to prevent future mutations; then we'll merge in custom theme.
     theme = cloneDeep(defaultTheme);
     theme = merge(theme, props.theme || {});
 
+    // `dataStructures` prop is optional and is used to
+    // resolve inheritance, references and includes/mixins, plus to
+    // render the inheritance tree.
     const dataStructures = props.dataStructures || [];
 
-    // Set default value of `showInherited` and `showIncluded` options.
+    // We have to resolve all references, otherwise we wouldn't be able to
+    // render the element. Dereferencing turns `{ element: 'MyObject', ... }`
+    // into `{ element: 'object', ... }`, which is something Attributes Kit
+    // understands.
+    //
+    // First, let's build index of the data structure elements in the following
+    // format—`[dataStructure.meta.id]: dataStructureElement`, where
+    // `dataStructure.meta.id` is name of the data structure.
+    const dataStructuresIndex = reduce(dataStructures, (result, dataStructure) => {
+      result[dataStructure.meta.id] = dataStructure;
+      return result;
+    }, {});
+
+    const dereferencedDataStructures = map(dataStructures, (dataStructure) =>
+      eidolon.dereference(
+        cloneDeep(dataStructure), dataStructuresIndex
+      )
+    );
+
+    // Set default value of `inheritedProperties` and `includedProperties` options.
     // If a user hasn't provided the values, we default to true (= we'll render
-    // the whole data structure including inherited and included members).
-    let showInherited = props.showInherited;
-    let showIncluded = props.showIncluded;
+    // the whole data structure including inherited and included properties).
+    //
+    // Options `showInherited` and `showIncluded` have been deprecated and
+    // will be removed in the 1.0 release.
+    let inheritedProperties = props.inheritedProperties || props.showInherited;
+    let includedProperties = props.includedProperties || props.showIncluded;
 
-    if (isUndefined(showInherited)) {
-      showInherited = true;
+    if (isUndefined(inheritedProperties)) {
+      inheritedProperties = true;
     }
 
-    if (isUndefined(showIncluded)) {
-      showIncluded = true;
+    if (isUndefined(includedProperties)) {
+      includedProperties = true;
     }
+
+    let title;
+
+    if (props.title === 'show') {
+      title = true;
+    } else if (props.title === 'hide') {
+      title = false;
+    } else {
+      title = true;
+    }
+
+    let inheritanceTree;
+
+    if (props.inheritanceTree === 'show') {
+      inheritanceTree = true;
+    } else if (props.inheritanceTree === 'hide') {
+      inheritanceTree = false;
+    } else {
+      inheritanceTree = true;
+    }
+
+    const maxInheritanceDepth = props.maxInheritanceDepth || undefined;
 
     // Set default value of `collapseByDefault` option. If a user hasn't
     // provided the value, we default to false (= render
@@ -113,14 +154,11 @@ class Attributes extends React.Component {
       collapseByDefault = false;
     }
 
-    // Regardless of the options above, we have to resolve all references,
-    // otherwise we wouldn't be able to render the element. Dereferencing turns
-    // `{ element: 'MyObject', ... }` into `{ element: 'object', ... }`,
-    // which is something Attributes Kit understands.
-    const structures = {};
+    // Set up a dummy handler for element link clicks.
+    let onElementLinkClick = props.onElementLinkClick;
 
-    for (const item of dataStructures) {
-      structures[item.meta.id] = item;
+    if (isUndefined(onElementLinkClick)) {
+      onElementLinkClick = function defaultOnElementLinkClickHandler() {};
     }
 
     // Dereference the element. This overwrites the original
@@ -128,79 +166,23 @@ class Attributes extends React.Component {
     // is still available in the `meta.ref` properties.
     const dereferencedElement = eidolon.dereference(
       cloneDeep(props.element),
-      structures
+      dataStructuresIndex
     );
 
-    // If `showInherited`, or `showIncluded` is set to `false`,
-    // we'll removed all inherited, or included members from the data strcuture.
-    const originElement = this.removeInheritedOrIncludedMembers(dereferencedElement, {
-      removeInherited: !showInherited,
-      removeIncluded: !showIncluded,
-    });
-
-    const element = abagnale.forge([originElement], { separator: '.' })[0];
+    const element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
 
     return {
       collapseByDefault,
-      dereferencedElement,
+      dereferencedDataStructures,
       element,
-      showIncluded,
-      showInherited,
+      includedProperties,
+      inheritanceTree,
+      inheritedProperties,
+      maxInheritanceDepth,
+      onElementLinkClick,
       theme,
+      title,
     };
-  };
-
-  removeInheritedOrIncludedMembers(element, options) {
-    const { removeInherited, removeIncluded } = options;
-
-    if (!removeInherited && !removeIncluded) {
-      return element;
-    }
-
-    if (!isArray(element.content)) {
-      return element;
-    }
-
-    const modifiedElement = cloneDeep(element);
-
-    // Initially I would use `Array.filter`, but since we
-    // want to recursively remove inherited properties,
-    // we (may) mutate each element.
-    //
-    // If an element has been inherited/included, we'll
-    // remove it from the output based on the provided options.
-    modifiedElement.content = map(element.content, (nestedElement) => {
-      if (removeInherited && isInherited(nestedElement)) {
-        return false;
-      }
-
-      if (removeIncluded && isIncluded(nestedElement)) {
-        return false;
-      }
-
-      if (nestedElement.content && !isArray(nestedElement.content)) {
-        if (removeInherited && isInherited(nestedElement.content.value)) {
-          return false;
-        } else if (removeIncluded && isIncluded(nestedElement.content.value)) {
-          return false;
-        }
-
-        if (nestedElement.content.value && isArray(nestedElement.content.value.content)) {
-          nestedElement.content.value = this.removeInheritedOrIncludedMembers(
-            nestedElement.content.value, options
-          );
-        }
-
-        return nestedElement;
-      }
-
-      return this.removeInheritedOrIncludedMembers(nestedElement, options);
-    });
-
-    // This removes all falsey values (false, null, 0, '', ...).
-    modifiedElement.content = compact(modifiedElement.content);
-
-    return modifiedElement;
   };
 
   render() {
@@ -217,17 +199,25 @@ class Attributes extends React.Component {
 
     return (
       <div>
-        <div>
-          <h1>Attributes</h1>
-        </div>
+        {
+          this.state.title &&
+            <Title element={this.state.element} />
+        }
 
-        <div>
-          <Attribute
-            element={this.state.element}
-            theme={this.state.theme}
-            collapseByDefault={this.state.collapseByDefault}
-          />
-        </div>
+        {
+          this.state.inheritanceTree &&
+            <InheritanceTree
+              element={this.state.element}
+              dataStructures={this.props.dataStructures}
+              dereferencedDataStructures={this.state.dereferencedDataStructures}
+            />
+        }
+
+        <Attribute
+          element={this.state.element}
+          theme={this.state.theme}
+          collapseByDefault={this.state.collapseByDefault}
+        />
       </div>
     );
   };

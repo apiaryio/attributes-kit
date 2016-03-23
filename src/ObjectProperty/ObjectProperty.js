@@ -8,6 +8,7 @@ import Description from '../Description/Description';
 import Key from '../Key/Key';
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
+import ParentInfoLink from '../ParentInfo/ParentInfoLink';
 import Requirement from '../Requirement/Requirement';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
@@ -24,6 +25,8 @@ import {
   hasType,
   hasValue,
   isLastArrayItem,
+  isIncluded,
+  isInherited,
 } from '../elements/element';
 
 class ObjectProperty extends React.Component {
@@ -38,6 +41,16 @@ class ObjectProperty extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    showMemberParentLinks: React.PropTypes.bool,
+    onElementLinkClick: React.PropTypes.func,
+    includedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
+    inheritedProperties: React.PropTypes.oneOfType([
+      React.PropTypes.bool,
+      React.PropTypes.string,
+    ]),
   };
 
   componentDidMount = () => {
@@ -115,10 +128,34 @@ class ObjectProperty extends React.Component {
           {
             hasType(this.props.element) &&
               <Row>
-                <Type
-                  element={this.props.element}
-                  style={this.style.type}
-                />
+                <Column>
+                  <Type
+                    element={this.props.element}
+                    style={this.style.type}
+                  />
+                </Column>
+
+                {
+                  (isIncluded(this.props.element) && this.context.includedProperties === 'tag') &&
+                    <Column style={{ alignItems: 'flex-end' }}>
+                      <ParentInfoLink
+                        element={this.props.element}
+                        show={this.context.showMemberParentLinks}
+                        showBullet
+                      />
+                    </Column>
+                }
+
+                {
+                  (isInherited(this.props.element) && this.context.inheritedProperties === 'tag') &&
+                    <Column style={{ alignItems: 'flex-end' }}>
+                      <ParentInfoLink
+                        element={this.props.element}
+                        show={this.context.showMemberParentLinks}
+                        showBullet
+                      />
+                    </Column>
+                }
               </Row>
           }
 

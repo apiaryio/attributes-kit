@@ -8,6 +8,7 @@ import Column from '../Column/Column';
 import {
   hasSamples,
   isEnum,
+  hasMembers,
 } from '../elements/element';
 
 class ArrayHeader extends React.Component {
@@ -62,6 +63,10 @@ class ArrayHeader extends React.Component {
 
     if (this.props.isExpanded) {
       styles.root.borderBottom = 'none';
+    }
+
+    if (!hasMembers(this.props.element)) {
+      styles.root.borderBottom = `1px solid ${BORDER_COLOR}`;
     }
 
     return styles;
