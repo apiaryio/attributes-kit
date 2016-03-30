@@ -11,7 +11,6 @@ import {
   hasDefaults,
   hasDescription,
   hasSamples,
-  hasValue,
   isArray,
   isLastArrayItem,
   isObject,
@@ -108,10 +107,6 @@ class StructuredArrayItem extends React.Component {
   }
 
   renderValue() {
-    if (!hasValue(this.props.element)) {
-      return null;
-    }
-
     return (
       <Row>
         {
