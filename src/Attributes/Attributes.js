@@ -15,6 +15,7 @@ import defaultTheme from '../theme';
 
 class Attributes extends React.Component {
   static propTypes = {
+    namedTypes: React.PropTypes.bool,
     collapseByDefault: React.PropTypes.bool,
     dataStructures: React.PropTypes.array,
     element: React.PropTypes.object,
@@ -42,6 +43,7 @@ class Attributes extends React.Component {
   static childContextTypes = {
     dereferencedDataStructures: React.PropTypes.array,
     theme: React.PropTypes.object,
+    namedTypes: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
     includedProperties: React.PropTypes.oneOfType([
       React.PropTypes.bool,
@@ -65,6 +67,7 @@ class Attributes extends React.Component {
       inheritedProperties: this.state.inheritedProperties,
       onElementLinkClick: this.state.onElementLinkClick,
       theme: this.state.theme,
+      namedTypes: this.state.namedTypes,
     };
   };
 
@@ -154,6 +157,12 @@ class Attributes extends React.Component {
       collapseByDefault = false;
     }
 
+    let namedTypes = props.namedTypes;
+
+    if (isUndefined(namedTypes)) {
+      namedTypes = false;
+    }
+
     // Set up a dummy handler for element link clicks.
     let onElementLinkClick = props.onElementLinkClick;
 
@@ -179,6 +188,7 @@ class Attributes extends React.Component {
       inheritanceTree,
       inheritedProperties,
       maxInheritanceDepth,
+      namedTypes,
       onElementLinkClick,
       theme,
       title,
