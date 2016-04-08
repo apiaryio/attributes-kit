@@ -44,6 +44,7 @@ class StructuredObjectProperty extends React.Component {
   static contextTypes = {
     theme: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
+    namedTypes: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
     includedProperties: React.PropTypes.oneOfType([
       React.PropTypes.bool,
@@ -190,13 +191,13 @@ class StructuredObjectProperty extends React.Component {
   renderType() {
     const reference = getReference(this.props.element);
 
-    if (reference) {
+    if (this.context.namedTypes && reference) {
       return (
         <Column>
           <Type
             element={this.props.element}
             type={reference}
-            reference
+            reference={true}
           />
         </Column>
       );
