@@ -41,6 +41,7 @@ class ObjectProperty extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    eventEmitter: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
     includedProperties: React.PropTypes.oneOfType([
@@ -54,11 +55,17 @@ class ObjectProperty extends React.Component {
   };
 
   componentDidMount = () => {
-    const keyIdentifier = this.props.element.meta.id;
-    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+    // After the component has been mounted, we can align the keys (the component
+    // is in the DOM, it's possible to get the `clientWidth`).
+    this.alignKey();
 
-    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
-  }
+    // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
+    this.subscription = this.context.eventEmitter.addListener('alignKey', this.alignKey);
+  };
+
+  componentWillUnmount = () => {
+    this.subscription.remove();
+  };
 
   get style() {
     const { BORDER_COLOR } = this.context.theme;
@@ -95,13 +102,18 @@ class ObjectProperty extends React.Component {
       } else {
         keyWidth = `${this.props.keyWidth}px`;
       }
-    } else {
-      keyWidth = 'auto';
     }
 
-    style.keyColumn.width = keyWidth;
-    style.keyColumn.minWidth = keyWidth;
-    style.keyColumn.maxWidth = keyWidth;
+    if (keyWidth) {
+      style.keyColumn.width = keyWidth;
+      style.keyColumn.minWidth = keyWidth;
+      style.keyColumn.maxWidth = keyWidth;
+    } else {
+      style.keyColumn.width = 'auto';
+      style.keyColumn.minWidth = null;
+      style.keyColumn.maxWidth = null;
+    }
+
 
     if (isLastArrayItem(this.props.parentElement, this.props.index)) {
       style.root.borderBottom = '0px';
@@ -109,6 +121,13 @@ class ObjectProperty extends React.Component {
 
     return merge(style, this.props.style || {});
   }
+
+  alignKey = () => {
+    const keyIdentifier = this.props.element.meta.id;
+    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+
+    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
+  };
 
   render() {
     return (

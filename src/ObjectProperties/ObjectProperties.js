@@ -30,6 +30,7 @@ class ObjectProperties extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    eventEmitter: React.PropTypes.object,
     includedProperties: React.PropTypes.oneOfType([
       React.PropTypes.bool,
       React.PropTypes.string,
@@ -48,7 +49,28 @@ class ObjectProperties extends React.Component {
     };
 
     this.keyWidthsIndex = {};
-  }
+  };
+
+  componentDidMount = () => {
+    // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
+    this.subscription = this.context.eventEmitter.addListener('alignKeys', this.alignKeys);
+  };
+
+  componentWillUnmount = () => {
+    this.subscription.remove();
+  };
+
+  alignKeys = () => {
+    this.keyWidthsIndex = {};
+
+    this.setState({
+      keyWidth: null,
+    });
+
+    window.setTimeout(() => {
+      this.context.eventEmitter.emit('alignKey');
+    }, 10);
+  };
 
   getComponent(element, { key, index }) {
     if (!key) {
@@ -108,11 +130,14 @@ class ObjectProperties extends React.Component {
   }
 
   reportKeyWidth = (keyIdentifier, keyWidth) => {
+    console.log('reportKeyWidth', keyIdentifier, keyWidth);
+
     this.keyWidthsIndex[keyIdentifier] = keyWidth;
 
     const keyWidths = values(this.keyWidthsIndex);
 
     if (keyWidths.length === this.props.element.content.length) {
+      console.log('Setting to ', max(keyWidths))
       this.setState({
         keyWidth: max(keyWidths),
       });

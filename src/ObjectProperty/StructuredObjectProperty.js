@@ -43,6 +43,7 @@ class StructuredObjectProperty extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    eventEmitter: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
     namedTypes: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
@@ -64,16 +65,29 @@ class StructuredObjectProperty extends React.Component {
   };
 
   componentDidMount = () => {
-    const keyIdentifier = this.props.element.meta.id;
-    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+    // After the component has been mounted, we can align the keys (the component
+    // is in the DOM, it's possible to get the `clientWidth`).
+    this.alignKey();
 
-    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
+    // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
+    this.subscription = this.context.eventEmitter.addListener('alignKey', this.alignKey);
+  };
+
+  componentWillUnmount = () => {
+    this.subscription.remove();
   };
 
   componentWillReceiveProps = (nextProps) => {
     this.setState(
       this.transformPropsIntoState(nextProps)
     );
+  };
+
+  alignKey = () => {
+    const keyIdentifier = this.props.element.meta.id;
+    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+
+    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
   };
 
   transformPropsIntoState(props) {
@@ -181,9 +195,15 @@ class StructuredObjectProperty extends React.Component {
       keyWidth = 'auto';
     }
 
-    style.keyColumn.width = keyWidth;
-    style.keyColumn.minWidth = keyWidth;
-    style.keyColumn.maxWidth = keyWidth;
+    if (keyWidth) {
+      style.keyColumn.width = keyWidth;
+      style.keyColumn.minWidth = keyWidth;
+      style.keyColumn.maxWidth = keyWidth;
+    } else {
+      style.keyColumn.width = 'auto';
+      style.keyColumn.minWidth = null;
+      style.keyColumn.maxWidth = null;
+    }
 
     return merge(style, this.props.style || {});
   };

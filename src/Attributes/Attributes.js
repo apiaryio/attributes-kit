@@ -1,11 +1,12 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import eidolon from 'eidolon';
+import {EventEmitter} from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
 import map from 'lodash/map';
-import reduce from 'lodash/reduce';
 import merge from 'lodash/merge';
 import React from 'react';
+import reduce from 'lodash/reduce';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
@@ -44,6 +45,7 @@ class Attributes extends React.Component {
     dereferencedDataStructures: React.PropTypes.array,
     theme: React.PropTypes.object,
     namedTypes: React.PropTypes.bool,
+    eventEmitter: React.PropTypes.object,
     onElementLinkClick: React.PropTypes.func,
     includedProperties: React.PropTypes.oneOfType([
       React.PropTypes.bool,
@@ -58,11 +60,13 @@ class Attributes extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.transformPropsIntoState(this.props);
+    this.eventEmitter = new EventEmitter();
   };
 
   getChildContext() {
     return {
       dereferencedDataStructures: this.state.dereferencedDataStructures,
+      eventEmitter: this.eventEmitter,
       includedProperties: this.state.includedProperties,
       inheritedProperties: this.state.inheritedProperties,
       onElementLinkClick: this.state.onElementLinkClick,
@@ -75,6 +79,10 @@ class Attributes extends React.Component {
     this.setState(
       this.transformPropsIntoState(nextProps)
     );
+  };
+
+  alignKeys = () => {
+    this.eventEmitter.emit('alignKeys');
   };
 
   transformPropsIntoState(props) {

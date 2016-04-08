@@ -105,6 +105,10 @@ class Playground extends React.Component {
     });
   };
 
+  alignKeys = () => {
+    this.refs.attributes.alignKeys();
+  };
+
   render() {
     const dataStructures = this.state.parseResult.dataStructures || [];
 
@@ -229,11 +233,24 @@ class Playground extends React.Component {
                 onChange={this.toggleCollapseByDefault}
               />
             </div>
+
+            <div>
+              <label>
+                Align keys
+              </label>
+              <br />
+              <input
+                type="button"
+                onClick={this.alignKeys}
+                value="Align keys"
+              />
+            </div>
           </div>
 
           {
             dataStructures.length > 0 &&
               <AttributesKit.Attributes
+                ref="attributes"
                 collapseByDefault={this.state.collapseByDefault}
                 dataStructures={dataStructures}
                 element={this.state.parseResult.dataStructures[0]}
