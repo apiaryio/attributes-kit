@@ -197,7 +197,7 @@ class StructuredObjectProperty extends React.Component {
           <Type
             element={this.props.element}
             type={reference}
-            reference={true}
+            reference
           />
         </Column>
       );
