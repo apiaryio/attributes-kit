@@ -15,7 +15,6 @@ class Playground extends React.Component {
       collapseByDefault: true,
       maxInheritanceDepth: undefined,
       inheritanceTree: true,
-      namedTypes: false,
       includedProperties: 'show',
       inheritedProperties: 'show',
       parseResult: {
@@ -96,12 +95,6 @@ class Playground extends React.Component {
   toggleCollapseByDefault = () => {
     this.setState({
       collapseByDefault: !this.state.collapseByDefault,
-    });
-  };
-
-  toggleNamedTypes = () => {
-    this.setState({
-      namedTypes: !this.state.namedTypes,
     });
   };
 
@@ -206,18 +199,6 @@ class Playground extends React.Component {
             </div>
 
             <div>
-              <label htmlFor="namedTypesCheckbox">
-                Named Types
-              </label>
-              <br />
-              <input
-                type="checkbox"
-                id="namedTypesCheckbox"
-                onChange={this.toggleNamedTypes}
-              />
-            </div>
-
-            <div>
               <label htmlFor="collapseByDefaultCheckbox">
                 Collapse by default
               </label>
@@ -243,7 +224,6 @@ class Playground extends React.Component {
                 maxInheritanceDepth={this.state.maxInheritanceDepth}
                 onElementLinkClick={this.onElementLinkClick}
                 title={this.state.title}
-                namedTypes={this.state.namedTypes}
               />
           }
         </div>
