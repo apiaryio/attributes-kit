@@ -38,11 +38,11 @@ class ArrayItem extends React.Component {
   };
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {
-        borderBottom: `1px solid ${BORDER_COLOR}`,
+        borderBottom: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
       },
@@ -50,9 +50,12 @@ class ArrayItem extends React.Component {
         paddingLeft: '8px',
       },
       type: {
-        root: {
-          marginBottom: '4px',
+        type: {
+          marginBottom: '0px',
         },
+      },
+      typeColumn: {
+        justifyContent: 'center',
       },
       bulletColumn: {
         width: '8px',
@@ -102,27 +105,29 @@ class ArrayItem extends React.Component {
         }
 
         <Column style={styles.column}>
-          {
-            hasType(this.props.element) &&
-              <Row>
-                <Type
-                  element={this.props.element}
-                  style={styles.type}
-                />
-              </Row>
-          }
+          <Row>
+            {
+              hasValue(this.props.element) &&
+                <Column>
+                  <Value element={this.props.element} />
+                </Column>
+            }
+
+            {
+              hasType(this.props.element) &&
+                <Column style={styles.typeColumn}>
+                  <Type
+                    element={this.props.element}
+                    style={styles.type}
+                  />
+                </Column>
+            }
+          </Row>
 
           {
             hasDescription(this.props.element) &&
               <Row>
                 <Description element={this.props.element} />
-              </Row>
-          }
-
-          {
-            hasValue(this.props.element) &&
-              <Row>
-                <Value element={this.props.element} />
               </Row>
           }
 
