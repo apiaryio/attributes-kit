@@ -32,6 +32,7 @@ class Type extends React.Component {
         fontWeight: 'regular',
         fontSize: '13px',
         color: TYPE_COLOR,
+        marginBottom: '4px',
       },
       reference: {
         width: '100%',
@@ -70,7 +71,7 @@ class Type extends React.Component {
           style={this.style.reference}
           onClick={this.handleClick}
         >
-          {this.props.type}
+          {this.props.reference}
         </div>
       );
     }
