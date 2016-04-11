@@ -13,7 +13,6 @@ class Playground extends React.Component {
     this.state = {
       title: true,
       collapseByDefault: true,
-      maxInheritanceDepth: undefined,
       namedTypes: false,
       includedProperties: 'show',
       inheritedProperties: 'show',
@@ -73,14 +72,6 @@ class Playground extends React.Component {
     console.debug(`Setting the ‘includedProperties’ option to ‘${value}’...`);
     this.setState({
       includedProperties: value,
-    });
-  };
-
-  toggleInheritanceDepth = (eventObject) => {
-    const value = parseInt(eventObject.currentTarget.value, 10);
-    console.debug(`Setting the ‘maxInheritanceDepth’ option to ‘${value}’...`);
-    this.setState({
-      maxInheritanceDepth: value,
     });
   };
 
@@ -169,19 +160,6 @@ class Playground extends React.Component {
             </div>
 
             <div>
-              <label htmlFor="inheritanceDepthInput">
-                Inheritance Depth
-              </label>
-              <br />
-              <input
-                type="text"
-                id="inheritanceDepthInput"
-                onChange={this.toggleInheritanceDepth}
-                placeholder="Infinity"
-              />
-            </div>
-
-            <div>
               <label htmlFor="namedTypesCheckbox">
                 Named Types
               </label>
@@ -215,7 +193,6 @@ class Playground extends React.Component {
                 element={this.state.parseResult.dataStructures[0]}
                 includedProperties={this.state.includedProperties}
                 inheritedProperties={this.state.inheritedProperties}
-                maxInheritanceDepth={this.state.maxInheritanceDepth}
                 onElementLinkClick={this.onElementLinkClick}
                 title={this.state.title}
                 namedTypes={this.state.namedTypes}
