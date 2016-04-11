@@ -30,7 +30,6 @@ class Key extends React.Component {
         fontWeight: '500',
         fontSize: '13px',
         color: KEY_COLOR,
-        lineHeight: '17px',
         userSelect: 'none',
       },
     };
