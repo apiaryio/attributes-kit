@@ -1,4 +1,5 @@
 import React from 'react';
+import radium from 'radium';
 import merge from 'lodash/merge';
 
 class Ruler extends React.Component {
@@ -14,30 +15,35 @@ class Ruler extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  renderStyles() {
+  get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    const styles = {
-      root: {
-        width: '100%',
+    const style = {
+      base: {
+        minWidth: '100%',
+        maxWidth: '100%',
         height: 'auto',
-        paddingLeft: '13px',
+      },
+      container: {
+        minWidth: '100%',
+        maxWidth: '100%',
+        width: '100%',
         borderLeft: `1px solid ${BORDER_COLOR}`,
       },
     };
 
-    return merge(styles, this.props.style || {});
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
-
     return (
-      <div style={styles.root}>
-        {this.props.children}
+      <div style={this.style.base}>
+        <div style={this.style.container}>
+          {this.props.children}
+        </div>
       </div>
     );
   }
 }
 
-export default Ruler;
+export default radium(Ruler);
