@@ -3,16 +3,21 @@ import radium from 'radium';
 import React from 'react';
 import reactDom from 'react-dom';
 
+import isEqual from 'lodash/isEqual';
+
 import Column from '../Column/Column';
 import Description from '../Description/Description';
-import Key from '../Key/Key';
+
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
-import Requirement from '../Requirement/Requirement';
+
 import Row from '../Row/Row';
 import Ruler from '../Ruler/Ruler';
-import Toggle from '../Toggle/Toggle';
-import Type from '../Type/Type';
+
+import { KeyColumn } from './KeyColumn';
+import { ToggleColumn } from './ToggleColumn';
+import { TypeColumn } from './TypeColumn';
+
 
 import {
   isExpandableCollapsible,
@@ -42,6 +47,7 @@ class StructuredObjectProperty extends React.Component {
   };
 
   static contextTypes = {
+    element: React.PropTypes.object,
     theme: React.PropTypes.object,
     eventEmitter: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
@@ -128,31 +134,20 @@ class StructuredObjectProperty extends React.Component {
     } = this.context.theme;
 
     const style = {
-      root: {
+      base: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
         paddingTop: ROW_PADDING_TOP,
         paddingBottom: ROW_PADDING_BOTTOM,
       },
-      toggleColumn: {
-        width: '20px',
-        maxWidth: '20px',
-        minWidth: '20px',
-      },
       keyColumn: {
-      },
-      requirementColumn: {
-        width: '25px',
-        maxWidth: '25px',
-        minWidth: '25px',
+        marginRight: '20px',
       },
       valueRow: {
         marginTop: '8px',
       },
       ruler: {
-        root: {
-          width: '100%',
-          marginLeft: '6px',
-          paddingBottom: '8px',
+        base: {
+          paddingLeft: '6px',
         },
       },
       description: {
@@ -162,15 +157,18 @@ class StructuredObjectProperty extends React.Component {
       },
     };
 
+    if (this.props.element.meta && (this.props.element.meta._nestedLevel !== 0)) {
+      style.base.paddingLeft = '9px';
+    }
+
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
 
     // Last array item doesn't have a border.
     if (isLast) {
-      style.ruler.root.paddingBottom = '0px';
-      // style.root.borderBottom = 'none';
-      style.root.paddingBottom = '8px';
+      style.base.borderBottom = 'none';
+      style.base.paddingBottom = '8px';
     } else {
-      style.root.paddingBottom = '8px';
+      style.base.paddingBottom = '8px';
     }
 
     if (!this.state.isExpanded) {
@@ -212,31 +210,6 @@ class StructuredObjectProperty extends React.Component {
     return merge(style, this.props.style || {});
   };
 
-  renderType() {
-    const reference = getReference(this.props.element);
-
-    if (this.context.namedTypes && reference) {
-      return (
-        <Column>
-          <Type
-            element={this.props.element}
-            type={reference}
-            reference
-          />
-        </Column>
-      );
-    }
-
-    return (
-      <Column>
-        <Type
-          element={this.props.element}
-          style={this.style.type}
-        />
-      </Column>
-    );
-  };
-
   renderValue() {
     if (this.state.isExpanded) {
       return (
@@ -251,40 +224,22 @@ class StructuredObjectProperty extends React.Component {
 
   render() {
     return (
-      <Row style={this.style.root}>
+      <Row style={this.style.base}>
         <Column>
           <Row>
-            {
-              ((
-                this.context.includedProperties === 'show' &&
-                this.context.inheritedProperties === 'show'
-              ) || (
-                this.context.includedProperties === 'tag' &&
-                this.context.inheritedProperties === 'tag'
-              )) &&
-                <Column style={this.style.toggleColumn}>
-                  <Toggle
-                    isExpanded={this.state.isExpanded}
-                    onClick={this.handleExpandCollapse}
-                  />
-                </Column>
-            }
+            <ToggleColumn
+              isExpanded={this.state.isExpanded}
+              onClick={this.handleExpandCollapse}
+            />
 
-            <Column style={this.style.keyColumn}>
-              <Key
-                onClick={this.handleExpandCollapse}
-                element={this.props.element}
-                ref="key"
-              />
-            </Column>
+            <KeyColumn
+              element={this.props.element}
+              onClick={this.handleExpandCollapse}
+            />
 
-            <Column style={this.style.requirementColumn}>
-              <Requirement element={this.props.element} />
-            </Column>
-
-            {
-              this.renderType()
-            }
+            <TypeColumn
+              element={this.props.element}
+            />
           </Row>
 
           <Ruler style={this.style.ruler}>

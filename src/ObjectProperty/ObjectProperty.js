@@ -81,11 +81,7 @@ class ObjectProperty extends React.Component {
         paddingBottom: ROW_PADDING_BOTTOM,
       },
       keyColumn: {
-      },
-      requirementColumn: {
-        width: '25px',
-        maxWidth: '25px',
-        minWidth: '25px',
+        marginRight: '20px',
       },
       type: {
         root: {
@@ -141,9 +137,6 @@ class ObjectProperty extends React.Component {
             element={this.props.element}
             ref="key"
           />
-        </Column>
-
-        <Column style={this.style.requirementColumn}>
           <Requirement element={this.props.element} />
         </Column>
 
