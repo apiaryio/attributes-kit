@@ -68,13 +68,17 @@ class ObjectProperty extends React.Component {
   };
 
   get style() {
-    const { BORDER_COLOR } = this.context.theme;
+    const {
+      BORDER_COLOR,
+      ROW_PADDING_TOP,
+      ROW_PADDING_BOTTOM,
+    } = this.context.theme;
 
     const style = {
       root: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
-        paddingTop: '8px',
-        paddingBottom: '8px',
+        paddingTop: ROW_PADDING_TOP,
+        paddingBottom: ROW_PADDING_BOTTOM,
       },
       keyColumn: {
       },
