@@ -23,28 +23,30 @@ class Value extends React.Component {
 
   renderStyles() {
     const {
-      VALUE_COLOR,
       VALUE_BACKGROUND_COLOR,
       VALUE_BORDER_RADIUS,
+      VALUE_COLOR,
+      VALUE_FONT_WEIGHT,
+      VALUE_PADDING_BOTTOM,
+      VALUE_PADDING_LEFT,
+      VALUE_PADDING_RIGHT,
+      VALUE_PADDING_TOP,
     } = this.context.theme;
 
     const styles = {
-      float: 'left',
       width: 'auto',
       height: 'auto',
       margin: '0px',
-      padding: '0px',
-      fontWeight: '600',
+      fontWeight: VALUE_FONT_WEIGHT,
       backgroundColor: VALUE_BACKGROUND_COLOR,
       borderRadius: VALUE_BORDER_RADIUS,
-      paddingTop: '2px',
-      paddingBottom: '2px',
-      paddingLeft: '4px',
-      paddingRight: '4px',
+      paddingTop: VALUE_PADDING_TOP,
+      paddingBottom: VALUE_PADDING_BOTTOM,
+      paddingLeft: VALUE_PADDING_LEFT,
+      paddingRight: VALUE_PADDING_RIGHT,
       fontFamily: 'Source Sans Pro',
       fontSize: '13px',
       color: VALUE_COLOR,
-      lineHeight: '17px',
     };
 
     return merge(styles, this.props.style || {});
