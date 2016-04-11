@@ -3,6 +3,8 @@ import cloneDeep from 'lodash/cloneDeep';
 import eidolon from 'eidolon';
 import { EventEmitter } from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
+import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
 import React from 'react';
@@ -39,6 +41,7 @@ class Attributes extends React.Component {
   static childContextTypes = {
     dereferencedDataStructures: React.PropTypes.array,
     theme: React.PropTypes.object,
+    element: React.PropTypes.object,
     namedTypes: React.PropTypes.bool,
     eventEmitter: React.PropTypes.object,
     onElementLinkClick: React.PropTypes.func,
@@ -67,6 +70,7 @@ class Attributes extends React.Component {
       onElementLinkClick: this.state.onElementLinkClick,
       theme: this.state.theme,
       namedTypes: this.state.namedTypes,
+      element: this.state.element,
     };
   };
 
@@ -163,11 +167,15 @@ class Attributes extends React.Component {
       onElementLinkClick = function defaultOnElementLinkClickHandler() {};
     }
 
+    const originElement = this.addNestedLevels(
+      cloneDeep(props.element)
+    );
+
     // Dereference the element. This overwrites the original
     // value with the normalized result. Reference information
     // is still available in the `meta.ref` properties.
     const dereferencedElement = eidolon.dereference(
-      cloneDeep(props.element),
+      originElement,
       dataStructuresIndex
     );
 
@@ -185,6 +193,35 @@ class Attributes extends React.Component {
       theme,
       title,
     };
+  };
+
+  addNestedLevels(element, nestedLevel=-1) {
+    if (!element) {
+      return element;
+    }
+
+    if (!element.meta) {
+      element.meta = {};
+    }
+
+    if (element.content && element.content.value) {
+      nestedLevel = nestedLevel + 1;
+    }
+
+    element.meta._nestedLevel = nestedLevel;
+
+    if (element.content && isArray(element.content)) {
+      element.content = map(element.content, (element) => {
+        return this.addNestedLevels(element, nestedLevel);
+      });
+    } else if (element.content && isObject(element.content)) {
+      element.content.value = this.addNestedLevels(
+        element.content.value,
+        nestedLevel
+      );
+    }
+
+    return element;
   };
 
   render() {
