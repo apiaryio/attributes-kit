@@ -33,7 +33,6 @@ msonZoo.samples.forEach((sample) => {
       element: result[0],
       collapseByDefault: false,
       maxInheritanceDepth: undefined,
-      inheritanceTree: false,
       includedProperties: 'show',
       inheritedProperties: 'show',
     });

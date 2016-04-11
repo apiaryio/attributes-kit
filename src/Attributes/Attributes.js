@@ -9,7 +9,6 @@ import React from 'react';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
-import InheritanceTree from '../InheritanceTree/InheritanceTree';
 
 import defaultTheme from '../theme';
 
@@ -20,10 +19,6 @@ class Attributes extends React.Component {
     dataStructures: React.PropTypes.array,
     element: React.PropTypes.object,
     includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
-    ]),
-    inheritanceTree: React.PropTypes.oneOfType([
       React.PropTypes.bool,
       React.PropTypes.string,
     ]),
@@ -136,16 +131,6 @@ class Attributes extends React.Component {
       title = true;
     }
 
-    let inheritanceTree;
-
-    if (props.inheritanceTree === 'show') {
-      inheritanceTree = true;
-    } else if (props.inheritanceTree === 'hide') {
-      inheritanceTree = false;
-    } else {
-      inheritanceTree = true;
-    }
-
     const maxInheritanceDepth = props.maxInheritanceDepth || undefined;
 
     // Set default value of `collapseByDefault` option. If a user hasn't
@@ -185,7 +170,6 @@ class Attributes extends React.Component {
       dereferencedDataStructures,
       element,
       includedProperties,
-      inheritanceTree,
       inheritedProperties,
       maxInheritanceDepth,
       namedTypes,
@@ -212,15 +196,6 @@ class Attributes extends React.Component {
         {
           this.state.title &&
             <Title element={this.state.element} />
-        }
-
-        {
-          this.state.inheritanceTree &&
-            <InheritanceTree
-              element={this.state.element}
-              dataStructures={this.props.dataStructures}
-              dereferencedDataStructures={this.state.dereferencedDataStructures}
-            />
         }
 
         <Attribute

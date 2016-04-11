@@ -34,7 +34,6 @@ describe('Comparision with reference fixtures', () => {
           element: result[0],
           collapseByDefault: false,
           maxInheritanceDepth: undefined,
-          inheritanceTree: false,
           includedProperties: 'show',
           inheritedProperties: 'show',
         });
