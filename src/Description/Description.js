@@ -17,12 +17,13 @@ class Description extends React.Component {
     const { DESCRIPTION_COLOR } = this.context.theme;
 
     const style = {
-      root: {
+      base: {
         fontFamily: 'Source Sans Pro',
         fontSize: '13px',
         color: DESCRIPTION_COLOR,
         lineHeight: '150%',
         fontWeight: 'regular',
+        marginTop: '10px',
       },
     };
 
@@ -68,7 +69,7 @@ class Description extends React.Component {
           }}
         />
         <div
-          style={this.style.root}
+          style={this.style.base}
           className="attributeDescription"
           dangerouslySetInnerHTML={markdownMarkup}
         />
