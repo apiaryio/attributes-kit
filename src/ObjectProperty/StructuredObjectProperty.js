@@ -49,7 +49,6 @@ class StructuredObjectProperty extends React.Component {
   static contextTypes = {
     element: React.PropTypes.object,
     theme: React.PropTypes.object,
-    eventEmitter: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
     namedTypes: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
@@ -70,30 +69,10 @@ class StructuredObjectProperty extends React.Component {
     this.state = this.transformPropsIntoState(props);
   };
 
-  componentDidMount = () => {
-    // After the component has been mounted, we can align the keys (the component
-    // is in the DOM, it's possible to get the `clientWidth`).
-    this.alignKey();
-
-    // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
-    this.subscription = this.context.eventEmitter.addListener('alignKey', this.alignKey);
-  };
-
   componentWillReceiveProps = (nextProps) => {
     this.setState(
       this.transformPropsIntoState(nextProps)
     );
-  };
-
-  componentWillUnmount = () => {
-    this.subscription.remove();
-  };
-
-  alignKey = () => {
-    const keyIdentifier = this.props.element.meta.id;
-    const keyDomNode = reactDom.findDOMNode(this.refs.key);
-
-    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
   };
 
   transformPropsIntoState(props) {
@@ -139,9 +118,6 @@ class StructuredObjectProperty extends React.Component {
         paddingTop: ROW_PADDING_TOP,
         paddingBottom: ROW_PADDING_BOTTOM,
       },
-      keyColumn: {
-        marginRight: '20px',
-      },
       valueRow: {
         marginTop: '8px',
       },
@@ -171,7 +147,7 @@ class StructuredObjectProperty extends React.Component {
       style.base.paddingBottom = '8px';
     }
 
-    if (!this.state.isExpanded) {
+    /*if (!this.state.isExpanded) {
       style.ruler.root.borderLeft = '1px solid #ffffff';
     }
 
@@ -206,6 +182,7 @@ class StructuredObjectProperty extends React.Component {
       style.keyColumn.minWidth = null;
       style.keyColumn.maxWidth = null;
     }
+    }*/
 
     return merge(style, this.props.style || {});
   };
@@ -235,6 +212,8 @@ class StructuredObjectProperty extends React.Component {
             <KeyColumn
               element={this.props.element}
               onClick={this.handleExpandCollapse}
+              reportKeyWidth={this.props.reportKeyWidth}
+              keyWidth={this.props.keyWidth}
             />
 
             <TypeColumn

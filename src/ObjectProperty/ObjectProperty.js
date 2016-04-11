@@ -91,7 +91,7 @@ class ObjectProperty extends React.Component {
     };
 
     if (containsExpandableCollapsibleElement(this.props.parentElement.content)) {
-      style.keyColumn.paddingLeft = '20px';
+      style.keyColumn.paddingLeft = '29px';
     }
 
     let keyWidth;
