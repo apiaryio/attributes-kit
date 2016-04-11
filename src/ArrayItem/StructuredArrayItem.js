@@ -54,11 +54,11 @@ class StructuredArrayItem extends React.Component {
   }
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {
-        borderBottom: `1px solid ${BORDER_COLOR}`,
+        borderBottom: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
       },
