@@ -73,14 +73,14 @@ class StructuredObjectProperty extends React.Component {
     this.subscription = this.context.eventEmitter.addListener('alignKey', this.alignKey);
   };
 
-  componentWillUnmount = () => {
-    this.subscription.remove();
-  };
-
   componentWillReceiveProps = (nextProps) => {
     this.setState(
       this.transformPropsIntoState(nextProps)
     );
+  };
+
+  componentWillUnmount = () => {
+    this.subscription.remove();
   };
 
   alignKey = () => {

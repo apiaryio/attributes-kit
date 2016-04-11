@@ -60,18 +60,6 @@ class ObjectProperties extends React.Component {
     this.subscription.remove();
   };
 
-  alignKeys = () => {
-    this.keyWidthsIndex = {};
-
-    this.setState({
-      keyWidth: null,
-    });
-
-    window.setTimeout(() => {
-      this.context.eventEmitter.emit('alignKey');
-    }, 10);
-  };
-
   getComponent(element, { key, index }) {
     if (!key) {
       key = index;
@@ -113,6 +101,18 @@ class ObjectProperties extends React.Component {
     );
   }
 
+  alignKeys = () => {
+    this.keyWidthsIndex = {};
+
+    this.setState({
+      keyWidth: null,
+    });
+
+    window.setTimeout(() => {
+      this.context.eventEmitter.emit('alignKey');
+    }, 10);
+  };
+
   get style() {
     const style = {
       root: {
@@ -130,19 +130,16 @@ class ObjectProperties extends React.Component {
   }
 
   reportKeyWidth = (keyIdentifier, keyWidth) => {
-    console.log('reportKeyWidth', keyIdentifier, keyWidth);
-
     this.keyWidthsIndex[keyIdentifier] = keyWidth;
 
     const keyWidths = values(this.keyWidthsIndex);
 
     if (keyWidths.length === this.props.element.content.length) {
-      console.log('Setting to ', max(keyWidths))
       this.setState({
         keyWidth: max(keyWidths),
       });
     }
-  }
+  };
 
   groupElements() {
     const elements = this.props.element.content;

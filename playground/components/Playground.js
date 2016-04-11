@@ -94,18 +94,26 @@ class Playground extends React.Component {
   };
 
   toggleCollapseByDefault = () => {
+    console.debug(`
+      Setting the ‘collapseByDefault’ option to ‘${!this.state.collapseByDefault}’...
+    `);
+
     this.setState({
       collapseByDefault: !this.state.collapseByDefault,
     });
   };
 
   toggleNamedTypes = () => {
+    console.debug(`Setting the ‘namedTypes’ option to ‘${!this.state.namedTypes}’...`);
+
     this.setState({
       namedTypes: !this.state.namedTypes,
     });
   };
 
   alignKeys = () => {
+    console.debug('Triggering alignment of keys...');
+
     this.refs.attributes.alignKeys();
   };
 

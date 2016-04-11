@@ -1,7 +1,7 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import eidolon from 'eidolon';
-import {EventEmitter} from 'fbemitter';
+import { EventEmitter } from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
