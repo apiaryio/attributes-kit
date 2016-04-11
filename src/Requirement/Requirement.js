@@ -1,11 +1,12 @@
 import React from 'react';
+import radium from 'radium';
 
 class Requirement extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
 
-  getRequirement() {
+  get requirement() {
     let requirement = ['optional'];
 
     if (this.props.element.attributes) {
@@ -15,48 +16,34 @@ class Requirement extends React.Component {
     }
 
     return requirement;
-  }
+  };
 
-  renderStyles() {
-    const styles = {
-      root: {
-        float: 'left',
+  get style() {
+    const style = {
+      base: {
         width: '100%',
         height: 'auto',
-      },
-      asterisk: {
-        float: 'left',
-        width: '10px',
-        height: '11px',
-        backgroundImage: `url(${require('./asterisk.svg')})`,
-        backgroundSize: '10px 11px',
-        backgroundRepeat: 'no-repeat',
+        fontFamily: 'Source Sans Pro',
+        fontSize: '12px',
+        color: '#A7AAB2',
       },
     };
 
-    return styles;
-  }
-
-  renderAsterisk(requirement, styles) {
-    if (requirement[0] === 'required') {
-      return (
-        <span style={styles.asterisk}></span>
-      );
-    }
-
-    return false;
-  }
+    return style;
+  };
 
   render() {
-    const styles = this.renderStyles();
-    const requirement = this.getRequirement();
+    const isRequired = this.requirement[0] === 'required';
 
     return (
-      <div style={styles.root}>
-        {this.renderAsterisk(requirement, styles)}
+      <div style={this.style.base}>
+        {
+          isRequired &&
+            'required'
+        }
       </div>
     );
   }
 }
 
-export default Requirement;
+export default radium(Requirement);
