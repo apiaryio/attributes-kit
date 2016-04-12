@@ -29,6 +29,15 @@ class Ruler extends React.Component {
         maxWidth: '100%',
         width: '100%',
         borderLeft: `1px solid ${BORDER_COLOR}`,
+        position: 'relative',
+      },
+      talon: {
+        position: 'absolute',
+        top: '-14px',
+        left: '-1px',
+        width: '1px',
+        height: '14px',
+        backgroundColor: BORDER_COLOR,
       },
     };
 
@@ -39,6 +48,8 @@ class Ruler extends React.Component {
     return (
       <div style={this.style.base}>
         <div style={this.style.container}>
+          <div style={this.style.talon} />
+
           {this.props.children}
         </div>
       </div>
