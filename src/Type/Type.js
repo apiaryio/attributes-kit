@@ -4,6 +4,7 @@ import merge from 'lodash/merge';
 
 import {
   getType,
+  getReference,
   findElement,
 } from '../elements/element';
 
@@ -53,7 +54,8 @@ class Type extends React.Component {
   }
 
   handleClick = (event) => {
-    const element = findElement(this.props.type, this.context.dereferencedDataStructures);
+    const reference = getReference(this.props.element);
+    const element = findElement(reference, this.context.dereferencedDataStructures);
 
     if (this.context.onElementLinkClick) {
       return this.context.onElementLinkClick(
