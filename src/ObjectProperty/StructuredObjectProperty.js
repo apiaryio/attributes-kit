@@ -118,8 +118,13 @@ class StructuredObjectProperty extends React.Component {
         paddingTop: ROW_PADDING_TOP,
         paddingBottom: ROW_PADDING_BOTTOM,
       },
+      firstRow: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom: '14px',
+      },
       valueRow: {
-        marginTop: '8px',
+        //marginTop: '8px',
       },
       ruler: {
         base: {
@@ -142,47 +147,9 @@ class StructuredObjectProperty extends React.Component {
     // Last array item doesn't have a border.
     if (isLast) {
       style.base.borderBottom = 'none';
-      style.base.paddingBottom = '8px';
-    } else {
-      style.base.paddingBottom = '8px';
     }
 
-    /*if (!this.state.isExpanded) {
-      style.ruler.root.borderLeft = '1px solid #ffffff';
-    }
-
-    const isPropertyReferenced = (
-      (
-        this.context.includedProperties !== 'show' && this.context.inheritedProperties !== 'show'
-      ) && (
-        this.context.includedProperties !== 'tag' && this.context.inheritedProperties !== 'tag'
-      )
-    );
-
-    if (isPropertyReferenced) {
-      style.keyColumn.paddingLeft = '20px';
-    }
-
-    let keyWidth;
-
-    if (isPropertyReferenced && this.props.keyWidth) {
-      keyWidth = `${this.props.keyWidth + 20}px`;
-    } else if (this.props.keyWidth) {
-      keyWidth = `${this.props.keyWidth}px`;
-    } else {
-      keyWidth = 'auto';
-    }
-
-    if (keyWidth) {
-      style.keyColumn.width = keyWidth;
-      style.keyColumn.minWidth = keyWidth;
-      style.keyColumn.maxWidth = keyWidth;
-    } else {
-      style.keyColumn.width = 'auto';
-      style.keyColumn.minWidth = null;
-      style.keyColumn.maxWidth = null;
-    }
-    }*/
+    style.base.paddingBottom = '14px';
 
     return merge(style, this.props.style || {});
   };
@@ -203,7 +170,7 @@ class StructuredObjectProperty extends React.Component {
     return (
       <Row style={this.style.base}>
         <Column>
-          <Row>
+          <Row style={this.style.firstRow}>
             <ToggleColumn
               isExpanded={this.state.isExpanded}
               onClick={this.handleExpandCollapse}
@@ -211,6 +178,7 @@ class StructuredObjectProperty extends React.Component {
 
             <KeyColumn
               element={this.props.element}
+              parentElement={this.props.parentElement}
               onClick={this.handleExpandCollapse}
               reportKeyWidth={this.props.reportKeyWidth}
               keyWidth={this.props.keyWidth}
@@ -221,7 +189,11 @@ class StructuredObjectProperty extends React.Component {
             />
           </Row>
 
-          <Ruler style={this.style.ruler}>
+          <Ruler
+            style={this.style.ruler}
+            isExpanded={this.state.isExpanded}
+            subtle={isArray(this.props.element)}
+          >
             {
               hasDescription(this.props.element) &&
                 <Row>
@@ -232,7 +204,9 @@ class StructuredObjectProperty extends React.Component {
                 </Row>
             }
 
-            {this.renderValue()}
+            {
+              this.renderValue()
+            }
           </Ruler>
 
           <Row>

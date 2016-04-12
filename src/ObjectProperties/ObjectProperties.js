@@ -109,8 +109,10 @@ class ObjectProperties extends React.Component {
     });
 
     window.setTimeout(() => {
-      this.context.eventEmitter.emit('alignKey');
-    }, 10);
+      this.context.eventEmitter.emit(
+        `${this.props.element.meta.id}:alignKey`
+      );
+    }, 5);
   };
 
   get style() {

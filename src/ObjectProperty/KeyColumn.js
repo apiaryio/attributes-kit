@@ -1,10 +1,15 @@
 import Radium from 'radium';
 import React from 'react';
 import reactDom from 'react-dom';
+import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Key from '../Key/Key';
 import Requirement from '../Requirement/Requirement';
+
+import {
+  containsExpandableCollapsibleElement,
+} from '../elements/expandableCollapsibleElement';
 
 @Radium
 class KeyColumn extends React.Component {
@@ -23,7 +28,10 @@ class KeyColumn extends React.Component {
     this.alignKey();
 
     // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
-    this.subscription = this.context.eventEmitter.addListener('alignKey', this.alignKey);
+    this.subscription = this.context.eventEmitter.addListener(
+      `${this.props.parentElement.meta.id}:alignKey`,
+      this.alignKey
+    );
   };
 
   componentWillUnmount = () => {
@@ -45,20 +53,6 @@ class KeyColumn extends React.Component {
       },
     };
 
-    /*
-    const isPropertyReferenced = (
-      (
-        this.context.includedProperties !== 'show' && this.context.inheritedProperties !== 'show'
-      ) && (
-        this.context.includedProperties !== 'tag' && this.context.inheritedProperties !== 'tag'
-      )
-    );
-
-    if (isPropertyReferenced) {
-      style.keyColumn.paddingLeft = '20px';
-    }
-    */
-
     let isPropertyReferenced = false;
 
     let keyWidth;
@@ -79,7 +73,18 @@ class KeyColumn extends React.Component {
       style.base.maxWidth = null;
     }
 
-    return style;
+    if (
+      this.props.parentElement &&
+        containsExpandableCollapsibleElement(this.props.parentElement.content)
+    ) {
+      if (this.props.element.meta && (this.props.element.meta._nestedLevel === 0)) {
+        style.base.marginLeft = '20px';
+      } else {
+        style.base.marginLeft = '29px';
+      }
+    }
+
+    return merge(style, this.props.style || {});
   };
 
   render() {
