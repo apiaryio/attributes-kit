@@ -16,7 +16,11 @@ import {
 class KeyColumn extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    keyWidth: React.PropTypes.number,
     onClick: React.PropTypes.func,
+    parentElement: React.PropTypes.object,
+    reportKeyWidth: React.PropTypes.func,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -103,4 +107,6 @@ class KeyColumn extends React.Component {
   };
 };
 
-export {KeyColumn};
+export {
+  KeyColumn,
+};

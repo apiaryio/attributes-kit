@@ -90,8 +90,6 @@ class StructuredArrayItem extends React.Component {
       },
     };
 
-
-
     if (isObject(this.props.element)) {
       styles.root.paddingTop = '0px';
       styles.root.paddingBottom = '0px';

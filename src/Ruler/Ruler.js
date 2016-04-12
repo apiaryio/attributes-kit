@@ -9,6 +9,7 @@ class Ruler extends React.Component {
       React.PropTypes.array,
     ]),
     style: React.PropTypes.object,
+    subtle: React.PropTypes.bool,
   };
 
   static contextTypes = {

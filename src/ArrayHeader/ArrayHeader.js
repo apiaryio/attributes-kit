@@ -3,13 +3,6 @@ import radium from 'radium';
 
 import Row from '../Row/Row';
 
-
-import {
-  hasSamples,
-  isEnum,
-  hasMembers,
-} from '../elements/element';
-
 class ArrayHeader extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,

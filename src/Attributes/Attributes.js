@@ -195,7 +195,7 @@ class Attributes extends React.Component {
     };
   };
 
-  addNestedLevels(element, nestedLevel=-1) {
+  addNestedLevels(element, nestedLevel = -1) {
     if (!element) {
       return element;
     }
@@ -211,9 +211,9 @@ class Attributes extends React.Component {
     element.meta._nestedLevel = nestedLevel;
 
     if (element.content && isArray(element.content)) {
-      element.content = map(element.content, (element) => {
-        return this.addNestedLevels(element, nestedLevel);
-      });
+      element.content = map(element.content, (nestedElement) =>
+        this.addNestedLevels(nestedElement, nestedLevel)
+      );
     } else if (element.content && isObject(element.content)) {
       element.content.value = this.addNestedLevels(
         element.content.value,

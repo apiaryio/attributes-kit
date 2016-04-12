@@ -1,23 +1,16 @@
 import merge from 'lodash/merge';
 import radium from 'radium';
 import React from 'react';
-import reactDom from 'react-dom';
-
-import isEqual from 'lodash/isEqual';
 
 import Column from '../Column/Column';
 import Description from '../Description/Description';
-
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
-
 import Row from '../Row/Row';
 import Ruler from '../Ruler/Ruler';
-
 import { KeyColumn } from './KeyColumn';
 import { ToggleColumn } from './ToggleColumn';
 import { TypeColumn } from './TypeColumn';
-
 
 import {
   isExpandableCollapsible,
@@ -26,7 +19,6 @@ import {
 } from '../elements/expandableCollapsibleElement';
 
 import {
-  getReference,
   hasDefaults,
   hasDescription,
   hasSamples,
@@ -124,7 +116,7 @@ class StructuredObjectProperty extends React.Component {
         alignItems: 'center',
       },
       valueRow: {
-        //marginTop: '8px',
+        // marginTop: '8px',
       },
       ruler: {
         base: {

@@ -1,15 +1,12 @@
 import merge from 'lodash/merge';
 import radium from 'radium';
 import React from 'react';
-import reactDom from 'react-dom';
 
 import Column from '../Column/Column';
 import Description from '../Description/Description';
-import Key from '../Key/Key';
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
 import ParentInfoLink from '../ParentInfo/ParentInfoLink';
-import Requirement from '../Requirement/Requirement';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
 import Value from '../Value/Value';

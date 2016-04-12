@@ -1,11 +1,15 @@
 import Radium from 'radium';
 import React from 'react';
 
-import Column from '../Column/Column';
 import Toggle from '../Toggle/Toggle';
 
 @Radium
 class ToggleColumn extends React.Component {
+  static propTypes = {
+    isExpanded: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
+  };
+
   static contextTypes = {
     includedProperties: React.PropTypes.oneOfType([
       React.PropTypes.bool,
@@ -61,4 +65,4 @@ class ToggleColumn extends React.Component {
   };
 };
 
-export {ToggleColumn};
+export { ToggleColumn };

@@ -41,7 +41,7 @@ class ObjectComponent extends React.Component {
   }
 
   get style() {
-    const { BORDER_COLOR, ALTERNATE_BORDER_COLOR } = this.context.theme;
+    const { ALTERNATE_BORDER_COLOR } = this.context.theme;
 
     const style = {
       base: {

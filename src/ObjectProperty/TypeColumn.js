@@ -57,4 +57,4 @@ class TypeColumn extends React.Component {
   };
 };
 
-export {TypeColumn};
+export { TypeColumn };

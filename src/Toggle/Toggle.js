@@ -8,6 +8,7 @@ class Toggle extends React.Component {
   static propTypes = {
     isExpanded: React.PropTypes.bool,
     onClick: React.PropTypes.func,
+    style: React.PropTypes.object,
   };
 
   get style() {
