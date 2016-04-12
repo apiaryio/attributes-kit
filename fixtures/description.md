@@ -140,8 +140,8 @@
                                         </div>
                                     </div>
                                     <div style="min-width:100%;max-width:100%;height:auto;padding-left:6px;">
-                                        <div style="min-width:100%;max-width:100%;width:100%;border-left:1px solid white;position:relative;">
-                                            <div style="position:absolute;top:-14px;left:-1px;width:1px;height:14px;background-color:white;"></div>
+                                        <div style="min-width:100%;max-width:100%;width:100%;border-left:1px solid transparent;position:relative;">
+                                            <div style="position:absolute;top:-14px;left:-1px;width:1px;height:14px;background-color:transparent;"></div>
                                             <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                                                 <div>
                                                     <style>
