@@ -208,7 +208,9 @@ class StructuredObjectProperty extends React.Component {
 
                 <Row style={this.style.valueRow}>
                   {
-                    renderValue(this.props.element)
+                    renderValue(this.props.element, {
+                      parentElement: this.props.parentElement,
+                    })
                   }
                 </Row>
               </Ruler>

@@ -64,8 +64,6 @@ class StructuredArrayItem extends React.Component {
       },
       column: {
         width: '100%',
-        paddingLeft: '8px',
-        paddingRight: '8px',
       },
       type: {
         root: {
@@ -91,6 +89,18 @@ class StructuredArrayItem extends React.Component {
         marginRight: '8px',
       },
     };
+
+
+
+    if (isObject(this.props.element)) {
+      styles.root.paddingTop = '0px';
+      styles.root.paddingBottom = '0px';
+      styles.column.paddingLeft = '0px';
+      styles.column.paddingRight = '0px';
+    } else {
+      styles.column.paddingLeft = '10px';
+      styles.column.paddingRight = '10px';
+    }
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
 

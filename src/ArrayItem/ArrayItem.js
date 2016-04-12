@@ -83,7 +83,7 @@ class ArrayItem extends React.Component {
       isObjectOrArray(this.props.parentElement.element) &&
       containsExpandableCollapsibleElement(this.props.parentElement.content)
     ) {
-      styles.column.paddingLeft = '28px';
+      styles.column.paddingLeft = '10px';
     }
 
     return styles;
