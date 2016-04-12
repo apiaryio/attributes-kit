@@ -43,8 +43,8 @@ class Ruler extends React.Component {
     };
 
     if (this.props.subtle) {
-      style.container.borderLeft = '1px solid white';
-      style.talon.backgroundColor = 'white';
+      style.container.borderLeft = '1px solid transparent';
+      style.talon.backgroundColor = 'transparent';
     }
 
     return merge(style, this.props.style || {});
