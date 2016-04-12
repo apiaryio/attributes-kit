@@ -19,10 +19,15 @@ class ToggleColumn extends React.Component {
 
   get style() {
     const style = {
-      base: {
-        width: '20px',
-        maxWidth: '20px',
-        minWidth: '20px',
+      Toggle: {
+        base: {
+          width: '13px',
+          maxWidth: '13px',
+          minWidth: '13px',
+          cursor: 'pointer',
+          height: '13px',
+          marginRight: '8px',
+        },
       },
     };
 
@@ -44,12 +49,11 @@ class ToggleColumn extends React.Component {
   render() {
     if (this.isVisible()) {
       return (
-        <Column style={this.style.base}>
-          <Toggle
-            isExpanded={this.props.isExpanded}
-            onClick={this.props.onClick}
-          />
-        </Column>
+        <Toggle
+          isExpanded={this.props.isExpanded}
+          onClick={this.props.onClick}
+          style={this.style.Toggle}
+        />
       );
     }
 
