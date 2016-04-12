@@ -26,7 +26,7 @@ class ToggleColumn extends React.Component {
           minWidth: '13px',
           cursor: 'pointer',
           height: '13px',
-          marginRight: '8px',
+          marginRight: '7px',
         },
       },
     };

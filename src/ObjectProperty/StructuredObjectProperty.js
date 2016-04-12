@@ -139,7 +139,7 @@ class StructuredObjectProperty extends React.Component {
     };
 
     if (this.props.element.meta && (this.props.element.meta._nestedLevel !== 0)) {
-      style.base.paddingLeft = '9px';
+      style.base.paddingLeft = '10px';
     }
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);

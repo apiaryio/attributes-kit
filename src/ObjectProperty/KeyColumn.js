@@ -8,7 +8,8 @@ import Key from '../Key/Key';
 import Requirement from '../Requirement/Requirement';
 
 import {
-  containsExpandableCollapsibleElement,
+  isStructured,
+  containsStructuredElement,
 } from '../elements/expandableCollapsibleElement';
 
 @Radium
@@ -47,19 +48,28 @@ class KeyColumn extends React.Component {
 
   get style() {
     const style = {
-      base: {
-        marginRight: '20px',
-        height: 'auto',
-      },
+      base: {},
     };
 
-    let isPropertyReferenced = false;
+    if (isStructured(this.props.element)) {
+      style.base.marginLeft = '0px';
+    } else {
+      if (containsStructuredElement(this.props.parentElement.content)) {
+        if (this.props.element.meta._nestedLevel === 0) {
+          style.base.marginLeft = '20px';
+        } else {
+          style.base.marginLeft = '30px';
+        }
+      } else {
+        style.base.marginLeft = '30px';
+      }
+    }
+
+    style.base.marginRight = '40px';
 
     let keyWidth;
 
-    if (isPropertyReferenced && this.props.keyWidth) {
-      keyWidth = `${this.props.keyWidth + 20}px`;
-    } else if (this.props.keyWidth) {
+    if (this.props.keyWidth) {
       keyWidth = `${this.props.keyWidth}px`;
     }
 
@@ -71,17 +81,6 @@ class KeyColumn extends React.Component {
       style.base.width = 'auto';
       style.base.minWidth = null;
       style.base.maxWidth = null;
-    }
-
-    if (
-      this.props.parentElement &&
-        containsExpandableCollapsibleElement(this.props.parentElement.content)
-    ) {
-      if (this.props.element.meta && (this.props.element.meta._nestedLevel === 0)) {
-        style.base.marginLeft = '20px';
-      } else {
-        style.base.marginLeft = '29px';
-      }
     }
 
     return merge(style, this.props.style || {});
