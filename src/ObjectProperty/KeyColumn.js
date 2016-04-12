@@ -41,6 +41,7 @@ class KeyColumn extends React.Component {
     const style = {
       base: {
         marginRight: '20px',
+        height: 'auto',
       },
     };
 

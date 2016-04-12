@@ -29,6 +29,7 @@ class Key extends React.Component {
         fontFamily: 'Source Code Pro',
         fontWeight: '500',
         fontSize: '13px',
+        lineHeight: '13px',
         color: KEY_COLOR,
         userSelect: 'none',
       },
