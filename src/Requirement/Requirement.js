@@ -35,14 +35,15 @@ class Requirement extends React.Component {
   render() {
     const isRequired = this.requirement[0] === 'required';
 
-    return (
-      <div style={this.style.base}>
-        {
-          isRequired &&
-            'required'
-        }
-      </div>
-    );
+    if (isRequired) {
+      return (
+        <div style={this.style.base}>
+          required
+        </div>
+      );
+    }
+
+    return null;
   }
 }
 
