@@ -54,18 +54,16 @@ class StructuredArrayItem extends React.Component {
   }
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {
-        borderBottom: `1px solid ${BORDER_COLOR}`,
+        borderBottom: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
       },
       column: {
         width: '100%',
-        paddingLeft: '8px',
-        paddingRight: '8px',
       },
       type: {
         root: {
@@ -91,6 +89,16 @@ class StructuredArrayItem extends React.Component {
         marginRight: '8px',
       },
     };
+
+    if (isObject(this.props.element)) {
+      styles.root.paddingTop = '0px';
+      styles.root.paddingBottom = '0px';
+      styles.column.paddingLeft = '0px';
+      styles.column.paddingRight = '0px';
+    } else {
+      styles.column.paddingLeft = '10px';
+      styles.column.paddingRight = '10px';
+    }
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
 

@@ -28,24 +28,19 @@ class ObjectHeader extends React.Component {
   };
 
   renderStyles() {
-    const { BORDER_COLOR } = this.context.theme;
+    const { ALTERNATE_BORDER_COLOR } = this.context.theme;
 
     const styles = {
       root: {
-        borderBottom: `1px solid ${BORDER_COLOR}`,
-        paddingBottom: '8px',
-        paddingLeft: '0px',
-        paddingTop: '4px',
+        borderBottom: `1px solid ${ALTERNATE_BORDER_COLOR}`,
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        alignItems: 'center',
       },
       toggleColumn: {
         minWidth: '20px',
         maxWidth: '20px',
         width: '20px',
-      },
-      type: {
-        root: {
-          fontSize: '12px',
-        },
       },
       sampleToggle: {
         root: {
@@ -54,19 +49,8 @@ class ObjectHeader extends React.Component {
       },
     };
 
-    if (this.props.expandableCollapsible) {
-      styles.root.borderBottom = 'none';
-      styles.type.root.lineHeight = '18px';
-
-      if (this.props.isExpanded) {
-        styles.root.paddingBottom = '4px';
-      } else {
-        styles.root.paddingBottom = '8px';
-      }
-    }
-
-    if (this.props.parentElement && isArray(this.props.parentElement)) {
-      styles.type.root.fontSize = '14px';
+    if (isArray(this.props.parentElement)) {
+      styles.root.height = '30px';
     }
 
     return styles;
@@ -107,16 +91,22 @@ class ObjectHeader extends React.Component {
 
     return (
       <Row style={styles.root}>
-        {this.renderToggleColumn(styles)}
+        {
+          this.renderToggleColumn(styles)
+        }
 
         <Column>
-          <Type
-            type="object"
-            style={styles.type}
-            onClick={this.props.expandableCollapsible && this.props.onTypeClick}
-          />
+          {
+            isArray(this.props.parentElement) &&
+              <Type
+                type="object"
+                onClick={this.props.expandableCollapsible && this.props.onTypeClick}
+              />
+          }
 
-          {this.renderSampleToggle(styles)}
+          {
+            this.renderSampleToggle(styles)
+          }
         </Column>
       </Row>
     );

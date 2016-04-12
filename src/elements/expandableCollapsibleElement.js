@@ -31,6 +31,9 @@ function containsExpandableCollapsibleElement(elements) {
   return elements.some((element) => isExpandableCollapsible(element));
 }
 
+// Alias
+const containsStructuredElement = containsExpandableCollapsibleElement;
+
 function containsObject(elements) {
   return elements.some((element) => isObject(element));
 }
@@ -113,6 +116,7 @@ export {
   getValue,
   renderValue,
   containsExpandableCollapsibleElement,
+  containsStructuredElement,
   isExpandableCollapsible,
   isStructured,
   containsArray,

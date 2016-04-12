@@ -1,18 +1,16 @@
 import merge from 'lodash/merge';
 import radium from 'radium';
 import React from 'react';
-import reactDom from 'react-dom';
 
 import Column from '../Column/Column';
 import Description from '../Description/Description';
-import Key from '../Key/Key';
 import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
 import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
-import Requirement from '../Requirement/Requirement';
 import Row from '../Row/Row';
 import Ruler from '../Ruler/Ruler';
-import Toggle from '../Toggle/Toggle';
-import Type from '../Type/Type';
+import { KeyColumn } from './KeyColumn';
+import { ToggleColumn } from './ToggleColumn';
+import { TypeColumn } from './TypeColumn';
 
 import {
   isExpandableCollapsible,
@@ -21,11 +19,11 @@ import {
 } from '../elements/expandableCollapsibleElement';
 
 import {
-  getReference,
   hasDefaults,
   hasDescription,
   hasSamples,
   isArray,
+  isArrayOrEnumOrSelect,
   isLastArrayItem,
   isObject,
 } from '../elements/element';
@@ -42,8 +40,8 @@ class StructuredObjectProperty extends React.Component {
   };
 
   static contextTypes = {
+    element: React.PropTypes.object,
     theme: React.PropTypes.object,
-    eventEmitter: React.PropTypes.object,
     showMemberParentLinks: React.PropTypes.bool,
     namedTypes: React.PropTypes.bool,
     onElementLinkClick: React.PropTypes.func,
@@ -64,30 +62,10 @@ class StructuredObjectProperty extends React.Component {
     this.state = this.transformPropsIntoState(props);
   };
 
-  componentDidMount = () => {
-    // After the component has been mounted, we can align the keys (the component
-    // is in the DOM, it's possible to get the `clientWidth`).
-    this.alignKey();
-
-    // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
-    this.subscription = this.context.eventEmitter.addListener('alignKey', this.alignKey);
-  };
-
   componentWillReceiveProps = (nextProps) => {
     this.setState(
       this.transformPropsIntoState(nextProps)
     );
-  };
-
-  componentWillUnmount = () => {
-    this.subscription.remove();
-  };
-
-  alignKey = () => {
-    const keyIdentifier = this.props.element.meta.id;
-    const keyDomNode = reactDom.findDOMNode(this.refs.key);
-
-    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
   };
 
   transformPropsIntoState(props) {
@@ -121,181 +99,114 @@ class StructuredObjectProperty extends React.Component {
   };
 
   get style() {
-    const { BORDER_COLOR } = this.context.theme;
+    const {
+      BORDER_COLOR,
+      ROW_PADDING_TOP,
+      ROW_PADDING_BOTTOM,
+    } = this.context.theme;
 
     const style = {
-      root: {
+      base: {
         borderBottom: `1px solid ${BORDER_COLOR}`,
-        paddingTop: '8px',
-        paddingBottom: '8px',
+        paddingTop: ROW_PADDING_TOP,
+        paddingBottom: ROW_PADDING_BOTTOM,
       },
-      toggleColumn: {
-        width: '20px',
-        maxWidth: '20px',
-        minWidth: '20px',
-      },
-      keyColumn: {
-      },
-      requirementColumn: {
-        width: '25px',
-        maxWidth: '25px',
-        minWidth: '25px',
+      firstRow: {
+        justifyContent: 'center',
+        alignItems: 'center',
       },
       valueRow: {
-        marginTop: '8px',
+        // marginTop: '8px',
       },
       ruler: {
-        root: {
-          width: '100%',
-          marginLeft: '6px',
-          paddingBottom: '8px',
+        base: {
+          paddingLeft: '6px',
         },
       },
-      description: {
-        root: {
+      Description: {
+        base: {
           marginTop: '4px',
         },
       },
     };
 
+    if (this.props.element.meta && (this.props.element.meta._nestedLevel !== 0)) {
+      style.base.paddingLeft = '10px';
+    }
+
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
 
     // Last array item doesn't have a border.
     if (isLast) {
-      style.ruler.root.paddingBottom = '0px';
-      // style.root.borderBottom = 'none';
-      style.root.paddingBottom = '8px';
+      style.base.borderBottom = 'none';
+    }
+
+    style.base.paddingBottom = '14px';
+
+    if (hasDescription(this.props.element)) {
+      style.firstRow.paddingBottom = '14px';
+
+      style.Description = {
+        base: {
+          marginBottom: '14px',
+          paddingLeft: '13px',
+        },
+      };
     } else {
-      style.root.paddingBottom = '8px';
-    }
-
-    if (!this.state.isExpanded) {
-      style.ruler.root.borderLeft = '1px solid #ffffff';
-    }
-
-    const isPropertyReferenced = (
-      (
-        this.context.includedProperties !== 'show' && this.context.inheritedProperties !== 'show'
-      ) && (
-        this.context.includedProperties !== 'tag' && this.context.inheritedProperties !== 'tag'
-      )
-    );
-
-    if (isPropertyReferenced) {
-      style.keyColumn.paddingLeft = '20px';
-    }
-
-    let keyWidth;
-
-    if (isPropertyReferenced && this.props.keyWidth) {
-      keyWidth = `${this.props.keyWidth + 20}px`;
-    } else if (this.props.keyWidth) {
-      keyWidth = `${this.props.keyWidth}px`;
-    } else {
-      keyWidth = 'auto';
-    }
-
-    if (keyWidth) {
-      style.keyColumn.width = keyWidth;
-      style.keyColumn.minWidth = keyWidth;
-      style.keyColumn.maxWidth = keyWidth;
-    } else {
-      style.keyColumn.width = 'auto';
-      style.keyColumn.minWidth = null;
-      style.keyColumn.maxWidth = null;
+      style.firstRow.paddingBottom = '14px';
     }
 
     return merge(style, this.props.style || {});
   };
 
-  renderType() {
-    const reference = getReference(this.props.element);
-
-    if (this.context.namedTypes && reference) {
-      return (
-        <Column>
-          <Type
-            element={this.props.element}
-            type={reference}
-            reference
-          />
-        </Column>
-      );
-    }
-
-    return (
-      <Column>
-        <Type
-          element={this.props.element}
-          style={this.style.type}
-        />
-      </Column>
-    );
-  };
-
-  renderValue() {
-    if (this.state.isExpanded) {
-      return (
-        <Row style={this.style.valueRow}>
-          {renderValue(this.props.element)}
-        </Row>
-      );
-    }
-
-    return null;
-  };
-
   render() {
     return (
-      <Row style={this.style.root}>
+      <Row style={this.style.base}>
         <Column>
-          <Row>
-            {
-              ((
-                this.context.includedProperties === 'show' &&
-                this.context.inheritedProperties === 'show'
-              ) || (
-                this.context.includedProperties === 'tag' &&
-                this.context.inheritedProperties === 'tag'
-              )) &&
-                <Column style={this.style.toggleColumn}>
-                  <Toggle
-                    isExpanded={this.state.isExpanded}
-                    onClick={this.handleExpandCollapse}
-                  />
-                </Column>
-            }
+          <Row style={this.style.firstRow}>
+            <ToggleColumn
+              isExpanded={this.state.isExpanded}
+              onClick={this.handleExpandCollapse}
+            />
 
-            <Column style={this.style.keyColumn}>
-              <Key
-                onClick={this.handleExpandCollapse}
-                element={this.props.element}
-                ref="key"
-              />
-            </Column>
+            <KeyColumn
+              element={this.props.element}
+              parentElement={this.props.parentElement}
+              onClick={this.handleExpandCollapse}
+              reportKeyWidth={this.props.reportKeyWidth}
+              keyWidth={this.props.keyWidth}
+            />
 
-            <Column style={this.style.requirementColumn}>
-              <Requirement element={this.props.element} />
-            </Column>
-
-            {
-              this.renderType()
-            }
+            <TypeColumn
+              element={this.props.element}
+            />
           </Row>
 
-          <Ruler style={this.style.ruler}>
-            {
-              hasDescription(this.props.element) &&
-                <Row>
-                  <Description
-                    element={this.props.element}
-                    style={this.style.description}
-                  />
-                </Row>
-            }
+          {
+            this.state.isExpanded &&
+              <Ruler
+                style={this.style.ruler}
+                subtle={isArrayOrEnumOrSelect(this.props.element)}
+              >
+                {
+                  hasDescription(this.props.element) &&
+                    <Row>
+                      <Description
+                        element={this.props.element}
+                        style={this.style.Description}
+                      />
+                    </Row>
+                }
 
-            {this.renderValue()}
-          </Ruler>
+                <Row style={this.style.valueRow}>
+                  {
+                    renderValue(this.props.element, {
+                      parentElement: this.props.parentElement,
+                    })
+                  }
+                </Row>
+              </Ruler>
+          }
 
           <Row>
             {

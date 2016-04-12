@@ -1,48 +1,52 @@
 import React from 'react';
+import Radium from 'radium';
 
+import merge from 'lodash/merge';
 
+@Radium
 class Toggle extends React.Component {
   static propTypes = {
     isExpanded: React.PropTypes.bool,
     onClick: React.PropTypes.func,
+    style: React.PropTypes.object,
   };
 
-  renderStyles() {
-    const styles = {};
+  get style() {
+    const style = {};
 
-    styles.root = {
-      width: '100%',
-      height: 'auto',
+    style.base = {
+      width: '13px',
+      height: '13px',
     };
 
-    styles.icon = {
-      width: '100%',
-      height: '20px',
+    style.icon = {
+      width: '13px',
+      height: '13px',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'left center',
+      backgroundPosition: 'center',
     };
 
     if (this.props.isExpanded) {
-      styles.icon.backgroundImage = `url(${require('./arrowExpanded.svg')})`;
-      styles.icon.backgroundSize = '12px 7px';
+      style.icon.backgroundImage = `url(${require('./arrowExpanded.svg')})`;
+      style.icon.backgroundSize = '13px 8px';
     } else {
-      styles.icon.backgroundImage = `url(${require('./arrowCollapsed.svg')})`;
-      styles.icon.backgroundSize = '7px 12px';
+      style.icon.backgroundImage = `url(${require('./arrowCollapsed.svg')})`;
+      style.icon.backgroundSize = '8px 13px';
     }
 
-    return styles;
-  }
+    return merge(style, this.props.style || {});
+  };
 
   render() {
     return (
       <div
         onClick={this.props.onClick}
-        style={this.renderStyles().root}
+        style={this.style.base}
       >
-        <div style={this.renderStyles().icon}></div>
+        <div style={this.style.icon} />
       </div>
     );
-  }
+  };
 }
 
 export default Toggle;

@@ -14,6 +14,7 @@ import {
   hasDefaults,
   hasSamples,
   hasMembers,
+  isArray,
 } from '../elements/element';
 
 class ObjectComponent extends React.Component {
@@ -40,23 +41,21 @@ class ObjectComponent extends React.Component {
   }
 
   get style() {
-    const { BORDER_COLOR } = this.context.theme;
+    const { ALTERNATE_BORDER_COLOR } = this.context.theme;
 
     const style = {
+      base: {
+
+      },
       ruler: {
         root: {
           paddingBottom: '0px',
         },
       },
-      objectHeaderRow: {
-        borderBottom: `1px solid ${BORDER_COLOR}`,
-      },
-      objectPropertiesRow: {
-      },
     };
 
-    if (this.props.expandableCollapsible) {
-      style.objectPropertiesRow.paddingLeft = '6px';
+    if (!this.props.parentElement) {
+      style.base.borderTop = `1px solid ${ALTERNATE_BORDER_COLOR}`;
     }
 
     return merge(style, this.props.style || {});
@@ -77,9 +76,20 @@ class ObjectComponent extends React.Component {
       return null;
     }
 
+    if (isArray(this.props.parentElement)) {
+      return (
+        <Row>
+          <ObjectProperties
+            element={this.props.element}
+            collapseByDefault={this.props.collapseByDefault}
+          />
+        </Row>
+      );
+    }
+
     if (this.props.expandableCollapsible) {
       return (
-        <Row style={this.style.objectPropertiesRow}>
+        <Row>
           <Ruler style={this.style.ruler}>
             <ObjectProperties
               element={this.props.element}
@@ -91,7 +101,7 @@ class ObjectComponent extends React.Component {
     }
 
     return (
-      <Row style={this.style.objectPropertiesRow}>
+      <Row>
         <ObjectProperties
           element={this.props.element}
           collapseByDefault={this.props.collapseByDefault}
@@ -125,9 +135,9 @@ class ObjectComponent extends React.Component {
 
   render() {
     return (
-      <Row>
+      <Row style={this.style.base}>
         <Column>
-          <Row style={this.style.objectHeaderRow}>
+          <Row>
             {
               this.props.parentElement &&
                 <ObjectHeader

@@ -190,6 +190,14 @@ function isObjectOrArrayOrEnum(element) {
   return isObject(element) || isArray(element) || isEnum(element);
 }
 
+function isArrayOrEnum(element) {
+  return isArray(element) || isEnum(element);
+}
+
+function isArrayOrEnumOrSelect(element) {
+  return isArray(element) || isEnum(element) || isSelect(element);
+}
+
 function hasSamples(element) {
   if (!element) {
     return false;
@@ -273,6 +281,8 @@ export {
   hasType,
   hasValue,
   isArray,
+  isArrayOrEnum,
+  isArrayOrEnumOrSelect,
   isEnum,
   isIncluded,
   isInherited,
