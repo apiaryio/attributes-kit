@@ -24,10 +24,10 @@ class Toggle extends React.Component {
 
     if (this.props.isExpanded) {
       styles.icon.backgroundImage = `url(${require('./arrowExpanded.svg')})`;
-      styles.icon.backgroundSize = '12px 7px';
+      styles.icon.backgroundSize = '13px 8px';
     } else {
       styles.icon.backgroundImage = `url(${require('./arrowCollapsed.svg')})`;
-      styles.icon.backgroundSize = '7px 12px';
+      styles.icon.backgroundSize = '8px 13px';
     }
 
     return styles;
