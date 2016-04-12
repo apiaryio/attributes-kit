@@ -13,8 +13,6 @@ class Playground extends React.Component {
     this.state = {
       title: true,
       collapseByDefault: true,
-      maxInheritanceDepth: undefined,
-      inheritanceTree: true,
       namedTypes: false,
       includedProperties: 'show',
       inheritedProperties: 'show',
@@ -74,22 +72,6 @@ class Playground extends React.Component {
     console.debug(`Setting the ‘includedProperties’ option to ‘${value}’...`);
     this.setState({
       includedProperties: value,
-    });
-  };
-
-  toggleInheritanceTree = (eventObject) => {
-    const value = eventObject.currentTarget.value;
-    console.debug(`Setting the ‘inheritanceTree’ option to ‘${value}’...`);
-    this.setState({
-      inheritanceTree: value,
-    });
-  };
-
-  toggleInheritanceDepth = (eventObject) => {
-    const value = parseInt(eventObject.currentTarget.value, 10);
-    console.debug(`Setting the ‘maxInheritanceDepth’ option to ‘${value}’...`);
-    this.setState({
-      maxInheritanceDepth: value,
     });
   };
 
@@ -190,34 +172,6 @@ class Playground extends React.Component {
             </div>
 
             <div>
-              <label htmlFor="inheritanceTreeSelect">
-                Inheritance Tree
-              </label>
-              <br />
-              <select
-                id="inheritanceTreeSelect"
-                onChange={this.toggleInheritanceTree}
-              >
-                <option value="show">Show</option>
-                <option value="hide">Hide</option>
-                <option value="compact">Compact</option>
-              </select>
-            </div>
-
-            <div>
-              <label htmlFor="inheritanceDepthInput">
-                Inheritance Depth
-              </label>
-              <br />
-              <input
-                type="text"
-                id="inheritanceDepthInput"
-                onChange={this.toggleInheritanceDepth}
-                placeholder="Infinity"
-              />
-            </div>
-
-            <div>
               <label htmlFor="namedTypesCheckbox">
                 Named Types
               </label>
@@ -263,9 +217,7 @@ class Playground extends React.Component {
                 dataStructures={dataStructures}
                 element={this.state.parseResult.dataStructures[0]}
                 includedProperties={this.state.includedProperties}
-                inheritanceTree={this.state.inheritanceTree}
                 inheritedProperties={this.state.inheritedProperties}
-                maxInheritanceDepth={this.state.maxInheritanceDepth}
                 onElementLinkClick={this.onElementLinkClick}
                 title={this.state.title}
                 namedTypes={this.state.namedTypes}

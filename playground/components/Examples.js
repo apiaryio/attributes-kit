@@ -45,7 +45,6 @@ class Examples extends React.Component {
             element={fixture.parsed[0]}
             collapseByDefault={false}
             maxInheritanceDepth={undefined}
-            inheritanceTree={false}
             includedProperties="show"
             inheritedProperties="show"
           />
