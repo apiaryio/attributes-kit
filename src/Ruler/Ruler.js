@@ -41,6 +41,11 @@ class Ruler extends React.Component {
       },
     };
 
+    if (this.props.subtle) {
+      style.container.borderLeft = '1px solid white';
+      style.talon.backgroundColor = 'white';
+    }
+
     return merge(style, this.props.style || {});
   }
 
@@ -48,7 +53,10 @@ class Ruler extends React.Component {
     return (
       <div style={this.style.base}>
         <div style={this.style.container}>
-          <div style={this.style.talon} />
+          {
+            this.props.isExpanded &&
+              <div style={this.style.talon} />
+          }
 
           {this.props.children}
         </div>
