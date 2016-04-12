@@ -23,7 +23,7 @@ class Description extends React.Component {
         color: DESCRIPTION_COLOR,
         lineHeight: '150%',
         fontWeight: 'regular',
-        marginTop: '10px',
+        marginBottom: '4px',
       },
     };
 
@@ -65,6 +65,14 @@ class Description extends React.Component {
             },
             ul: {
               marginLeft: '20px',
+            },
+            a: {
+              color: '#747E8E',
+              textDecoration: 'none',
+              borderBottom: '1px solid #DCE0E8',
+            },
+            'a:hover': {
+              borderBottom: 'none',
             },
           }}
         />
