@@ -31,6 +31,7 @@ import {
   hasDescription,
   hasSamples,
   isArray,
+  isArrayOrEnumOrSelect,
   isLastArrayItem,
   isObject,
 } from '../elements/element';
@@ -121,7 +122,6 @@ class StructuredObjectProperty extends React.Component {
       firstRow: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingBottom: '14px',
       },
       valueRow: {
         //marginTop: '8px',
@@ -131,8 +131,8 @@ class StructuredObjectProperty extends React.Component {
           paddingLeft: '6px',
         },
       },
-      description: {
-        root: {
+      Description: {
+        base: {
           marginTop: '4px',
         },
       },
@@ -151,19 +151,20 @@ class StructuredObjectProperty extends React.Component {
 
     style.base.paddingBottom = '14px';
 
-    return merge(style, this.props.style || {});
-  };
+    if (hasDescription(this.props.element)) {
+      style.firstRow.paddingBottom = '14px';
 
-  renderValue() {
-    if (this.state.isExpanded) {
-      return (
-        <Row style={this.style.valueRow}>
-          {renderValue(this.props.element)}
-        </Row>
-      );
+      style.Description = {
+        base: {
+          marginBottom: '14px',
+          paddingLeft: '13px',
+        },
+      };
+    } else {
+      style.firstRow.paddingBottom = '14px';
     }
 
-    return null;
+    return merge(style, this.props.style || {});
   };
 
   render() {
@@ -189,25 +190,29 @@ class StructuredObjectProperty extends React.Component {
             />
           </Row>
 
-          <Ruler
-            style={this.style.ruler}
-            isExpanded={this.state.isExpanded}
-            subtle={isArray(this.props.element)}
-          >
-            {
-              hasDescription(this.props.element) &&
-                <Row>
-                  <Description
-                    element={this.props.element}
-                    style={this.style.description}
-                  />
-                </Row>
-            }
+          {
+            this.state.isExpanded &&
+              <Ruler
+                style={this.style.ruler}
+                subtle={isArrayOrEnumOrSelect(this.props.element)}
+              >
+                {
+                  hasDescription(this.props.element) &&
+                    <Row>
+                      <Description
+                        element={this.props.element}
+                        style={this.style.Description}
+                      />
+                    </Row>
+                }
 
-            {
-              this.renderValue()
-            }
-          </Ruler>
+                <Row style={this.style.valueRow}>
+                  {
+                    renderValue(this.props.element)
+                  }
+                </Row>
+              </Ruler>
+          }
 
           <Row>
             {

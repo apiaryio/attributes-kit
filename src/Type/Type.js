@@ -32,7 +32,7 @@ class Type extends React.Component {
         fontWeight: 'regular',
         fontSize: '13px',
         color: TYPE_COLOR,
-        marginBottom: '4px',
+        lineHeight: '13px',
       },
       reference: {
         width: '100%',

@@ -53,11 +53,7 @@ class Ruler extends React.Component {
     return (
       <div style={this.style.base}>
         <div style={this.style.container}>
-          {
-            this.props.isExpanded &&
-              <div style={this.style.talon} />
-          }
-
+          <div style={this.style.talon} />
           {this.props.children}
         </div>
       </div>

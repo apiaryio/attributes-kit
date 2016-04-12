@@ -1,11 +1,13 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import Radium from 'radium';
 
 import {
   isObjectOrArray,
   isMember,
 } from '../elements/element';
 
+@Radium
 class Value extends React.Component {
   static propTypes = {
     value: React.PropTypes.oneOfType([
@@ -21,7 +23,7 @@ class Value extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  renderStyles() {
+  get style() {
     const {
       VALUE_BACKGROUND_COLOR,
       VALUE_BORDER_RADIUS,
@@ -33,29 +35,32 @@ class Value extends React.Component {
       VALUE_PADDING_TOP,
     } = this.context.theme;
 
-    const styles = {
-      width: 'auto',
-      height: 'auto',
-      margin: '0px',
-      fontWeight: VALUE_FONT_WEIGHT,
-      backgroundColor: VALUE_BACKGROUND_COLOR,
-      borderRadius: VALUE_BORDER_RADIUS,
-      paddingTop: VALUE_PADDING_TOP,
-      paddingBottom: VALUE_PADDING_BOTTOM,
-      paddingLeft: VALUE_PADDING_LEFT,
-      paddingRight: VALUE_PADDING_RIGHT,
-      fontFamily: 'Source Sans Pro',
-      fontSize: '13px',
-      color: VALUE_COLOR,
+    const style = {
+      base: {
+        width: 'auto',
+        height: 'auto',
+        margin: '0px',
+        fontWeight: VALUE_FONT_WEIGHT,
+        backgroundColor: VALUE_BACKGROUND_COLOR,
+        borderRadius: VALUE_BORDER_RADIUS,
+        paddingTop: VALUE_PADDING_TOP,
+        paddingBottom: VALUE_PADDING_BOTTOM,
+        paddingLeft: VALUE_PADDING_LEFT,
+        paddingRight: VALUE_PADDING_RIGHT,
+        fontFamily: 'Source Sans Pro',
+        fontSize: '13px',
+        lineHeight: '13px',
+        color: VALUE_COLOR,
+      },
     };
 
-    return merge(styles, this.props.style || {});
+    return merge(style, this.props.style || {});
   }
 
   render() {
     if (this.props.value) {
       return (
-        <div style={this.renderStyles()}>
+        <div style={this.style.base}>
           {this.props.value.toString()}
         </div>
       );
@@ -84,7 +89,7 @@ class Value extends React.Component {
       }
 
       return (
-        <div style={this.renderStyles()}>
+        <div style={this.style.base}>
           {value.toString()}
         </div>
       );

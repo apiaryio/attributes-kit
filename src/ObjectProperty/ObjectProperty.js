@@ -70,8 +70,24 @@ class ObjectProperty extends React.Component {
       style.base.borderBottom = '0px';
     }
 
+    if (hasType(this.props.element) && hasDescription(this.props.element)) {
+      style.Description = {
+        base: {
+          marginTop: '6px',
+        },
+      };
+    }
+
+    if (hasType(this.props.element) || hasDescription(this.props.element)) {
+      style.Value = {
+        base: {
+          marginTop: '6px',
+        },
+      };
+    }
+
     return merge(style, this.props.style || {});
-  }
+  };
 
   render() {
     return (
@@ -92,24 +108,12 @@ class ObjectProperty extends React.Component {
                 </Column>
 
                 {
-                  (isIncluded(this.props.element) && this.context.includedProperties === 'tag') &&
+                  (
+                    (isIncluded(this.props.element) && this.context.includedProperties === 'tag') ||
+                    (isInherited(this.props.element) && this.context.inheritedProperties === 'tag')
+                  ) &&
                     <Column style={{ alignItems: 'flex-end' }}>
-                      <ParentInfoLink
-                        element={this.props.element}
-                        show={this.context.showMemberParentLinks}
-                        showBullet
-                      />
-                    </Column>
-                }
-
-                {
-                  (isInherited(this.props.element) && this.context.inheritedProperties === 'tag') &&
-                    <Column style={{ alignItems: 'flex-end' }}>
-                      <ParentInfoLink
-                        element={this.props.element}
-                        show={this.context.showMemberParentLinks}
-                        showBullet
-                      />
+                      <ParentInfoLink element={this.props.element} />
                     </Column>
                 }
               </Row>
@@ -118,14 +122,20 @@ class ObjectProperty extends React.Component {
           {
             hasDescription(this.props.element) &&
               <Row>
-                <Description element={this.props.element} />
+                <Description
+                  element={this.props.element}
+                  style={this.style.Description}
+                />
               </Row>
           }
 
           {
             hasValue(this.props.element) &&
               <Row>
-                <Value element={this.props.element} />
+                <Value
+                  element={this.props.element}
+                  style={this.style.Value}
+                />
               </Row>
           }
 

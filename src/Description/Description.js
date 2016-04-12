@@ -23,7 +23,6 @@ class Description extends React.Component {
         color: DESCRIPTION_COLOR,
         lineHeight: '150%',
         fontWeight: 'regular',
-        marginBottom: '4px',
       },
     };
 
