@@ -15,7 +15,7 @@
                                             <div style="width:13px;height:13px;background-repeat:no-repeat;background-position:center;background-image:url([object Object]);background-size:13px 8px;"></div>
                                         </div>
                                         <div style="height:auto;width:auto;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;margin-left:0px;margin-right:40px;">
-                                            <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;line-height:13px;color:rgb(48, 52, 63);user-select:none;cursor:pointer;">gender</div>
+                                            <div style="width:100%;height:auto;font-family:Source Code Pro;font-weight:500;font-size:13px;line-height:13px;color:rgb(48, 52, 63);user-select:none;word-wrap:normal;cursor:pointer;">gender</div>
                                         </div>
                                         <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
                                             <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;line-height:13px;">enum</div>
