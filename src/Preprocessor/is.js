@@ -3,31 +3,31 @@ import isEmpty from 'lodash/isEmpty';
 import sift from 'sift';
 import TYPES from '../types';
 
-import {QUERIES} from '../queries';
-import {setCache} from './utilities';
+import { QUERIES } from '../queries';
+import { setCache } from './utilities';
 
-const {includedMember, inheritedMember} = QUERIES;
+const { includedMember, inheritedMember } = QUERIES;
 
 function isType(refract, type) {
-  let isType = false;
+  let result = false;
 
   if (refract) {
     if (refract === type) {
-      isType = true;
+      result = true;
     }
 
     if (refract.element === type) {
-      isType = true;
+      result = true;
     } else if (refract.element === 'member') {
       // This is a member of an object, so we really care about the
       // type of its value, e.g. `string` rather than `member`.
       if (refract.content && refract.content.value && refract.content.value.element === type) {
-        isType = true;
+        result = true;
       }
     }
   }
 
-  return isType;
+  return result;
 }
 
 export function arrayType(refract) {

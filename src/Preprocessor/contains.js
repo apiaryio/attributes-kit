@@ -1,4 +1,4 @@
-import {setCache} from './utilities';
+import { setCache } from './utilities';
 
 // This assumes that `cache.isStructured` has already
 // been set on any child elements!

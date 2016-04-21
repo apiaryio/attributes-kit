@@ -12,7 +12,7 @@ import reduce from 'lodash/reduce';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
-import {preprocess} from '../Preprocessor/Preprocessor';
+import { preprocess } from '../Preprocessor/Preprocessor';
 
 import defaultTheme from '../theme';
 

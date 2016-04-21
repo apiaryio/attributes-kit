@@ -1,5 +1,5 @@
 import isEmpty from 'lodash/isEmpty';
-import {setCache} from './utilities';
+import { setCache } from './utilities';
 
 export function defaultValue(refract) {
   let hasDefault = false;

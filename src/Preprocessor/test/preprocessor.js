@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {preprocess, Preprocessor} from '../Preprocessor';
+import { preprocess, Preprocessor } from '../Preprocessor';
 
 describe('Preprocessor', () => {
   context('cache.hasDefault', () => {
@@ -84,7 +84,7 @@ describe('Preprocessor', () => {
         element: 'string',
         meta: {
           description: 'hello',
-        }
+        },
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.hasDescription, true);
@@ -95,7 +95,7 @@ describe('Preprocessor', () => {
         element: 'string',
         meta: {
           description: '',
-        }
+        },
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.hasDescription, false);
@@ -111,12 +111,10 @@ describe('Preprocessor', () => {
   });
 
   ['array', 'enum', 'select', 'object'].forEach((element) => {
-    const property = `is${element.charAt(0).toUpperCase() + element.slice(1)}`
+    const property = `is${element.charAt(0).toUpperCase() + element.slice(1)}`;
     context(`cache.${property}`, () => {
       it(`is true if element is ${element}`, () => {
-        const refract = {
-          element: element,
-        };
+        const refract = { element };
         const processed = preprocess(refract);
         assert.equal(processed.cache[property], true);
       });
@@ -129,9 +127,7 @@ describe('Preprocessor', () => {
               element: 'string',
               content: 'foo',
             },
-            value: {
-              element: element,
-            },
+            value: { element },
           },
         };
         const processed = preprocess(refract);
@@ -157,9 +153,9 @@ describe('Preprocessor', () => {
             {
               relation: 'origin',
               href: 'http://refract.link/included-member/',
-            }
-          ]
-        }
+            },
+          ],
+        },
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.isIncluded, true);
@@ -173,9 +169,9 @@ describe('Preprocessor', () => {
             {
               relation: 'origin',
               href: 'http://refract.link/other/',
-            }
-          ]
-        }
+            },
+          ],
+        },
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.isIncluded, false);
@@ -199,9 +195,9 @@ describe('Preprocessor', () => {
             {
               relation: 'origin',
               href: 'http://refract.link/inherited-member/',
-            }
-          ]
-        }
+            },
+          ],
+        },
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.isInherited, true);
@@ -215,9 +211,9 @@ describe('Preprocessor', () => {
             {
               relation: 'origin',
               href: 'http://refract.link/other/',
-            }
-          ]
-        }
+            },
+          ],
+        },
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.isInherited, false);
@@ -357,7 +353,7 @@ describe('Preprocessor', () => {
         content: [
           {
             element: 'object',
-          }
+          },
         ],
       };
       const processed = preprocess(refract);
@@ -400,7 +396,7 @@ describe('Preprocessor', () => {
               element: 'string',
               content: 'normal-1',
             },
-          }
+          },
         },
         {
           element: 'member',
@@ -409,15 +405,15 @@ describe('Preprocessor', () => {
               {
                 relation: 'origin',
                 href: 'http://refract.link/inherited-member/',
-              }
-            ]
+              },
+            ],
           },
           content: {
             key: {
               element: 'string',
               content: 'inherited-1',
             },
-          }
+          },
         },
         {
           element: 'member',
@@ -426,7 +422,7 @@ describe('Preprocessor', () => {
               element: 'string',
               content: 'normal-2',
             },
-          }
+          },
         },
         {
           element: 'member',
@@ -435,17 +431,17 @@ describe('Preprocessor', () => {
               {
                 relation: 'origin',
                 href: 'http://refract.link/inherited-member/',
-              }
-            ]
+              },
+            ],
           },
           content: {
             key: {
               element: 'string',
               content: 'inherited-2',
             },
-          }
+          },
         },
-      ]
+      ],
     };
 
     const processedFirst = new Preprocessor(refract)
