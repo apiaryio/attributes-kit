@@ -63,6 +63,41 @@ export class Preprocessor {
   value() {
     return this.refract;
   }
+
+  /*
+   * Sorts inherited members either as the first members or the last members.
+   * This sort is stable. Passing `head` as `true` puts inherited members first,
+   * otherwise they go last.
+   */
+  sortInherited(head = true) {
+    if (this.refract && this.refract.content && this.refract.content.length) {
+      const inherited = [];
+      const others = [];
+
+      let result;
+
+      // We are not using `array.sort(...)` because it may not be stable!
+      // The order of items matters because we want to keep the order
+      // that was given by the user - it may have semantic meaning.
+      for (const item of this.refract.content) {
+        if (item.cache && item.cache.isInherited) {
+          inherited.push(item);
+        } else {
+          others.push(item);
+        }
+      }
+
+      if (head) {
+        result = inherited.concat(others);
+      } else {
+        result = others.concat(inherited);
+      }
+
+      this.refract.content = result;
+    }
+
+    return this;
+  }
 }
 
 export function preprocess(refract) {

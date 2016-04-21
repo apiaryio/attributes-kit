@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {preprocess} from '../Preprocessor';
+import {preprocess, Preprocessor} from '../Preprocessor';
 
 describe('Preprocessor', () => {
   context('cache.hasDefault', () => {
@@ -386,6 +386,97 @@ describe('Preprocessor', () => {
       };
       const processed = preprocess(refract);
       assert.equal(processed.cache.containsStructuredElement, false);
+    });
+  });
+
+  context('sorting inherited members', () => {
+    const refract = {
+      element: 'object',
+      content: [
+        {
+          element: 'member',
+          content: {
+            key: {
+              element: 'string',
+              content: 'normal-1',
+            },
+          }
+        },
+        {
+          element: 'member',
+          meta: {
+            links: [
+              {
+                relation: 'origin',
+                href: 'http://refract.link/inherited-member/',
+              }
+            ]
+          },
+          content: {
+            key: {
+              element: 'string',
+              content: 'inherited-1',
+            },
+          }
+        },
+        {
+          element: 'member',
+          content: {
+            key: {
+              element: 'string',
+              content: 'normal-2',
+            },
+          }
+        },
+        {
+          element: 'member',
+          meta: {
+            links: [
+              {
+                relation: 'origin',
+                href: 'http://refract.link/inherited-member/',
+              }
+            ]
+          },
+          content: {
+            key: {
+              element: 'string',
+              content: 'inherited-2',
+            },
+          }
+        },
+      ]
+    };
+
+    const processedFirst = new Preprocessor(refract)
+      .process()
+      .sortInherited(true)
+      .value();
+    const keysFirst = processedFirst.content.map(
+      (element) => element.content.key.content);
+    const processedLast = new Preprocessor(refract)
+      .process()
+      .sortInherited(false)
+      .value();
+    const keysLast = processedLast.content.map(
+      (element) => element.content.key.content);
+
+    it('can sort inherited members first', () => {
+      assert.deepEqual(keysFirst, [
+        'inherited-1',
+        'inherited-2',
+        'normal-1',
+        'normal-2',
+      ]);
+    });
+
+    it('can sort inherited members last', () => {
+      assert.deepEqual(keysLast, [
+        'normal-1',
+        'normal-2',
+        'inherited-1',
+        'inherited-2',
+      ]);
     });
   });
 });
