@@ -16,7 +16,7 @@ let externals = {
   },
 };
 
-each(keys(lodash), => {
+each(keys(lodash), (method) => {
   externals[`lodash/${method}`] = {
     root: `lodash/${method}`,
     commonjs2: `lodash/${method}`,
