@@ -12,6 +12,7 @@ import reduce from 'lodash/reduce';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
+import { preprocess } from '../Preprocessor/Preprocessor';
 
 import defaultTheme from '../theme';
 
@@ -180,6 +181,8 @@ class Attributes extends React.Component {
     );
 
     const element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
+
+    preprocess(element);
 
     return {
       collapseByDefault,
