@@ -2,8 +2,8 @@
 
 |       | Stable Channel | Beta Channel    |
 |:------|:---------------|:----------------|
-| NPM   | `0.17.0`       | `0.18.0-beta.5` |
-| [Apiary](https://apiary.io) | `0.17` | `0.18.0-beta.5` |
+| NPM   | `0.17.0`       | `0.18.0-beta.6` |
+| [Apiary](https://apiary.io) | `0.17` | `0.18.0-beta.6` |
 
 This table indicates what's the _latest version of the Attributes Kit available in the NPM Registry_ and what's the _latest version that has been deployed_ to [Apiary](https://apiary.io).
 
