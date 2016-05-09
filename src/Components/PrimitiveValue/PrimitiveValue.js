@@ -99,4 +99,4 @@ class Value extends React.Component {
   }
 }
 
-export default Value;
+export {PrimitiveValue};

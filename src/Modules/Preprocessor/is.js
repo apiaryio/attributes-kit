@@ -1,9 +1,9 @@
 import every from 'lodash/every';
 import isEmpty from 'lodash/isEmpty';
 import sift from 'sift';
-import TYPES from '../types';
 
-import { QUERIES } from '../queries';
+import { TYPES } from '../../Resources/types';
+import { QUERIES } from '../../Resources/queries';
 import { setCache } from './utilities';
 
 const { includedMember, inheritedMember } = QUERIES;

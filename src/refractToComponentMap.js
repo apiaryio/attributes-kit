@@ -1,7 +1,7 @@
-import PrimitiveComponent from './Primitive/Primitive';
-import ArrayComponent from './Array/Array';
-import SelectComponent from './Select/Select';
-import ObjectComponent from './Object/Object';
+import PrimitiveComponent from './Components/Primitive/Primitive';
+import ArrayComponent from './Components/Array/Array';
+import SelectComponent from './Components/Select/Select';
+import ObjectComponent from './Components/Object/Object';
 
 export default {
   /**

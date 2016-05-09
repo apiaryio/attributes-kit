@@ -3,8 +3,8 @@ import ReactDom from 'react-dom';
 import { EventEmitter } from 'events';
 import eidolon from 'eidolon';
 
-import AttributesComponent from './Attributes/Attributes';
-import AttributeComponent from './Attribute/Attribute';
+import AttributesComponent from './Components/Attributes/Attributes';
+import AttributeComponent from './Components/Attribute/Attribute';
 
 class AttributesKit extends EventEmitter {
   static Attributes = AttributesComponent;

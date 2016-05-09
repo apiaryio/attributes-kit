@@ -27,4 +27,6 @@ const QUERIES = {
   },
 };
 
-export { QUERIES };
+export {
+  QUERIES,
+};
