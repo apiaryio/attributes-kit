@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import React from 'react';
 
@@ -42,25 +41,7 @@ function containsArray(elements) {
   return elements.some((element) => isArray(element));
 }
 
-// If the value is an object or an array, the component
-// does support expand/collapse functionality. In order
-// to support such functionality we have to attach
-// respective class names to the `.attributeObjectMember`
-// element.
-//
-// `expanded`/`collapsed` to indicate the current state;
-// `isObject`/`isArray` to state the type of the value, as
-// each has a different background color; and so on.
-function getExpandCollapseClassNames(element, state) {
-  const valueType = getValueType(element);
-  return classNames({
-    isExpanded: state.isExpanded,
-    isCollapsed: !state.isExpanded,
-    isExpandableCollapsible: isExpandableCollapsible(element),
-    isObject: isObject(valueType),
-    isArray: isArray(valueType),
-  });
-}
+
 
 function getValue(element, props = {}) {
   let value;

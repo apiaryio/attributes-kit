@@ -1,0 +1,25 @@
+function hasValue(element) {
+  if (!element) {
+    return false;
+  }
+
+  if (isObjectOrArray(element.element)) {
+    return false;
+  }
+
+  if (!element.content) {
+    return false;
+  }
+
+  if (isMember(element.element)) {
+    if (element.content.value && isObjectOrArray(element.content.value.element)) {
+      return false;
+    }
+
+    if (!element.content.value.content) {
+      return false;
+    }
+  }
+
+  return true;
+}
