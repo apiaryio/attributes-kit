@@ -4,8 +4,8 @@ import radium from 'radium';
 import React from 'react';
 
 import {
-  isExpandableCollapsible,
-} from '../elements/expandableCollapsibleElement';
+  constainsStructuredElement,
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class Key extends React.Component {
   static propTypes = {
@@ -38,7 +38,7 @@ class Key extends React.Component {
 
     const isClickable = isUndefined(this.props.index)
       && this.props.element
-      && isExpandableCollapsible(this.props.element);
+      && constainsStructuredElement(this.props.element);
 
     if (isClickable) {
       style.base.cursor = 'pointer';
