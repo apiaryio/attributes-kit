@@ -1,26 +1,26 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import ArraySample from '../ArraySample/ArraySample';
 
-
+@Radium
 class ArraySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
 
-  renderStyles() {
-    const styles = {
+  get style() {
+    const style = {
       root: {
         width: '100%',
       },
     };
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
-
     if (!this.props.element) {
       return false;
     }
@@ -38,7 +38,7 @@ class ArraySamples extends React.Component {
     }
 
     return (
-      <div style={styles.root}>
+      <div style={this.style.root}>
         {
           samples.map((sample, index) =>
             <ArraySample

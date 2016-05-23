@@ -1,7 +1,8 @@
 import React from 'react';
+import Radium from 'radium';
 import merge from 'lodash/merge';
 
-
+@Radium
 class Column extends React.Component {
   static propTypes = {
     style: React.PropTypes.object,
@@ -11,8 +12,8 @@ class Column extends React.Component {
     ]),
   };
 
-  getStyles() {
-    const styles = {
+  get style() {
+    const style = {
       height: 'auto',
       width: '100%',
       display: 'flex',
@@ -22,12 +23,12 @@ class Column extends React.Component {
       alignItems: 'flex-start',
     };
 
-    return merge(styles, this.props.style);
+    return merge(style, this.props.style);
   }
 
   render() {
     return (
-      <div style={this.getStyles()}>
+      <div style={this.style}>
         {this.props.children}
       </div>
     );

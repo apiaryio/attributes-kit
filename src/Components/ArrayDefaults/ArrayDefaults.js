@@ -1,10 +1,13 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
 import Sample from '../Sample/Sample';
 import SampleToggle from '../SampleToggle/SampleToggle';
 
+@Radium
 class ArrayDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -28,10 +31,10 @@ class ArrayDefaults extends React.Component {
     });
   };
 
-  renderStyles() {
+  get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       header: {
         background: '#F8F8F9',
         borderLeft: `1px solid ${BORDER_COLOR}`,
@@ -44,10 +47,10 @@ class ArrayDefaults extends React.Component {
     };
 
     if (!this.state.isExpanded) {
-      styles.header.borderBottom = `1px solid ${BORDER_COLOR}`;
+      style.header.borderBottom = `1px solid ${BORDER_COLOR}`;
     }
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
   renderDefaults(defaults) {
@@ -67,8 +70,6 @@ class ArrayDefaults extends React.Component {
   }
 
   render() {
-    const styles = this.renderStyles();
-
     if (!this.props.element) {
       return false;
     }
@@ -89,7 +90,7 @@ class ArrayDefaults extends React.Component {
       <Row>
         <Column>
           <Row
-            style={styles.header}
+            style={this.style.header}
             onClick={this.handleExpandCollapse}
           >
             <SampleToggle
@@ -99,7 +100,9 @@ class ArrayDefaults extends React.Component {
             />
           </Row>
 
-          {this.renderDefaults(defaults)}
+          {
+            this.renderDefaults(defaults)
+          }
         </Column>
       </Row>
     );

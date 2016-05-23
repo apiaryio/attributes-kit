@@ -1,8 +1,9 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import marked from 'marked';
-import radium, { Style } from 'radium';
+import Radium, { Style } from 'radium';
 
+@Radium
 class Description extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -85,4 +86,4 @@ class Description extends React.Component {
   }
 }
 
-export default radium(Description);
+export default Description;

@@ -3,16 +3,17 @@ import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
-import SampleArray from '../SampleArray/SampleArray';
-import SampleObject from '../SampleObject/SampleObject';
+
+
 import SampleToggle from '../SampleToggle/SampleToggle';
-import Value from '../Value/Value';
+import { PrimitiveValue } from '../PrimitiveValue/PrimitiveValue';
+import { Value } from '../Value/Value';
 
 import {
   isArray,
   isObject,
   isEnum,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 
 class Sample extends React.Component {
@@ -61,6 +62,8 @@ class Sample extends React.Component {
   }
 
   renderSample(sample, styles) {
+    // What if structured?
+
     if (this.state.isExpanded) {
       return (
         <Column>
@@ -69,7 +72,8 @@ class Sample extends React.Component {
             onClick={this.handleExpandCollapse}
             isExpanded={this.state.isExpanded}
           />
-          <Value value={sample} style={styles.value} />
+
+          <PrimitiveValue value={sample} style={styles.value} />
         </Column>
       );
     }
@@ -85,35 +89,12 @@ class Sample extends React.Component {
   }
 
   render() {
-    if (isArray(this.props.element) || isEnum(this.props.element)) {
-      return (
-        <SampleArray
-          element={this.props.element}
-          samples={this.props.samples}
-          showArrayHeader={this.props.showArrayHeader}
-        />
-      );
-    }
-
-    if (isObject(this.props.element)) {
-      return (
-        <SampleObject
-          parentElement={this.props.parentElement}
-          element={this.props.element}
-          samples={this.props.samples}
-          expandableCollapsible={this.props.expandableCollapsible}
-          showObjectHeader={this.props.showObjectHeader}
-          showRuler={this.props.showRuler}
-        />
-      );
-    }
-
     const styles = this.renderStyles();
 
     return (
       <Row style={styles.row}>
         {
-          this.renderSample(this.props.sample, styles)
+        this.renderSample(this.props.sample, styles)
         }
       </Row>
     );

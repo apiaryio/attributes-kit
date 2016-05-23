@@ -1,4 +1,5 @@
 import React from 'react';
+import isString from 'lodash/isString';
 
 import {
   isArray,
@@ -7,10 +8,10 @@ import {
   isObject,
   isSelect,
   isStructured,
-} from '../Modules/ElementUtils/ElementUtils';
+} from '../../Modules/ElementUtils/ElementUtils';
 
-import { PrimitiveValue } from './PrimitiveValue/PrimitiveValue';
-import Attribute from './Attribute/Attribute';
+import { PrimitiveValue } from '../PrimitiveValue/PrimitiveValue';
+import Attribute from '../Attribute/Attribute';
 
 class Value extends React.Component {
   constructor(props) {
@@ -20,41 +21,49 @@ class Value extends React.Component {
   render() {
     let value;
 
-    if (isStructured(element.element)) {
-      value = (
-        <Attribute
-          element={element}
-          expandableCollapsible={props.expandableCollapsible}
-          parentElement={props.parentElement}
-        />
-      );
-    } else if (isMember(element.element)) {
-      if (isStructured(element)) {
-        value = (
+    if (!this.props.element) {
+      return null;
+    }
+
+    if (isMember(this.props.element)) {
+      if (isStructured(this.props.element)) {
+        return (
           <Attribute
-            element={element.content.value}
-            expandableCollapsible={props.expandableCollapsible}
-            parentElement={props.parentElement}
+            element={this.props.element.content.value}
+            expandableCollapsible={this.props.expandableCollapsible}
+            parentElement={this.props.parentElement}
           />
         );
-      } else if (element.content.value.content) {
-        value = (
-          <PrimitiveValue value={element.content.value.content} />
+      } else if (isString(this.props.element.content.value.content)) {
+        return (
+          <PrimitiveValue
+            value={this.props.element.content.value.content}
+          />
         );
       } else {
-        value = false;
+        return null;
       }
-    } else if (isObject(element) || isArray(element) || isSelect(element) || isEnum(element)) {
+    }
+
+    if (isStructured(this.props.element)) {
       value = (
         <Attribute
-          element={element}
-          expandableCollapsible={props.expandableCollapsible}
-          parentElement={props.parentElement}
+          element={this.props.element}
+          expandableCollapsible={this.props.expandableCollapsible}
+          parentElement={this.props.parentElement}
         />
       );
-    } else if (element.content) {
+    } else if (isObject(this.props.element) || isArray(this.props.element) || isSelect(this.props.element) || isEnum(this.props.element)) {
       value = (
-        <PrimitiveValue value={element.content} />
+        <Attribute
+          element={this.props.element}
+          expandableCollapsible={this.props.expandableCollapsible}
+          parentElement={this.props.parentElement}
+        />
+      );
+    } else if (this.props.element.content) {
+      value = (
+        <PrimitiveValue value={this.props.element.content} />
       );
     } else {
       value = false;

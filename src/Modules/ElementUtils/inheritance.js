@@ -1,4 +1,5 @@
 import isEmpty from 'lodash/isEmpty';
+import every from 'lodash/every';
 import sift from 'sift';
 
 const INHERITED_MEMBER_QUERY = {
@@ -35,7 +36,7 @@ const INCLUDED_MEMBER_QUERY = {
     href: 'http://refract.link/included-member/',
     relation: 'origin',
   },
-},
+};
 
 /**
  * Returns `true` if the element has been included via `+ Include` construct.

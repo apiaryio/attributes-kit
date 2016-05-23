@@ -1,4 +1,6 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import ArrayItemDefaults from '../ArrayItemDefaults/ArrayItemDefaults';
 import ArrayItemIndex from '../ArrayItemIndex/ArrayItemIndex';
@@ -6,22 +8,20 @@ import ArrayItemSamples from '../ArrayItemSamples/ArrayItemSamples';
 import Column from '../Column/Column';
 import Description from '../Description/Description';
 import Row from '../Row/Row';
+import {Value} from '../Value/Value';
 
 import {
-  hasDefaults,
+  containsStructuredElement,
+  hasDefault,
   hasDescription,
   hasSamples,
   isArray,
   isLastArrayItem,
   isObject,
-} from '../elements/element';
+  isStructured,
+} from '../../Modules/ElementUtils/ElementUtils';
 
-import {
-  isExpandableCollapsible,
-  containsExpandableCollapsibleElement,
-  renderValue,
-} from '../elements/expandableCollapsibleElement';
-
+@Radium
 class StructuredArrayItem extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -39,25 +39,25 @@ class StructuredArrayItem extends React.Component {
     super(props);
 
     this.state = {
-      isExpandableCollapsible: isExpandableCollapsible(this.props.element),
+      isStructured: isStructured(this.props.element),
       isObject: isObject(this.props.element),
       isArray: isArray(this.props.element),
     };
 
     // State hasn't been set; tree is expanded by default,
     // after a click, it collapses.
-    if (this.state.isExpandableCollapsible) {
+    if (this.state.isStructured) {
       this.state.isExpanded = true;
-      this.state.containsExpandableCollapsibleElement =
-        containsExpandableCollapsibleElement(this.props.parentElement.content);
+      this.state.containsStructuredElement =
+        containsStructuredElement(this.props.parentElement);
     }
   }
 
-  renderStyles() {
+  get style() {
     const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
-    const styles = {
-      root: {
+    const style = {
+      base: {
         borderBottom: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         paddingTop: '8px',
         paddingBottom: '8px',
@@ -91,47 +91,34 @@ class StructuredArrayItem extends React.Component {
     };
 
     if (isObject(this.props.element)) {
-      styles.root.paddingTop = '0px';
-      styles.root.paddingBottom = '0px';
-      styles.column.paddingLeft = '0px';
-      styles.column.paddingRight = '0px';
+      style.base.paddingTop = '0px';
+      style.base.paddingBottom = '0px';
+      style.column.paddingLeft = '0px';
+      style.column.paddingRight = '0px';
     } else {
-      styles.column.paddingLeft = '10px';
-      styles.column.paddingRight = '10px';
+      style.column.paddingLeft = '10px';
+      style.column.paddingRight = '10px';
     }
 
     const isLast = isLastArrayItem(this.props.parentElement, this.props.index);
 
     // Last array item doesn't have a border.
     if (isLast) {
-      styles.root.borderBottom = 'none';
+      style.base.borderBottom = 'none';
     }
 
     if (isObject(this.props.element)) {
-      styles.root.paddingBottom = '0px';
+      style.base.paddingBottom = '0px';
     }
 
-    return styles;
-  }
-
-  renderValue() {
-    return (
-      <Row>
-        {
-          renderValue(this.props.element, {
-            expandableCollapsible: true,
-            parentElement: this.props.parentElement,
-          })
-        }
-      </Row>
-    );
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
+    const style = this.style;
 
     return (
-      <Row style={styles.root}>
+      <Row style={style.base}>
         {
           this.props.showArrayItemIndex &&
             <ArrayItemIndex index={this.props.index} />
@@ -139,10 +126,10 @@ class StructuredArrayItem extends React.Component {
 
         {
           this.props.showBullet &&
-            <Column style={styles.bulletColumn} />
+            <Column style={style.bulletColumn} />
         }
 
-        <Column style={styles.column}>
+        <Column style={style.column}>
           {
             hasDescription(this.props.element) &&
               <Row>
@@ -151,7 +138,13 @@ class StructuredArrayItem extends React.Component {
           }
 
           {
-            this.renderValue()
+            <Row>
+              <Value
+                expandableCollapsible={true}
+                element={this.props.element}
+                parentElement={this.props.parentElement}
+              />
+            </Row>
           }
 
           {
@@ -162,7 +155,7 @@ class StructuredArrayItem extends React.Component {
           }
 
           {
-            hasDefaults(this.props.element) &&
+            hasDefault(this.props.element) &&
               <Row>
                 <ArrayItemDefaults element={this.props.element} />
               </Row>

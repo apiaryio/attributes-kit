@@ -10,7 +10,7 @@ import Requirement from '../Requirement/Requirement';
 import {
   isStructured,
   containsStructuredElement,
-} from '../elements/expandableCollapsibleElement';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
 class KeyColumn extends React.Component {
@@ -58,7 +58,7 @@ class KeyColumn extends React.Component {
     if (isStructured(this.props.element)) {
       style.base.marginLeft = '0px';
     } else {
-      if (containsStructuredElement(this.props.parentElement.content)) {
+      if (containsStructuredElement(this.props.parentElement)) {
         if (this.props.element.meta._nestedLevel === 0) {
           style.base.marginLeft = '20px';
         } else {

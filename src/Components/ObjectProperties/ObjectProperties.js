@@ -13,14 +13,11 @@ import ObjectPropertiesGroup from '../ObjectPropertiesGroup/ObjectPropertiesGrou
 import StructuredObjectProperty from '../ObjectProperty/StructuredObjectProperty';
 
 import {
-  isStructured,
-} from '../elements/expandableCollapsibleElement';
-
-import {
-  isSelect,
-  isInherited,
   isIncluded,
-} from '../elements/element';
+  isInherited,
+  isSelect,
+  isStructured,
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class ObjectProperties extends React.Component {
   static propTypes = {

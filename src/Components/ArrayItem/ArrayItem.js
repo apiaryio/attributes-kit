@@ -1,4 +1,6 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import ArrayItemDefaults from '../ArrayItemDefaults/ArrayItemDefaults';
 import ArrayItemIndex from '../ArrayItemIndex/ArrayItemIndex';
@@ -7,23 +9,20 @@ import Column from '../Column/Column';
 import Description from '../Description/Description';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
-import Value from '../Value/Value';
+import {Value} from '../Value/Value';
 
 import {
-  hasDefaults,
+  containsStructuredElement,
+  hasDefault,
   hasDescription,
   hasSamples,
   hasType,
   hasValue,
   isLastArrayItem,
   isObjectOrArray,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
-import {
-  containsExpandableCollapsibleElement,
-} from '../elements/expandableCollapsibleElement';
-
-
+@Radium
 class ArrayItem extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -37,10 +36,10 @@ class ArrayItem extends React.Component {
     theme: React.PropTypes.object,
   };
 
-  renderStyles() {
+  get style() {
     const { ARRAY_ITEMS_BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       root: {
         borderBottom: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         paddingTop: '8px',
@@ -74,26 +73,26 @@ class ArrayItem extends React.Component {
 
     // Last array item doesn't have a border.
     if (isLastArrayItem(this.props.parentElement, this.props.index)) {
-      styles.root.borderBottom = 'none';
+      style.root.borderBottom = 'none';
     }
 
     // In case of objects and array we want to indent
     // all properties (members) the same.
     if (
-      isObjectOrArray(this.props.parentElement.element) &&
-      containsExpandableCollapsibleElement(this.props.parentElement.content)
+      isObjectOrArray(this.props.parentElement) &&
+      containsStructuredElement(this.props.parentElement)
     ) {
-      styles.column.paddingLeft = '10px';
+      style.column.paddingLeft = '10px';
     }
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
+    const style = this.style;
 
     return (
-      <Row style={styles.root}>
+      <Row style={style.root}>
         {
           this.props.showArrayItemIndex &&
             <ArrayItemIndex index={this.props.index} />
@@ -101,10 +100,10 @@ class ArrayItem extends React.Component {
 
         {
           this.props.showBullet &&
-            <Column style={styles.bulletColumn} />
+            <Column style={style.bulletColumn} />
         }
 
-        <Column style={styles.column}>
+        <Column style={style.column}>
           <Row>
             {
               hasValue(this.props.element) &&
@@ -115,10 +114,10 @@ class ArrayItem extends React.Component {
 
             {
               hasType(this.props.element) &&
-                <Column style={styles.typeColumn}>
+                <Column style={style.typeColumn}>
                   <Type
                     element={this.props.element}
-                    style={styles.type}
+                    style={style.type}
                   />
                 </Column>
             }
@@ -139,7 +138,7 @@ class ArrayItem extends React.Component {
           }
 
           {
-            hasDefaults(this.props.element) &&
+            hasDefault(this.props.element) &&
               <Row>
                 <ArrayItemDefaults element={this.props.element} />
               </Row>

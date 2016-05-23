@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import ArrayDefaults from '../ArrayDefaults/ArrayDefaults';
@@ -12,15 +12,13 @@ import Row from '../Row/Row';
 import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
 
 import {
-  hasDefaults,
-  hasMembers,
-  hasSamples,
-} from '../elements/element';
-
-import {
   isStructured,
-} from '../elements/expandableCollapsibleElement';
+  hasDefault,
+  hasItems,
+  hasSamples,
+} from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class ArrayComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -132,7 +130,7 @@ class ArrayComponent extends React.Component {
           />
 
           {
-            hasMembers(this.props.element) &&
+            hasItems(this.props.element) &&
               this.renderArrayItems()
           }
 
@@ -142,7 +140,7 @@ class ArrayComponent extends React.Component {
           }
 
           {
-            hasDefaults(this.props.element) &&
+            hasDefault(this.props.element) &&
               <ArrayDefaults element={this.props.element} />
           }
         </Column>
@@ -151,4 +149,4 @@ class ArrayComponent extends React.Component {
   }
 }
 
-export default radium(ArrayComponent);
+export default ArrayComponent;

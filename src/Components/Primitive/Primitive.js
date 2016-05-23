@@ -4,13 +4,13 @@ import merge from 'lodash/merge';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
 import Column from '../Column/Column';
-import Value from '../Value/Value';
+import { PrimitiveValue } from '../PrimitiveValue/PrimitiveValue';
 import Description from '../Description/Description';
 
 import {
   hasDescription,
   hasValue,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class Primitive extends React.Component {
   static propTypes = {

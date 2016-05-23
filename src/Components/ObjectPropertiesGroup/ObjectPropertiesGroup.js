@@ -5,7 +5,7 @@ import pluralize from 'pluralize';
 
 import {
   findElement,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class ObjectPropertiesGroup extends React.Component {
   static propTypes = {

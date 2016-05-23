@@ -6,7 +6,7 @@ import Type from '../Type/Type';
 
 import {
   getReference,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
 class TypeColumn extends React.Component {

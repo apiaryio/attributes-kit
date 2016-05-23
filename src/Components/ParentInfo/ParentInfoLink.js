@@ -5,7 +5,7 @@ import merge from 'lodash/merge';
 import {
   isInherited,
   isIncluded,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class ParentInfoLink extends React.Component {
   static propTypes = {

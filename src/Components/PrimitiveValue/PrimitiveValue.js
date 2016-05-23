@@ -5,10 +5,10 @@ import Radium from 'radium';
 import {
   isObjectOrArray,
   isMember,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
-class Value extends React.Component {
+class PrimitiveValue extends React.Component {
   static propTypes = {
     value: React.PropTypes.oneOfType([
       React.PropTypes.string,
@@ -99,4 +99,4 @@ class Value extends React.Component {
   }
 }
 
-export {PrimitiveValue};
+export { PrimitiveValue };

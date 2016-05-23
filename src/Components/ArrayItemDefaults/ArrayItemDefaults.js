@@ -1,20 +1,17 @@
 import React from 'react';
+import Radium from 'radium';
 
 import Defaults from '../Defaults/Defaults';
 
 import {
   isObject,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
-
+@Radium
 class ArrayItemDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
-
-  renderStyles() {
-    return {};
-  }
 
   render() {
     if (!this.props.element) {
@@ -46,7 +43,7 @@ class ArrayItemDefaults extends React.Component {
     }
 
     return (
-      <div style={this.renderStyles()}>
+      <div>
         <Defaults element={defaults} />
       </div>
     );

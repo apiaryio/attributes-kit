@@ -5,7 +5,7 @@ function hasValue(element) {
     return false;
   }
 
-  if (isObjectOrArray(element.element)) {
+  if (isObjectOrArray(element)) {
     return false;
   }
 
@@ -14,7 +14,7 @@ function hasValue(element) {
   }
 
   if (isMember(element.element)) {
-    if (element.content.value && isObjectOrArray(element.content.value.element)) {
+    if (element.content.value && isObjectOrArray(element.content.value)) {
       return false;
     }
 

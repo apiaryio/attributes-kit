@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Attributes from '../Attributes';
-import defaultTheme from '../../theme';
+import defaultTheme from '../../../Resources/theme';
 
 describe('Attributes', () => {
   describe('#processProps', () => {

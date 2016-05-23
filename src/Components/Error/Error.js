@@ -1,6 +1,8 @@
 import React from 'react';
+import Radium from 'radium';
 import merge from 'lodash/merge';
 
+@Radium
 class Error extends React.Component {
   static propTypes = {
     errorMessage: React.PropTypes.string,

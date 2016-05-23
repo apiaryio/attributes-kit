@@ -1,21 +1,25 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import Sample from '../Sample/Sample';
 import Row from '../Row/Row';
 import Column from '../Column/Column';
 
-
+@Radium
 class ArrayItemSamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
 
-  renderStyles() {
-    return {
+  get style() {
+    const style = {
       row: {
         marginTop: '2px',
       },
     };
+
+    return merge(style, this.props.style || {});
   }
 
   renderSamples(samples) {
@@ -45,12 +49,12 @@ class ArrayItemSamples extends React.Component {
       return false;
     }
 
-    const styles = this.renderStyles();
-
     return (
-      <Row style={styles.row}>
+      <Row style={this.style.row}>
         <Column>
-          {this.renderSamples(samples)}
+          {
+            this.renderSamples(samples)
+          }
         </Column>
       </Row>
     );

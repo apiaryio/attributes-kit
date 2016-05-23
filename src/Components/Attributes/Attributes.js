@@ -12,9 +12,9 @@ import reduce from 'lodash/reduce';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
-import { preprocess } from '../Preprocessor/Preprocessor';
+import { preprocess } from '../../Modules/Preprocessor/Preprocessor';
 
-import defaultTheme from '../theme';
+import defaultTheme from '../../Resources/theme';
 
 class Attributes extends React.Component {
   static propTypes = {

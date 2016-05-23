@@ -10,7 +10,7 @@ import SampleToggle from '../SampleToggle/SampleToggle';
 import {
   hasSamples,
   isArray,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class ObjectHeader extends React.Component {
   static propTypes = {

@@ -6,7 +6,7 @@ import {
   getType,
   getReference,
   findElement,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class Type extends React.Component {
   static propTypes = {

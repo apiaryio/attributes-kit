@@ -1,8 +1,10 @@
 import React from 'react';
-import radium from 'radium';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import Row from '../Row/Row';
 
+@Radium
 class ArrayHeader extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -29,7 +31,7 @@ class ArrayHeader extends React.Component {
       },
     };
 
-    return style;
+    return merge(style, this.props.style || {});
   }
 
   render() {
@@ -39,4 +41,4 @@ class ArrayHeader extends React.Component {
   };
 }
 
-export default radium(ArrayHeader);
+export default ArrayHeader;

@@ -1,6 +1,6 @@
-import {MissingCacheObjectException} from '../../Exceptions/MissingCacheObject';
+import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
 
-function constainsStructuredElement(element) {
+function containsStructuredElement(element) {
   if (!element) {
     return false;
   }

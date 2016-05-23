@@ -1,6 +1,8 @@
 import React from 'react';
-import radium from 'radium';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
+@Radium
 class ArrayItemIndex extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
@@ -19,7 +21,7 @@ class ArrayItemIndex extends React.Component {
       },
     };
 
-    return style;
+    return merge(style, this.props.style || {});
   };
 
   render() {
@@ -31,4 +33,4 @@ class ArrayItemIndex extends React.Component {
   };
 }
 
-export default radium(ArrayItemIndex);
+export default ArrayItemIndex;

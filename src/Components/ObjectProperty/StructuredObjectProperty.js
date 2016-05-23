@@ -11,22 +11,19 @@ import Ruler from '../Ruler/Ruler';
 import { KeyColumn } from './KeyColumn';
 import { ToggleColumn } from './ToggleColumn';
 import { TypeColumn } from './TypeColumn';
+import { Value } from '../Value/Value';
 
 import {
-  isExpandableCollapsible,
-  containsExpandableCollapsibleElement,
-  renderValue,
-} from '../elements/expandableCollapsibleElement';
-
-import {
-  hasDefaults,
+  isStructured,
+  containsStructuredElement,
+  hasDefault,
   hasDescription,
   hasSamples,
   isArray,
   isArrayOrEnumOrSelect,
   isLastArrayItem,
   isObject,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
@@ -73,7 +70,7 @@ class StructuredObjectProperty extends React.Component {
 
     // State hasn't been set; tree is expanded by default,
     // after a click, it collapses.
-    if (isExpandableCollapsible(props.element)) {
+    if (isStructured(props.element)) {
       if (props.collapseByDefault) {
         isExpanded = false;
       } else {
@@ -82,11 +79,9 @@ class StructuredObjectProperty extends React.Component {
     }
 
     return {
-      containsExpandableCollapsibleElement:
-        containsExpandableCollapsibleElement(this.props.parentElement.content),
-
+      containsStructuredElement: containsStructuredElement(this.props.parentElement),
       isArray: isArray(props.element),
-      isExpandableCollapsible: isExpandableCollapsible(props.element),
+      isStructured: isStructured(props.element),
       isExpanded,
       isObject: isObject(props.element),
     };
@@ -199,11 +194,10 @@ class StructuredObjectProperty extends React.Component {
                 }
 
                 <Row style={this.style.valueRow}>
-                  {
-                    renderValue(this.props.element, {
-                      parentElement: this.props.parentElement,
-                    })
-                  }
+                  <Value
+                    element={this.props.element}
+                    parentElement={this.props.parentElement}
+                  />
                 </Row>
               </Ruler>
           }
@@ -215,7 +209,7 @@ class StructuredObjectProperty extends React.Component {
             }
 
             {
-              hasDefaults(this.props.element) &&
+              hasDefault(this.props.element) &&
                 <ObjectPropertyDefaults element={this.props.element} />
             }
           </Row>
@@ -225,4 +219,4 @@ class StructuredObjectProperty extends React.Component {
   };
 }
 
-export default radium(StructuredObjectProperty);
+export default StructuredObjectProperty;

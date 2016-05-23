@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import Column from '../Column/Column';
@@ -9,11 +9,11 @@ import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySample
 import ParentInfoLink from '../ParentInfo/ParentInfoLink';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
-import Value from '../Value/Value';
+import { Value } from '../Value/Value';
 import { KeyColumn } from './KeyColumn';
 
 import {
-  hasDefaults,
+  hasDefault,
   hasDescription,
   hasSamples,
   hasType,
@@ -21,8 +21,9 @@ import {
   isLastArrayItem,
   isIncluded,
   isInherited,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class ObjectProperty extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -144,7 +145,7 @@ class ObjectProperty extends React.Component {
           }
 
           {
-            hasDefaults(this.props.element) &&
+            hasDefault(this.props.element) &&
               <Row>
                 <ObjectPropertyDefaults element={this.props.element} />
               </Row>
@@ -155,4 +156,4 @@ class ObjectProperty extends React.Component {
   }
 }
 
-export default radium(ObjectProperty);
+export default ObjectProperty;

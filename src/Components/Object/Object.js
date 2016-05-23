@@ -11,11 +11,11 @@ import Row from '../Row/Row';
 import Column from '../Column/Column';
 
 import {
-  hasDefaults,
+  hasDefault,
   hasSamples,
-  hasMembers,
+  hasProperties,
   isArray,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
 class ObjectComponent extends React.Component {
   static propTypes = {
@@ -68,7 +68,7 @@ class ObjectComponent extends React.Component {
   };
 
   renderObjectProperties() {
-    if (!hasMembers(this.props.element)) {
+    if (!hasProperties(this.props.element)) {
       return null;
     }
 
@@ -112,7 +112,7 @@ class ObjectComponent extends React.Component {
 
   renderObjectSamplesAndDefaults() {
     const doesHaveSamples = hasSamples(this.props.element);
-    const doesHaveDefaults = hasDefaults(this.props.element);
+    const doesHaveDefaults = hasDefault(this.props.element);
 
     if (!doesHaveSamples && !doesHaveDefaults) {
       return null;

@@ -1,12 +1,13 @@
 import isUndefined from 'lodash/isUndefined';
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import {
-  constainsStructuredElement,
+  containsStructuredElement,
 } from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class Key extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -38,7 +39,7 @@ class Key extends React.Component {
 
     const isClickable = isUndefined(this.props.index)
       && this.props.element
-      && constainsStructuredElement(this.props.element);
+      && containsStructuredElement(this.props.element);
 
     if (isClickable) {
       style.base.cursor = 'pointer';
@@ -75,4 +76,4 @@ class Key extends React.Component {
   };
 }
 
-export default radium(Key);
+export default Key;

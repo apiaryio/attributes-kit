@@ -1,7 +1,8 @@
 import React from 'react';
+import Radium from 'radium';
 import merge from 'lodash/merge';
 
-
+@Radium
 class ArrayItems extends React.Component {
   static propTypes = {
     style: React.PropTypes.object,
@@ -11,22 +12,20 @@ class ArrayItems extends React.Component {
     ]),
   };
 
-  renderStyles() {
-    const styles = {
-      root: {
+  get style() {
+    const style = {
+      base: {
         width: '100%',
         height: 'auto',
       },
     };
 
-    return merge(styles, this.props.style || {});
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
-
     return (
-      <div style={styles.root}>
+      <div style={this.style.base}>
         {this.props.children}
       </div>
     );

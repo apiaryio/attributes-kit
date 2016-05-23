@@ -1,13 +1,14 @@
 import isEmpty from 'lodash/isEmpty';
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import {
   findParent,
   findElement,
-} from '../elements/element';
+} from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class InheritanceTree extends React.Component {
   static propTypes = {
     dataStructures: React.PropTypes.array,
@@ -176,4 +177,4 @@ class InheritanceTree extends React.Component {
   }
 }
 
-export default radium(InheritanceTree);
+export default InheritanceTree;

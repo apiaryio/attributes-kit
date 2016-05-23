@@ -1,6 +1,6 @@
 import React from 'react';
 import Error from '../Error/Error';
-import refractToComponentsMap from '../refractToComponentMap';
+import refractToComponentsMap from '../../Resources/refractToComponentMap';
 
 class Attribute extends React.Component {
   static propTypes = {
