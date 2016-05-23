@@ -3,6 +3,11 @@
  * Adds useful shortcut information and otherwise processes refract structures
  * so that rendering elements via React components is simpler.
  */
+import isEmpty from 'lodash/isEmpty';
+import isArray from 'lodash/isArray';
+import isObject from 'lodash/isObject';
+
+import map from 'lodash/map';
 
 import * as contains from './contains';
 import * as has from './has';
@@ -47,6 +52,23 @@ function processElement(refract) {
   // This must be done *AFTER* all children are processed, because it
   // depends on values set in the loop above.
   contains.structuredElement(refract);
+
+  // Then, see if it the element has any samples and process them as well!
+  if (refract.attributes && !isEmpty(refract.attributes.samples)) {
+    refract.attributes.samples = map(refract.attributes.samples, (sample) => {
+      if (isArray(sample)) {
+        return map(sample, processElement);
+      }
+
+      if (isObject(sample)) {
+        return processElement(sample);
+      }
+
+      return sample;
+    });
+  }
+
+  return refract;
 }
 
 export class Preprocessor {
