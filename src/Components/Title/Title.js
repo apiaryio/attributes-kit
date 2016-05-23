@@ -1,8 +1,9 @@
 import isEmpty from 'lodash/isEmpty';
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
+@Radium
 class Title extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -47,4 +48,4 @@ class Title extends React.Component {
   }
 }
 
-export default radium(Title);
+export default Title;

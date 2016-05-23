@@ -1,10 +1,11 @@
 import React from 'react';
-import radium from 'radium';
+import Radium from 'radium';
 import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
 
+@Radium
 class SampleToggle extends React.Component {
   static propTypes = {
     onClick: React.PropTypes.func,
@@ -74,4 +75,4 @@ class SampleToggle extends React.Component {
   }
 }
 
-export default radium(SampleToggle);
+export default SampleToggle;

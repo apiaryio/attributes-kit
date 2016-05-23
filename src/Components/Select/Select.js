@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 import merge from 'lodash/merge';
 import isEmpty from 'lodash/isEmpty';
 
@@ -7,6 +8,7 @@ import Column from '../Column/Column';
 
 import SelectOption from '../SelectOption/SelectOption';
 
+@Radium
 class Select extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,

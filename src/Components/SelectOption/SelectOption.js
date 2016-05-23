@@ -1,8 +1,10 @@
 import React from 'react';
+import Radium from 'radium';
 import merge from 'lodash/merge';
 
 import ObjectProperties from '../ObjectProperties/ObjectProperties';
 
+@Radium
 class SelectOption extends React.Component {
   static propTypes = {
     children: React.PropTypes.oneOfType([
