@@ -1,4 +1,4 @@
-import {isObjectOrArray, isMember} from './type';
+import { isObjectOrArray, isMember } from './type';
 
 function hasValue(element) {
   if (!element) {

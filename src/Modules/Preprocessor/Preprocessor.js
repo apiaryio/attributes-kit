@@ -67,8 +67,6 @@ function processElement(refract) {
       return sample;
     });
   }
-
-  return refract;
 }
 
 export class Preprocessor {

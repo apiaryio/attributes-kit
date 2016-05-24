@@ -6,6 +6,7 @@ import merge from 'lodash/merge';
 class ArrayItemIndex extends React.Component {
   static propTypes = {
     index: React.PropTypes.number,
+    style: React.PropTypes.object,
   };
 
   get style() {

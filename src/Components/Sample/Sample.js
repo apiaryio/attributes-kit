@@ -4,17 +4,8 @@ import merge from 'lodash/merge';
 import Column from '../Column/Column';
 import Row from '../Row/Row';
 
-
 import SampleToggle from '../SampleToggle/SampleToggle';
 import { PrimitiveValue } from '../PrimitiveValue/PrimitiveValue';
-import { Value } from '../Value/Value';
-
-import {
-  isArray,
-  isObject,
-  isEnum,
-} from '../../Modules/ElementUtils/ElementUtils';
-
 
 class Sample extends React.Component {
   static propTypes = {

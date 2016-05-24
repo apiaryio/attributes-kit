@@ -1,5 +1,5 @@
-import {MissingCacheObjectException} from '../../Exceptions/MissingCacheObject';
-import {TYPES} from '../../Resources/types';
+import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
+import { TYPES } from '../../Resources/types';
 
 function isObject(element) {
   if (!element) {
@@ -77,14 +77,6 @@ function isMember(element) {
   return element === TYPES.MEMBER;
 }
 
-function hasType(element) {
-  if (!element) {
-    return false;
-  }
-
-  return !!getType(element);
-}
-
 function getTypeOfValue(element) {
   if (isMember(element.element)) {
     return element.content.value.element;
@@ -99,6 +91,14 @@ function getType(element) {
   }
 
   return element.element;
+}
+
+function hasType(element) {
+  if (!element) {
+    return false;
+  }
+
+  return !!getType(element);
 }
 
 export {

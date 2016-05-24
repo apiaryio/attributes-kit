@@ -1,4 +1,4 @@
-import {MissingCacheObjectException} from '../../Exceptions/MissingCacheObject';
+import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
 
 function hasDescription(element) {
   if (!element) {

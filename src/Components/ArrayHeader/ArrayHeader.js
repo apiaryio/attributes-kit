@@ -9,6 +9,7 @@ class ArrayHeader extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {

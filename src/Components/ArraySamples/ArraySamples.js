@@ -8,6 +8,7 @@ import ArraySample from '../ArraySample/ArraySample';
 class ArraySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   get style() {

@@ -6,6 +6,8 @@ import map from 'lodash/map';
 import max from 'lodash/max';
 import React from 'react';
 import values from 'lodash/values';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import Select from '../Select/Select';
 import ObjectProperty from '../ObjectProperty/ObjectProperty';
@@ -19,10 +21,12 @@ import {
   isStructured,
 } from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class ObjectProperties extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     collapseByDefault: React.PropTypes.bool,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -125,7 +129,7 @@ class ObjectProperties extends React.Component {
       },
     };
 
-    return style;
+    return merge(style, this.props.style || {});
   }
 
   reportKeyWidth = (keyIdentifier, keyWidth) => {

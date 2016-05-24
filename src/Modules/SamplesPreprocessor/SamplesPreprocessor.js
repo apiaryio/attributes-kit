@@ -37,8 +37,6 @@ function processElement(refractElement) {
       });
     }
   }
-
-  return refractElement;
 }
 
 export function preprocess(refractElement) {

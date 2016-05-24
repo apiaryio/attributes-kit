@@ -9,7 +9,7 @@ import Column from '../Column/Column';
 import Description from '../Description/Description';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
-import {Value} from '../Value/Value';
+import { Value } from '../Value/Value';
 
 import {
   containsStructuredElement,
@@ -25,11 +25,12 @@ import {
 @Radium
 class ArrayItem extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
     element: React.PropTypes.object,
+    index: React.PropTypes.number,
     parentElement: React.PropTypes.object,
     showArrayItemIndex: React.PropTypes.bool,
     showBullet: React.PropTypes.bool,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {

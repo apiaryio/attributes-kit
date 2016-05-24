@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { preprocess, Preprocessor } from '../Preprocessor';
+import { preprocess } from '../Preprocessor';
 
 const CACHE_PROPERTIES = [
   'hasDefault',
@@ -36,7 +36,7 @@ describe('Preprocessor', () => {
               },
             ],
           },
-          'content': 'baz',
+          content: 'baz',
         };
 
         processedRefractElement = preprocess(refractElement);
@@ -95,7 +95,7 @@ describe('Preprocessor', () => {
               ],
             ],
           },
-          'content': [],
+          content: [],
         };
 
         processedRefractElement = preprocess(refractElement);

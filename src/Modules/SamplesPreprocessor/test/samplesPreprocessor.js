@@ -14,7 +14,7 @@ describe('Samples Preprocessor', () => {
             'bar',
           ],
         },
-        'content': 'baz',
+        content: 'baz',
       };
 
       processedRefractElement = preprocess(refractElement);
@@ -46,41 +46,41 @@ describe('Samples Preprocessor', () => {
 
     before(() => {
       const refractElement = {
-        "element": "object",
-        "content": [
+        element: 'object',
+        content: [
           {
-            "element": "member",
-            "content": {
-              "key": {
-                "element": "string",
-                "content": "foo"
+            element: 'member',
+            content: {
+              key: {
+                element: 'string',
+                content: 'foo',
               },
-              "value": {
-                "element": "object",
-                "content": [
+              value: {
+                element: 'object',
+                content: [
                   {
-                    "element": "member",
-                    "content": {
-                      "key": {
-                        "element": "string",
-                        "content": "bar"
+                    element: 'member',
+                    content: {
+                      key: {
+                        element: 'string',
+                        content: 'bar',
                       },
-                      "value": {
-                        "element": "string",
-                        "attributes": {
-                          "samples": [
-                            "bag"
-                          ]
+                      value: {
+                        element: 'string',
+                        attributes: {
+                          samples: [
+                            'bag',
+                          ],
                         },
-                        "content": "baz"
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
-        ]
+                        content: 'baz',
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        ],
       };
 
       processedRefractElement = preprocess(refractElement);
@@ -88,12 +88,15 @@ describe('Samples Preprocessor', () => {
 
     it('First sample element has been processed', () => {
       assert.deepEqual(
-        processedRefractElement.content[0].content.value.content[0].content.value.attributes.samples,
+        (
+          processedRefractElement
+            .content[0].content.value.content[0].content.value.attributes.samples
+        ),
         [
           {
             element: 'string',
             content: 'bag',
-          }
+          },
         ]
       );
     });
@@ -124,7 +127,7 @@ describe('Samples Preprocessor', () => {
             ],
           ],
         },
-        'content': [],
+        content: [],
       };
 
       processedRefractElement = preprocess(refractElement);
@@ -157,41 +160,41 @@ describe('Samples Preprocessor', () => {
 
     before(() => {
       const refractElement = {
-        "element": "object",
-        "content": [
+        element: 'object',
+        content: [
           {
-            "element": "member",
-            "content": {
-              "key": {
-                "element": "string",
-                "content": "foo"
+            element: 'member',
+            content: {
+              key: {
+                element: 'string',
+                content: 'foo',
               },
-              "value": {
-                "element": "object",
-                "attributes": {
-                  "samples": [
+              value: {
+                element: 'object',
+                attributes: {
+                  samples: [
                     [
                       {
-                        "element": "member",
-                        "content": {
-                          "key": {
-                            "element": "string",
-                            "content": "bar"
+                        element: 'member',
+                        content: {
+                          key: {
+                            element: 'string',
+                            content: 'bar',
                           },
-                          "value": {
-                            "element": "string",
-                            "content": "baz"
-                          }
-                        }
-                      }
-                    ]
-                  ]
+                          value: {
+                            element: 'string',
+                            content: 'baz',
+                          },
+                        },
+                      },
+                    ],
+                  ],
                 },
-                "content": []
-              }
-            }
-          }
-        ]
+                content: [],
+              },
+            },
+          },
+        ],
       };
 
       processedRefractElement = preprocess(refractElement);
@@ -201,23 +204,23 @@ describe('Samples Preprocessor', () => {
       assert.deepEqual(
         processedRefractElement.content[0].content.value.attributes,
         {
-          "samples": [
+          samples: [
             [
               {
-                "element": "member",
-                "content": {
-                  "key": {
-                    "element": "string",
-                    "content": "bar"
+                element: 'member',
+                content: {
+                  key: {
+                    element: 'string',
+                    content: 'bar',
                   },
-                  "value": {
-                    "element": "string",
-                    "content": "baz"
-                  }
-                }
-              }
-            ]
-          ]
+                  value: {
+                    element: 'string',
+                    content: 'baz',
+                  },
+                },
+              },
+            ],
+          ],
         },
       );
     });

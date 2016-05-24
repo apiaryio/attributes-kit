@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import Column from '../Column/Column';
@@ -25,6 +25,7 @@ import {
   isObject,
 } from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
     collapseByDefault: React.PropTypes.bool,

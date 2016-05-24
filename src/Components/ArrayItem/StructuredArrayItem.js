@@ -8,7 +8,7 @@ import ArrayItemSamples from '../ArrayItemSamples/ArrayItemSamples';
 import Column from '../Column/Column';
 import Description from '../Description/Description';
 import Row from '../Row/Row';
-import {Value} from '../Value/Value';
+import { Value } from '../Value/Value';
 
 import {
   containsStructuredElement,
@@ -24,11 +24,12 @@ import {
 @Radium
 class StructuredArrayItem extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
     element: React.PropTypes.object,
+    index: React.PropTypes.number,
     parentElement: React.PropTypes.object,
     showArrayItemIndex: React.PropTypes.bool,
     showBullet: React.PropTypes.bool,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -140,7 +141,7 @@ class StructuredArrayItem extends React.Component {
           {
             <Row>
               <Value
-                expandableCollapsible={true}
+                expandableCollapsible
                 element={this.props.element}
                 parentElement={this.props.parentElement}
               />

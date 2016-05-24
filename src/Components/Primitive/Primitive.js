@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import Row from '../Row/Row';
 import Type from '../Type/Type';
 import Column from '../Column/Column';
-import { PrimitiveValue } from '../PrimitiveValue/PrimitiveValue';
+import { Value } from '../Value/Value';
 import Description from '../Description/Description';
 
 import {

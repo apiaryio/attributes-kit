@@ -12,6 +12,7 @@ class ArraySample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     samples: React.PropTypes.array,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {

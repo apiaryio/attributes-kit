@@ -11,6 +11,7 @@ import SampleToggle from '../SampleToggle/SampleToggle';
 class ArrayDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {

@@ -1,13 +1,17 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
 import Sample from '../Sample/Sample';
 import SampleToggle from '../SampleToggle/SampleToggle';
 
+@Radium
 class ObjectDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {
@@ -28,10 +32,10 @@ class ObjectDefaults extends React.Component {
     });
   };
 
-  renderStyles() {
+  get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       root: {
         marginTop: '8px',
         border: `1px solid ${BORDER_COLOR}`,
@@ -47,10 +51,10 @@ class ObjectDefaults extends React.Component {
     };
 
     if (this.state.isExpanded) {
-      styles.header.borderBottom = `1px solid ${BORDER_COLOR}`;
+      style.header.borderBottom = `1px solid ${BORDER_COLOR}`;
     }
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
   renderDefaults() {
@@ -106,13 +110,13 @@ class ObjectDefaults extends React.Component {
       return false;
     }
 
-    const styles = this.renderStyles();
+    const style = this.style;
 
     return (
-      <Row style={styles.root}>
+      <Row style={style.root}>
         <Column>
           <Row
-            style={styles.header}
+            style={style.header}
             onClick={this.handleExpandCollapse}
           >
             <SampleToggle

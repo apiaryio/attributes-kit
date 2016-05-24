@@ -14,8 +14,11 @@ import { PrimitiveValue } from '../PrimitiveValue/PrimitiveValue';
 import Attribute from '../Attribute/Attribute';
 
 class Value extends React.Component {
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
+    style: React.PropTypes.object,
+    expandableCollapsible: React.PropTypes.bool,
   };
 
   render() {
@@ -34,15 +37,17 @@ class Value extends React.Component {
             parentElement={this.props.parentElement}
           />
         );
-      } else if (isString(this.props.element.content.value.content)) {
+      }
+
+      if (isString(this.props.element.content.value.content)) {
         return (
           <PrimitiveValue
             value={this.props.element.content.value.content}
           />
         );
-      } else {
-        return null;
       }
+
+      return null;
     }
 
     if (isStructured(this.props.element)) {
@@ -53,7 +58,10 @@ class Value extends React.Component {
           parentElement={this.props.parentElement}
         />
       );
-    } else if (isObject(this.props.element) || isArray(this.props.element) || isSelect(this.props.element) || isEnum(this.props.element)) {
+    } else if (
+      isObject(this.props.element) || isArray(this.props.element) ||
+      isSelect(this.props.element) || isEnum(this.props.element)
+    ) {
       value = (
         <Attribute
           element={this.props.element}

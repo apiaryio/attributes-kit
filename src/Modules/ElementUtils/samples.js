@@ -1,4 +1,4 @@
-import {MissingCacheObjectException} from '../../Exceptions/MissingCacheObject';
+import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
 
 function hasSamples(element) {
   if (!element) {
@@ -6,7 +6,7 @@ function hasSamples(element) {
   }
 
   if (!element.cache) {
-    throw new MissingCacheObjectException()
+    throw new MissingCacheObjectException();
   }
 
   return element.cache.hasSamples;
