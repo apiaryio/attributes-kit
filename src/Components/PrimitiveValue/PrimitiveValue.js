@@ -39,7 +39,10 @@ class PrimitiveValue extends React.Component {
       base: {
         width: 'auto',
         height: 'auto',
-        margin: '0px',
+        marginTop: '0px',
+        marginBottom: '0px',
+        marginLeft: '0px',
+        marginRight: '0px',
         fontWeight: VALUE_FONT_WEIGHT,
         backgroundColor: VALUE_BACKGROUND_COLOR,
         borderRadius: VALUE_BORDER_RADIUS,
