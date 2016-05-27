@@ -2,11 +2,11 @@ import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
 
-import ArrayDefaults from '../ArrayDefaults/ArrayDefaults';
+import { ArrayDefaults } from '../ArrayDefaults/ArrayDefaults';
 import ArrayHeader from '../ArrayHeader/ArrayHeader';
 import ArrayItem from '../ArrayItem/ArrayItem';
 import ArrayItems from '../ArrayItems/ArrayItems';
-import ArraySamples from '../ArraySamples/ArraySamples';
+import { ArraySamples } from '../ArraySamples/ArraySamples';
 import Column from '../Column/Column';
 import Row from '../Row/Row';
 import StructuredArrayItem from '../ArrayItem/StructuredArrayItem';
@@ -43,7 +43,7 @@ class ArrayComponent extends React.Component {
 
     const style = {
       arrayItems: {
-        root: {
+        base: {
           border: `1px solid ${ARRAY_ITEMS_BORDER_COLOR}`,
         },
       },

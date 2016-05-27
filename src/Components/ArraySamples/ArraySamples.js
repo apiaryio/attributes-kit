@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
-import ArraySample from '../ArraySample/ArraySample';
+import { ArraySample } from '../ArraySample/ArraySample';
 
 @Radium
 class ArraySamples extends React.Component {
@@ -13,7 +13,7 @@ class ArraySamples extends React.Component {
 
   get style() {
     const style = {
-      root: {
+      base: {
         width: '100%',
       },
     };
@@ -26,25 +26,17 @@ class ArraySamples extends React.Component {
       return false;
     }
 
-    const attributes = this.props.element.attributes;
-
-    if (!attributes) {
-      return false;
-    }
-
-    const samples = attributes.samples;
-
-    if (!samples) {
+    if (!this.props.element.cache.hasSamples) {
       return false;
     }
 
     return (
-      <div style={this.style.root}>
+      <div style={this.style.base}>
         {
           samples.map((sample, index) =>
             <ArraySample
               element={this.props.element}
-              samples={sample}
+              sample={sample}
               key={index}
             />
           )
@@ -54,4 +46,4 @@ class ArraySamples extends React.Component {
   }
 }
 
-export default ArraySamples;
+export { ArraySamples };

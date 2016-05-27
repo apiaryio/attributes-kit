@@ -4,14 +4,14 @@ import merge from 'lodash/merge';
 
 import Row from '../Row/Row';
 import Column from '../Column/Column';
-import Sample from '../Sample/Sample';
+import { Value } from '../Value/Value';
 import SampleToggle from '../SampleToggle/SampleToggle';
 
 @Radium
 class ArraySample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-    samples: React.PropTypes.array,
+    sample: React.PropTypes.object,
     style: React.PropTypes.object,
   };
 
@@ -55,22 +55,6 @@ class ArraySample extends React.Component {
     return merge(style, this.props.style || {});
   }
 
-  renderSample() {
-    if (!this.state.isExpanded) {
-      return false;
-    }
-
-    return (
-      <Row>
-        <Sample
-          samples={this.props.samples}
-          element={this.props.element}
-          showArrayHeader={false}
-        />
-      </Row>
-    );
-  }
-
   render() {
     return (
       <Row>
@@ -86,7 +70,10 @@ class ArraySample extends React.Component {
           </Row>
 
           {
-            this.renderSample()
+            this.state.isExpanded &&
+              <Row>
+                <Value element={this.props.sample} />
+              </Row>
           }
         </Column>
       </Row>
@@ -94,4 +81,4 @@ class ArraySample extends React.Component {
   }
 }
 
-export default ArraySample;
+export {ArraySample};

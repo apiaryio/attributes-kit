@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
-import Sample from '../Sample/Sample';
+import { Value } from '../Value/Value';
 import SampleToggle from '../SampleToggle/SampleToggle';
 
 @Radium
@@ -54,36 +54,12 @@ class ArrayDefaults extends React.Component {
     return merge(style, this.props.style || {});
   }
 
-  renderDefaults(defaults) {
-    if (!this.state.isExpanded) {
-      return false;
-    }
-
-    return (
-      <Row>
-        <Sample
-          element={this.props.element}
-          samples={defaults}
-          showArrayHeader={false}
-        />
-      </Row>
-    );
-  }
-
   render() {
     if (!this.props.element) {
       return false;
     }
 
-    const attributes = this.props.element.attributes;
-
-    if (!attributes) {
-      return false;
-    }
-
-    const defaults = attributes.default;
-
-    if (!defaults) {
+    if (!this.props.element.cache.hasDefault) {
       return false;
     }
 
@@ -102,7 +78,8 @@ class ArrayDefaults extends React.Component {
           </Row>
 
           {
-            this.renderDefaults(defaults)
+            this.state.isExpanded &&
+              <Value element={this.props.element.attributes.default} />
           }
         </Column>
       </Row>
@@ -110,4 +87,4 @@ class ArrayDefaults extends React.Component {
   }
 }
 
-export default ArrayDefaults;
+export { ArrayDefaults };
