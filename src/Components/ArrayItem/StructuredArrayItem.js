@@ -147,20 +147,6 @@ class StructuredArrayItem extends React.Component {
               />
             </Row>
           }
-
-          {
-            hasSamples(this.props.element) &&
-              <Row>
-                <ArrayItemSamples element={this.props.element} />
-              </Row>
-          }
-
-          {
-            hasDefault(this.props.element) &&
-              <Row>
-                <ArrayItemDefaults element={this.props.element} />
-              </Row>
-          }
         </Column>
       </Row>
     );

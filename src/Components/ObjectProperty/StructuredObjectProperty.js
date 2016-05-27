@@ -202,18 +202,6 @@ class StructuredObjectProperty extends React.Component {
                 </Row>
               </Ruler>
           }
-
-          <Row>
-            {
-              hasSamples(this.props.element) &&
-                <ObjectPropertySamples element={this.props.element} />
-            }
-
-            {
-              hasDefault(this.props.element) &&
-                <ObjectPropertyDefaults element={this.props.element} />
-            }
-          </Row>
         </Column>
       </Row>
     );
