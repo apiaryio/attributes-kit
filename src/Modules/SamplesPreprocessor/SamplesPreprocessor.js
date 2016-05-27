@@ -14,15 +14,11 @@ function processElement(refractElement) {
   // Then, see if it the element has any samples and process them as well!
   if (attributes && !isEmpty(attributes.samples)) {
     attributes.samples = map(attributes.samples, (sample) => {
-      if (refractElement.element === 'array' && isArray(sample)) {
+      if (isArray(sample) || isObject(sample)) {
         return {
           element: refractElement.element,
           content: sample,
         };
-      }
-
-      if (isArray(sample) || isObject(sample)) {
-        return sample;
       }
 
       return {

@@ -1,48 +1,46 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import ObjectSample from '../ObjectSample/ObjectSample';
 import Row from '../Row/Row';
 
+import {
+  hasSamples,
+} from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class ObjectSamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
   };
 
-  renderStyles() {
-    const styles = {};
+  get style() {
+    const style = {};
 
-    return styles;
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
-
     if (!this.props.element) {
       return false;
     }
 
-    const attributes = this.props.element.attributes;
-
-    if (!attributes) {
+    if (!hasSamples(this.props.element)) {
       return false;
     }
 
-    const samples = attributes.samples;
-
-    if (!samples) {
-      return false;
-    }
+    const samples = this.props.element.attributes.samples;
 
     return (
-      <Row style={styles.root}>
+      <Row>
         <Column>
           {
             samples.map((sample, index) =>
               <ObjectSample
                 element={this.props.element}
-                samples={sample}
+                sample={sample}
                 key={index}
               />
             )

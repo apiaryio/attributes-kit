@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import radium from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import ObjectProperties from '../ObjectProperties/ObjectProperties';
@@ -17,6 +17,7 @@ import {
   isArray,
 } from '../../Modules/ElementUtils/ElementUtils';
 
+@Radium
 class ObjectComponent extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -165,4 +166,4 @@ class ObjectComponent extends React.Component {
   }
 }
 
-export default radium(ObjectComponent);
+export default ObjectComponent;

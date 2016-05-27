@@ -2,7 +2,7 @@ import Radium from 'radium';
 import React from 'react';
 import reactDom from 'react-dom';
 import merge from 'lodash/merge';
-
+import random from 'lodash/random';
 import Column from '../Column/Column';
 import Key from '../Key/Key';
 import Requirement from '../Requirement/Requirement';
@@ -33,18 +33,31 @@ class KeyColumn extends React.Component {
     this.alignKey();
 
     // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
-    this.subscription = this.context.eventEmitter.addListener(
-      `${this.props.parentElement.meta.id}:alignKey`,
-      this.alignKey
-    );
+    if (this.context.eventEmitter) {
+      if (this.props.parentElement.meta && this.props.parentElement.meta.id) {
+        this.subscription = this.context.eventEmitter.addListener(
+          `${this.props.parentElement.meta.id}:alignKey`,
+          this.alignKey
+        );
+      }
+    }
   };
 
   componentWillUnmount = () => {
-    this.subscription.remove();
+    if (this.subscription) {
+      this.subscription.remove();
+    }
   };
 
   alignKey = () => {
-    const keyIdentifier = this.props.element.meta.id;
+    let keyIdentifier;
+
+    if (this.props.element.meta && this.props.element.meta.id) {
+      keyIdentifier = this.props.element.meta.id;
+    } else {
+      keyIdentifier = random(0, 1000000);
+    }
+
     const keyDomNode = reactDom.findDOMNode(this.refs.key);
 
     this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);

@@ -1,10 +1,13 @@
 import React from 'react';
+import Radium from 'radium';
+import merge from 'lodash/merge';
 
+import { Value } from '../Value/Value';
 import Column from '../Column/Column';
 import Row from '../Row/Row';
-import Sample from '../Sample/Sample';
 import SampleToggle from '../SampleToggle/SampleToggle';
 
+@Radium
 class ObjectSample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -29,10 +32,10 @@ class ObjectSample extends React.Component {
     });
   };
 
-  renderStyles() {
+  get style() {
     const { BORDER_COLOR } = this.context.theme;
 
-    const styles = {
+    const style = {
       header: {
         borderTop: `1px solid ${BORDER_COLOR}`,
         paddingTop: '8px',
@@ -42,40 +45,17 @@ class ObjectSample extends React.Component {
       },
     };
 
-    styles.header.borderBottom = `1px solid ${BORDER_COLOR}`;
+    style.header.borderBottom = `1px solid ${BORDER_COLOR}`;
 
-    return styles;
-  }
-
-  renderSample() {
-    if (!this.state.isExpanded) {
-      return false;
-    }
-
-    const element = {
-      element: 'object',
-      content: this.props.samples,
-    };
-
-    return (
-      <Row>
-        <Sample
-          parentElement={this.props.element}
-          element={element}
-          showArrayHeader={false}
-        />
-      </Row>
-    );
+    return merge(style, this.props.style || {});
   }
 
   render() {
-    const styles = this.renderStyles();
-
     return (
       <Row>
         <Column>
           <Row
-            style={styles.header}
+            style={this.style.header}
             onClick={this.handleExpandCollapse}
           >
             <SampleToggle
@@ -84,7 +64,12 @@ class ObjectSample extends React.Component {
             />
           </Row>
 
-          {this.renderSample()}
+          {
+            this.state.isExpanded &&
+              <Row>
+                <Value element={this.props.sample} />
+              </Row>
+          }
         </Column>
       </Row>
     );
