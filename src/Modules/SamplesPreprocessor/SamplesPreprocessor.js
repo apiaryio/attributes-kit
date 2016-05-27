@@ -14,6 +14,13 @@ function processElement(refractElement) {
   // Then, see if it the element has any samples and process them as well!
   if (attributes && !isEmpty(attributes.samples)) {
     attributes.samples = map(attributes.samples, (sample) => {
+      if (refractElement.element === 'array' && isArray(sample)) {
+        return {
+          element: refractElement.element,
+          content: sample,
+        };
+      }
+
       if (isArray(sample) || isObject(sample)) {
         return sample;
       }
@@ -23,6 +30,22 @@ function processElement(refractElement) {
         content: sample,
       };
     });
+  }
+
+  if (attributes && attributes.default) {
+    if (refractElement.element === 'array' && isArray(attributes.default)) {
+      attributes.default = {
+        element: refractElement.element,
+        content: attributes.default,
+      };
+    } else if (isArray(attributes.default) || isObject(attributes.default)) {
+
+    } else {
+      attributes.default = {
+        element: refractElement.element,
+        content: attributes.default,
+      };
+    };
   }
 
   // Then, see if it has children and process each of the children as well!
@@ -39,6 +62,12 @@ function processElement(refractElement) {
   }
 }
 
-export function preprocess(refractElement) {
+
+
+function preprocessSamples(refractElement) {
   return processElement(refractElement);
+};
+
+export {
+  preprocessSamples,
 };
