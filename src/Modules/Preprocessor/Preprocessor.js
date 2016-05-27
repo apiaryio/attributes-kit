@@ -57,11 +57,15 @@ function processElement(refract) {
   if (refract.attributes && !isEmpty(refract.attributes.samples)) {
     refract.attributes.samples = map(refract.attributes.samples, (sample) => {
       if (isArray(sample)) {
-        return map(sample, processElement);
+        return map(sample, (sampleElement) => {
+          processElement(sampleElement);
+          return sampleElement;
+        });
       }
 
       if (isObject(sample)) {
-        return processElement(sample);
+        processElement(sample);
+        return sample;
       }
 
       return sample;
