@@ -6,6 +6,11 @@ import Column from '../Column/Column';
 import Row from '../Row/Row';
 import Sample from '../Sample/Sample';
 import SampleToggle from '../SampleToggle/SampleToggle';
+import { Value } from '../Value/Value';
+
+import {
+  hasDefault,
+} from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
 class ObjectDefaults extends React.Component {
@@ -57,58 +62,16 @@ class ObjectDefaults extends React.Component {
     return merge(style, this.props.style || {});
   }
 
-  renderDefaults() {
-    if (!this.props.element) {
-      return false;
-    }
-
-    const attributes = this.props.element.attributes;
-
-    let defaults = null;
-
-    if (attributes) {
-      defaults = attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
-    }
-
-    if (!this.state.isExpanded) {
-      return false;
-    }
-
-    const element = {
-      element: 'object',
-      content: defaults,
-    };
-
-    return (
-      <Row>
-        <Sample
-          element={element}
-          showObjectHeader={false}
-        />
-      </Row>
-    );
-  }
-
   render() {
     if (!this.props.element) {
       return false;
     }
 
-    const attributes = this.props.element.attributes;
-
-    let defaults = null;
-
-    if (attributes) {
-      defaults = attributes.default;
-    }
-
-    if (!defaults) {
+    if (!hasDefault(this.props.element)) {
       return false;
     }
+
+    const defaultValue = this.props.element.attributes.default;
 
     const style = this.style;
 
@@ -126,7 +89,12 @@ class ObjectDefaults extends React.Component {
             />
           </Row>
 
-          {this.renderDefaults()}
+          {
+            this.state.isExpanded &&
+              <Row>
+                <Value element={defaultValue} />
+              </Row>
+          }
         </Column>
       </Row>
     );

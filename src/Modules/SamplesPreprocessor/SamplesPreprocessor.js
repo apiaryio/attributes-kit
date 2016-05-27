@@ -29,13 +29,11 @@ function processElement(refractElement) {
   }
 
   if (attributes && attributes.default) {
-    if (refractElement.element === 'array' && isArray(attributes.default)) {
+    if (isArray(attributes.default) || isObject(attributes.default)) {
       attributes.default = {
         element: refractElement.element,
         content: attributes.default,
       };
-    } else if (isArray(attributes.default) || isObject(attributes.default)) {
-
     } else {
       attributes.default = {
         element: refractElement.element,
