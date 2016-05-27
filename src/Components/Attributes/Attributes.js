@@ -12,7 +12,9 @@ import reduce from 'lodash/reduce';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
+
 import { preprocess } from '../../Modules/Preprocessor/Preprocessor';
+import { preprocessSamples } from '../../Modules/SamplesPreprocessor/SamplesPreprocessor';
 
 import defaultTheme from '../../Resources/theme';
 
@@ -182,6 +184,7 @@ class Attributes extends React.Component {
 
     const element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
 
+    preprocessSamples(element);
     preprocess(element);
 
     return {
