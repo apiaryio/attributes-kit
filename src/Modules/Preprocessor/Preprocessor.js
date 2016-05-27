@@ -71,6 +71,10 @@ function processElement(refract) {
       return sample;
     });
   }
+
+  if (refract.attributes && refract.attributes.default) {
+    processElement(refract.attributes.default);
+  }
 }
 
 export class Preprocessor {
