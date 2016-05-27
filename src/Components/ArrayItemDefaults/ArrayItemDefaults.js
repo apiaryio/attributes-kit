@@ -1,51 +1,55 @@
 import React from 'react';
 import Radium from 'radium';
+import merge from 'lodash/merge';
 
-import Defaults from '../Defaults/Defaults';
+import Sample from '../Sample/Sample';
+import Row from '../Row/Row';
+import Column from '../Column/Column';
 
 import {
-  isObject,
+  hasDefault,
 } from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
 class ArrayItemDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    style: React.PropTypes.object,
   };
+
+  get style() {
+    const style = {
+      sample: {
+        row: {
+          marginTop: '6px',
+        },
+      },
+    };
+
+    return merge(style, this.props.style || {});
+  }
 
   render() {
     if (!this.props.element) {
       return false;
     }
 
-    if (!this.props.element.content) {
+    if (!hasDefault(this.props.element)) {
       return false;
     }
 
-    const value = this.props.element.content.value;
-
-    if (!value) {
-      return false;
-    }
-
-    if (isObject(value.element)) {
-      return false;
-    }
-
-    let defaults = null;
-
-    if (value.attributes) {
-      defaults = value.attributes.default;
-    }
-
-    if (!defaults) {
-      return false;
-    }
+    const defaultValue = this.props.element.attributes.default;
 
     return (
-      <div>
-        <Defaults element={defaults} />
-      </div>
+      <Row>
+        <Column>
+          <Sample
+            title="Default"
+            sample={defaultValue}
+            style={this.style.sample}
+          />
+        </Column>
+      </Row>
     );
   }
 }

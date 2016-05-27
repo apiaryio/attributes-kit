@@ -30,6 +30,8 @@ class ArraySamples extends React.Component {
       return false;
     }
 
+    const samples = this.props.element.attributes.samples;
+
     return (
       <div style={this.style.base}>
         {

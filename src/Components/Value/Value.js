@@ -35,6 +35,7 @@ class Value extends React.Component {
             element={this.props.element.content.value}
             expandableCollapsible={this.props.expandableCollapsible}
             parentElement={this.props.parentElement}
+            style={this.props.style}
           />
         );
       }
@@ -43,6 +44,7 @@ class Value extends React.Component {
         return (
           <PrimitiveValue
             value={this.props.element.content.value.content}
+            style={this.props.style}
           />
         );
       }
@@ -56,6 +58,7 @@ class Value extends React.Component {
           element={this.props.element}
           expandableCollapsible={this.props.expandableCollapsible}
           parentElement={this.props.parentElement}
+          style={this.props.style}
         />
       );
     } else if (
@@ -67,11 +70,15 @@ class Value extends React.Component {
           element={this.props.element}
           expandableCollapsible={this.props.expandableCollapsible}
           parentElement={this.props.parentElement}
+          style={this.props.style}
         />
       );
     } else if (this.props.element.content) {
       value = (
-        <PrimitiveValue value={this.props.element.content} />
+        <PrimitiveValue
+          value={this.props.element.content}
+          style={this.props.style}
+        />
       );
     } else {
       value = false;
