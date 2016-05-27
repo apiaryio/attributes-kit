@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 
 import React from 'react';
+import Radium from 'radium';
 import request from 'superagent';
 
 import JsonFormatter from './JsonFormatter';
 import AttributesKit from '../../src';
 
-
+@Radium
 class Examples extends React.Component {
   constructor(props) {
     super(props);
@@ -29,28 +30,89 @@ class Examples extends React.Component {
       });
   }
 
+  get style() {
+    const style = {
+      example: {
+        border: '1px solid #333',
+        paddingBottom: '20px',
+        margin: '20px',
+        fontFamily: 'Source Sans Pro',
+      },
+      row: {
+        display: 'flex',
+        width: '100%',
+      },
+      title: {
+        borderBottom: '1px solid #333',
+        marginBottom: '40px',
+        backgroundColor: '#333',
+        color: '#fff',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        paddingTop: '10px',
+        paddingBottom: '10px',
+      },
+      titleText: {
+        fontFamily: 'Source Code Pro',
+        fontSize: '16px',
+      },
+      column: {
+        width: '50%',
+        maxWidth: '50%',
+        minWidth: '50%',
+        height: 'auto',
+      },
+      msonColumn: {
+        paddingLeft: '20px',
+        paddingRight: '40px',
+      },
+      previewColumn: {
+        borderLeft: '1px solid #333',
+        paddingLeft: '40px',
+        paddingRight: '20px',
+      },
+      pre: {
+        width: '100%',
+        maxWidth: '100%',
+        minWidth: '100%',
+        overflow: 'scroll',
+        fontFamily: 'Source Code Pro',
+        fontWeight: '400',
+      },
+    };
+
+    return style;
+  }
+
   render() {
-    const rows = this.state.fixtures.map((fixture) =>
-      <div className="visualTestingContainer" key={fixture.name}>
-        <div className="column">
-          <pre>
-            {fixture.mson}
-          </pre>
+    const rows = this.state.fixtures.map((fixture) => {
+      return (
+        <div style={this.style.example} key={fixture.name}>
+          <div style={[this.style.row, this.style.title]}>
+            <h3 style={this.style.titleText}>{fixture.name}</h3>
+          </div>
+
+          <div style={this.style.row}>
+            <div style={[this.style.column, this.style.msonColumn]}>
+              <pre style={this.style.pre}>
+                {fixture.mson}
+              </pre>
+            </div>
+
+            <div style={[this.style.column, this.style.previewColumn]}>
+              <AttributesKit.Attributes
+                element={fixture.refract}
+                dataStructures={fixture.dataStructures}
+                collapseByDefault={false}
+                maxInheritanceDepth={undefined}
+                includedProperties="show"
+                inheritedProperties="show"
+              />
+            </div>
+          </div>
         </div>
-        <div className="column">
-          <JsonFormatter element={fixture.parsed[0]} />
-        </div>
-        <div className="column">
-          <AttributesKit.Attributes
-            element={fixture.parsed[0]}
-            collapseByDefault={false}
-            maxInheritanceDepth={undefined}
-            includedProperties="show"
-            inheritedProperties="show"
-          />
-        </div>
-      </div>
-    );
+      );
+    });
 
     return (
       <div className="playgrund-app">
