@@ -1,4 +1,4 @@
-<div>
+<div class="attributesKit">
     <div style="padding-bottom:10px;">
         <h1 style="font-family:Source Sans Pro;font-size:18px;color:#30343F;">My Array</h1></div>
     <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
@@ -18,7 +18,7 @@
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                             <div>
                                 <style>
-                                    .attributeDescription p {
+                                    .attributesKit p {
                                         margin-bottom: 4px;
                                         font-family: Source Sans Pro;
                                         font-size: 14px;
@@ -27,25 +27,25 @@
                                         font-weight: regular;
                                     }
                                     
-                                    .attributeDescription p:last-child {
+                                    .attributesKit p:last-child {
                                         margin-bottom: 0px;
                                     }
                                     
-                                    .attributeDescription ul {
+                                    .attributesKit ul {
                                         margin-left: 20px;
                                     }
                                     
-                                    .attributeDescription a {
+                                    .attributesKit a {
                                         color: #747E8E;
                                         text-decoration: none;
                                         border-bottom: 1px solid #DCE0E8;
                                     }
                                     
-                                    .attributeDescription a:hover {
+                                    .attributesKit a:hover {
                                         border-bottom: none;
                                     }
                                 </style>
-                                <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;" class="attributeDescription">
+                                <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                             <div>
                                 <style>
-                                    .attributeDescription p {
+                                    .attributesKit p {
                                         margin-bottom: 4px;
                                         font-family: Source Sans Pro;
                                         font-size: 14px;
@@ -74,25 +74,25 @@
                                         font-weight: regular;
                                     }
                                     
-                                    .attributeDescription p:last-child {
+                                    .attributesKit p:last-child {
                                         margin-bottom: 0px;
                                     }
                                     
-                                    .attributeDescription ul {
+                                    .attributesKit ul {
                                         margin-left: 20px;
                                     }
                                     
-                                    .attributeDescription a {
+                                    .attributesKit a {
                                         color: #747E8E;
                                         text-decoration: none;
                                         border-bottom: 1px solid #DCE0E8;
                                     }
                                     
-                                    .attributeDescription a:hover {
+                                    .attributesKit a:hover {
                                         border-bottom: none;
                                     }
                                 </style>
-                                <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;" class="attributeDescription">
+                                <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                                 </div>
                             </div>
@@ -112,7 +112,7 @@
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
                             <div>
                                 <style>
-                                    .attributeDescription p {
+                                    .attributesKit p {
                                         margin-bottom: 4px;
                                         font-family: Source Sans Pro;
                                         font-size: 14px;
@@ -121,25 +121,25 @@
                                         font-weight: regular;
                                     }
                                     
-                                    .attributeDescription p:last-child {
+                                    .attributesKit p:last-child {
                                         margin-bottom: 0px;
                                     }
                                     
-                                    .attributeDescription ul {
+                                    .attributesKit ul {
                                         margin-left: 20px;
                                     }
                                     
-                                    .attributeDescription a {
+                                    .attributesKit a {
                                         color: #747E8E;
                                         text-decoration: none;
                                         border-bottom: 1px solid #DCE0E8;
                                     }
                                     
-                                    .attributeDescription a:hover {
+                                    .attributesKit a:hover {
                                         border-bottom: none;
                                     }
                                 </style>
-                                <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;" class="attributeDescription">
+                                <div style="font-family:Source Sans Pro;font-size:13px;color:#8A93A3;line-height:150%;font-weight:regular;">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                                 </div>
                             </div>

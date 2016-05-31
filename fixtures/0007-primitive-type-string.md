@@ -1,4 +1,4 @@
-<div>
+<div class="attributesKit">
     <div style="padding-bottom:10px;">
         <h1 style="font-family:Source Sans Pro;font-size:18px;color:#30343F;">My String</h1></div>
     <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
