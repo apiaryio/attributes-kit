@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { preprocess } from '../SamplesPreprocessor';
+import { preprocessSamples } from '../SamplesPreprocessor';
 
 describe('Samples Preprocessor', () => {
   context('Process a sample element', () => {
@@ -17,7 +17,7 @@ describe('Samples Preprocessor', () => {
         content: 'baz',
       };
 
-      processedRefractElement = preprocess(refractElement);
+      processedRefractElement = preprocessSamples(refractElement);
     });
 
     it('First sample element has been processed', () => {
@@ -83,7 +83,7 @@ describe('Samples Preprocessor', () => {
         ],
       };
 
-      processedRefractElement = preprocess(refractElement);
+      processedRefractElement = preprocessSamples(refractElement);
     });
 
     it('First sample element has been processed', () => {
@@ -130,27 +130,30 @@ describe('Samples Preprocessor', () => {
         content: [],
       };
 
-      processedRefractElement = preprocess(refractElement);
+      processedRefractElement = preprocessSamples(refractElement);
     });
 
     it('First sample element has been processed', () => {
       assert.deepEqual(
         processedRefractElement.attributes.samples[0],
-        [
-          {
-            element: 'member',
-            content: {
-              key: {
-                element: 'string',
-                content: 'foo',
-              },
-              value: {
-                element: 'string',
-                content: 'bar',
+        {
+          element: 'object',
+          content: [
+            {
+              element: 'member',
+              content: {
+                key: {
+                  element: 'string',
+                  content: 'foo',
+                },
+                value: {
+                  element: 'string',
+                  content: 'bar',
+                },
               },
             },
-          },
-        ],
+          ],
+        },
       );
     });
   });
@@ -197,7 +200,7 @@ describe('Samples Preprocessor', () => {
         ],
       };
 
-      processedRefractElement = preprocess(refractElement);
+      processedRefractElement = preprocessSamples(refractElement);
     });
 
     it('First sample element has been processed', () => {
@@ -205,21 +208,24 @@ describe('Samples Preprocessor', () => {
         processedRefractElement.content[0].content.value.attributes,
         {
           samples: [
-            [
-              {
-                element: 'member',
-                content: {
-                  key: {
-                    element: 'string',
-                    content: 'bar',
-                  },
-                  value: {
-                    element: 'string',
-                    content: 'baz',
+            {
+              element: 'object',
+              content: [
+                {
+                  element: 'member',
+                  content: {
+                    key: {
+                      element: 'string',
+                      content: 'bar',
+                    },
+                    value: {
+                      element: 'string',
+                      content: 'baz',
+                    },
                   },
                 },
-              },
-            ],
+              ],
+            },
           ],
         },
       );
