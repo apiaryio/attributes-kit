@@ -87,21 +87,21 @@ class Examples extends React.Component {
   render() {
     const rows = this.state.fixtures.map((fixture) => {
       return (
-        <div style={this.style.example} key={fixture.name}>
+        <div style={this.style.example} key={fixture.fileName}>
           <div style={[this.style.row, this.style.title]}>
-            <h3 style={this.style.titleText}>{fixture.name}</h3>
+            <h3 style={this.style.titleText}>{fixture.fileName}</h3>
           </div>
 
           <div style={this.style.row}>
             <div style={[this.style.column, this.style.msonColumn]}>
               <pre style={this.style.pre}>
-                {fixture.mson}
+                {fixture.fileContent}
               </pre>
             </div>
 
             <div style={[this.style.column, this.style.previewColumn]}>
               <AttributesKit.Attributes
-                element={fixture.refract}
+                element={fixture.dataStructure}
                 dataStructures={fixture.dataStructures}
                 collapseByDefault={false}
                 maxInheritanceDepth={undefined}

@@ -18,20 +18,15 @@ describe('Comparision with reference fixtures', () => {
     let htmlString = null;
 
     describe(`If I render ${sample.name} on the server`, (done) => {
+      let header = '# Data Structures';
 
-      let header = dedent`
-        # Data Structures
-
-        ## MSON Struct
-      `;
-
-      parseMson(`${header}\n${sample.code}`, (err, result) => {
+      parseMson(`${header}\n${sample.fileContent}`, (err, dataStructureElements) => {
         if (err) {
           return done(err);
         }
 
         renderedElement = React.createElement(Attributes, {
-          element: result[0],
+          element: dataStructureElements[0],
           collapseByDefault: false,
           maxInheritanceDepth: undefined,
           includedProperties: 'show',

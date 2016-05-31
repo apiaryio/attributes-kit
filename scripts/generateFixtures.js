@@ -16,29 +16,31 @@ if (!fs.existsSync(fixtureLocation)) {
 }
 
 msonZoo.samples.forEach((sample) => {
+  let header = '# Data Structures';
 
-  let header = dedent`
-    # Data Structures
-
-    ## MSON Struct
-  `;
-
-  parseMson(`${header}\n${sample.code}`, (err, result) => {
+  parseMson(`${header}\n\n${sample.fileContent}`, (err, dataStructureElements) => {
     if (err) {
-      console.error('Error during mson parse');
-      process.exit(1);
+      console.error('An error occured during parsing one of the samples from MSON Zoo.');
+      console.error(`Name of the file is ‘${sample.fileName}.’`);
+      console.error(err);
+      return process.exit(1);
+    }
+
+    if (!dataStructureElements || dataStructureElements.length === 0) {
+      console.error('An error occured during, no data structure elements were returned.');
+      console.error(`Name of the file is ‘${sample.fileName}.’`);
+      return process.exit(1);
     }
 
     const renderedElement = React.createElement(AttributesKit.Attributes, {
-      element: result[0],
+      element: dataStructureElements[0],
       collapseByDefault: false,
-      maxInheritanceDepth: undefined,
       includedProperties: 'show',
       inheritedProperties: 'show',
     });
 
     let htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
 
-    fs.writeFileSync(path.join(fixtureLocation, sample.name), htmlString);
+    fs.writeFileSync(path.join(fixtureLocation, sample.fileName), htmlString);
   });
 });
