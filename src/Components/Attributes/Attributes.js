@@ -243,7 +243,7 @@ class Attributes extends React.Component {
     }
 
     return (
-      <div>
+      <div className="attributesKit">
         {
           this.state.title &&
             <Title element={this.state.element} />

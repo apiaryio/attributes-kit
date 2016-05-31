@@ -50,7 +50,7 @@ class Description extends React.Component {
     return (
       <div>
         <Style
-          scopeSelector=".attributeDescription"
+          scopeSelector=".attributesKit"
           rules={{
             p: {
               marginBottom: '4px',
@@ -78,7 +78,6 @@ class Description extends React.Component {
         />
         <div
           style={this.style.base}
-          className="attributeDescription"
           dangerouslySetInnerHTML={markdownMarkup}
         />
       </div>
