@@ -57,7 +57,8 @@ function processElement(refractElement) {
 }
 
 function preprocessSamples(refractElement) {
-  return processElement(refractElement);
+  processElement(refractElement);
+  return refractElement;
 };
 
 export {
