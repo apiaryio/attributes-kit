@@ -4,8 +4,6 @@ import React from 'react';
 
 import Column from '../Column/Column';
 import Description from '../Description/Description';
-import ObjectPropertyDefaults from '../ObjectPropertyDefaults/ObjectPropertyDefaults';
-import ObjectPropertySamples from '../ObjectPropertySamples/ObjectPropertySamples';
 import Row from '../Row/Row';
 import Ruler from '../Ruler/Ruler';
 import { KeyColumn } from './KeyColumn';
@@ -16,9 +14,7 @@ import { Value } from '../Value/Value';
 import {
   isStructured,
   containsStructuredElement,
-  hasDefault,
   hasDescription,
-  hasSamples,
   isArray,
   isArrayOrEnumOrSelect,
   isLastArrayItem,

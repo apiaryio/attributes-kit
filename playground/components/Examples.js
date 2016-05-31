@@ -4,7 +4,6 @@ import React from 'react';
 import Radium from 'radium';
 import request from 'superagent';
 
-import JsonFormatter from './JsonFormatter';
 import AttributesKit from '../../src';
 
 @Radium
@@ -85,34 +84,32 @@ class Examples extends React.Component {
   }
 
   render() {
-    const rows = this.state.fixtures.map((fixture) => {
-      return (
-        <div style={this.style.example} key={fixture.fileName}>
-          <div style={[this.style.row, this.style.title]}>
-            <h3 style={this.style.titleText}>{fixture.fileName}</h3>
+    const rows = this.state.fixtures.map((fixture) =>
+      <div style={this.style.example} key={fixture.fileName}>
+        <div style={[this.style.row, this.style.title]}>
+          <h3 style={this.style.titleText}>{fixture.fileName}</h3>
+        </div>
+
+        <div style={this.style.row}>
+          <div style={[this.style.column, this.style.msonColumn]}>
+            <pre style={this.style.pre}>
+              {fixture.fileContent}
+            </pre>
           </div>
 
-          <div style={this.style.row}>
-            <div style={[this.style.column, this.style.msonColumn]}>
-              <pre style={this.style.pre}>
-                {fixture.fileContent}
-              </pre>
-            </div>
-
-            <div style={[this.style.column, this.style.previewColumn]}>
-              <AttributesKit.Attributes
-                element={fixture.dataStructure}
-                dataStructures={fixture.dataStructures}
-                collapseByDefault={false}
-                maxInheritanceDepth={undefined}
-                includedProperties="show"
-                inheritedProperties="show"
-              />
-            </div>
+          <div style={[this.style.column, this.style.previewColumn]}>
+            <AttributesKit.Attributes
+              element={fixture.dataStructure}
+              dataStructures={fixture.dataStructures}
+              collapseByDefault={false}
+              maxInheritanceDepth={undefined}
+              includedProperties="show"
+              inheritedProperties="show"
+            />
           </div>
         </div>
-      );
-    });
+      </div>
+    );
 
     return (
       <div className="playgrund-app">

@@ -2,9 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
-import ArrayItemDefaults from '../ArrayItemDefaults/ArrayItemDefaults';
 import ArrayItemIndex from '../ArrayItemIndex/ArrayItemIndex';
-import ArrayItemSamples from '../ArrayItemSamples/ArrayItemSamples';
 import Column from '../Column/Column';
 import Description from '../Description/Description';
 import Row from '../Row/Row';
@@ -12,9 +10,7 @@ import { Value } from '../Value/Value';
 
 import {
   containsStructuredElement,
-  hasDefault,
   hasDescription,
-  hasSamples,
   isArray,
   isLastArrayItem,
   isObject,

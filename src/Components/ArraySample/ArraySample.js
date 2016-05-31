@@ -81,4 +81,4 @@ class ArraySample extends React.Component {
   }
 }
 
-export {ArraySample};
+export { ArraySample };

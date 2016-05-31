@@ -4,7 +4,6 @@ import merge from 'lodash/merge';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
-import Sample from '../Sample/Sample';
 import SampleToggle from '../SampleToggle/SampleToggle';
 import { Value } from '../Value/Value';
 

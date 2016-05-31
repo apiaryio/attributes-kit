@@ -11,7 +11,9 @@ import SampleToggle from '../SampleToggle/SampleToggle';
 class ObjectSample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    sample: React.PropTypes.object,
     samples: React.PropTypes.array,
+    style: React.PropTypes.object,
   };
 
   static contextTypes = {

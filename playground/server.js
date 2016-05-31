@@ -1,11 +1,7 @@
-import express from 'express';
 import bodyparser from 'body-parser';
-
-import async from 'async';
-import path from 'path';
-import dedent from 'dedent';
-
+import express from 'express';
 import msonZoo from 'mson-zoo';
+import path from 'path';
 
 import parseMson from './parseMson';
 
@@ -20,9 +16,7 @@ app.post('/parse', (req, res) => {
   );
 });
 
-app.get('/fixtures', (req, res) => {
-  return res.json(msonZoo.samples);
-});
+app.get('/fixtures', (req, res) => res.json(msonZoo.samples));
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'views', 'index.html'));

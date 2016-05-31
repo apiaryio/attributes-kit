@@ -56,8 +56,6 @@ function processElement(refractElement) {
   }
 }
 
-
-
 function preprocessSamples(refractElement) {
   return processElement(refractElement);
 };
