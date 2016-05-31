@@ -7,7 +7,10 @@ describe('Preprocessor', () => {
       const refract = {
         element: 'string',
         attributes: {
-          default: 'hello, world!',
+          default: {
+            element: 'string',
+            content: 'hello, world!',
+          },
         },
       };
       const processed = preprocess(refract);
