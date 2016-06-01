@@ -40,7 +40,7 @@ export default {
         loaders: (function() {
           const loaders = ['babel-loader'];
           if (!isProduction) {
-            loaders.unshift('react-hot');
+            loaders.unshift('react-hot-loader/webpack');
           }
           return loaders;
         })()

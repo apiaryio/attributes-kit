@@ -1,4 +1,5 @@
 import React from 'react';
+import async from 'async';
 import ReactDomServer from 'react-dom/server';
 import msonZoo from 'mson-zoo';
 import jsBeautify from 'js-beautify';
@@ -15,30 +16,39 @@ if (!fs.existsSync(fixtureLocation)) {
   fs.mkdirSync(fixtureLocation);
 }
 
-msonZoo.samples.forEach((sample) => {
+async.forEachOfLimit(msonZoo.samples, 10, (sample, sampleIndex, next) => {
+  let header = '# Data Structures';
 
-  let header = dedent`
-    # Data Structures
-
-    ## MSON Struct
-  `;
-
-  parseMson(`${header}\n${sample.code}`, (err, result) => {
+  parseMson(`${header}\n\n${sample.fileContent}`, (err, dataStructureElements) => {
     if (err) {
-      console.error('Error during mson parse');
-      process.exit(1);
+      console.error('An error occured during parsing one of the samples from MSON Zoo.');
+      console.error(`Name of the file is ‘${sample.fileName}.’`);
+      return next(err);
+    }
+
+    if (!dataStructureElements || dataStructureElements.length === 0) {
+      console.error('An error occured during, no data structure elements were returned.');
+      console.error(`Name of the file is ‘${sample.fileName}.’`);
+      return next(new Error('No data structure elements were returned.'));
     }
 
     const renderedElement = React.createElement(AttributesKit.Attributes, {
-      element: result[0],
+      element: dataStructureElements[0],
       collapseByDefault: false,
-      maxInheritanceDepth: undefined,
       includedProperties: 'show',
       inheritedProperties: 'show',
     });
 
     let htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
 
-    fs.writeFileSync(path.join(fixtureLocation, sample.name), htmlString);
+    fs.writeFileSync(path.join(fixtureLocation, sample.fileName), htmlString);
+
+    next();
   });
+}, (err) => {
+  if (err) {
+    process.exit(1);
+  }
+
+  console.log('All good!')
 });

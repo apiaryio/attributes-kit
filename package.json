@@ -71,6 +71,7 @@
     "babel-loader": "^6.2.3",
     "babel-plugin-add-module-exports": "0.1.2",
     "babel-plugin-transform-class-properties": "^6.5.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
@@ -98,7 +99,7 @@
     "lodash": "4.6.1",
     "marked": "^0.3.5",
     "mocha": "^2.4.5",
-    "mson-zoo": "2.1.1",
+    "mson-zoo": "3.0.0-beta.1",
     "node-noop": "^1.0.0",
     "pluralize": "1.2.1",
     "protagonist": "^1.2.6",
@@ -124,6 +125,7 @@
       "react"
     ],
     "plugins": [
+      "transform-decorators-legacy",
       "transform-class-properties",
       "add-module-exports"
     ]
