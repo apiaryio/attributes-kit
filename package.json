@@ -143,5 +143,5 @@
       "browser": true,
       "mocha": true
     }
-  },
+  }
 }
