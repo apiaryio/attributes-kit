@@ -1,3 +1,5 @@
+import isUndefined from 'lodash/isUndefined';
+
 import React from 'react';
 import merge from 'lodash/merge';
 import Radium from 'radium';
@@ -61,7 +63,7 @@ class PrimitiveValue extends React.Component {
   }
 
   render() {
-    if (this.props.value) {
+    if (!isUndefined(this.props.value)) {
       return (
         <div style={this.style.base}>
           {this.props.value.toString()}

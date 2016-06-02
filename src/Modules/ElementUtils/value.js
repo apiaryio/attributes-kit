@@ -1,3 +1,5 @@
+import isUndefined from 'lodash/isUndefined';
+
 import { isObjectOrArray, isMember } from './type';
 
 function hasValue(element) {
@@ -9,7 +11,7 @@ function hasValue(element) {
     return false;
   }
 
-  if (!element.content) {
+  if (isUndefined(element.content)) {
     return false;
   }
 

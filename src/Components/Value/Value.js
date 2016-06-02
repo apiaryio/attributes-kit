@@ -1,3 +1,5 @@
+import isUndefined from 'lodash/isUndefined';
+
 import React from 'react';
 import isString from 'lodash/isString';
 
@@ -73,7 +75,7 @@ class Value extends React.Component {
           style={this.props.style}
         />
       );
-    } else if (this.props.element.content) {
+    } else if (!isUndefined(this.props.element.content)) {
       value = (
         <PrimitiveValue
           value={this.props.element.content}
@@ -81,7 +83,7 @@ class Value extends React.Component {
         />
       );
     } else {
-      value = false;
+      value = null;
     }
 
     return value;
