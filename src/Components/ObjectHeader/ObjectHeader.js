@@ -11,6 +11,7 @@ import SampleToggle from '../SampleToggle/SampleToggle';
 import {
   hasSamples,
   isArray,
+  isEnum,
 } from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
@@ -98,7 +99,7 @@ class ObjectHeader extends React.Component {
 
         <Column>
           {
-            isArray(this.props.parentElement) &&
+            (isArray(this.props.parentElement) || isEnum(this.props.parentElement)) &&
               <Type
                 type="object"
                 onClick={this.props.expandableCollapsible && this.props.onTypeClick}
