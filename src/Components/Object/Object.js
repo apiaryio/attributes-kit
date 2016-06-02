@@ -25,6 +25,7 @@ class ObjectComponent extends React.Component {
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
     collapseByDefault: React.PropTypes.bool,
+    isSample: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -55,7 +56,8 @@ class ObjectComponent extends React.Component {
       },
     };
 
-    if (!this.props.parentElement) {
+    // Only if it's a top-level element.
+    if (!this.props.parentElement && !this.props.isSample) {
       style.base.borderTop = `1px solid ${ALTERNATE_BORDER_COLOR}`;
     }
 

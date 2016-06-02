@@ -69,7 +69,7 @@ class ObjectSample extends React.Component {
           {
             this.state.isExpanded &&
               <Row>
-                <Value element={this.props.sample} />
+                <Value element={this.props.sample} isSample={true} />
               </Row>
           }
         </Column>

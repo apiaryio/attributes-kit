@@ -52,6 +52,10 @@ class ObjectDefaults extends React.Component {
         paddingLeft: '8px',
         paddingRight: '8px',
       },
+      valueContainer: {
+        paddingLeft: '14px',
+        paddingRight: '14px',
+      },
     };
 
     if (this.state.isExpanded) {
@@ -90,8 +94,8 @@ class ObjectDefaults extends React.Component {
 
           {
             this.state.isExpanded &&
-              <Row>
-                <Value element={defaultValue} />
+              <Row style={style.valueContainer}>
+                <Value element={defaultValue} isSample={true} />
               </Row>
           }
         </Column>

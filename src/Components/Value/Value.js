@@ -21,6 +21,7 @@ class Value extends React.Component {
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
+    isSample: React.PropTypes.bool,
   };
 
   render() {
@@ -38,6 +39,7 @@ class Value extends React.Component {
             expandableCollapsible={this.props.expandableCollapsible}
             parentElement={this.props.parentElement}
             style={this.props.style}
+            isSample={this.props.isSample}
           />
         );
       }
@@ -61,6 +63,7 @@ class Value extends React.Component {
           expandableCollapsible={this.props.expandableCollapsible}
           parentElement={this.props.parentElement}
           style={this.props.style}
+          isSample={this.props.isSample}
         />
       );
     } else if (
@@ -73,6 +76,7 @@ class Value extends React.Component {
           expandableCollapsible={this.props.expandableCollapsible}
           parentElement={this.props.parentElement}
           style={this.props.style}
+          isSample={this.props.isSample}
         />
       );
     } else if (!isUndefined(this.props.element.content)) {
