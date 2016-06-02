@@ -60,7 +60,9 @@ class KeyColumn extends React.Component {
 
     const keyDomNode = reactDom.findDOMNode(this.refs.key);
 
-    this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
+    if (keyDomNode) {
+      this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);
+    }
   };
 
   get style() {
