@@ -57,6 +57,9 @@
                     <div style="height:auto;width:8px;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;min-width:8px;max-width:8px;align-self:stretch;background-image:url([object Object]);background-size:8px 8px;background-repeat:no-repeat;background-position:center center;margin-left:16px;margin-right:8px;"></div>
                     <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;padding-left:8px;">
                         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
+                            <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
+                                <div style="width:auto;height:auto;margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;font-weight:600;background-color:#F0F1F4;border-radius:3px;padding-top:4px;padding-bottom:4px;padding-left:8px;padding-right:8px;font-family:Source Sans Pro;font-size:13px;line-height:13px;color:#5D6470;">false</div>
+                            </div>
                             <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:center;align-items:flex-start;">
                                 <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;line-height:13px;margin-bottom:0px;">boolean</div>
                             </div>

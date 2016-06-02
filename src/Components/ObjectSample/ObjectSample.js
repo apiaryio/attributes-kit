@@ -12,6 +12,7 @@ class ObjectSample extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     sample: React.PropTypes.object,
+    sampleIndex: React.PropTypes.number,
     samples: React.PropTypes.array,
     style: React.PropTypes.object,
   };
@@ -45,9 +46,17 @@ class ObjectSample extends React.Component {
         paddingLeft: '8px',
         paddingRight: '8px',
       },
+      valueContainer: {
+        paddingLeft: '14px',
+        paddingRight: '14px',
+      },
     };
 
-    style.header.borderBottom = `1px solid ${BORDER_COLOR}`;
+    const isLastObjectSample = this.props.sampleIndex === (this.props.samples.length - 1);
+
+    if (this.state.isExpanded || isLastObjectSample) {
+      style.header.borderBottom = `1px solid ${BORDER_COLOR}`;
+    }
 
     return merge(style, this.props.style || {});
   }
@@ -68,8 +77,8 @@ class ObjectSample extends React.Component {
 
           {
             this.state.isExpanded &&
-              <Row>
-                <Value element={this.props.sample} isSample={true} />
+              <Row style={this.style.valueContainer}>
+                <Value element={this.props.sample} isSample />
               </Row>
           }
         </Column>

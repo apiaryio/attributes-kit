@@ -42,6 +42,8 @@ class ObjectSamples extends React.Component {
               <ObjectSample
                 element={this.props.element}
                 sample={sample}
+                sampleIndex={index}
+                samples={samples}
                 key={index}
               />
             )

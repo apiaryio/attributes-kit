@@ -9,12 +9,14 @@ import { Value } from '../Value/Value';
 
 import {
   hasDefault,
+  isObject,
 } from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
 class ObjectDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
   };
 
@@ -42,7 +44,10 @@ class ObjectDefaults extends React.Component {
     const style = {
       root: {
         marginTop: '8px',
-        border: `1px solid ${BORDER_COLOR}`,
+        borderTop: `1px solid ${BORDER_COLOR}`,
+        borderLeft: `1px solid ${BORDER_COLOR}`,
+        borderRight: `1px solid ${BORDER_COLOR}`,
+        borderBottom: `1px solid ${BORDER_COLOR}`,
       },
       header: {
         borderBottom: 'none',
@@ -57,6 +62,10 @@ class ObjectDefaults extends React.Component {
         paddingRight: '14px',
       },
     };
+
+    if (this.props.parentElement && isObject(this.props.parentElement)) {
+      style.root.borderLeft = 'none';
+    }
 
     if (this.state.isExpanded) {
       style.header.borderBottom = `1px solid ${BORDER_COLOR}`;
@@ -95,7 +104,7 @@ class ObjectDefaults extends React.Component {
           {
             this.state.isExpanded &&
               <Row style={style.valueContainer}>
-                <Value element={defaultValue} isSample={true} />
+                <Value element={defaultValue} isSample />
               </Row>
           }
         </Column>

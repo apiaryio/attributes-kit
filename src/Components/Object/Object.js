@@ -125,12 +125,18 @@ class ObjectComponent extends React.Component {
       <Row>
         {
           doesHaveSamples &&
-            <ObjectSamples element={this.props.element} />
+            <ObjectSamples
+              element={this.props.element}
+              parentElement={this.props.parentElement}
+            />
         }
 
         {
           doesHaveDefaults &&
-            <ObjectDefaults element={this.props.element} />
+            <ObjectDefaults
+              element={this.props.element}
+              parentElement={this.props.parentElement}
+            />
         }
       </Row>
     );
