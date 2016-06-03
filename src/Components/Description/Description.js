@@ -48,7 +48,7 @@ class Description extends React.Component {
 
   render() {
     const { DESCRIPTION_COLOR } = this.context.theme;
-    const description = this.getDescription(this.props.element);
+    const description = Description.getDescription(this.props.element);
 
     if (!description) {
       return false;
