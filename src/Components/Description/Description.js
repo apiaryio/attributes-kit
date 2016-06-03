@@ -1,7 +1,9 @@
-import React from 'react';
-import merge from 'lodash/merge';
+import isObject from 'lodash/isObject';
+import isString from 'lodash/isString';
 import marked from 'marked';
+import merge from 'lodash/merge';
 import Radium, { Style } from 'radium';
+import React from 'react';
 
 @Radium
 class Description extends React.Component {
@@ -12,6 +14,20 @@ class Description extends React.Component {
 
   static contextTypes = {
     theme: React.PropTypes.object,
+  };
+
+  static getDescription(element) {
+    if (element.meta && element.meta.description) {
+      if (isString(element.meta.description)) {
+        return element.meta.description;
+      }
+
+      if (isObject(element.meta.description)) {
+        return element.meta.description.content;
+      }
+    }
+
+    return null;
   };
 
   get style() {
@@ -32,14 +48,7 @@ class Description extends React.Component {
 
   render() {
     const { DESCRIPTION_COLOR } = this.context.theme;
-
-    let description = null;
-
-    if (this.props.element.meta) {
-      if (this.props.element.meta.description) {
-        description = this.props.element.meta.description;
-      }
-    }
+    const description = this.getDescription(this.props.element);
 
     if (!description) {
       return false;
