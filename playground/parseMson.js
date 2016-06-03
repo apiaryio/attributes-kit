@@ -8,14 +8,12 @@ export default function parseMson(mson, cb) {
       return cb(err);
     }
 
-    dataStructureElements = parseResult.content[0].content;
-    dataStructureElements = dataStructureElements.map((element) => {
-      if (element.content && element.content[0] && element.content[0].content) {
-        return element.content[0].content[0];
-      }
 
-      return null;
-    });
+    dataStructureElements = parseResult.content[0].content[0].content;
+
+    dataStructureElements = dataStructureElements.map((element) =>
+      element.content[0]
+    );
 
     return cb(null, dataStructureElements);
   });
