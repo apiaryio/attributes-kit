@@ -1,3 +1,4 @@
+import isArray from 'lodash/isArray';
 import protagonist from 'protagonist';
 
 export default function parseMson(mson, cb) {
@@ -16,6 +17,10 @@ export default function parseMson(mson, cb) {
       parseResult.content[0].content[0].content
     ) {
       dataStructureElements = parseResult.content[0].content[0].content;
+    }
+
+    if (!isArray(dataStructureElements)) {
+      return cb(null, []);
     }
 
     dataStructureElements = dataStructureElements.map((element) =>
