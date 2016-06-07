@@ -7,7 +7,6 @@ import path from 'path';
 import assert from 'assert';
 import dedent from 'dedent';
 
-
 import parseMson from '../playground/parseMson';
 import { Attributes } from '../dist/attributes-kit-server';
 
@@ -17,21 +16,17 @@ describe('Comparision with reference fixtures', () => {
     let renderedElement = null;
     let htmlString = null;
 
-    describe(`If I render ${sample.name} on the server`, (done) => {
+    describe(`If I render ${sample.fileName} on the server`, (done) => {
+      let header = '# Data Structures';
 
-      let header = dedent`
-        # Data Structures
-
-        ## MSON Struct
-      `;
-
-      parseMson(`${header}\n${sample.code}`, (err, result) => {
+      parseMson(`${header}\n${sample.fileContent}`, (err, dataStructureElements) => {
         if (err) {
           return done(err);
         }
 
         renderedElement = React.createElement(Attributes, {
-          element: result[0],
+          element: dataStructureElements[0],
+          dataStructures: dataStructureElements,
           collapseByDefault: false,
           maxInheritanceDepth: undefined,
           includedProperties: 'show',
@@ -42,7 +37,10 @@ describe('Comparision with reference fixtures', () => {
       });
 
       describe('And I compare that with the reference fixture', () => {
-        const reference = fs.readFileSync(path.join('./fixtures', `${sample.name}`));
+        const reference = fs.readFileSync(
+          path.join('./fixtures', `${sample.fileName}`),
+          'utf8'
+        );
 
         it('They should be equal', () => {
           assert.equal(htmlString, reference);
