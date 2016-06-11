@@ -65,7 +65,7 @@
   "devDependencies": {
     "abagnale": "^1.1.1",
     "async": "^1.4.2",
-    "babel-cli": "^6.7.7",
+    "babel-cli": "^6.9.0",
     "babel-core": "^6.7.7",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.3",
