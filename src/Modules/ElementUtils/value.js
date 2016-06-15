@@ -16,11 +16,11 @@ function hasValue(element) {
   }
 
   if (isMember(element.element)) {
-    if (element.content.value && isObjectOrArray(element.content.value)) {
+    if (!isUndefined(element.content.value) && isObjectOrArray(element.content.value)) {
       return false;
     }
 
-    if (!element.content.value.content) {
+    if (isUndefined(element.content.value.content)) {
       return false;
     }
   }
