@@ -1,7 +1,6 @@
 import isUndefined from 'lodash/isUndefined';
 
 import React from 'react';
-import isString from 'lodash/isString';
 
 import {
   isArray,
@@ -44,16 +43,12 @@ class Value extends React.Component {
         );
       }
 
-      if (isString(this.props.element.content.value.content)) {
-        return (
-          <PrimitiveValue
-            value={this.props.element.content.value.content}
-            style={this.props.style}
-          />
-        );
-      }
-
-      return null;
+      return (
+        <PrimitiveValue
+          value={this.props.element.content.value.content}
+          style={this.props.style}
+        />
+      );
     }
 
     if (isStructured(this.props.element)) {
