@@ -1,18 +1,9 @@
 import merge from 'lodash/merge';
 import path from 'path';
-import fs from 'fs';
+import nodeExternals from 'webpack-node-externals';
 import webpack from 'webpack';
 
 import webpackConfig from './base';
-
-let nodeModules = {};
-fs.readdirSync('node_modules')
-  .filter((x) => {
-    return ['.bin'].indexOf(x) === -1;
-  })
-  .forEach((mod) => {
-    nodeModules[mod] = 'commonjs ' + mod;
-  });
 
 export default merge({}, webpackConfig, {
   target: 'node',
@@ -24,7 +15,7 @@ export default merge({}, webpackConfig, {
   entry: {
     'attributes-kit-server': path.join(__dirname, '../src/index'),
   },
-  externals: nodeModules,
+  externals: [nodeExternals()],
   plugins: [
     new webpack.NormalModuleReplacementPlugin(/\.(svg|css|styl)$/, 'node-noop'),
     new webpack.IgnorePlugin(/\.(svg|css|styl)$/)
