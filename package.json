@@ -103,7 +103,7 @@
     "node-noop": "^1.0.0",
     "pluralize": "1.2.1",
     "protagonist": "^1.2.6",
-    "radium": "^0.16.6",
+    "radium": "^0.18.1",
     "react": "^15.0.2",
     "react-ace": "^3.4.1",
     "react-addons-test-utils": "^15.0.2",
