@@ -92,7 +92,7 @@
     "fbemitter": "^2.0.2",
     "file-loader": "^0.8.4",
     "flux": "^2.1.1",
-    "history": "1.14.0",
+    "history": "4.2.0",
     "in-publish": "^2.0.0",
     "js-beautify": "^1.5.10",
     "json-formatter-js": "^0.3.0",
