@@ -96,7 +96,7 @@
     "in-publish": "^2.0.0",
     "js-beautify": "^1.5.10",
     "json-formatter-js": "^0.3.0",
-    "lodash": "4.6.1",
+    "lodash": "4.16.4",
     "marked": "^0.3.5",
     "mocha": "^2.4.5",
     "mson-zoo": "3.0.0-beta.1",
