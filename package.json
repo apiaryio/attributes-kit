@@ -64,7 +64,7 @@
   "homepage": "https://github.com/apiaryio/attributes-kit#readme",
   "devDependencies": {
     "abagnale": "^1.1.1",
-    "async": "^1.4.2",
+    "async": "^2.1.2",
     "babel-cli": "^6.7.7",
     "babel-core": "^6.7.7",
     "babel-eslint": "^5.0.0",
