@@ -5,6 +5,10 @@ import merge from 'lodash/merge';
 import Radium, { Style } from 'radium';
 import React from 'react';
 
+marked.setOptions({
+  sanitize: true,
+});
+
 @Radium
 class Description extends React.Component {
   static propTypes = {
