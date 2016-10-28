@@ -109,7 +109,7 @@
     "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-hot-loader": "^3.0.0-beta.1",
-    "react-router": "^2.4.0",
+    "react-router": "^3.0.0",
     "shell-executor": "^0.3.2",
     "sift": "^3.2.1",
     "style-loader": "^0.13.0",
