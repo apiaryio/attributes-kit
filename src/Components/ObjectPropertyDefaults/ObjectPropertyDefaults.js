@@ -2,12 +2,6 @@ import React from 'react';
 import Column from '../Column/Column';
 import Sample from '../Sample/Sample';
 
-import {
-  isObject,
-  isArray,
-  isEnum,
-} from '../../Modules/ElementUtils/ElementUtils';
-
 class ObjectPropertySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
