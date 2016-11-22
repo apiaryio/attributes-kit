@@ -55,6 +55,7 @@ A list of supported/unsupported features according to the [MSON Specification](h
 | :white_check_mark: | [3.5.3 Type Attribute → Required](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
 | :white_check_mark: | [3.5.3 Type Attribute → Optional](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
 | :red_circle: | [3.5.3 Type Attribute → Fixed](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
+| :red_circle: | [3.5.3 Type Attribute → Fixed-Type](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
 | :red_circle: | [3.5.3 Type Attribute → Nullable](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
 | :white_check_mark: | [3.5.3 Type Attribute → Sample](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
 | :white_check_mark: | [3.5.3 Type Attribute → Default](https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md#353-type-attribute) |
