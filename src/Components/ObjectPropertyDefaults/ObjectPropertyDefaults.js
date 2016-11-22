@@ -38,10 +38,6 @@ class ObjectPropertySamples extends React.Component {
       return false;
     }
 
-    if (isObject(value.element) || isArray(value.element) || isEnum(value.element)) {
-      return false;
-    }
-
     return (
       <Column>
         <Sample
