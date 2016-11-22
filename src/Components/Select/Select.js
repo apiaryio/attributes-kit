@@ -31,7 +31,7 @@ class Select extends React.Component {
     const style = {
       column: {
         width: '2px',
-        backgroundColor: '#BDC4CB',
+        backgroundColor: this.context.theme.SELECT_LINE_COLOR,
       },
     };
 

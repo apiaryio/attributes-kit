@@ -17,6 +17,10 @@ class SelectOption extends React.Component {
     style: React.PropTypes.object,
   };
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  };
+
   get style() {
     const style = {
       base: {
@@ -36,14 +40,14 @@ class SelectOption extends React.Component {
         display: 'block',
         width: '100%',
         height: '1px',
-        backgroundColor: '#E8EBEE',
+        backgroundColor: this.context.theme.BORDER_COLOR,
       },
       tag: {
         width: '20px',
         height: '20px',
         fontSize: '12px',
         display: 'block',
-        backgroundColor: 'white',
+        backgroundColor: this.context.theme.BACKGROUND_COLOR,
         fontFamily: 'Source Code Pro',
         fontWeight: '500',
         textAlign: 'center',
