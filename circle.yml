@@ -2,20 +2,6 @@ general:
   artifacts:
     - "dist"
 
-dependencies:
-  override:
-    - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test && sudo apt-get update
-    - sudo apt-get install -y gcc-4.9 g++-4.9
-    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.6 10
-    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.6 10
-    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
-    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
-    - case $CIRCLE_NODE_INDEX in 0) nvm install 0.10.48 ;; esac
-    - case $CIRCLE_NODE_INDEX in 0) nvm install 0.12.17 ;; esac
-    - case $CIRCLE_NODE_INDEX in 1) nvm install 4.6.1 ;; esac
-    - case $CIRCLE_NODE_INDEX in 2) nvm install 6.9.1 ;; esac
-
-test:
-  override:
-    - case $CIRCLE_NODE_INDEX in 0) sh ./scripts/runCircleCiTestsInContainer0.sh ;; 1) sh ./scripts/runCircleCiTestsInContainer1.sh ;; 2) sh ./scripts/runCircleCiTestsInContainer2.sh ;; esac:
-        parallel: true
+machine:
+  node:
+    version: 5.7.0

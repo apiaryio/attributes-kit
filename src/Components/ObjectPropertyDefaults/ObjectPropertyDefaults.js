@@ -2,12 +2,6 @@ import React from 'react';
 import Column from '../Column/Column';
 import Sample from '../Sample/Sample';
 
-import {
-  isObject,
-  isArray,
-  isEnum,
-} from '../../Modules/ElementUtils/ElementUtils';
-
 class ObjectPropertySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
@@ -35,10 +29,6 @@ class ObjectPropertySamples extends React.Component {
     const value = this.props.element.content.value;
 
     if (!value || !value.attributes || !value.attributes.default) {
-      return false;
-    }
-
-    if (isObject(value.element) || isArray(value.element) || isEnum(value.element)) {
       return false;
     }
 
