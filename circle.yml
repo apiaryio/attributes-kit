@@ -5,7 +5,3 @@ general:
 machine:
   node:
     version: 5.7.0
-
-dependencies:
-  override:
-    - npm install --dev
