@@ -33,6 +33,7 @@ class Key extends React.Component {
         lineHeight: '13px',
         color: KEY_COLOR,
         userSelect: 'none',
+        wordBreak: 'keep-all',
         wordWrap: 'normal',
       },
     };
