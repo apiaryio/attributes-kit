@@ -1,4 +1,6 @@
 const THEME = {
+  BACKGROUND_COLOR: 'white',
+
   BORDER_COLOR: '#E8EBEE',
   ALTERNATE_BORDER_COLOR: '#D2D8DE',
 
@@ -35,6 +37,10 @@ const THEME = {
 
   ROW_PADDING_TOP: '14px',
   ROW_PADDING_BOTTOM: '14px',
+
+  /* Select (One Of) */
+  SELECT_LINE_COLOR: '#BDC4CB',
+
 };
 
 export default THEME;
