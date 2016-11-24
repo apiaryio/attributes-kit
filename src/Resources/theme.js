@@ -40,6 +40,7 @@ const THEME = {
 
   /* Select (One Of) */
   SELECT_LINE_COLOR: '#BDC4CB',
+  SELECT_TEXT_COLOR: 'black',
 
 };
 

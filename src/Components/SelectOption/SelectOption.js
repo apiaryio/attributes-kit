@@ -48,6 +48,7 @@ class SelectOption extends React.Component {
         fontSize: '12px',
         display: 'block',
         backgroundColor: this.context.theme.BACKGROUND_COLOR,
+        color: this.context.theme.SELECT_TEXT_COLOR,
         fontFamily: 'Source Code Pro',
         fontWeight: '500',
         textAlign: 'center',
