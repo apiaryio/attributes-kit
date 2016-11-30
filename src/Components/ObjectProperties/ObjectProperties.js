@@ -46,10 +46,16 @@ class ObjectProperties extends React.Component {
     super(props);
 
     this.state = {
-      keyWidth: null,
+      keyWidth: this.props.keyWidth || null,
     };
 
     this.keyWidthsIndex = {};
+  };
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.keyWidth) {
+      this.setState({keyWidth: nextProps.keyWidth});
+    }
   };
 
   componentDidMount = () => {
@@ -73,6 +79,8 @@ class ObjectProperties extends React.Component {
           index={index}
           element={element}
           parentElement={this.props.element}
+          reportKeyWidth={this.reportKeyWidth}
+          keyWidth={this.state.keyWidth}
         />
       );
     } else if (isStructured(element)) {
@@ -133,6 +141,10 @@ class ObjectProperties extends React.Component {
   }
 
   reportKeyWidth = (keyIdentifier, keyWidth) => {
+    if (this.props.reportKeyWidth) {
+      return this.props.reportKeyWidth(keyIdentifier, keyWidth);
+    }
+
     this.keyWidthsIndex[keyIdentifier] = keyWidth;
 
     const keyWidths = values(this.keyWidthsIndex);

@@ -15,6 +15,8 @@ class SelectOption extends React.Component {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
+    keyWidth: React.PropTypes.number,
+    reportKeyWidth: React.PropTypes.func,
   };
 
   static contextTypes = {
@@ -73,7 +75,11 @@ class SelectOption extends React.Component {
     return (
       <div style={this.style.base}>
         <div style={this.style.content}>
-          <ObjectProperties element={this.props.element} />
+          <ObjectProperties
+            element={this.props.element}
+            reportKeyWidth={this.props.reportKeyWidth}
+            keyWidth={this.props.keyWidth}
+          />
         </div>
 
         <div style={this.style.separator}>
