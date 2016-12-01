@@ -10,9 +10,9 @@ function containsSelectElement(element) {
     throw new MissingCacheObjectException(element);
   }
 
-  return some(element.content, (nestedElement) => {
-    return nestedElement.cache.isSelect;
-  });
+  return some(element.content, (nestedElement) =>
+    nestedElement.cache.isSelect
+  );
 }
 
 function containsStructuredElement(element) {
