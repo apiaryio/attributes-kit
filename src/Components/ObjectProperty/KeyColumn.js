@@ -10,6 +10,7 @@ import Requirement from '../Requirement/Requirement';
 import {
   isStructured,
   containsStructuredElement,
+  containsSelectElement,
 } from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
@@ -75,9 +76,17 @@ class KeyColumn extends React.Component {
     } else {
       if (containsStructuredElement(this.props.parentElement)) {
         if (this.props.element.meta._nestedLevel === 0) {
-          style.base.marginLeft = '20px';
+          if (containsSelectElement(this.props.parentElement)) {
+            style.base.marginLeft = '42px';
+          } else {
+            style.base.marginLeft = '20px';
+          }
         } else {
-          style.base.marginLeft = '30px';
+          if (containsSelectElement(this.props.parentElement)) {
+            style.base.marginLeft = '42px';
+          } else {
+            style.base.marginLeft = '30px';
+          }
         }
       } else {
         style.base.marginLeft = '30px';

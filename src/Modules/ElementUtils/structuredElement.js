@@ -1,4 +1,19 @@
+import some from 'lodash/some';
 import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
+
+function containsSelectElement(element) {
+  if (!element || !element.content) {
+    return false;
+  }
+
+  if (!element.cache) {
+    throw new MissingCacheObjectException(element);
+  }
+
+  return some(element.content, (nestedElement) =>
+    nestedElement.cache.isSelect
+  );
+}
 
 function containsStructuredElement(element) {
   if (!element) {
@@ -25,6 +40,7 @@ function isStructured(element) {
 }
 
 export {
+  containsSelectElement,
   containsStructuredElement,
   isStructured,
 };

@@ -12,13 +12,14 @@ import { TypeColumn } from './TypeColumn';
 import { Value } from '../Value/Value';
 
 import {
-  isStructured,
+  containsSelectElement,
   containsStructuredElement,
   hasDescription,
   isArray,
   isArrayOrEnumOrSelect,
   isLastArrayItem,
   isObject,
+  isStructured,
 } from '../../Modules/ElementUtils/ElementUtils';
 
 @Radium
@@ -146,6 +147,10 @@ class StructuredObjectProperty extends React.Component {
       };
     } else {
       style.firstRow.paddingBottom = '14px';
+    }
+
+    if (containsSelectElement(this.props.parentElement)) {
+      style.base.paddingLeft = '21px';
     }
 
     return merge(style, this.props.style || {});

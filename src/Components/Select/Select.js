@@ -13,10 +13,13 @@ class Select extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
+    keyWidth: React.PropTypes.number,
+    reportKeyWidth: React.PropTypes.func,
   };
 
   static contextTypes = {
     theme: React.PropTypes.object,
+    eventEmitter: React.PropTypes.object,
   };
 
   constructor(props) {
@@ -25,6 +28,8 @@ class Select extends React.Component {
     this.state = {
       isExpanded: true,
     };
+
+    this.keyWidthsIndex = {};
   };
 
   get style() {
@@ -51,6 +56,8 @@ class Select extends React.Component {
         index={index}
         element={element}
         parentElement={this.props.element}
+        reportKeyWidth={this.props.reportKeyWidth}
+        keyWidth={this.props.keyWidth}
       />
     );
   };

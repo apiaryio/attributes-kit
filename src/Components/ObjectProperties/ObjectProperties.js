@@ -24,8 +24,10 @@ import {
 @Radium
 class ObjectProperties extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
     collapseByDefault: React.PropTypes.bool,
+    element: React.PropTypes.object,
+    keyWidth: React.PropTypes.number,
+    reportKeyWidth: React.PropTypes.func,
     style: React.PropTypes.object,
   };
 
@@ -46,7 +48,7 @@ class ObjectProperties extends React.Component {
     super(props);
 
     this.state = {
-      keyWidth: null,
+      keyWidth: this.props.keyWidth || null,
     };
 
     this.keyWidthsIndex = {};
@@ -55,6 +57,12 @@ class ObjectProperties extends React.Component {
   componentDidMount = () => {
     // Everytime the `alignKeys` event is emitted, we'll re-align the keys.
     this.subscription = this.context.eventEmitter.addListener('alignKeys', this.alignKeys);
+  };
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.keyWidth) {
+      this.setState({ keyWidth: nextProps.keyWidth });
+    }
   };
 
   componentWillUnmount = () => {
@@ -73,6 +81,8 @@ class ObjectProperties extends React.Component {
           index={index}
           element={element}
           parentElement={this.props.element}
+          reportKeyWidth={this.reportKeyWidth}
+          keyWidth={this.state.keyWidth}
         />
       );
     } else if (isStructured(element)) {
@@ -133,6 +143,11 @@ class ObjectProperties extends React.Component {
   }
 
   reportKeyWidth = (keyIdentifier, keyWidth) => {
+    if (this.props.reportKeyWidth) {
+      this.props.reportKeyWidth(keyIdentifier, keyWidth);
+      return;
+    }
+
     this.keyWidthsIndex[keyIdentifier] = keyWidth;
 
     const keyWidths = values(this.keyWidthsIndex);
@@ -142,6 +157,8 @@ class ObjectProperties extends React.Component {
         keyWidth: max(keyWidths),
       });
     }
+
+    return;
   };
 
   groupElements() {
