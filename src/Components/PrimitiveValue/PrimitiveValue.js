@@ -63,10 +63,16 @@ class PrimitiveValue extends React.Component {
   }
 
   render() {
+    if (this.props.value === null) {
+      return null;
+    }
+
     if (!isUndefined(this.props.value)) {
       return (
         <div style={this.style.base}>
-          {this.props.value.toString()}
+          {
+            this.props.value.toString()
+          }
         </div>
       );
     }
