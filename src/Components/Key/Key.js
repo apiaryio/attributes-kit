@@ -3,6 +3,8 @@ import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
 
+import { DEFAULT_FONT, MONO_FONT } from '../../Resources/fonts';
+
 import {
   containsStructuredElement,
 } from '../../Modules/ElementUtils/ElementUtils';
@@ -27,12 +29,11 @@ class Key extends React.Component {
       base: {
         width: '100%',
         height: 'auto',
-        fontFamily: 'Source Code Pro',
+        fontFamily: MONO_FONT,
         fontWeight: '500',
         fontSize: '13px',
         lineHeight: '13px',
         color: KEY_COLOR,
-        userSelect: 'none',
         wordBreak: 'keep-all',
         wordWrap: 'normal',
       },

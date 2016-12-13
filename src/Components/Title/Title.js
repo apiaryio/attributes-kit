@@ -3,6 +3,8 @@ import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
 
+import { DEFAULT_FONT } from '../../Resources/fonts';
+
 @Radium
 class Title extends React.Component {
   static propTypes = {
@@ -16,7 +18,7 @@ class Title extends React.Component {
         paddingBottom: '10px',
       },
       text: {
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT,
         fontSize: '18px',
         color: '#30343F',
       },

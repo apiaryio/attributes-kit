@@ -7,6 +7,8 @@ import {
   findElement,
 } from '../../Modules/ElementUtils/ElementUtils';
 
+import { DEFAULT_FONT } from '../../Resources/fonts';
+
 class ObjectPropertiesGroup extends React.Component {
   static propTypes = {
     children: React.PropTypes.any,
@@ -36,7 +38,7 @@ class ObjectPropertiesGroup extends React.Component {
       header: {
         borderBottom: '1px solid #E8EBEE',
         color: 'rgba(138, 147, 163, 0.75)',
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT,
         fontSize: '12px',
         fontStyle: 'italic',
         paddingBottom: '4px',
@@ -52,7 +54,7 @@ class ObjectPropertiesGroup extends React.Component {
       placeholder: {
         paddingBottom: '4px',
         paddingTop: '4px',
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT,
         fontSize: '12px',
         color: '#8A93A3',
         fontStyle: 'italic',

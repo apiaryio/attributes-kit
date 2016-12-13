@@ -9,6 +9,8 @@ import {
   isMember,
 } from '../../Modules/ElementUtils/ElementUtils';
 
+import { DEFAULT_FONT } from '../../Resources/fonts';
+
 @Radium
 class PrimitiveValue extends React.Component {
   static propTypes = {
@@ -52,7 +54,7 @@ class PrimitiveValue extends React.Component {
         paddingBottom: VALUE_PADDING_BOTTOM,
         paddingLeft: VALUE_PADDING_LEFT,
         paddingRight: VALUE_PADDING_RIGHT,
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT,
         fontSize: '13px',
         lineHeight: '13px',
         color: VALUE_COLOR,
