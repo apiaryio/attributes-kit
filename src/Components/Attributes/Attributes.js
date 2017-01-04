@@ -108,14 +108,19 @@ class Attributes extends React.Component {
     // First, let's build index of the data structure elements in the following
     // format—`[dataStructure.meta.id]: dataStructureElement`, where
     // `dataStructure.meta.id` is name of the data structure.
-    const dataStructuresIndex = reduce(dataStructures, (result, dataStructure) => {
-      result[dataStructure.meta.id] = dataStructure;
-      return result;
-    }, {});
+    const dataStructuresIndex = props.dataStructuresIndex || (
+      reduce(dataStructures, (result, dataStructure) => {
+        result[dataStructure.meta.id] = dataStructure;
+        return result;
+      }, {})
+    );
 
-    const dereferencedDataStructures = map(dataStructures, (dataStructure) =>
-      eidolon.dereference(
-        cloneDeep(dataStructure), dataStructuresIndex
+
+    const dereferencedDataStructures = props.dereferencedDataStructures || (
+      map(dataStructures, (dataStructure) =>
+        eidolon.dereference(
+          cloneDeep(dataStructure), dataStructuresIndex
+        )
       )
     );
 
