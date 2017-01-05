@@ -2,6 +2,8 @@ import React from 'react';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
+
 @Radium
 class Error extends React.Component {
   static propTypes = {
@@ -25,7 +27,7 @@ class Error extends React.Component {
         boxShadow: 'rgb(240, 241, 244) 0px 1px 1px 0px',
       },
       title: {
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '18px',
         lineHeight: '150%',
         fontWeight: '600',
@@ -33,7 +35,7 @@ class Error extends React.Component {
         color: '#DD1711',
       },
       text: {
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '16px',
         lineHeight: '125%',
       },

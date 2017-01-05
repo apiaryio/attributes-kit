@@ -5,6 +5,8 @@ import merge from 'lodash/merge';
 import Radium, { Style } from 'radium';
 import React from 'react';
 
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
+
 marked.setOptions({
   sanitize: true,
 });
@@ -39,7 +41,7 @@ class Description extends React.Component {
 
     const style = {
       base: {
-        fontFamily: 'Source Sans Pro',
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '13px',
         color: DESCRIPTION_COLOR,
         lineHeight: '150%',
@@ -67,7 +69,7 @@ class Description extends React.Component {
           rules={{
             p: {
               marginBottom: '4px',
-              fontFamily: 'Source Sans Pro',
+              fontFamily: DEFAULT_FONT_FAMILY,
               fontSize: '14px',
               color: DESCRIPTION_COLOR,
               lineHeight: '21px',

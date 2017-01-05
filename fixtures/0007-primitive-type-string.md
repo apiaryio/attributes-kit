@@ -1,9 +1,9 @@
 <div class="attributesKit">
     <div style="padding-bottom:10px;">
-        <h1 style="font-family:Source Sans Pro;font-size:18px;color:#30343F;">My String</h1></div>
+        <h1 style="font-family:&#x27;Source Sans Pro&#x27;, -apple-system, Helvetica, sans-serif;font-size:18px;color:#30343F;">My String</h1></div>
     <div style="height:auto;width:100%;display:flex;flex-direction:column;flex-wrap:no-wrap;justify-content:flex-start;align-items:flex-start;">
         <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;border-bottom:1px solid #E8EBEE;padding-bottom:8px;padding-left:0px;padding-top:4px;">
-            <div style="width:100%;font-family:Source Code Pro;font-weight:regular;font-size:13px;color:#8A93A3;line-height:13px;">My String</div>
+            <div style="width:100%;font-family:&#x27;Source Code Pro&#x27;, monospace;font-weight:regular;font-size:13px;color:#8A93A3;line-height:13px;">My String</div>
         </div>
     </div>
 </div>
