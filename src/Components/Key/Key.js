@@ -3,7 +3,7 @@ import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
 
-import { MONO_FONT } from '../../Resources/fonts';
+import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 
 import {
   containsStructuredElement,
@@ -29,7 +29,7 @@ class Key extends React.Component {
       base: {
         width: '100%',
         height: 'auto',
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontWeight: '500',
         fontSize: '13px',
         lineHeight: '13px',

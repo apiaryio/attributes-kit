@@ -8,7 +8,7 @@ import {
   findElement,
 } from '../../Modules/ElementUtils/ElementUtils';
 
-import { MONO_FONT } from '../../Resources/fonts';
+import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 
 class Type extends React.Component {
   static propTypes = {
@@ -31,7 +31,7 @@ class Type extends React.Component {
     const style = {
       type: {
         width: '100%',
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontWeight: 'regular',
         fontSize: '13px',
         color: TYPE_COLOR,
@@ -39,7 +39,7 @@ class Type extends React.Component {
       },
       reference: {
         width: '100%',
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontWeight: 'regular',
         fontSize: '13px',
         color: TYPE_COLOR,

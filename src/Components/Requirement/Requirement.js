@@ -1,7 +1,7 @@
 import React from 'react';
 import radium from 'radium';
 
-import { DEFAULT_FONT } from '../../Resources/fonts';
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 class Requirement extends React.Component {
   static propTypes = {
@@ -25,7 +25,7 @@ class Requirement extends React.Component {
       base: {
         width: '100%',
         height: 'auto',
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '12px',
         color: '#A7AAB2',
       },

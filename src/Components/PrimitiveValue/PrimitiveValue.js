@@ -9,7 +9,7 @@ import {
   isMember,
 } from '../../Modules/ElementUtils/ElementUtils';
 
-import { DEFAULT_FONT } from '../../Resources/fonts';
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 @Radium
 class PrimitiveValue extends React.Component {
@@ -54,7 +54,7 @@ class PrimitiveValue extends React.Component {
         paddingBottom: VALUE_PADDING_BOTTOM,
         paddingLeft: VALUE_PADDING_LEFT,
         paddingRight: VALUE_PADDING_RIGHT,
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '13px',
         lineHeight: '13px',
         color: VALUE_COLOR,

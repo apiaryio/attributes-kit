@@ -8,7 +8,7 @@ import {
   findElement,
 } from '../../Modules/ElementUtils/ElementUtils';
 
-import { DEFAULT_FONT } from '../../Resources/fonts';
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 @Radium
 class InheritanceTree extends React.Component {
@@ -60,7 +60,7 @@ class InheritanceTree extends React.Component {
       node: {
         listStyleType: 'none',
         display: 'flex',
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontWeight: '600',
         fontSize: '12px',
         color: INHERITANCE_TREE_NODE_COLOR,
@@ -79,7 +79,7 @@ class InheritanceTree extends React.Component {
         paddingLeft: '22px',
       },
       currentNode: {
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontWeight: 'regular',
         fontSize: '12px',
         color: INHERITANCE_TREE_CURRENT_NODE_COLOR,

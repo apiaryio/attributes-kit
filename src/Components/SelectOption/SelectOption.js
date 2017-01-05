@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 
 import ObjectProperties from '../ObjectProperties/ObjectProperties';
 
-import { MONO_FONT } from '../../Resources/fonts';
+import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 
 @Radium
 class SelectOption extends React.Component {
@@ -53,7 +53,7 @@ class SelectOption extends React.Component {
         display: 'block',
         backgroundColor: this.context.theme.BACKGROUND_COLOR,
         color: this.context.theme.SELECT_TEXT_COLOR,
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontWeight: '500',
         textAlign: 'center',
         lineHeight: '20px',

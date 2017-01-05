@@ -5,7 +5,7 @@ import merge from 'lodash/merge';
 import Column from '../Column/Column';
 import Row from '../Row/Row';
 
-import { DEFAULT_FONT } from '../../Resources/fonts';
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 @Radium
 class SampleToggle extends React.Component {
@@ -43,7 +43,7 @@ class SampleToggle extends React.Component {
         userSelect: 'none',
         lineHeight: '12px',
         letterSpacing: '0.85px',
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '12px',
         color: SAMPLE_TOGGLE_TITLE_COLOR,
         textTransform: 'uppercase',

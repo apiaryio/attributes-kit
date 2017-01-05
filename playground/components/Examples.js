@@ -4,7 +4,7 @@ import React from 'react';
 import Radium from 'radium';
 import request from 'superagent';
 
-import { DEFAULT_FONT, MONO_FONT } from '../../src/Resources/fonts';
+import { DEFAULT_FONT_FAMILY, MONO_FONT_FAMILY } from '../../src/Constants/fonts';
 
 import AttributesKit from '../../src';
 
@@ -37,7 +37,7 @@ class Examples extends React.Component {
         border: '1px solid #333',
         paddingBottom: '20px',
         margin: '20px',
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
       },
       row: {
         display: 'flex',
@@ -54,7 +54,7 @@ class Examples extends React.Component {
         paddingBottom: '10px',
       },
       titleText: {
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontSize: '16px',
       },
       column: {
@@ -77,7 +77,7 @@ class Examples extends React.Component {
         maxWidth: '100%',
         minWidth: '100%',
         overflow: 'scroll',
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontWeight: '400',
       },
     };

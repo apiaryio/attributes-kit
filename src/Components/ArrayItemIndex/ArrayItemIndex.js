@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
-import { MONO_FONT } from '../../Resources/fonts';
+import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 
 @Radium
 class ArrayItemIndex extends React.Component {
@@ -17,7 +17,7 @@ class ArrayItemIndex extends React.Component {
         position: 'absolute',
         top: '8px',
         right: '8px',
-        fontFamily: MONO_FONT,
+        fontFamily: MONO_FONT_FAMILY,
         fontSize: '13px',
         color: '#8A93A3',
         opacity: '0.56',

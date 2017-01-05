@@ -7,7 +7,7 @@ import {
   isIncluded,
 } from '../../Modules/ElementUtils/ElementUtils';
 
-import { DEFAULT_FONT } from '../../Resources/fonts';
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 class ParentInfoLink extends React.Component {
   static propTypes = {
@@ -25,7 +25,7 @@ class ParentInfoLink extends React.Component {
 
     const style = {
       base: {
-        fontFamily: DEFAULT_FONT,
+        fontFamily: DEFAULT_FONT_FAMILY,
         fontStyle: 'italic',
         fontSize: '12px',
         color: DESCRIPTION_COLOR,
