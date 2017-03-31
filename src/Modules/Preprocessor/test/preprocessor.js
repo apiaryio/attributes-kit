@@ -155,7 +155,7 @@ describe('Preprocessor', () => {
           links: [
             {
               relation: 'origin',
-              href: 'http://refract.link/included-member/',
+              href: 'http://example.com/included-member/',
             },
           ],
         },
@@ -171,7 +171,7 @@ describe('Preprocessor', () => {
           links: [
             {
               relation: 'origin',
-              href: 'http://refract.link/other/',
+              href: 'http://example.com/other/',
             },
           ],
         },
@@ -197,7 +197,7 @@ describe('Preprocessor', () => {
           links: [
             {
               relation: 'origin',
-              href: 'http://refract.link/inherited-member/',
+              href: 'http://example.com/inherited-member/',
             },
           ],
         },
@@ -213,7 +213,7 @@ describe('Preprocessor', () => {
           links: [
             {
               relation: 'origin',
-              href: 'http://refract.link/other/',
+              href: 'http://example.com/other/',
             },
           ],
         },
@@ -407,7 +407,7 @@ describe('Preprocessor', () => {
             links: [
               {
                 relation: 'origin',
-                href: 'http://refract.link/inherited-member/',
+                href: 'http://example.com/inherited-member/',
               },
             ],
           },
@@ -433,7 +433,7 @@ describe('Preprocessor', () => {
             links: [
               {
                 relation: 'origin',
-                href: 'http://refract.link/inherited-member/',
+                href: 'http://example.com/inherited-member/',
               },
             ],
           },

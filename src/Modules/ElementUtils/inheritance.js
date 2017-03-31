@@ -6,13 +6,13 @@ const INHERITED_MEMBER_QUERY = {
   $or: [
     {
       'meta.links': {
-        href: 'http://refract.link/inherited-member/',
+        href: 'http://example.com/inherited-member/',
         relation: 'origin',
       },
     },
     {
       'meta.links': {
-        href: 'http://refract.link/inherited/',
+        href: 'http://example.com/inherited/',
         relation: 'origin',
       },
     },
@@ -33,7 +33,7 @@ function isInherited(element) {
 
 const INCLUDED_MEMBER_QUERY = {
   'meta.links': {
-    href: 'http://refract.link/included-member/',
+    href: 'http://example.com/included-member/',
     relation: 'origin',
   },
 };
