@@ -1,6 +1,6 @@
 {
   "name": "attributes-kit",
-  "version": "0.18.0-beta.15",
+  "version": "0.0.0-development",
   "description": "React component for MSON rendering",
   "engines": {
     "node": "5.7.x",
@@ -50,11 +50,12 @@
     "test:examples": "npm run build:server && mocha --compilers js:babel-core/register ./test/**.js --recursive",
     "test:functional": "echo \"We don't have functional tests yet\"",
     "test": "npm run lint && npm run test:unit && npm run test:examples && npm run test:functional",
-    "examples": "NODE_ENV=test shell-exec 'npm run start' 'babel-node ./scripts/launchBrowser http://localhost:8080/examples'"
+    "examples": "NODE_ENV=test shell-exec 'npm run start' 'babel-node ./scripts/launchBrowser http://localhost:8080/examples'",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apiaryio/attributes-kit.git"
+    "url": "https://github.com/apiaryio/attributes-kit.git"
   },
   "author": "",
   "license": "MIT",
@@ -82,6 +83,7 @@
     "classnames": "2.2.5",
     "cli-table": "0.3.1",
     "colors": "1.1.2",
+    "condition-circle": "^1.5.0",
     "css-loader": "^0.28.0",
     "dedent": "^0.7.0",
     "drafter.js": "^2.6.5",
@@ -109,6 +111,7 @@
     "react-dom": "^15.0.2",
     "react-hot-loader": "3.0.0-beta.2",
     "react-router": "^4.0.0",
+    "semantic-release": "^6.3.2",
     "shell-executor": "^4.0.0",
     "sift": "^3.2.7",
     "style-loader": "^0.16.1",
@@ -143,5 +146,8 @@
       "browser": true,
       "mocha": true
     }
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
   }
 }

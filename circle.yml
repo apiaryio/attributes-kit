@@ -5,3 +5,9 @@ general:
 machine:
   node:
     version: 5.7.0
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm run semantic-release || true
