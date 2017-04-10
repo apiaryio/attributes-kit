@@ -56,7 +56,7 @@ Therefore, adding a new fixture to the repo should be done in this way:
 3. Push your changes into your branch and issue a pull-request to the repository
 
 ### Reviewer side
-1. Review the submitted pull request; in particular, please make sure that the fixtures are in the **samples** directory and they actually make sense (they should be just MSON object and nothing [ApiBlueprint](https://apiblueprint.org) related).
+1. Review the submitted pull request; in particular, please make sure that the fixtures are in the **samples** directory and they actually make sense (they should be just MSON object and nothing [API Blueprint](https://apiblueprint.org) related).
 2. Merge the pull request into the master branch
 3. Create a new patch revision for npm. This means, basically, modifyig the `package.json` file and write down a new version into the `version` field, commit the thing and push it into the master. As alternative, you can use the `npm version patch`, that will do both commands for you.
 4. Publish the new package version using `npm publish` command.
