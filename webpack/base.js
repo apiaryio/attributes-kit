@@ -11,24 +11,23 @@ export default {
   // Resolve the `./src` directory so we can avoid writing
   // ../../styles/base.css
   resolve: {
-    modulesDirectories: [
+    modules: [
       'node_modules',
-      './src'
+      './src',
     ],
 
     extensions: [
-      '',
       '.js',
       '.jsx',
-      '.svg'
-    ]
+      '.svg',
+    ],
   },
 
   resolveLoader: {
-    modulesDirectories: [
+    modules: [
       'node_modules',
-      './webpack/loaders'
-    ]
+      './webpack/loaders',
+    ],
   },
 
   // Instruct webpack how to handle each file type that it might encounter
@@ -37,30 +36,30 @@ export default {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: (function() {
+        loaders: (() => {
           const loaders = ['babel-loader'];
           if (!isProduction) {
             loaders.unshift('react-hot-loader/webpack');
           }
           return loaders;
-        })()
+        })(),
       },
       {
         test: /json-formatter-js\/src\/\w+.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'file-loader?name=images/[name].[ext]'
+        loader: 'file-loader?name=images/[name].[ext]',
       },
       {
         test: /\.(svg)$/,
-        loader: 'svg-loader'
-      }
-    ]
+        loader: 'svg-loader',
+      },
+    ],
   },
 };

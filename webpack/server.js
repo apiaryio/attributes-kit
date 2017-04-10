@@ -10,7 +10,7 @@ export default merge({}, webpackConfig, {
   output: {
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   entry: {
     'attributes-kit-server': path.join(__dirname, '../src/index'),
@@ -18,19 +18,19 @@ export default merge({}, webpackConfig, {
   externals: [nodeExternals()],
   plugins: [
     new webpack.NormalModuleReplacementPlugin(/\.(svg|css|styl)$/, 'node-noop'),
-    new webpack.IgnorePlugin(/\.(svg|css|styl)$/)
+    new webpack.IgnorePlugin(/\.(svg|css|styl)$/),
   ],
   module: {
     loaders: [
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader']
+        loaders: ['babel-loader'],
       },
-    ]
+    ],
   },
   node: {
-    __filename: "true",
-    __dirname: "true",
+    __filename: true,
+    __dirname: true,
   },
 });

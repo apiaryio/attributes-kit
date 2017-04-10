@@ -1,4 +1,4 @@
-import colors from 'colors';
+import 'colors';
 import path from 'path';
 import Table from 'cli-table';
 import webpack from 'webpack';
