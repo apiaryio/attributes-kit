@@ -20,5 +20,5 @@ export default merge({}, clientWebpackConfig, {
     new UglifyJsPlugin(),
   ],
 
-  devtool: null,
+  devtool: false,
 });

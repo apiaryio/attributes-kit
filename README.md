@@ -305,29 +305,13 @@ Please see the [`STATUS.md`](./STATUS.md) file.
 
 # Versioning
 
-[Attributes Kit](https://github.com/apiaryio/attributes-kit) is maintained under the [Semantic Versioning guidelines](http://semver.org/spec/v2.0.0.html). Releases will be numbered with the following format.
-
-```
-<major>.<minor>.<patch>
-```
-
-And constructed with the following guidelines.
-
-* Breaking backwards compatibility bumps the `<major>`
-* New additions without breaking backwards compatibility bumps the `<minor>`
-* Bug fixes and misc changes bump the `<patch>`
-
-Please see the [Releases](https://github.com/apiaryio/attributes-kit/releases) section of our GitHub project for changelog.
+This repo is using [semantic-release](https://github.com/semantic-release/semantic-release).
 
 ---
 
 # Contributing
 
 Please see the [Contributions guidelines](./CONTRIBUTING.md).
-
----
-
-# Troubleshooting
 
 ---
 

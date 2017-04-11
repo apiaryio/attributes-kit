@@ -30,7 +30,7 @@ function createClientBuild(webpackConfig, cb) {
     ],
     [
       'Externals'.grey.bold,
-      (Object.keys(webpackConfig.externals || {}).join(', ')).white
+      (Object.keys(webpackConfig.externals || {}).join('\n')).white
     ],
     [
       'Library Target'.grey.bold,

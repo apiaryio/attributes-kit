@@ -4,13 +4,13 @@ const QUERIES = {
       $or: [
         {
           'meta.links': {
-            href: 'http://refract.link/inherited-member/',
+            href: 'http://example.com/inherited-member/',
             relation: 'origin',
           },
         },
         {
           'meta.links': {
-            href: 'http://refract.link/inherited/',
+            href: 'http://example.com/inherited/',
             relation: 'origin',
           },
         },
@@ -20,7 +20,7 @@ const QUERIES = {
   includedMember: {
     query: {
       'meta.links': {
-        href: 'http://refract.link/included-member/',
+        href: 'http://example.com/included-member/',
         relation: 'origin',
       },
     },

@@ -1,7 +1,6 @@
 import React from 'react';
 import radium from 'radium';
 import merge from 'lodash/merge';
-import pluralize from 'pluralize';
 
 import {
   findElement,
@@ -125,7 +124,7 @@ class ObjectPropertiesGroup extends React.Component {
       return (
         <div style={this.style.placeholder}>
           <span style={this.style.placeholderProperties}>
-            {propertiesCount} {pluralize('property', propertiesCount)}
+            {propertiesCount} {propertiesCount === 1 ? 'property' : 'properties'}
           </span>
           &nbsp;inherited from&nbsp;
           <a style={this.style.placeholderLink} onClick={this.handleClick}>
@@ -139,7 +138,7 @@ class ObjectPropertiesGroup extends React.Component {
       return (
         <div style={this.style.placeholder}>
           <span style={this.style.placeholderProperties}>
-            {propertiesCount} {pluralize('property', propertiesCount)}
+            {propertiesCount} {propertiesCount === 1 ? 'property' : 'properties'}
           </span>
           &nbsp;included from&nbsp;
           <a style={this.style.placeholderLink} onClick={this.handleClick}>
