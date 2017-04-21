@@ -5,26 +5,23 @@ import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert';
-import dedent from 'dedent';
+import drafter from 'drafter.js';
+import get from 'lodash/get';
 
-import parseMson from '../playground/parseMson';
-import { Attributes } from '../dist/attributes-kit-server';
+import { Attributes } from '../dist/attributes-kit';
 
-describe('Comparision with reference fixtures', () => {
+const header = '# Data Structures';
 
+describe('Comparison with reference fixtures', () => {
   msonZoo.samples.forEach((sample) => {
-    let renderedElement = null;
-    let htmlString = null;
+    describe(`If I render ${sample.fileName} on the server`, () => {
+      let htmlString = null;
+      let reference = null;
 
-    describe(`If I render ${sample.fileName} on the server`, (done) => {
-      let header = '# Data Structures';
+      before(() => {
+        const dataStructureElements = get(drafter.parse(`${header}\n${sample.fileContent}`, {}), 'content[0].content[0].content', []).map(el => el.content[0]);
 
-      parseMson(`${header}\n${sample.fileContent}`, (err, dataStructureElements) => {
-        if (err) {
-          return done(err);
-        }
-
-        renderedElement = React.createElement(Attributes, {
+        const renderedElement = React.createElement(Attributes, {
           element: dataStructureElements[0],
           dataStructures: dataStructureElements,
           collapseByDefault: false,
@@ -34,17 +31,15 @@ describe('Comparision with reference fixtures', () => {
         });
 
         htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
-      });
 
-      describe('And I compare that with the reference fixture', () => {
-        const reference = fs.readFileSync(
+        reference = fs.readFileSync(
           path.join('./fixtures', `${sample.fileName}`),
           'utf8'
         );
+      });
 
-        it('They should be equal', () => {
-          assert.equal(htmlString, reference);
-        });
+      it('They should be equal', () => {
+        assert.equal(htmlString, reference);
       });
     });
   });
