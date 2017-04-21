@@ -36,10 +36,10 @@
   ],
   "main": "dist/attributes-kit",
   "scripts": {
-    "generate-fixtures": "npm run build:server && babel-node ./scripts/generateFixtures",
     "lint": "eslint src playground",
     "lint:fix": "eslint --fix src playground",
     "build": "babel-node ./scripts/runClientBuild.js",
+    "generate-fixtures": "npm run build && babel-node ./scripts/generateFixtures",
     "prepublish": "not-in-install && npm run build || :",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/test/*.js --recursive",
     "start": "npm run storybook",
