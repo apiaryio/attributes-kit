@@ -11,22 +11,10 @@ export default {
   // Resolve the `./src` directory so we can avoid writing
   // ../../styles/base.css
   resolve: {
-    modules: [
-      'node_modules',
-      './src',
-    ],
-
     extensions: [
       '.js',
       '.jsx',
       '.svg',
-    ],
-  },
-
-  resolveLoader: {
-    modules: [
-      'node_modules',
-      './webpack/loaders',
     ],
   },
 
@@ -58,7 +46,7 @@ export default {
       },
       {
         test: /\.(svg)$/,
-        loader: 'svg-loader',
+        loader: 'svg-url-loader',
       },
     ],
   },
