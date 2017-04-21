@@ -1,16 +1,12 @@
+import 'colors';
 import async from 'async';
-import colors from 'colors';
-import path from 'path';
 import Table from 'cli-table';
 import webpack from 'webpack';
-import lodash from 'webpack';
 
 import webpackClientFullConfig from '../webpack/clientFull';
 import webpackClientFullMinConfig from '../webpack/clientFullMin';
 import webpackClientNoReactConfig from '../webpack/clientNoReact';
 import webpackClientNoReactMinConfig from '../webpack/clientNoReactMin';
-import webpackClientNoDepsConfig from '../webpack/clientNoDeps';
-import webpackClientNoDepsMinConfig from '../webpack/clientNoDepsMin';
 
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = 'production';
@@ -79,12 +75,6 @@ async.series([
   },
   function(next) {
     createClientBuild(webpackClientNoReactMinConfig, next);
-  },
-  function(next) {
-    createClientBuild(webpackClientNoDepsConfig, next);
-  },
-  function(next) {
-    createClientBuild(webpackClientNoDepsMinConfig, next);
   },
 ], function(error) {
   if (error) {
