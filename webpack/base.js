@@ -33,10 +33,6 @@ export default {
         })(),
       },
       {
-        test: /json-formatter-js\/src\/\w+.js$/,
-        loader: 'babel-loader',
-      },
-      {
         test: /\.css$/,
         loader: 'style-loader!css-loader',
       },
