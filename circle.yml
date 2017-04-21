@@ -1,10 +1,19 @@
 general:
   artifacts:
     - "dist"
+    - "visual-regression/failed"
 
 machine:
   node:
     version: 5.7.0
+
+dependencies:
+  post:
+    - npm run selenium:install
+    - npm run selenium:
+      background: true
+    - npm start:
+      background: true
 
 deployment:
   production:
