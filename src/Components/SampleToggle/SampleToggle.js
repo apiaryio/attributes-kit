@@ -34,7 +34,7 @@ class SampleToggle extends React.Component {
         maxWidth: '12px',
       },
       icon: {
-        width: '12',
+        width: '12px',
         height: '12px',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'left center',
