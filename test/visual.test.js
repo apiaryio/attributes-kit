@@ -40,12 +40,14 @@ function checkStory(sample, i, t) {
           {
             name: sample.fileName,
             elem: '#root',  // take whole element, because Selenium might miss overflowing elements etc.
+            ignore: 'antialiasing',
           },
         ], (err, res) => {
           if (!res[sample.fileName][0].isWithinMisMatchTolerance) {
             st.comment(JSON.stringify(res[sample.fileName][0])); // Print the error message
           }
-          st.true(res[sample.fileName][0].isWithinMisMatchTolerance, 'matches the baseline screenshot');
+          st.true(res[sample.fileName][0].isWithinMisMatchTolerance, 'is within the tolerance range');
+          st.true(res[sample.fileName][0].isSameDimensions, 'is the same size');
         })
         .frameParent() // Go to the top frame
         .keys(['Command', 'F', 'Command']) // Turn off fullscreen, so we can click
