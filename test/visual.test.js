@@ -17,7 +17,7 @@ webdrivercss.init(client, {
 
 // TODO
 // - additional browsers
-// - allow filtering/reshotting of a single test
+// - allow filtering/reshotting of a single test (WebdriverCSS admin UI?)
 // - test light and dark theme
 // - test rendering with or without sourceMaps from Drafter.js
 
@@ -43,6 +43,9 @@ function checkStory(sample, i, t) {
             ignore: 'antialiasing',
           },
         ], (err, res) => {
+          if (err) {
+            console.error(err, res); // Log the error (this could be most likely some webdriver error)
+          }
           if (!res[sample.fileName][0].isWithinMisMatchTolerance) {
             st.comment(JSON.stringify(res[sample.fileName][0])); // Print the error message
           }
@@ -71,6 +74,13 @@ test('Attributes kit visual regression test', { timeout: 900000 }, (t) => {
     .init()
     .setViewportSize({ width: 900, height: 650 })
     .url('http://localhost:6006')
+    .frame(0) // Enter Storybook iframe
+    .execute(() => { // Add CSS to turn off font-smoothing
+      const div = document.createElement('div');
+      div.innerHTML = '<style type="text/css">#root {-webkit-font-smoothing: none;}</style>';
+      document.body.appendChild(div);
+    })
+    .frameParent() // Go to the top frame
     .then(() => {
       const links = [];
       msonZoo.samples.forEach((sample, index) => {
