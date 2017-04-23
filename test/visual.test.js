@@ -11,7 +11,7 @@ const client = webdriverio.remote({ desiredCapabilities: { browserName: 'chrome'
 webdrivercss.init(client, {
   screenshotRoot: 'visual-regressions',
   failedComparisonsRoot: 'visual-regressions/failed',
-  misMatchTolerance: 0.05, // To prevent failures from font-rendering issues and small deviations
+  misMatchTolerance: 0.75, // To prevent failures from font-rendering issues and small deviations
   updateBaseline: false, // You can update baseline tests here
 });
 
