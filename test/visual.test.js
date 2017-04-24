@@ -1,4 +1,3 @@
-import Promise from 'bluebird';
 import test from 'tape';
 import msonZoo from 'mson-zoo';
 import webdriverio from 'webdriverio';
