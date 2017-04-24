@@ -8,17 +8,17 @@ export default merge({}, clientWebpackConfig, {
   },
 
   externals: {
-    'react': {
+    react: {
       root: 'React',
       commonjs2: 'react',
       commonjs: 'react',
-      amd: 'react'
+      amd: 'react',
     },
     'react-dom': {
       root: 'react-dom',
       commonjs2: 'react-dom',
       commonjs: 'react-dom',
-      amd: 'react-dom'
+      amd: 'react-dom',
     },
   },
 

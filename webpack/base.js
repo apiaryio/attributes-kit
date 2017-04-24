@@ -1,7 +1,5 @@
 import path from 'path';
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 export default {
   context: path.join(__dirname, '../'),
 
@@ -24,13 +22,7 @@ export default {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: (() => {
-          const loaders = ['babel-loader'];
-          if (!isProduction) {
-            loaders.unshift('react-hot-loader/webpack');
-          }
-          return loaders;
-        })(),
+        loaders: ['babel-loader'],
       },
       {
         test: /\.css$/,
