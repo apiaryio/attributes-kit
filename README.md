@@ -63,7 +63,7 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
   npm start
   ```
 
-  You can go to [localhost:8080](http://localhost:8080) to try out the [Playground](https://attributes-kit.herokuapp.com/), or to [/examples.html](http://localhost:8080/examples.html) to see the list of examples.
+  You can go to [localhost:6006](http://localhost:6006) to see the [Storybook](https://storybooks.js.org)
 
 4. **You're done!** :+1:
 
@@ -157,11 +157,6 @@ There are two more builds mainly for more advanced use cases.
 |:------------------------|
 | [`attributes-kit-no-react.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-react.js); [`attributes-kit-no-react.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-react.js.map) |
 | This build *does not* contain React dependency. You have to install React manually, or your application lists React in its dependencies (in `package.json`). |
-
-| Build without dependencies |
-|:---------------------------|
-| [`attributes-kit-no-deps.js`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-deps.js); [`attributes-kit-no-deps.js.map`](https://npmcdn.com/attributes-kit/dist/attributes-kit-no-deps.js.map) |
-| This build *does not* contain any dependencies of the Attributes Kit. You have to install all dependencies manually, or your application lists them all in (e.g.) `package.json`. |
 
 ## Server
 
@@ -273,27 +268,7 @@ Attributes Kit always takes the same parameters.
 
 **Congratulations!** You are all set to start developing now! :rocket:
 
----
-
-# Compatibility
-
-| Package                 | Version |
-|:------------------------|:--------|
-| React | `0.14+` |
-| React DOM | `0.14+` |
-| Node | `0.10.40+` |
-| NPM | `2.11+` |
-
-### Browsers
-
-| Browser                 | Version |
-|:------------------------|:--------|
-| Google Chrome | `15+` |
-| Safari | `6.1+` |
-| Firefox | `28+` |
-| Edge | `12+` |
-| IE | `11+` |
-| Opera | `12.1+` |
+If you'd like to run visual tests as well, you need to setup a [Selenium server](http://www.seleniumhq.org) (see `circle.yml` how we use [selenium-standalone](https://github.com/vvo/selenium-standalone) to do this) and have [graphicsmagick](http://www.graphicsmagick.org) installed.
 
 ---
 
@@ -312,12 +287,6 @@ This repo is using [semantic-release](https://github.com/semantic-release/semant
 # Contributing
 
 Please see the [Contributions guidelines](./CONTRIBUTING.md).
-
----
-
-# Code of Conduct
-
-This project adheres to the [Open Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to honor this code.
 
 ---
 
