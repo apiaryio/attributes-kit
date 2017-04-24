@@ -11,7 +11,7 @@ webdrivercss.init(client, {
   screenshotRoot: 'visual-regressions',
   failedComparisonsRoot: 'visual-regressions/failed',
   misMatchTolerance: 0.75, // To prevent failures from font-rendering issues and small deviations
-  updateBaseline: false, // You can update baseline tests here
+  updateBaseline: !!process.env.UPDATE_BASELINE, // You can update baseline tests here
 });
 
 // TODO
@@ -68,6 +68,10 @@ function checkStory(sample, i, t) {
  */
 test('Attributes kit visual regression test', { timeout: 900000 }, (t) => {
   t.plan(msonZoo.samples.length);
+
+  if (!!process.env.UPDATE_BASELINE) {
+    t.comment('Updating the baseline screenshots');
+  }
 
   client
     .init()
