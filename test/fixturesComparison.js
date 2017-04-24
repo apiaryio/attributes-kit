@@ -5,12 +5,9 @@ import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert';
-import drafter from 'drafter.js';
-import get from 'lodash/get';
+import parse from '../lib/parse';
 
 import { Attributes } from '../dist/attributes-kit';
-
-const header = '# Data Structures';
 
 describe('Comparison with reference fixtures', () => {
   msonZoo.samples.forEach((sample) => {
@@ -19,7 +16,7 @@ describe('Comparison with reference fixtures', () => {
       let reference = null;
 
       before(() => {
-        const dataStructureElements = get(drafter.parse(`${header}\n${sample.fileContent}`, {}), 'content[0].content[0].content', []).map(el => el.content[0]);
+        const dataStructureElements = parse(sample.fileContent);
 
         const renderedElement = React.createElement(Attributes, {
           element: dataStructureElements[0],
