@@ -6,3 +6,7 @@ dist/test
 dist/generateFixtures*
 scripts/runCircleCi*
 circle.yml
+lib
+visual-regressions
+stories
+.storybook
