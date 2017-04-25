@@ -104,7 +104,7 @@
     "mocha": "^3.2.0",
     "mson-zoo": "3.0.0-beta.1",
     "node-noop": "1.0.0",
-    "radium": "^0.16.6",
+    "radium": "^0.18.2",
     "react": "15.4.2",
     "react-ace": "^4.1.6",
     "react-addons-test-utils": "^15.0.2",
