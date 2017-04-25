@@ -110,7 +110,11 @@ class Attributes extends React.Component {
     // `dataStructure.meta.id` is name of the data structure.
     const dataStructuresIndex = props.dataStructuresIndex || (
       reduce(dataStructures, (result, dataStructure) => {
-        result[dataStructure.meta.id] = dataStructure;
+        if (typeof dataStructure.meta.id === 'object') {
+          result[dataStructure.meta.id.content] = dataStructure;
+        } else {
+          result[dataStructure.meta.id] = dataStructure;
+        }
         return result;
       }, {})
     );
