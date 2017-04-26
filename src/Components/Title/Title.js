@@ -12,7 +12,12 @@ class Title extends React.Component {
     style: React.PropTypes.object,
   };
 
+  static contextTypes = {
+    theme: React.PropTypes.object,
+  };
+
   get style() {
+    const { VALUE_COLOR } = this.context.theme;
     const style = {
       base: {
         paddingBottom: '10px',
@@ -20,7 +25,7 @@ class Title extends React.Component {
       text: {
         fontFamily: DEFAULT_FONT_FAMILY,
         fontSize: '18px',
-        color: '#30343F',
+        color: VALUE_COLOR,
       },
     };
 

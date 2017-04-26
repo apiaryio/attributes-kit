@@ -41,6 +41,11 @@ class Attributes extends React.Component {
     theme: React.PropTypes.object,
   };
 
+  static defaultProps = {
+    includedProperties: 'show',
+    inheritedProperties: 'show',
+  };
+
   static childContextTypes = {
     dereferencedDataStructures: React.PropTypes.array,
     theme: React.PropTypes.object,
