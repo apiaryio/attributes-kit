@@ -9,9 +9,11 @@ import map from 'lodash/map';
 import merge from 'lodash/merge';
 import React from 'react';
 import reduce from 'lodash/reduce';
+import { Style } from 'radium';
 
 import Attribute from '../Attribute/Attribute';
 import Title from '../Title/Title';
+import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 import { preprocess } from '../../Modules/Preprocessor/Preprocessor';
 import { preprocessSamples } from '../../Modules/SamplesPreprocessor/SamplesPreprocessor';
@@ -120,10 +122,10 @@ class Attributes extends React.Component {
         } else {
           result[dataStructure.meta.id] = dataStructure;
         }
+
         return result;
       }, {})
     );
-
 
     const dereferencedDataStructures = props.dereferencedDataStructures || (
       map(dataStructures, (dataStructure) =>
@@ -255,6 +257,7 @@ class Attributes extends React.Component {
 
       return null;
     }
+    const DESCRIPTION_COLOR = this.state.theme.DESCRIPTION_COLOR;
 
     return (
       <div className="attributesKit">
@@ -262,6 +265,34 @@ class Attributes extends React.Component {
           this.state.title &&
             <Title element={this.state.element} />
         }
+
+        <Style
+          scopeSelector=".attributesKit"
+          rules={{
+            p: {
+              marginBottom: '4px',
+              fontFamily: DEFAULT_FONT_FAMILY,
+              fontSize: '14px',
+              color: DESCRIPTION_COLOR,
+              lineHeight: '21px',
+              fontWeight: 'regular',
+            },
+            'p:last-child': {
+              marginBottom: '0px',
+            },
+            ul: {
+              marginLeft: '20px',
+            },
+            a: {
+              color: '#747E8E',
+              textDecoration: 'none',
+              borderBottom: '1px solid #DCE0E8',
+            },
+            'a:hover': {
+              borderBottom: 'none',
+            },
+          }}
+        />
 
         <Attribute
           element={this.state.element}
