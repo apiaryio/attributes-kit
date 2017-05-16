@@ -2,7 +2,7 @@ import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
 import marked from 'marked';
 import merge from 'lodash/merge';
-import Radium, { Style } from 'radium';
+import Radium from 'radium';
 import React from 'react';
 
 import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
@@ -53,7 +53,6 @@ class Description extends React.Component {
   };
 
   render() {
-    const { DESCRIPTION_COLOR } = this.context.theme;
     const description = Description.getDescription(this.props.element);
 
     if (!description) {
@@ -64,33 +63,6 @@ class Description extends React.Component {
 
     return (
       <div>
-        <Style
-          scopeSelector=".attributesKit"
-          rules={{
-            p: {
-              marginBottom: '4px',
-              fontFamily: DEFAULT_FONT_FAMILY,
-              fontSize: '14px',
-              color: DESCRIPTION_COLOR,
-              lineHeight: '21px',
-              fontWeight: 'regular',
-            },
-            'p:last-child': {
-              marginBottom: '0px',
-            },
-            ul: {
-              marginLeft: '20px',
-            },
-            a: {
-              color: '#747E8E',
-              textDecoration: 'none',
-              borderBottom: '1px solid #DCE0E8',
-            },
-            'a:hover': {
-              borderBottom: 'none',
-            },
-          }}
-        />
         <div
           style={this.style.base}
           dangerouslySetInnerHTML={markdownMarkup}
