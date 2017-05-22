@@ -199,6 +199,7 @@ class StructuredObjectProperty extends React.Component {
                   <Value
                     element={this.props.element}
                     parentElement={this.props.parentElement}
+                    collapseByDefault={this.props.collapseByDefault}
                   />
                 </Row>
               </Ruler>

@@ -15,6 +15,7 @@ class ObjectSample extends React.Component {
     sampleIndex: React.PropTypes.number,
     samples: React.PropTypes.array,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -78,7 +79,11 @@ class ObjectSample extends React.Component {
           {
             this.state.isExpanded &&
               <Row style={this.style.valueContainer}>
-                <Value element={this.props.sample} isSample />
+                <Value
+                  element={this.props.sample}
+                  isSample
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
         </Column>

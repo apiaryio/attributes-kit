@@ -105,7 +105,11 @@ class ObjectDefaults extends React.Component {
           {
             this.state.isExpanded &&
               <Row style={style.valueContainer}>
-                <Value element={defaultValue} isSample />
+                <Value
+                  element={defaultValue}
+                  isSample
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
         </Column>

@@ -31,6 +31,7 @@ class ArrayItem extends React.Component {
     showArrayItemIndex: React.PropTypes.bool,
     showBullet: React.PropTypes.bool,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -109,7 +110,10 @@ class ArrayItem extends React.Component {
             {
               hasValue(this.props.element) &&
                 <Column>
-                  <Value element={this.props.element} />
+                  <Value
+                    element={this.props.element}
+                    collapseByDefault={this.props.collapseByDefault}
+                  />
                 </Column>
             }
 
@@ -134,14 +138,20 @@ class ArrayItem extends React.Component {
           {
             hasSamples(this.props.element) &&
               <Row>
-                <ArrayItemSamples element={this.props.element} />
+                <ArrayItemSamples
+                  element={this.props.element}
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
 
           {
             hasDefault(this.props.element) &&
               <Row>
-                <ArrayItemDefaults element={this.props.element} />
+                <ArrayItemDefaults
+                  element={this.props.element}
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
         </Column>

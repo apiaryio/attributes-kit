@@ -9,6 +9,7 @@ class ArraySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   get style() {
@@ -40,6 +41,7 @@ class ArraySamples extends React.Component {
               element={this.props.element}
               sample={sample}
               key={index}
+              collapseByDefault={this.props.collapseByDefault}
             />
           )
         }

@@ -14,6 +14,7 @@ class Sample extends React.Component {
     element: React.PropTypes.object,
     sample: React.PropTypes.object,
     title: React.PropTypes.string,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   constructor(props) {
@@ -61,6 +62,7 @@ class Sample extends React.Component {
               <Value
                 element={this.props.sample}
                 style={this.style.value}
+                collapseByDefault={this.props.collapseByDefault}
               />
           }
         </Column>

@@ -5,6 +5,7 @@ import Sample from '../Sample/Sample';
 class ObjectPropertySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   get style() {
@@ -38,6 +39,7 @@ class ObjectPropertySamples extends React.Component {
           sample={value.attributes.default}
           style={this.style.sample}
           title="Default"
+          collapseByDefault={this.props.collapseByDefault}
         />
       </Column>
     );

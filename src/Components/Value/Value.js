@@ -21,6 +21,7 @@ class Value extends React.Component {
     style: React.PropTypes.object,
     expandableCollapsible: React.PropTypes.bool,
     isSample: React.PropTypes.bool,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   render() {
@@ -39,6 +40,7 @@ class Value extends React.Component {
             parentElement={this.props.parentElement}
             style={this.props.style}
             isSample={this.props.isSample}
+            collapseByDefault={this.props.collapseByDefault}
           />
         );
       }
@@ -47,6 +49,7 @@ class Value extends React.Component {
         <PrimitiveValue
           value={this.props.element.content.value.content}
           style={this.props.style}
+          collapseByDefault={this.props.collapseByDefault}
         />
       );
     }
@@ -59,6 +62,7 @@ class Value extends React.Component {
           parentElement={this.props.parentElement}
           style={this.props.style}
           isSample={this.props.isSample}
+          collapseByDefault={this.props.collapseByDefault}
         />
       );
     } else if (
@@ -72,6 +76,7 @@ class Value extends React.Component {
           parentElement={this.props.parentElement}
           style={this.props.style}
           isSample={this.props.isSample}
+          collapseByDefault={this.props.collapseByDefault}
         />
       );
     } else if (!isUndefined(this.props.element.content)) {
@@ -79,6 +84,7 @@ class Value extends React.Component {
         <PrimitiveValue
           value={this.props.element.content}
           style={this.props.style}
+          collapseByDefault={this.props.collapseByDefault}
         />
       );
     } else {

@@ -15,6 +15,7 @@ class ObjectSamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   get style() {
@@ -45,6 +46,7 @@ class ObjectSamples extends React.Component {
                 sampleIndex={index}
                 samples={samples}
                 key={index}
+                collapseByDefault={this.props.collapseByDefault}
               />
             )
           }

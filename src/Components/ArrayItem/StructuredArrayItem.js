@@ -26,6 +26,7 @@ class StructuredArrayItem extends React.Component {
     showArrayItemIndex: React.PropTypes.bool,
     showBullet: React.PropTypes.bool,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -140,6 +141,7 @@ class StructuredArrayItem extends React.Component {
                 expandableCollapsible
                 element={this.props.element}
                 parentElement={this.props.parentElement}
+                collapseByDefault={this.props.collapseByDefault}
               />
             </Row>
           }

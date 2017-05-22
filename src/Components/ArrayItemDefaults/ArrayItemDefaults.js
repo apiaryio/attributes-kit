@@ -15,6 +15,7 @@ class ArrayItemDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   get style() {
@@ -47,6 +48,7 @@ class ArrayItemDefaults extends React.Component {
             title="Default"
             sample={defaultValue}
             style={this.style.sample}
+            collapseByDefault={this.props.collapseByDefault}
           />
         </Column>
       </Row>
