@@ -18,6 +18,7 @@ class ObjectDefaults extends React.Component {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
