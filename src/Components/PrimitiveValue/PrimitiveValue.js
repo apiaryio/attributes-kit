@@ -58,6 +58,7 @@ class PrimitiveValue extends React.Component {
         fontSize: '13px',
         lineHeight: '13px',
         color: VALUE_COLOR,
+        wordBreak: 'break-word',
       },
     };
 

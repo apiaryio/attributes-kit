@@ -49,6 +49,7 @@ class Value extends React.Component {
         <PrimitiveValue
           value={this.props.element.content.value.content}
           style={this.props.style}
+          collapseByDefault={this.props.collapseByDefault}
         />
       );
     }
@@ -83,6 +84,7 @@ class Value extends React.Component {
         <PrimitiveValue
           value={this.props.element.content}
           style={this.props.style}
+          collapseByDefault={this.props.collapseByDefault}
         />
       );
     } else {

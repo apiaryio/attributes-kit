@@ -24,6 +24,7 @@ class ArrayComponent extends React.Component {
     element: React.PropTypes.object,
     parentElement: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -93,6 +94,7 @@ class ArrayComponent extends React.Component {
                   parentElement={this.props.element}
                   showArrayItemIndex={showArrayItemIndex}
                   showBullet={showBullet}
+                  collapseByDefault={this.props.collapseByDefault}
                 />
               );
             }
@@ -105,6 +107,7 @@ class ArrayComponent extends React.Component {
                 parentElement={this.props.element}
                 showArrayItemIndex={showArrayItemIndex}
                 showBullet={showBullet}
+                collapseByDefault={this.props.collapseByDefault}
               />
             );
           })
@@ -136,12 +139,18 @@ class ArrayComponent extends React.Component {
 
           {
             hasSamples(this.props.element) &&
-              <ArraySamples element={this.props.element} />
+              <ArraySamples
+                element={this.props.element}
+                collapseByDefault={this.props.collapseByDefault}
+              />
           }
 
           {
             hasDefault(this.props.element) &&
-              <ArrayDefaults element={this.props.element} />
+              <ArrayDefaults
+                element={this.props.element}
+                collapseByDefault={this.props.collapseByDefault}
+              />
           }
         </Column>
       </Row>

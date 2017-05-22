@@ -12,6 +12,7 @@ class ArrayDefaults extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -79,7 +80,10 @@ class ArrayDefaults extends React.Component {
 
           {
             this.state.isExpanded &&
-              <Value element={this.props.element.attributes.default} />
+              <Value
+                element={this.props.element.attributes.default}
+                collapseByDefault={this.props.collapseByDefault}
+              />
           }
         </Column>
       </Row>

@@ -32,6 +32,7 @@ class ObjectProperty extends React.Component {
     reportKeyWidth: React.PropTypes.func,
     style: React.PropTypes.object,
     keyWidth: React.PropTypes.number,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -133,6 +134,7 @@ class ObjectProperty extends React.Component {
                 <Value
                   element={this.props.element}
                   style={this.style.Value}
+                  collapseByDefault={this.props.collapseByDefault}
                 />
               </Row>
           }
@@ -140,14 +142,20 @@ class ObjectProperty extends React.Component {
           {
             hasSamples(this.props.element) &&
               <Row>
-                <ObjectPropertySamples element={this.props.element} />
+                <ObjectPropertySamples
+                  element={this.props.element}
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
 
           {
             hasDefault(this.props.element) &&
               <Row>
-                <ObjectPropertyDefaults element={this.props.element} />
+                <ObjectPropertyDefaults
+                  element={this.props.element}
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
         </Column>

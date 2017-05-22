@@ -14,6 +14,7 @@ import {
 class ObjectPropertySamples extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   renderStyles() {
@@ -32,7 +33,12 @@ class ObjectPropertySamples extends React.Component {
     };
 
     return samples.map((sample, index) =>
-      <Sample sample={sample} key={index} style={style} />
+      <Sample
+        sample={sample}
+        key={index}
+        style={style}
+        collapseByDefault={this.props.collapseByDefault}
+      />
     );
   }
 

@@ -13,6 +13,7 @@ class ArraySample extends React.Component {
     element: React.PropTypes.object,
     sample: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -72,7 +73,10 @@ class ArraySample extends React.Component {
           {
             this.state.isExpanded &&
               <Row>
-                <Value element={this.props.sample} />
+                <Value
+                  element={this.props.sample}
+                  collapseByDefault={this.props.collapseByDefault}
+                />
               </Row>
           }
         </Column>

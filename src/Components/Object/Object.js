@@ -128,6 +128,7 @@ class ObjectComponent extends React.Component {
             <ObjectSamples
               element={this.props.element}
               parentElement={this.props.parentElement}
+              collapseByDefault={this.props.collapseByDefault}
             />
         }
 
@@ -136,6 +137,7 @@ class ObjectComponent extends React.Component {
             <ObjectDefaults
               element={this.props.element}
               parentElement={this.props.parentElement}
+              collapseByDefault={this.props.collapseByDefault}
             />
         }
       </Row>

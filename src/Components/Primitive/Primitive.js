@@ -16,6 +16,7 @@ class Primitive extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
     style: React.PropTypes.object,
+    collapseByDefault: React.PropTypes.bool,
   };
 
   static contextTypes = {
@@ -75,7 +76,10 @@ class Primitive extends React.Component {
         {
           hasValue(this.props.element) &&
             <Row>
-              <Value element={this.props.element} />
+              <Value
+                element={this.props.element}
+                collapseByDefault={this.props.collapseByDefault}
+              />
             </Row>
         }
       </Column>

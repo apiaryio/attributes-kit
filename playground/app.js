@@ -8,14 +8,16 @@ import { Style } from 'radium';
 import Playground from './components/Playground';
 import Examples from './components/Examples';
 
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 render((
   <div>
     <Router history={createBrowserHistory()}>
-      <Route path="/" component={Playground} />
-      <Route path="/playground" component={Playground} />
-      <Route path="/examples" component={Examples} />
+      <div>
+        <Route path="/" component={Playground} />
+        <Route path="/playground" component={Playground} />
+        <Route path="/examples" component={Examples} />
+      </div>
     </Router>
 
     <Style
