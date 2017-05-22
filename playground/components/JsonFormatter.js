@@ -1,9 +1,9 @@
 import eidolon from 'eidolon';
 import React from 'react';
 import ReactDom from 'react-dom';
-import JSONFormatter from 'json-formatter-js/src/index';
+import JSONFormatter from 'json-formatter-js';
 
-import 'json-formatter-js/dist/style.css';
+// import 'json-formatter-js/dist/style.css';
 
 class JsonFormatter extends React.Component {
   static propTypes = {
