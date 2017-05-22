@@ -94,7 +94,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                                    <div style="border-radius:3px;width:auto;margin-top:6px;margin-bottom:0px;margin-left:0px;margin-right:0px;font-weight:600;background-color:#F0F1F4;height:auto;padding-top:4px;padding-bottom:4px;padding-left:8px;padding-right:8px;font-family:&#x27;Source Sans Pro&#x27;, -apple-system, Helvetica, sans-serif;font-size:13px;line-height:13px;color:#5D6470;"
+                                                                                    <div style="padding-top:4px;width:auto;margin-top:6px;margin-bottom:0px;margin-left:0px;margin-right:0px;font-weight:600;background-color:#F0F1F4;border-radius:3px;height:auto;padding-bottom:4px;padding-left:8px;padding-right:8px;font-family:&#x27;Source Sans Pro&#x27;, -apple-system, Helvetica, sans-serif;font-size:13px;line-height:13px;color:#5D6470;word-break:break-word;"
                                                                                         data-radium="true">František</div>
                                                                                 </div>
                                                                             </div>
@@ -122,7 +122,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div style="width:100%;height:auto;display:flex;flex-direction:row;flex-wrap:no-wrap;justify-content:flex-start;align-items:stretch;position:relative;">
-                                                                                    <div style="border-radius:3px;width:auto;margin-top:6px;margin-bottom:0px;margin-left:0px;margin-right:0px;font-weight:600;background-color:#F0F1F4;height:auto;padding-top:4px;padding-bottom:4px;padding-left:8px;padding-right:8px;font-family:&#x27;Source Sans Pro&#x27;, -apple-system, Helvetica, sans-serif;font-size:13px;line-height:13px;color:#5D6470;"
+                                                                                    <div style="padding-top:4px;width:auto;margin-top:6px;margin-bottom:0px;margin-left:0px;margin-right:0px;font-weight:600;background-color:#F0F1F4;border-radius:3px;height:auto;padding-bottom:4px;padding-left:8px;padding-right:8px;font-family:&#x27;Source Sans Pro&#x27;, -apple-system, Helvetica, sans-serif;font-size:13px;line-height:13px;color:#5D6470;word-break:break-word;"
                                                                                         data-radium="true">Novák</div>
                                                                                 </div>
                                                                             </div>
