@@ -12,6 +12,7 @@ const webpackServer = new WebpackDevServer(compiler, {
   hot: true,
   quiet: false,
   noInfo: false,
+  public: process.env.WEBPACK_PUBLIC_URL,
 
   proxy: {
     '*': 'http://localhost:9090'
