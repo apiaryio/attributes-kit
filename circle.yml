@@ -4,7 +4,7 @@ general:
 
 machine:
   node:
-    version: 5.7.0
+    version: 6.11.1
 
 deployment:
   production:
