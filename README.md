@@ -281,8 +281,8 @@ Attributes Kit always takes the same parameters.
 |:------------------------|:--------|
 | React | `0.14+` |
 | React DOM | `0.14+` |
-| Node | `0.10.40+` |
-| NPM | `2.11+` |
+| Node | `6.11.1` |
+| NPM | `3.8.x` |
 
 ### Browsers
 
