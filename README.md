@@ -191,38 +191,38 @@ You can use the Attributes Kit on the server too. For instance—you can generat
 
 3. **Use it**
 
-  ###### ES6
-  
-  ```JavaScript
-  import React from 'react';
-  import ReactDomServer from 'react-dom/server'
-  import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
+  ###### ES6
 
+  ```JavaScript
+  import React from 'react';
+  import ReactDomServer from 'react-dom/server';
+  import {Attributes} from 'attributes-kit/dist/attributes-kit-server';
+  
   const dataStructures = [Refract Element]
   const element = React.createElement(Attributes, {
-    dataStructures: dataStructures,
-    element: dataStructures[0]
+      dataStructures: dataStructures,
+      element: dataStructures[0]
   });
-
+  
   ReactDomServer.renderToString(element);
   ```
-  
+
   ###### ES5
- 
-  ```JavaScript
-  var React = require('react');
+
+  ```JavaScript
+  var AttributesKit = require('attributes-kit/dist/attributes-kit-server');
   var ReactDomServer = require('react-dom/server');
   var AttributesKit = require('attributes-kit/dist/attributes-kit-server');
-
+  
   const dataStructures = [Refract Element]
   const element = React.createElement(AttributesKit.Attributes, {
-    dataStructures: dataStructures,
-    element: dataStructures[0]
+      dataStructures: dataStructures,
+      element: dataStructures[0]
   });
-
+  
   ReactDomServer.renderToString(element);
   ```
-  
+
 
 ## API
 
@@ -345,3 +345,4 @@ This project adheres to the [Open Code of Conduct](./CODE_OF_CONDUCT.md). By par
 # License
 
 [MIT](./LICENSE.md).
+
