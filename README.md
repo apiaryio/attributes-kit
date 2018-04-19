@@ -63,7 +63,8 @@ This application has been deployed to Heroku, **try it out at [attributes-kit.he
   npm start
   ```
 
-  You can go to [localhost:8080](http://localhost:8080) to try out the [Playground](https://attributes-kit.herokuapp.com/), or to [/examples.html](http://localhost:8080/examples.html) to see the list of examples.
+  <!--You can go to [localhost:8080](http://localhost:8080) to try out the [Playground](https://attributes-kit.herokuapp.com/), or to [/examples.html](http://localhost:8080/examples.html) to see the list of examples.-->
+  You can go to [localhost:8080](http://localhost:8080) to try out the Playground, or to [/examples.html](http://localhost:8080/examples.html) to see the list of examples.
 
 4. **You're done!** :+1:
 
