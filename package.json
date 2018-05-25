@@ -149,5 +149,9 @@
   },
   "release": {
     "verifyConditions": "condition-circle"
+  },
+  "dependencies": {
+    "minim": "^0.16.0",
+    "minim-parse-result": "^0.5.0"
   }
 }
