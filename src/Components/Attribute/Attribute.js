@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Error from '../Error/Error';
 import refractToComponentsMap from '../../Resources/refractToComponentMap';
 
 class Attribute extends React.Component {
   static propTypes = {
-    theme: React.PropTypes.object,
-    element: React.PropTypes.object,
-    expandableCollapsible: React.PropTypes.bool,
-    parentElement: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
-    isSample: React.PropTypes.bool,
+    theme: PropTypes.object,
+    element: PropTypes.object,
+    expandableCollapsible: PropTypes.bool,
+    parentElement: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
+    isSample: PropTypes.bool,
   };
 
   render() {

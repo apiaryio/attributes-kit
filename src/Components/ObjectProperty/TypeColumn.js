@@ -1,5 +1,6 @@
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Column from '../Column/Column';
 import Type from '../Type/Type';
@@ -11,11 +12,11 @@ import {
 @Radium
 class TypeColumn extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
+    element: PropTypes.object,
   };
 
   static contextTypes = {
-    namedTypes: React.PropTypes.bool,
+    namedTypes: PropTypes.bool,
   };
 
   constructor(props) {

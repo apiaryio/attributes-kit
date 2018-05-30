@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ObjectProperties from '../ObjectProperties/ObjectProperties';
 import ObjectHeader from '../ObjectHeader/ObjectHeader';
@@ -20,16 +21,16 @@ import {
 @Radium
 class ObjectComponent extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    expandableCollapsible: React.PropTypes.bool,
-    parentElement: React.PropTypes.object,
-    style: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
-    isSample: React.PropTypes.bool,
+    element: PropTypes.object,
+    expandableCollapsible: PropTypes.bool,
+    parentElement: PropTypes.object,
+    style: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
+    isSample: PropTypes.bool,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   constructor(props) {

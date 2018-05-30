@@ -1,23 +1,24 @@
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Toggle from '../Toggle/Toggle';
 
 @Radium
 class ToggleColumn extends React.Component {
   static propTypes = {
-    isExpanded: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
+    isExpanded: PropTypes.bool,
+    onClick: PropTypes.func,
   };
 
   static contextTypes = {
-    includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    includedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    inheritedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    inheritedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
   };
 

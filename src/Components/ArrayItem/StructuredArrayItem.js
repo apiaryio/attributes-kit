@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -20,17 +21,17 @@ import {
 @Radium
 class StructuredArrayItem extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    index: React.PropTypes.number,
-    parentElement: React.PropTypes.object,
-    showArrayItemIndex: React.PropTypes.bool,
-    showBullet: React.PropTypes.bool,
-    style: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
+    element: PropTypes.object,
+    index: PropTypes.number,
+    parentElement: PropTypes.object,
+    showArrayItemIndex: PropTypes.bool,
+    showBullet: PropTypes.bool,
+    style: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   constructor(props) {

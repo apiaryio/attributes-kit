@@ -2,6 +2,7 @@ import isEmpty from 'lodash/isEmpty';
 import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   findParent,
@@ -13,15 +14,15 @@ import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 @Radium
 class InheritanceTree extends React.Component {
   static propTypes = {
-    dataStructures: React.PropTypes.array,
-    dereferencedDataStructures: React.PropTypes.array,
-    element: React.PropTypes.object,
-    style: React.PropTypes.object,
+    dataStructures: PropTypes.array,
+    dereferencedDataStructures: PropTypes.array,
+    element: PropTypes.object,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    onElementLinkClick: React.PropTypes.func,
-    theme: React.PropTypes.object,
+    onElementLinkClick: PropTypes.func,
+    theme: PropTypes.object,
   };
 
   static buildInheritanceTree = function ({ element, dereferencedDataStructures }) {

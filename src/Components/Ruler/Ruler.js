@@ -1,19 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import radium from 'radium';
 import merge from 'lodash/merge';
 
 class Ruler extends React.Component {
   static propTypes = {
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.object,
-      React.PropTypes.array,
+    children: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
     ]),
-    style: React.PropTypes.object,
-    subtle: React.PropTypes.bool,
+    style: PropTypes.object,
+    subtle: PropTypes.bool,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   get style() {

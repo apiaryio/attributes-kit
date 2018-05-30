@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Column from '../Column/Column';
 import Row from '../Row/Row';
@@ -13,8 +14,8 @@ import {
 
 class ObjectPropertySamples extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
+    element: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
   };
 
   renderStyles() {

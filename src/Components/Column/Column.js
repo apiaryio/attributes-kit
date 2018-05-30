@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
 @Radium
 class Column extends React.Component {
   static propTypes = {
-    style: React.PropTypes.object,
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.object,
-      React.PropTypes.array,
+    style: PropTypes.object,
+    children: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
     ]),
   };
 

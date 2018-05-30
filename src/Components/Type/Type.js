@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -12,17 +13,17 @@ import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 
 class Type extends React.Component {
   static propTypes = {
-    type: React.PropTypes.string,
-    reference: React.PropTypes.string,
-    element: React.PropTypes.object,
-    onClick: React.PropTypes.func,
-    style: React.PropTypes.object,
+    type: PropTypes.string,
+    reference: PropTypes.string,
+    element: PropTypes.object,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
-    onElementLinkClick: React.PropTypes.func,
-    dereferencedDataStructures: React.PropTypes.array,
+    theme: PropTypes.object,
+    onElementLinkClick: PropTypes.func,
+    dereferencedDataStructures: PropTypes.array,
   };
 
   get style() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 import isEmpty from 'lodash/isEmpty';
@@ -11,15 +12,15 @@ import SelectOption from '../SelectOption/SelectOption';
 @Radium
 class Select extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    parentElement: React.PropTypes.object,
-    keyWidth: React.PropTypes.number,
-    reportKeyWidth: React.PropTypes.func,
+    element: PropTypes.object,
+    parentElement: PropTypes.object,
+    keyWidth: PropTypes.number,
+    reportKeyWidth: PropTypes.func,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
-    eventEmitter: React.PropTypes.object,
+    theme: PropTypes.object,
+    eventEmitter: PropTypes.object,
   };
 
   constructor(props) {

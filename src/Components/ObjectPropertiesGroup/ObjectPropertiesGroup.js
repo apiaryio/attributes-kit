@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -10,22 +11,22 @@ import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 class ObjectPropertiesGroup extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    name: React.PropTypes.string,
-    style: React.PropTypes.object,
-    type: React.PropTypes.string,
+    children: PropTypes.any,
+    name: PropTypes.string,
+    style: PropTypes.object,
+    type: PropTypes.string,
   };
 
   static contextTypes = {
-    dereferencedDataStructures: React.PropTypes.array,
-    onElementLinkClick: React.PropTypes.func,
-    includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    dereferencedDataStructures: PropTypes.array,
+    onElementLinkClick: PropTypes.func,
+    includedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    inheritedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    inheritedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
   };
 

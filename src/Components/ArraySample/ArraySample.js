@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -10,14 +11,14 @@ import SampleToggle from '../SampleToggle/SampleToggle';
 @Radium
 class ArraySample extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    sample: React.PropTypes.object,
-    style: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
+    element: PropTypes.object,
+    sample: PropTypes.object,
+    style: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   constructor(props) {

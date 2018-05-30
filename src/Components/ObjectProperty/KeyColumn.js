@@ -1,6 +1,7 @@
 import Radium from 'radium';
 import React from 'react';
-import reactDom from 'react-dom';
+import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import random from 'lodash/random';
 import Column from '../Column/Column';
@@ -16,16 +17,16 @@ import {
 @Radium
 class KeyColumn extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    keyWidth: React.PropTypes.number,
-    onClick: React.PropTypes.func,
-    parentElement: React.PropTypes.object,
-    reportKeyWidth: React.PropTypes.func,
-    style: React.PropTypes.object,
+    element: PropTypes.object,
+    keyWidth: PropTypes.number,
+    onClick: PropTypes.func,
+    parentElement: PropTypes.object,
+    reportKeyWidth: PropTypes.func,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    eventEmitter: React.PropTypes.object,
+    eventEmitter: PropTypes.object,
   };
 
   componentDidMount = () => {
@@ -59,7 +60,7 @@ class KeyColumn extends React.Component {
       keyIdentifier = random(0, 1000000);
     }
 
-    const keyDomNode = reactDom.findDOMNode(this.refs.key);
+    const keyDomNode = ReactDom.findDOMNode(this.refs.key);
 
     if (keyDomNode) {
       this.props.reportKeyWidth(keyIdentifier, keyDomNode.clientWidth);

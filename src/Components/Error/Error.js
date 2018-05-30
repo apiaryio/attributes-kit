@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -7,8 +8,8 @@ import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 @Radium
 class Error extends React.Component {
   static propTypes = {
-    errorMessage: React.PropTypes.string,
-    style: React.PropTypes.object,
+    errorMessage: PropTypes.string,
+    style: PropTypes.object,
   };
 
   get style() {
