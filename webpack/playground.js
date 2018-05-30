@@ -12,7 +12,6 @@ export default merge({}, baseConfig, {
     ];
 
     if (!isProduction) {
-      entryArray.unshift('webpack/hot/only-dev-server');
       entryArray.unshift('webpack-dev-server/client?http://0.0.0.0:8080');
     }
 

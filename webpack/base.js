@@ -36,13 +36,7 @@ export default {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: (() => {
-          const loaders = ['babel-loader'];
-          if (!isProduction) {
-            loaders.unshift('react-hot-loader/webpack');
-          }
-          return loaders;
-        })(),
+        loader: 'babel-loader',
       },
       {
         test: /json-formatter-js\/src\/\w+.js$/,
