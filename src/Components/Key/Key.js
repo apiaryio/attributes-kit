@@ -2,6 +2,7 @@ import isUndefined from 'lodash/isUndefined';
 import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 
@@ -12,14 +13,14 @@ import {
 @Radium
 class Key extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    index: React.PropTypes.number,
-    onClick: React.PropTypes.func,
-    style: React.PropTypes.object,
+    element: PropTypes.object,
+    index: PropTypes.number,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   get style() {

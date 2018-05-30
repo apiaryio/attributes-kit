@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -7,13 +8,13 @@ import Row from '../Row/Row';
 @Radium
 class ArrayHeader extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    parentElement: React.PropTypes.object,
-    style: React.PropTypes.object,
+    element: PropTypes.object,
+    parentElement: PropTypes.object,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   get style() {

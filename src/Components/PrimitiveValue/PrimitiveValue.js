@@ -1,6 +1,7 @@
 import isUndefined from 'lodash/isUndefined';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 import Radium from 'radium';
 
@@ -14,17 +15,17 @@ import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 @Radium
 class PrimitiveValue extends React.Component {
   static propTypes = {
-    value: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-      React.PropTypes.bool,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool,
     ]),
-    element: React.PropTypes.object,
-    style: React.PropTypes.object,
+    element: PropTypes.object,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   get style() {

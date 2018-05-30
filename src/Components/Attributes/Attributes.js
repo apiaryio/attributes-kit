@@ -11,6 +11,7 @@ import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
 import React from 'react';
+import PropTypes from 'prop-types';
 import reduce from 'lodash/reduce';
 import { Style } from 'radium';
 
@@ -26,25 +27,25 @@ import defaultTheme from '../../Resources/theme';
 
 class Attributes extends React.Component {
   static propTypes = {
-    namedTypes: React.PropTypes.bool,
-    collapseByDefault: React.PropTypes.bool,
-    dataStructures: React.PropTypes.array,
-    element: React.PropTypes.object,
-    includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    namedTypes: PropTypes.bool,
+    collapseByDefault: PropTypes.bool,
+    dataStructures: PropTypes.array,
+    element: PropTypes.object,
+    includedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    inheritedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    inheritedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    maxInheritanceDepth: React.PropTypes.any,
-    onElementLinkClick: React.PropTypes.func,
-    title: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    maxInheritanceDepth: PropTypes.any,
+    onElementLinkClick: PropTypes.func,
+    title: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   static defaultProps = {
@@ -53,19 +54,19 @@ class Attributes extends React.Component {
   };
 
   static childContextTypes = {
-    dereferencedDataStructures: React.PropTypes.array,
-    theme: React.PropTypes.object,
-    element: React.PropTypes.object,
-    namedTypes: React.PropTypes.bool,
-    eventEmitter: React.PropTypes.object,
-    onElementLinkClick: React.PropTypes.func,
-    includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    dereferencedDataStructures: PropTypes.array,
+    theme: PropTypes.object,
+    element: PropTypes.object,
+    namedTypes: PropTypes.bool,
+    eventEmitter: PropTypes.object,
+    onElementLinkClick: PropTypes.func,
+    includedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    inheritedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    inheritedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
   };
 

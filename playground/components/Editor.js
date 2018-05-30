@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
 import dedent from 'dedent';
 import isArray from 'lodash/isArray';
@@ -14,7 +15,7 @@ import EditorActions from '../actions/editor';
 class EditorComponent extends React.Component {
 
   static propTypes = {
-    errors: React.PropTypes.oneOfType([React.PropTypes.object, React.PropTypes.array]),
+    errors: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   };
 
 

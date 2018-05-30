@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import radium from 'radium';
 
 import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 class Requirement extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
+    element: PropTypes.object,
   };
 
   get requirement() {

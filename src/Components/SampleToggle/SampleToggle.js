@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -10,15 +11,15 @@ import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 @Radium
 class SampleToggle extends React.Component {
   static propTypes = {
-    onClick: React.PropTypes.func,
-    sampleName: React.PropTypes.string,
-    isExpanded: React.PropTypes.bool,
-    style: React.PropTypes.object,
-    sampleTitle: React.PropTypes.string,
+    onClick: PropTypes.func,
+    sampleName: PropTypes.string,
+    isExpanded: PropTypes.bool,
+    style: PropTypes.object,
+    sampleTitle: PropTypes.string,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   renderStyles() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -7,8 +8,8 @@ import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 @Radium
 class ArrayItemIndex extends React.Component {
   static propTypes = {
-    index: React.PropTypes.number,
-    style: React.PropTypes.object,
+    index: PropTypes.number,
+    style: PropTypes.object,
   };
 
   get style() {

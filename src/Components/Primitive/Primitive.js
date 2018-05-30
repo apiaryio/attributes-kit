@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 
 import Row from '../Row/Row';
@@ -14,13 +15,13 @@ import {
 
 class Primitive extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    style: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
+    element: PropTypes.object,
+    style: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   get style() {

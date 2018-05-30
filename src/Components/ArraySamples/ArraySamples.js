@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -7,9 +8,9 @@ import { ArraySample } from '../ArraySample/ArraySample';
 @Radium
 class ArraySamples extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    style: React.PropTypes.object,
-    collapseByDefault: React.PropTypes.bool,
+    element: PropTypes.object,
+    style: PropTypes.object,
+    collapseByDefault: PropTypes.bool,
   };
 
   get style() {

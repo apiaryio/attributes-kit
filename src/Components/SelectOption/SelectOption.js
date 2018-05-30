@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -9,20 +10,20 @@ import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 @Radium
 class SelectOption extends React.Component {
   static propTypes = {
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.object,
-      React.PropTypes.array,
+    children: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array,
     ]),
-    index: React.PropTypes.number,
-    element: React.PropTypes.object,
-    parentElement: React.PropTypes.object,
-    style: React.PropTypes.object,
-    keyWidth: React.PropTypes.number,
-    reportKeyWidth: React.PropTypes.func,
+    index: PropTypes.number,
+    element: PropTypes.object,
+    parentElement: PropTypes.object,
+    style: PropTypes.object,
+    keyWidth: PropTypes.number,
+    reportKeyWidth: PropTypes.func,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   get style() {
