@@ -25,7 +25,7 @@ export default merge({}, webpackConfig, {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        loader: 'babel-loader',
       },
     ],
   },
