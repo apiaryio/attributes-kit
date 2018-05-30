@@ -1,4 +1,5 @@
 import React from 'react';
+import minim from 'minim';
 
 import AttributesKit from '../../src';
 import EditorComponent from './Editor';
@@ -35,6 +36,11 @@ class Playground extends React.Component {
 
   onChange = (payload) => {
     if (payload.type === actionTypes.MSON_PARSED) {
+      const minimNamespace = minim.namespace();
+      payload = {
+        errors: payload.errors,
+        dataStructures: payload.dataStructures.map(d => minimNamespace.fromRefract(d)),
+      };
       this.setState({ parseResult: payload });
     }
   };
@@ -114,7 +120,7 @@ class Playground extends React.Component {
           {
             dataStructures.length > 0 &&
               <JsonFormatterComponent
-                element={this.state.parseResult.dataStructures[0]}
+                element={dataStructures[0]}
                 dataStructures={dataStructures}
               />
           }
@@ -215,7 +221,7 @@ class Playground extends React.Component {
                 ref="attributes"
                 collapseByDefault={this.state.collapseByDefault}
                 dataStructures={dataStructures}
-                element={this.state.parseResult.dataStructures[0]}
+                element={dataStructures[0]}
                 includedProperties={this.state.includedProperties}
                 inheritedProperties={this.state.inheritedProperties}
                 onElementLinkClick={this.onElementLinkClick}

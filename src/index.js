@@ -6,6 +6,7 @@ import eidolon from 'eidolon';
 import AttributesComponent from './Components/Attributes/Attributes';
 import AttributeComponent from './Components/Attribute/Attribute';
 
+
 class AttributesKit extends EventEmitter {
   static Attributes = AttributesComponent;
   static Attribute = AttributeComponent;

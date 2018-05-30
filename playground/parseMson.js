@@ -1,8 +1,21 @@
 import get from 'lodash/get';
-import drafterjs from 'drafter.js';
+
+const fury = require('fury');
+const apibParser = require('fury-adapter-apib-parser');
+const minim = require('minim');
+const parseResultNamespace = require('minim-parse-result');
+
+const minimNamespace = minim.namespace();
+
+fury.use(parseResultNamespace);
+fury.use(apibParser);
+
 
 export default function parseMson(mson, cb) {
-  drafterjs.parse(mson.trim(), {}, (err, parseResult = {}) =>
-    cb(err, get(parseResult, 'content[0].content[0].content', []).map(el => el.content[0]))
-  );
+  fury.parse({ source: `FORMAT: 1A\n${mson.trim()}` }, (err, parseResult = {}) => {
+    let dataStructures;
+    dataStructures = minimNamespace.toRefract(parseResult.api.dataStructures.first);
+    dataStructures = dataStructures.content;
+    cb(err, dataStructures);
+  });
 }

@@ -1,9 +1,12 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import eidolon from 'eidolon';
+import minim from 'minim';
+import JSON06Serialiser from 'minim/lib/serialisers/json-0.6';
 import { EventEmitter } from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
@@ -19,6 +22,7 @@ import { preprocess } from '../../Modules/Preprocessor/Preprocessor';
 import { preprocessSamples } from '../../Modules/SamplesPreprocessor/SamplesPreprocessor';
 
 import defaultTheme from '../../Resources/theme';
+
 
 class Attributes extends React.Component {
   static propTypes = {
@@ -105,7 +109,17 @@ class Attributes extends React.Component {
     // `dataStructures` prop is optional and is used to
     // resolve inheritance, references and includes/mixins, plus to
     // render the inheritance tree.
-    const dataStructures = props.dataStructures || [];
+    let dataStructures = props.dataStructures || [];
+    let element = props.element;
+
+    if (isFunction(element.getMetaProperty)) {
+      // serialize minim Element inputs (`element` and `dataStructures`)
+      // to the expected refract 0.6 serialization
+      const refractSerializer = new JSON06Serialiser(minim.namespace());
+      element = refractSerializer.serialise(element).content[0];
+      dataStructures = dataStructures.map(d => refractSerializer.serialise(d).content[0]);
+    }
+
 
     // We have to resolve all references, otherwise we wouldn't be able to
     // render the element. Dereferencing turns `{ element: 'MyObject', ... }`
@@ -187,7 +201,7 @@ class Attributes extends React.Component {
     }
 
     const originElement = this.addNestedLevels(
-      cloneDeep(props.element)
+      cloneDeep(element)
     );
 
     // Dereference the element. This overwrites the original
@@ -198,7 +212,7 @@ class Attributes extends React.Component {
       dataStructuresIndex
     );
 
-    const element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
+    element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
 
     preprocessSamples(element);
     preprocess(element);
