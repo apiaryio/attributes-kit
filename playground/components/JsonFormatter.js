@@ -8,7 +8,10 @@ import JSONFormatter from 'json-formatter-js';
 class JsonFormatter extends React.Component {
   static propTypes = {
     element: React.PropTypes.object,
-    dataStructures: React.PropTypes.array,
+    dataStructures: React.PropTypes.oneOfType([
+      React.PropTypes.object, // minim
+      React.PropTypes.array, // legacy refract array
+    ]),
   };
 
   componentDidMount() {

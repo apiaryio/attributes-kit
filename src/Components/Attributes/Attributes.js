@@ -1,9 +1,11 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import eidolon from 'eidolon';
+import JSON06Serialiser from 'minim/lib/serialisers/json-0.6';
 import { EventEmitter } from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
+import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
@@ -20,11 +22,17 @@ import { preprocessSamples } from '../../Modules/SamplesPreprocessor/SamplesPrep
 
 import defaultTheme from '../../Resources/theme';
 
+// isMinimElement :: * -> Boolean
+const isMinimElement = element => isFunction(element.getMetaProperty);
+
 class Attributes extends React.Component {
   static propTypes = {
     namedTypes: React.PropTypes.bool,
     collapseByDefault: React.PropTypes.bool,
-    dataStructures: React.PropTypes.array,
+    dataStructures: React.PropTypes.oneOfType([
+      React.PropTypes.object, // minim
+      React.PropTypes.array, // legacy refract array
+    ]),
     element: React.PropTypes.object,
     includedProperties: React.PropTypes.oneOfType([
       React.PropTypes.bool,
@@ -105,7 +113,19 @@ class Attributes extends React.Component {
     // `dataStructures` prop is optional and is used to
     // resolve inheritance, references and includes/mixins, plus to
     // render the inheritance tree.
-    const dataStructures = props.dataStructures || [];
+    let dataStructures = isUndefined(props.dataStructures) ? [] : props.dataStructures;
+    let element = props.element;
+
+    // serialize minim Element inputs (`element` and `dataStructures`)
+    // to the expected refract 0.6 serialization
+    const refract06Serializer = new JSON06Serialiser();
+    if (isMinimElement(element)) {
+      element = refract06Serializer.serialise(element.content);
+    }
+    if (isMinimElement(dataStructures)) {
+      dataStructures = dataStructures.map(d => refract06Serializer.serialise(d.content));
+    }
+
 
     // We have to resolve all references, otherwise we wouldn't be able to
     // render the element. Dereferencing turns `{ element: 'MyObject', ... }`
@@ -187,7 +207,7 @@ class Attributes extends React.Component {
     }
 
     const originElement = this.addNestedLevels(
-      cloneDeep(props.element)
+      cloneDeep(element)
     );
 
     // Dereference the element. This overwrites the original
@@ -198,7 +218,7 @@ class Attributes extends React.Component {
       dataStructuresIndex
     );
 
-    const element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
+    element = abagnale.forge([dereferencedElement], { separator: '.' })[0];
 
     preprocessSamples(element);
     preprocess(element);

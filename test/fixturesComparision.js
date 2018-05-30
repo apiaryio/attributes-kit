@@ -5,7 +5,8 @@ import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert';
-import dedent from 'dedent';
+import minim from 'minim';
+import minimParseResult from 'minim-parse-result';
 
 import parseMson from '../playground/parseMson';
 import { Attributes } from '../dist/attributes-kit-server';
@@ -17,15 +18,19 @@ describe('Comparision with reference fixtures', () => {
     let htmlString = null;
 
     describe(`If I render ${sample.fileName} on the server`, (done) => {
-      let header = '# Data Structures';
+      const header = '# Data Structures';
 
       parseMson(`${header}\n${sample.fileContent}`, (err, dataStructureElements) => {
         if (err) {
           return done(err);
         }
 
+        // to minim
+        const minimNamespace = minim.namespace().use(minimParseResult);
+        dataStructureElements = minimNamespace.fromRefract(dataStructureElements);
+
         renderedElement = React.createElement(Attributes, {
-          element: dataStructureElements[0],
+          element: dataStructureElements.first,
           dataStructures: dataStructureElements,
           collapseByDefault: false,
           maxInheritanceDepth: undefined,
