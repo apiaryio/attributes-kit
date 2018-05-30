@@ -1,6 +1,7 @@
 import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Column from '../Column/Column';
 import Description from '../Description/Description';
@@ -25,28 +26,28 @@ import {
 @Radium
 class StructuredObjectProperty extends React.Component {
   static propTypes = {
-    collapseByDefault: React.PropTypes.bool,
-    element: React.PropTypes.object,
-    index: React.PropTypes.number,
-    keyWidth: React.PropTypes.number,
-    parentElement: React.PropTypes.object,
-    reportKeyWidth: React.PropTypes.func,
-    style: React.PropTypes.object,
+    collapseByDefault: PropTypes.bool,
+    element: PropTypes.object,
+    index: PropTypes.number,
+    keyWidth: PropTypes.number,
+    parentElement: PropTypes.object,
+    reportKeyWidth: PropTypes.func,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    element: React.PropTypes.object,
-    theme: React.PropTypes.object,
-    showMemberParentLinks: React.PropTypes.bool,
-    namedTypes: React.PropTypes.bool,
-    onElementLinkClick: React.PropTypes.func,
-    includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    element: PropTypes.object,
+    theme: PropTypes.object,
+    showMemberParentLinks: PropTypes.bool,
+    namedTypes: PropTypes.bool,
+    onElementLinkClick: PropTypes.func,
+    includedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    inheritedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    inheritedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
   };
 

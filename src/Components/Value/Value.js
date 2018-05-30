@@ -1,6 +1,7 @@
 import isUndefined from 'lodash/isUndefined';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   isArray,
@@ -16,12 +17,12 @@ import Attribute from '../Attribute/Attribute';
 
 class Value extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    parentElement: React.PropTypes.object,
-    style: React.PropTypes.object,
-    expandableCollapsible: React.PropTypes.bool,
-    isSample: React.PropTypes.bool,
-    collapseByDefault: React.PropTypes.bool,
+    element: PropTypes.object,
+    parentElement: PropTypes.object,
+    style: PropTypes.object,
+    expandableCollapsible: PropTypes.bool,
+    isSample: PropTypes.bool,
+    collapseByDefault: PropTypes.bool,
   };
 
   render() {

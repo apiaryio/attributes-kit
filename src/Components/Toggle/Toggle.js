@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Radium from 'radium';
 
 import merge from 'lodash/merge';
@@ -6,9 +7,9 @@ import merge from 'lodash/merge';
 @Radium
 class Toggle extends React.Component {
   static propTypes = {
-    isExpanded: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    style: React.PropTypes.object,
+    isExpanded: PropTypes.bool,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
   };
 
   get style() {

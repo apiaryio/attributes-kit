@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import radium from 'radium';
 import merge from 'lodash/merge';
 
@@ -11,13 +12,13 @@ import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
 class ParentInfoLink extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    style: React.PropTypes.object,
+    element: PropTypes.object,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
-    onElementLinkClick: React.PropTypes.func,
+    theme: PropTypes.object,
+    onElementLinkClick: PropTypes.func,
   };
 
   get style() {

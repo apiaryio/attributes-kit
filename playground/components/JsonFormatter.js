@@ -1,16 +1,17 @@
 import eidolon from 'eidolon';
 import React from 'react';
 import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
 import JSONFormatter from 'json-formatter-js';
 
 // import 'json-formatter-js/dist/style.css';
 
 class JsonFormatter extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    dataStructures: React.PropTypes.oneOfType([
-      React.PropTypes.object, // minim
-      React.PropTypes.array, // legacy refract array
+    element: PropTypes.object,
+    dataStructures: PropTypes.oneOfType([
+      PropTypes.object, // minim
+      PropTypes.array, // legacy refract array
     ]),
   };
 

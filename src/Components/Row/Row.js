@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import merge from 'lodash/merge';
 
 
 class Row extends React.Component {
   static propTypes = {
-    onClick: React.PropTypes.func,
-    style: React.PropTypes.object,
-    children: React.PropTypes.any,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
+    children: PropTypes.any,
   };
 
   getStyles() {

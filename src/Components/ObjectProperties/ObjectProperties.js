@@ -5,6 +5,7 @@ import last from 'lodash/last';
 import map from 'lodash/map';
 import max from 'lodash/max';
 import React from 'react';
+import PropTypes from 'prop-types';
 import values from 'lodash/values';
 import Radium from 'radium';
 import merge from 'lodash/merge';
@@ -24,23 +25,23 @@ import {
 @Radium
 class ObjectProperties extends React.Component {
   static propTypes = {
-    collapseByDefault: React.PropTypes.bool,
-    element: React.PropTypes.object,
-    keyWidth: React.PropTypes.number,
-    reportKeyWidth: React.PropTypes.func,
-    style: React.PropTypes.object,
+    collapseByDefault: PropTypes.bool,
+    element: PropTypes.object,
+    keyWidth: PropTypes.number,
+    reportKeyWidth: PropTypes.func,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
-    eventEmitter: React.PropTypes.object,
-    includedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    theme: PropTypes.object,
+    eventEmitter: PropTypes.object,
+    includedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
-    inheritedProperties: React.PropTypes.oneOfType([
-      React.PropTypes.bool,
-      React.PropTypes.string,
+    inheritedProperties: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.string,
     ]),
   };
 

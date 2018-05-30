@@ -4,6 +4,7 @@ import marked from 'marked';
 import merge from 'lodash/merge';
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
 
@@ -14,12 +15,12 @@ marked.setOptions({
 @Radium
 class Description extends React.Component {
   static propTypes = {
-    element: React.PropTypes.object,
-    style: React.PropTypes.object,
+    element: PropTypes.object,
+    style: PropTypes.object,
   };
 
   static contextTypes = {
-    theme: React.PropTypes.object,
+    theme: PropTypes.object,
   };
 
   static getDescription(element) {
