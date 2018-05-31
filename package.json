@@ -122,18 +122,6 @@
     "webpack-dev-server": "^2.4.2",
     "webpack-node-externals": "^1.5.4"
   },
-  "babel": {
-    "presets": [
-      "stage-0",
-      "es2015",
-      "react"
-    ],
-    "plugins": [
-      "transform-decorators-legacy",
-      "transform-class-properties",
-      "add-module-exports"
-    ]
-  },
   "eslintConfig": {
     "extends": "airbnb",
     "parser": "babel-eslint",
