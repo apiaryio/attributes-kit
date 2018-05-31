@@ -9,6 +9,8 @@ import webpackClientFullConfig from '../webpack/clientFull';
 import webpackClientFullMinConfig from '../webpack/clientFullMin';
 import webpackClientNoReactConfig from '../webpack/clientNoReact';
 import webpackClientNoReactMinConfig from '../webpack/clientNoReactMin';
+import webpackClientNoReactNoMinimConfig from '../webpack/clientNoReactNoMinim';
+import webpackClientNoReactNoMinimMinConfig from '../webpack/clientNoReactNoMinimMin';
 import webpackClientNoDepsConfig from '../webpack/clientNoDeps';
 import webpackClientNoDepsMinConfig from '../webpack/clientNoDepsMin';
 
@@ -79,6 +81,12 @@ async.series([
   },
   function(next) {
     createClientBuild(webpackClientNoReactMinConfig, next);
+  },
+  function(next) {
+    createClientBuild(webpackClientNoReactNoMinimConfig, next);
+  },
+  function(next) {
+    createClientBuild(webpackClientNoReactNoMinimMinConfig, next);
   },
   function(next) {
     createClientBuild(webpackClientNoDepsConfig, next);
