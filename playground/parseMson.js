@@ -1,5 +1,3 @@
-import get from 'lodash/get';
-
 const fury = require('fury');
 const apibParser = require('fury-adapter-apib-parser');
 const minim = require('minim');

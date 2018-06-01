@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import { EventEmitter } from 'events';
 import eidolon from 'eidolon';
 
