@@ -13,6 +13,25 @@ import { Attributes } from '../dist/attributes-kit-server';
 
 describe('Comparision with reference fixtures', () => {
 
+  /**
+   *  Formats the style CSS attribute properties and sorts them for stable comparison
+   *
+   *  converts this:
+   *    `<div style="width:100%;height:auto;display:flex;flex-direction:row;">`
+   *
+   *  into:
+   *    `<div style="
+   *     display:flex
+   *     flex-direction: row
+   *     height:auto
+   *     width:100%
+   *     ">`
+   */
+  const formatStyle = html => html.replace(
+    /style\=\"([^\"]+)\"/g,
+    (m, s) => `style="\n${s.split(';').sort().filter(s => s.length).join('\n')}\n"`);
+
+
   msonZoo.samples.forEach((sample) => {
     let renderedElement = null;
     let htmlString = null;
@@ -48,7 +67,7 @@ describe('Comparision with reference fixtures', () => {
         );
 
         it('They should be equal', () => {
-          assert.equal(htmlString, reference);
+          assert.equal(formatStyle(htmlString), formatStyle(reference));
         });
       });
     });
