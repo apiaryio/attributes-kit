@@ -1,8 +1,11 @@
-import get from 'lodash/get';
-import drafterjs from 'drafter.js';
+const fury = require('fury');
+const apibParser = require('fury-adapter-apib-parser');
+
+fury.use(apibParser);
+
 
 export default function parseMson(mson, cb) {
-  drafterjs.parse(mson.trim(), {}, (err, parseResult = {}) =>
-    cb(err, get(parseResult, 'content[0].content[0].content', []).map(el => el.content[0]))
-  );
+  fury.parse({ source: mson, mediaType: 'text/vnd.apiblueprint' }, (err, parseResult = {}) => {
+    cb(err, fury.minim.toRefract(parseResult.api.dataStructures.first));
+  });
 }
