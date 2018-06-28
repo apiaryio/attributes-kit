@@ -99,7 +99,7 @@ class ObjectProperty extends React.Component {
           keyWidth={this.props.keyWidth}
         />
 
-        <Column>
+        <Column style={{ width: 'auto' }}>
           {
             hasType(this.props.element) &&
               <Row>
