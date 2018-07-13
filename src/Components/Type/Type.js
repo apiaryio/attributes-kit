@@ -13,7 +13,7 @@ import { MONO_FONT_FAMILY } from '../../Constants/fonts';
 class Type extends React.Component {
   static propTypes = {
     type: React.PropTypes.string,
-    reference: React.PropTypes.bool,
+    reference: React.PropTypes.string,
     element: React.PropTypes.object,
     onClick: React.PropTypes.func,
     style: React.PropTypes.object,
