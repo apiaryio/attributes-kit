@@ -1,6 +1,6 @@
 {
-  "name": "attributes-kit",
-  "version": "0.0.0-development",
+  "name": "@apiaryio/attributes-kit",
+  "version": "0.19.2-react16-4-1",
   "description": "React component for MSON rendering",
   "engines": {
     "node": "6.11.1",
