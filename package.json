@@ -109,7 +109,7 @@
     "node-noop": "1.0.0",
     "radium": "0.24.1",
     "react": "15.4.2",
-    "react-ace": "^4.1.6",
+    "react-ace": "6.1.4",
     "react-addons-test-utils": "^15.0.2",
     "react-dom": "15.4.2",
     "react-hot-loader": "3.0.0-beta.2",
