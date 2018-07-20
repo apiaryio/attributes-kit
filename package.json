@@ -1,6 +1,6 @@
 {
   "name": "@apiaryio/attributes-kit",
-  "version": "0.19.1-react16",
+  "version": "0.19.2-react16",
   "description": "React component for MSON rendering",
   "publishConfig": {
     "registry": "https://registry.apiary-internal.com/"
