@@ -114,5 +114,28 @@ describe('Attributes', () => {
         assert.lengthOf(addressMember.content.value.content, 3);
       });
     });
+
+    describe('It handles minim.ArraySlice `dataStructures` property', () => {
+      let addressMember;
+
+      before(() => {
+        const state = Attributes.prototype.transformPropsIntoState.apply(
+          Attributes.prototype,
+          [
+            {
+              element: dataStructures.first,
+              dataStructures: dataStructures.filter(ds => !!ds),
+            },
+          ]
+        );
+        const refract = state.element;
+        addressMember = refract.content.find(e => e.content.key.content === 'address');
+      });
+
+      it('It recognizes it is minim the referenced dataStructure gets dereferenced', () => {
+        assert.equal(addressMember.content.value.element, 'object');
+        assert.lengthOf(addressMember.content.value.content, 3);
+      });
+    });
   });
 });
