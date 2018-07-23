@@ -5,10 +5,10 @@ import JSON06Serialiser from 'minim/lib/serialisers/json-0.6';
 import { EventEmitter } from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
-import isFunction from 'lodash/isFunction';
 import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
+import minim from 'minim';
 import React from 'react';
 import PropTypes from 'prop-types';
 import reduce from 'lodash/reduce';
@@ -24,7 +24,10 @@ import { preprocessSamples } from '../../Modules/SamplesPreprocessor/SamplesPrep
 import defaultTheme from '../../Resources/theme';
 
 // isMinimElement :: * -> Boolean
-const isMinimElement = element => isFunction(element.getMetaProperty);
+const isMinimElement = element => (
+  element instanceof minim.Element ||
+  element instanceof minim.ArraySlice
+);
 
 class Attributes extends React.Component {
   static propTypes = {
