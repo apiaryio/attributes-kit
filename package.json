@@ -73,6 +73,7 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-class-properties": "^6.5.2",
     "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-react-remove-prop-types": "0.4.13",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.22.0",
@@ -134,7 +135,14 @@
       "transform-decorators-legacy",
       "transform-class-properties",
       "add-module-exports"
-    ]
+    ],
+    "env": {
+      "production": {
+        "plugins": [
+          "transform-react-remove-prop-types"
+        ]
+      }
+    }
   },
   "eslintConfig": {
     "extends": "airbnb",
