@@ -25,7 +25,7 @@ jobs:
       - *step_save_cache
       - run: npm test
 
-  publish:
+  release:
     <<: *defaults
     steps:
       - checkout
