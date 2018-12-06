@@ -1,5 +1,6 @@
 import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
 import { TYPES } from '../../Resources/types';
+import isUndefined from 'lodash/isUndefined';
 
 function isObject(element) {
   if (!element) {
@@ -79,6 +80,8 @@ function isMember(element) {
 
 function getTypeOfValue(element) {
   if (isMember(element.element)) {
+    if (isUndefined(element.content.value)) { return 'nullable'; };
+
     return element.content.value.element;
   }
 

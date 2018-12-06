@@ -20,6 +20,10 @@ function hasValue(element) {
       return false;
     }
 
+    if (isUndefined(element.content.value)) {
+      return false;
+    }
+
     if (isUndefined(element.content.value.content)) {
       return false;
     }
