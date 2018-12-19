@@ -7,6 +7,7 @@ import path from 'path';
 import assert from 'assert';
 import minim from 'minim';
 import minimParseResult from 'minim-parse-result';
+import pipe from 'lodash/fp/pipe';
 
 import parseMson from '../playground/parseMson';
 import { Attributes } from '../dist/attributes-kit-server';
@@ -30,11 +31,16 @@ describe('Comparision with reference fixtures', () => {
     /style\=\"([^\"]+)\"/g,
     (m, s) => `style="\n${s.split(';').sort().filter(s => s.length).join('\n')}\n"`);
 
-  const jsBeutifyOptions = {
+  const jsBeautifyOptions = {
     indent_size: 0,
     eol: '',
     preserve_newlines: false,
   };
+  const fpJsBeautify = options => data => jsBeautify.html(data, options);
+  const formatCanonical = pipe(
+    fpJsBeautify(jsBeautifyOptions),
+    formatStyle
+  );
 
   msonZoo.samples.forEach((sample) => {
     let renderedElement = null;
@@ -71,10 +77,7 @@ describe('Comparision with reference fixtures', () => {
         );
 
         it('They should be equal', () => {
-          const normalizedHtmlString = jsBeautify.html(htmlString, jsBeutifyOptions);
-          const normalizedReference = jsBeautify.html(reference, jsBeutifyOptions);
-
-          assert.equal(formatStyle(normalizedHtmlString), formatStyle(normalizedReference));
+          assert.equal(formatCanonical(htmlString), formatCanonical(reference));
         });
       });
     });
