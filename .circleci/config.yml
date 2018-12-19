@@ -1,37 +1,33 @@
 version: 2
 
-aliases:
-  - &defaults
-    docker:
-      - image: circleci/node:6
-  - &step_restore_cache
-    restore_cache:
-      keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
-  - &step_save_cache
-    save_cache:
-      paths:
-        - node_modules
-      key: v1-dependencies-{{ checksum "package.json" }}
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10
+  steps:
+    - checkout
+    - run: npm install --no-optional
+    - run: npm test
 
 jobs:
-  test:
+  test-node6:
+    docker:
+      - image: circleci/node:6
     <<: *defaults
-    steps:
-      - checkout
-      - *step_restore_cache
-      - run: npm install
-      - *step_save_cache
-      - run: npm test
+
+  test-node8:
+    docker:
+      - image: circleci/node:8
+    <<: *defaults
+
+  test-node10:
+    <<: *defaults
 
   release:
     <<: *defaults
     steps:
       - checkout
-      - *step_restore_cache
       - run: npm install
-      - *step_save_cache
       - run: npm run semantic-release || true
 
 workflows:
@@ -39,10 +35,14 @@ workflows:
 
   test_and_release:
     jobs:
-      - test
+      - test-node6
+      - test-node8
+      - test-node10
       - release:
           requires:
-            - test
+            - test-node6
+            - test-node8
+            - test-node10
           filters:
             branches:
               only: master
