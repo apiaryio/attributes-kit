@@ -80,7 +80,7 @@ function isMember(element) {
 
 function getTypeOfValue(element) {
   if (isMember(element.element)) {
-    if (isUndefined(element.content.value)) { return 'nullable'; };
+    if (isUndefined(element.content.value)) { return undefined; };
 
     return element.content.value.element;
   }
