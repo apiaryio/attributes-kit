@@ -10,7 +10,7 @@ function hasDefault(element) {
     throw new MissingCacheObjectException(element);
   }
 
-  if (isMember(element)) {
+  if (isMember(element) && element.content.value) {
     return element.content.value.cache.hasDefault;
   }
 
