@@ -1,5 +1,7 @@
 import { MissingCacheObjectException } from '../../Exceptions/MissingCacheObject';
 import { isMember } from './type';
+import isUndefined from 'lodash/isUndefined';
+
 
 function hasDefault(element) {
   if (!element) {
@@ -10,7 +12,7 @@ function hasDefault(element) {
     throw new MissingCacheObjectException(element);
   }
 
-  if (isMember(element) && element.content.value) {
+  if (isMember(element) && !isUndefined(element.content.value)) {
     return element.content.value.cache.hasDefault;
   }
 
