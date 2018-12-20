@@ -7,12 +7,12 @@ import path from 'path';
 import assert from 'assert';
 import minim from 'minim';
 import minimParseResult from 'minim-parse-result';
+import pipe from 'lodash/fp/pipe';
 
 import parseMson from '../playground/parseMson';
 import { Attributes } from '../dist/attributes-kit-server';
 
 describe('Comparision with reference fixtures', () => {
-
   /**
    *  Formats the style CSS attribute properties and sorts them for stable comparison
    *
@@ -31,6 +31,16 @@ describe('Comparision with reference fixtures', () => {
     /style\=\"([^\"]+)\"/g,
     (m, s) => `style="\n${s.split(';').sort().filter(s => s.length).join('\n')}\n"`);
 
+  const jsBeautifyOptions = {
+    indent_size: 0,
+    eol: '',
+    preserve_newlines: false,
+  };
+  const fpJsBeautify = options => data => jsBeautify.html(data, options);
+  const formatCanonical = pipe(
+    fpJsBeautify(jsBeautifyOptions),
+    formatStyle
+  );
 
   msonZoo.samples.forEach((sample) => {
     let renderedElement = null;
@@ -57,7 +67,7 @@ describe('Comparision with reference fixtures', () => {
           inheritedProperties: 'show',
         });
 
-        htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
+        htmlString = ReactDomServer.renderToStaticMarkup(renderedElement);
       });
 
       describe('And I compare that with the reference fixture', () => {
@@ -67,7 +77,7 @@ describe('Comparision with reference fixtures', () => {
         );
 
         it('They should be equal', () => {
-          assert.equal(formatStyle(htmlString), formatStyle(reference));
+          assert.equal(formatCanonical(htmlString), formatCanonical(reference));
         });
       });
     });
