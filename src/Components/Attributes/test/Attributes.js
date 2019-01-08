@@ -61,10 +61,10 @@ describe('Attributes', () => {
     }, { id: 'User' });
 
     const dataStructures = new Category(
-      new minim.ArrayElement([
+      [
         new DataStructure(userObject),
         new DataStructure(addressObject),
-      ]),
+      ],
       { classes: ['dataStructures'] }
     );
 
