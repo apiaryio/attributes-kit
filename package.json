@@ -122,7 +122,7 @@
     "superagent": "^3.5.2",
     "svgo": "^0.7.2",
     "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2",
+    "webpack-dev-server": "=3.1.14",
     "webpack-node-externals": "^1.5.4"
   },
   "babel": {
