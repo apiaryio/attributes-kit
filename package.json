@@ -115,7 +115,7 @@
     "react-dom": "15.4.2",
     "react-hot-loader": "3.0.0-beta.2",
     "react-router": "^4.0.0",
-    "semantic-release": "^6.3.2",
+    "semantic-release": "^8.2.0",
     "shell-executor": "^4.0.0",
     "sift": "^3.2.7",
     "style-loader": "^0.16.1",
