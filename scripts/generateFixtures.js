@@ -5,7 +5,8 @@ import msonZoo from 'mson-zoo';
 import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
-import dedent from 'dedent';
+import minim from 'minim';
+import minimParseResult from 'minim-parse-result';
 
 import parseMson from '../playground/parseMson';
 import AttributesKit from '../dist/attributes-kit-server';
@@ -17,7 +18,7 @@ if (!fs.existsSync(fixtureLocation)) {
 }
 
 async.forEachOfLimit(msonZoo.samples, 10, (sample, sampleIndex, next) => {
-  let header = '# Data Structures';
+  const header = '# Data Structures';
 
   parseMson(`${header}\n\n${sample.fileContent}`, (err, dataStructureElements) => {
     if (err) {
@@ -32,14 +33,17 @@ async.forEachOfLimit(msonZoo.samples, 10, (sample, sampleIndex, next) => {
       return next(new Error('No data structure elements were returned.'));
     }
 
+    const minimNamespace = minim.namespace().use(minimParseResult);
+    dataStructureElements = minimNamespace.fromRefract(dataStructureElements);
+
     const renderedElement = React.createElement(AttributesKit.Attributes, {
-      element: dataStructureElements[0],
+      element: dataStructureElements.first,
       collapseByDefault: false,
       includedProperties: 'show',
       inheritedProperties: 'show',
     });
 
-    let htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
+    const htmlString = jsBeautify.html(ReactDomServer.renderToStaticMarkup(renderedElement));
 
     fs.writeFileSync(path.join(fixtureLocation, sample.fileName), htmlString);
 
@@ -50,5 +54,5 @@ async.forEachOfLimit(msonZoo.samples, 10, (sample, sampleIndex, next) => {
     process.exit(1);
   }
 
-  console.log('All good!')
+  console.log('All good!');
 });

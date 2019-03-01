@@ -1,14 +1,13 @@
 import abagnale from 'abagnale/lib/abagnale';
 import cloneDeep from 'lodash/cloneDeep';
 import eidolon from 'eidolon';
-import JSON06Serialiser from 'minim/lib/serialisers/json-0.6';
 import { EventEmitter } from 'fbemitter';
 import isUndefined from 'lodash/isUndefined';
 import isArray from 'lodash/isArray';
 import isObject from 'lodash/isObject';
 import map from 'lodash/map';
 import merge from 'lodash/merge';
-import minim from 'minim';
+import minim, { JSON06Serialiser } from 'minim';
 import React from 'react';
 import PropTypes from 'prop-types';
 import reduce from 'lodash/reduce';

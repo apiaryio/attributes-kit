@@ -41,14 +41,11 @@ describe('Attributes', () => {
     const minimNamespace = minim.namespace().use(minimParseResult);
     const Category = minimNamespace.getElementClass('category');
     const DataStructure = minimNamespace.getElementClass('dataStructure');
-    const Element = minimNamespace.getElementClass('element');
-    const ReferenceElement = Element.extend({
-      /* eslint-disable object-shorthand */
-      constructor: function (ref) {
-        Element.apply(this, arguments); // eslint-disable-line prefer-rest-params
-        this.element = ref.toValue();
-      },
-    });
+    const createReferenceElement = function createReferenceElement(ref) {
+      const element = new minim.Element();
+      element.element = ref.toValue();
+      return element;
+    };
 
     const addressObject = new minim.ObjectElement({
       street: 'Main St.',
@@ -57,14 +54,14 @@ describe('Attributes', () => {
     }, { id: 'Address' });
     const userObject = new minim.ObjectElement({
       name: 'Doe',
-      address: new ReferenceElement(addressObject.id),
+      address: createReferenceElement(addressObject.id),
     }, { id: 'User' });
 
     const dataStructures = new Category(
-      new minim.ArrayElement([
+      [
         new DataStructure(userObject),
         new DataStructure(addressObject),
-      ]),
+      ],
       { classes: ['dataStructures'] }
     );
 
