@@ -26,7 +26,8 @@ jobs:
       - run: npm test
 
   release:
-    <<: *defaults
+    docker:
+      - image: circleci/node:8
     steps:
       - checkout
       - *step_restore_cache
