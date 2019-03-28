@@ -32,12 +32,6 @@ export default merge({}, clientWebpackConfig, {
       commonjs: 'minim',
       amd: 'minim'
     },
-    'minim/lib/serialisers/json-0.6': {
-      root: 'minim/lib/serialisers/json-0.6',
-      commonjs2: 'minim/lib/serialisers/json-0.6',
-      commonjs: 'minim/lib/serialisers/json-0.6',
-      amd: 'minim/lib/serialisers/json-0.6'
-    },
   },
 
   devtool: 'source-map',
