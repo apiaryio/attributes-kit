@@ -111,6 +111,27 @@ describe('Preprocessor', () => {
       const processed = preprocess(refract);
       assert.equal(processed.cache.hasDescription, false);
     });
+
+    it('is true if member description is missing and its value description is present', () => {
+      const refract = {
+        element: 'member',
+        content: {
+          key: {
+            element: 'string',
+            content: 'foo',
+          },
+          value: {
+            element: 'string',
+            content: 'bar',
+            meta: {
+              description: 'hello - value description',
+            },
+          },
+        },
+      };
+      const processed = preprocess(refract);
+      assert.equal(processed.cache.hasDescription, true);
+    });
   });
 
   ['array', 'enum', 'select', 'object'].forEach((element) => {

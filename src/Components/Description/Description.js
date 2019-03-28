@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { DEFAULT_FONT_FAMILY } from '../../Constants/fonts';
+import { isMember } from '../../Modules/ElementUtils/type';
 
 marked.setOptions({
   sanitize: true,
@@ -54,7 +55,14 @@ class Description extends React.Component {
   };
 
   render() {
-    const description = Description.getDescription(this.props.element);
+    let description = Description.getDescription(this.props.element);
+
+    if (!description && isMember(this.props.element)) {
+      const content = this.props.element.content;
+      if (content && content.value) {
+        description = Description.getDescription(content.value);
+      }
+    }
 
     if (!description) {
       return false;
