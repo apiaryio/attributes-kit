@@ -1,5 +1,8 @@
 import isEmpty from 'lodash/isEmpty';
 import { setCache } from './utilities';
+import {
+  isMember,
+} from '../../Modules/ElementUtils/ElementUtils';
 
 export function defaultValue(refract) {
   let hasDefault = false;
@@ -26,6 +29,11 @@ export function description(refract) {
 
   if (refract && refract.meta && refract.meta.description) {
     hasDescription = true;
+  } else if (isMember(refract) && refract.content) {
+    const value = refract.content.value;
+    if (value && value.meta && value.meta.description) {
+      hasDescription = true;
+    }
   }
 
   setCache(refract, 'hasDescription', hasDescription);
