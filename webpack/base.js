@@ -21,6 +21,10 @@ export default {
       '.jsx',
       '.svg',
     ],
+
+    alias: {
+      minim: path.resolve(__dirname, '../node_modules/minim/dist/minim.js'),
+    },
   },
 
   resolveLoader: {
