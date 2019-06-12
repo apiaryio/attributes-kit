@@ -5,8 +5,7 @@ import msonZoo from 'mson-zoo';
 import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
-import minim from 'minim';
-import minimParseResult from 'minim-parse-result';
+import { Namespace } from 'api-elements';
 
 import parseMson from '../playground/parseMson';
 import AttributesKit from '../dist/attributes-kit-server';
@@ -33,7 +32,7 @@ async.forEachOfLimit(msonZoo.samples, 10, (sample, sampleIndex, next) => {
       return next(new Error('No data structure elements were returned.'));
     }
 
-    const minimNamespace = minim.namespace().use(minimParseResult);
+    const minimNamespace = new Namespace();
     dataStructureElements = minimNamespace.fromRefract(dataStructureElements);
 
     const renderedElement = React.createElement(AttributesKit.Attributes, {

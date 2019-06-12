@@ -1,6 +1,5 @@
 import React from 'react';
-import minim from 'minim';
-import minimParseResult from 'minim-parse-result';
+import { Namespace } from 'api-elements';
 
 import AttributesKit from '../../src';
 import EditorComponent from './Editor';
@@ -37,7 +36,7 @@ class Playground extends React.Component {
 
   onChange = (payload) => {
     if (payload.type === actionTypes.MSON_PARSED) {
-      const minimNamespace = minim.namespace().use(minimParseResult);
+      const minimNamespace = new Namespace();
       payload = {
         errors: payload.errors,
         dataStructures: minimNamespace.fromRefract(payload.dataStructures),
