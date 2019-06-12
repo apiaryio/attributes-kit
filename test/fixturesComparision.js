@@ -5,8 +5,7 @@ import jsBeautify from 'js-beautify';
 import fs from 'fs';
 import path from 'path';
 import assert from 'assert';
-import minim from 'minim';
-import minimParseResult from 'minim-parse-result';
+import { Namespace } from 'api-elements';
 import pipe from 'lodash/fp/pipe';
 
 import parseMson from '../playground/parseMson';
@@ -55,7 +54,7 @@ describe('Comparision with reference fixtures', () => {
         }
 
         // to minim
-        const minimNamespace = minim.namespace().use(minimParseResult);
+        const minimNamespace = new Namespace();
         dataStructureElements = minimNamespace.fromRefract(dataStructureElements);
 
         renderedElement = React.createElement(Attributes, {

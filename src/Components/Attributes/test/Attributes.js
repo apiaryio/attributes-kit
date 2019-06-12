@@ -1,6 +1,5 @@
 import { assert } from 'chai';
-import minim from 'minim';
-import minimParseResult from 'minim-parse-result';
+import { Namespace } from 'api-elements';
 import cloneDeep from 'lodash/cloneDeep';
 
 import Attributes from '../Attributes';
@@ -38,21 +37,22 @@ describe('Attributes', () => {
   });
 
   describe('#minimSupport', () => {
-    const minimNamespace = minim.namespace().use(minimParseResult);
+    const minimNamespace = new Namespace();
+    const ObjectElement = minimNamespace.getElementClass('object');
     const Category = minimNamespace.getElementClass('category');
     const DataStructure = minimNamespace.getElementClass('dataStructure');
     const createReferenceElement = function createReferenceElement(ref) {
-      const element = new minim.Element();
+      const element = new minimNamespace.Element();
       element.element = ref.toValue();
       return element;
     };
 
-    const addressObject = new minim.ObjectElement({
+    const addressObject = new ObjectElement({
       street: 'Main St.',
       city: 'Prague',
       zip: 11150,
     }, { id: 'Address' });
-    const userObject = new minim.ObjectElement({
+    const userObject = new ObjectElement({
       name: 'Doe',
       address: createReferenceElement(addressObject.id),
     }, { id: 'User' });
@@ -65,7 +65,7 @@ describe('Attributes', () => {
       { classes: ['dataStructures'] }
     );
 
-    describe('It handles minim.Element instance `element` property', () => {
+    describe('It handles minim Element instance `element` property', () => {
       let addressMember;
 
       before(() => {
@@ -112,7 +112,7 @@ describe('Attributes', () => {
       });
     });
 
-    describe('It handles minim.ArraySlice `dataStructures` property', () => {
+    describe('It handles minim ArraySlice `dataStructures` property', () => {
       let addressMember;
 
       before(() => {
