@@ -21,11 +21,13 @@ export default merge({}, webpackConfig, {
     new webpack.IgnorePlugin(/\.(svg|css|styl)$/),
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        use: [{
+          loader: 'babel-loader',
+        }],
       },
     ],
   },

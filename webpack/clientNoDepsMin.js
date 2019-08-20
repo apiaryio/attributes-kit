@@ -1,7 +1,6 @@
 import merge from 'lodash/merge';
 import DefinePlugin from 'webpack/lib/DefinePlugin';
-import UglifyJsPlugin from 'webpack/lib/optimize/UglifyJsPlugin';
-import DeduplePlugin from 'webpack/lib/optimize/DedupePlugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
 import clientNoDepsWebpackConfig from './clientNoDeps';
 
@@ -13,10 +12,9 @@ export default merge({}, clientNoDepsWebpackConfig, {
   plugins: [
     new DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
-    new DeduplePlugin(),
     new UglifyJsPlugin(),
   ],
 

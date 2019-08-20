@@ -36,11 +36,11 @@ export default {
 
   // Instruct webpack how to handle each file type that it might encounter
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loaders: (() => {
+        use: (() => {
           const loaders = ['babel-loader'];
           if (!isProduction) {
             loaders.unshift('react-hot-loader/webpack');
