@@ -104,7 +104,7 @@
     "json-formatter-js": "^2.0.0",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
-    "minim": "=0.23.5",
+    "minim": "=0.23.6",
     "mocha": "^3.2.0",
     "mson-zoo": "3.0.0-beta.1",
     "node-noop": "1.0.0",
