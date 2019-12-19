@@ -17,10 +17,6 @@ For instance—it turns the following...
 
 Please see the **[list of supported features →](./STATUS.md)**
 
-### Preview
-
-This application has been deployed to Heroku, **try it out at [attributes-kit.herokuapp.com](https://attributes-kit.herokuapp.com)**.
-
 ---
 
 ## Table of Contents
