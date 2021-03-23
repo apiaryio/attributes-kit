@@ -1,3 +1,7 @@
+# DEPRECATED
+
+This project has been deprecated. Consider using [ApiaryUI](https://help.apiary.io/tools/interactive-documentation-v4/) instead.
+
 # Attributes Kit [![Circle CI](https://img.shields.io/circleci/project/apiaryio/attributes-kit/master.svg)](https://circleci.com/gh/apiaryio/attributes-kit)
 
 Attributes Kit is a (as the name suggest) kit which helps you with rendering [MSON](https://github.com/apiaryio/mson) (plain-text, human and machine readable, description format for describing data structures).
